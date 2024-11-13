@@ -1,0 +1,9 @@
+[2024-11-13 18:35:20] [info] Hello, world!
+[2024-11-13 18:35:20] [error] Failed to parse JSON: ýýýý
+[2024-11-13 18:35:51] [info] Hello, world!
+[2024-11-13 18:35:51] [error] Failed to parse JSON Root
+[2024-11-13 18:35:59] [info] Hello, world!
+[2024-11-13 18:35:59] [error] Failed to parse JSON Root
+[2024-11-13 18:36:43] [info] Hello, world!
+[2024-11-13 18:39:49] [info] [main] Hello, world!
+[2024-11-13 18:39:49] [info] [map] Map Name: map
