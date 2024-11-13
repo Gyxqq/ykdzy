@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 enum block_type
 {
     BLOCK_DIRT,              // 泥土
@@ -84,6 +85,9 @@ public:
     int x;
     int y;
     void *data;
+    int data_size;
+    int save(std::vector<std::vector<char>> *data);
+    ~block();
 };
 
 class chunk
@@ -93,6 +97,8 @@ public:
     chunk_type type;
     block *blocks;
     int block_count;
+    int save(std::string name);
+    ~chunk();
 };
 
 class player
