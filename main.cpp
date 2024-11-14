@@ -13,8 +13,13 @@
 int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
     glog::log("info", "Hello, world!", "main");
-    map m;
+    class map m;
     m.load("D:\\projects\\ykdzy\\map.json");
     m.save();
+    for(int i=0;i<64;i++){
+        m.load("D:\\projects\\ykdzy\\map.json");
+        m.save();
+    }
+    
     return 0;
 }

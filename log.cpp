@@ -1,7 +1,7 @@
 #pragma once
 #include "log.hpp"
 std::mutex log_mutex;
-#define LOG_FILE "D:\\projects\\ykdzy\\log.txt"
+#define LOG_FILE "D:\\projects\\ykdzy\\log.log"
 int glog::log(std::string level, std::string data, std::string module)
 {
     std::lock_guard<std::mutex> lock(log_mutex);

@@ -2,7 +2,7 @@
 #include <vector>
 #define BLOCKS_PER_CHUNK_X 32
 #define BLOCKS_PER_CHUNK_Y 64
-#define CHUNKS_PER_MAP_X 4
+#define CHUNKS_PER_MAP_X 8
 
 enum block_type
 {
@@ -96,7 +96,7 @@ public:
     int y;
     void *data;
     int data_size;
-    int save(std::vector<class data> *data);
+    // int save(std::vector<class data> *data);
     // int load(class data data);
     ~block();
 };
