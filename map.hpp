@@ -96,8 +96,6 @@ public:
     int y;
     void *data;
     int data_size;
-    // int save(std::vector<class data> *data);
-    // int load(class data data);
     ~block();
 };
 
@@ -135,11 +133,11 @@ public:
 class map
 {
 public:
-    chunk *chunks;
     int chunk_count;
     player *players;
     int player_count;
     map_config config;
+    std::vector<chunk> chunks;
     void update();
     int load(std::string name);
     int save();

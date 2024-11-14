@@ -45,15 +45,15 @@ int map::load(std::string name)
     cJSON_Delete(root);
     delete[] data;
     // load chunks
-    this->chunks = new class chunk[CHUNKS_PER_MAP_X];
-    this->chunk_count = CHUNKS_PER_MAP_X;
-    memset(this->chunks, 0, CHUNKS_PER_MAP_X * sizeof(class chunk));
     for (int i = 0; i < CHUNKS_PER_MAP_X; i++)
     {
+        this->chunks.push_back(chunk());
         this->chunks[i].x = i;
         this->chunks[i].load(*this->config.savepath);
         glog::log("info", "Loaded Chunk: " + std::to_string(i), "map");
     }
+    this->chunk_count = CHUNKS_PER_MAP_X;
+
     return 0;
 }
 
