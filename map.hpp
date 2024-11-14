@@ -133,12 +133,13 @@ public:
 class map
 {
 public:
+    class chunk *chunks;
     int chunk_count;
     player *players;
     int player_count;
     map_config config;
-    std::vector<chunk> chunks;
     void update();
     int load(std::string name);
+    int load_chunk(std::string name, int index);
     int save();
 };

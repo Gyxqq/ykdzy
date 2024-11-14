@@ -45,16 +45,19 @@ int map::load(std::string name)
     cJSON_Delete(root);
     delete[] data;
     // load chunks
+    this->chunks = new chunk[CHUNKS_PER_MAP_X];
+    this->chunk_count = CHUNKS_PER_MAP_X;
     for (int i = 0; i < CHUNKS_PER_MAP_X; i++)
     {
-        this->chunks.push_back(chunk());
         this->chunks[i].x = i;
         this->chunks[i].load(*this->config.savepath);
         glog::log("info", "Loaded Chunk: " + std::to_string(i), "map");
     }
     this->chunk_count = CHUNKS_PER_MAP_X;
-
     return 0;
+}
+void load_chunk(std::string name, int index)
+{
 }
 
 void map::update()
@@ -200,9 +203,12 @@ int chunk::init(std::string name)
 
 block::~block()
 {
-    delete[] this->data;
 }
 chunk::~chunk()
 {
+    for (int i = 0; i < this->block_count; i++)
+    {
+        delete[] this->blocks[i].data;
+    }
     delete[] this->blocks;
 }
