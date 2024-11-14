@@ -1,5 +1,9 @@
 #include <string>
 #include <vector>
+#define BLOCKS_PER_CHUNK_X 32
+#define BLOCKS_PER_CHUNK_Y 64
+#define CHUNKS_PER_MAP_X 4
+
 enum block_type
 {
     BLOCK_DIRT,              // 泥土
@@ -78,6 +82,12 @@ public:
     int count;
     void *data;
 };
+class data
+{
+public:
+    int size;
+    void *data;
+};
 class block
 {
 public:
@@ -86,7 +96,8 @@ public:
     int y;
     void *data;
     int data_size;
-    int save(std::vector<std::vector<char>> *data);
+    int save(std::vector<class data> *data);
+    // int load(class data data);
     ~block();
 };
 
@@ -98,6 +109,8 @@ public:
     block *blocks;
     int block_count;
     int save(std::string name);
+    int load(std::string name);
+    int init(std::string name);
     ~chunk();
 };
 
@@ -112,10 +125,12 @@ public:
     class item *items;
     int item_count;
 };
-struct map_config
+
+class map_config
 {
-    std::string name;
-    int chunk_count;
+public:
+    std::string *savepath;
+    std::string *name;
 };
 class map
 {
@@ -124,6 +139,8 @@ public:
     int chunk_count;
     player *players;
     int player_count;
+    map_config config;
     void update();
     int load(std::string name);
+    int save();
 };

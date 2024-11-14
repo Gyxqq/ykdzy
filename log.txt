@@ -7,3 +7,58 @@
 [2024-11-13 18:36:43] [info] Hello, world!
 [2024-11-13 18:39:49] [info] [main] Hello, world!
 [2024-11-13 18:39:49] [info] [map] Map Name: map
+[2024-11-14 14:57:50] [info] [main] Hello, world!
+[2024-11-14 14:57:50] [info] [map] Map Name: map
+[2024-11-14 14:57:50] [info] [map] Map Savepath: D:\projects\ykdzy\save1\
+[2024-11-14 14:57:50] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk-842150451.chunk
+[2024-11-14 14:57:50] [info] [map] Loaded Chunk: 0
+[2024-11-14 14:57:50] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk-842150451.chunk
+[2024-11-14 14:57:50] [info] [map] Loaded Chunk: 1
+[2024-11-14 14:57:50] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk-842150451.chunk
+[2024-11-14 14:57:50] [info] [map] Loaded Chunk: 2
+[2024-11-14 14:57:50] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk-842150451.chunk
+[2024-11-14 14:57:50] [info] [map] Loaded Chunk: 3
+[2024-11-14 14:59:55] [info] [main] Hello, world!
+[2024-11-14 14:59:55] [info] [map] Map Name: map
+[2024-11-14 14:59:55] [info] [map] Map Savepath: D:\projects\ykdzy\save1\
+[2024-11-14 14:59:55] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-14 14:59:55] [info] [map] Loaded Chunk: 0
+[2024-11-14 14:59:55] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk1.chunk
+[2024-11-14 14:59:55] [info] [map] Loaded Chunk: 1
+[2024-11-14 14:59:55] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk2.chunk
+[2024-11-14 14:59:55] [info] [map] Loaded Chunk: 2
+[2024-11-14 14:59:55] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk3.chunk
+[2024-11-14 14:59:55] [info] [map] Loaded Chunk: 3
+[2024-11-14 15:01:42] [info] [main] Hello, world!
+[2024-11-14 15:01:42] [info] [map] Map Name: map
+[2024-11-14 15:01:42] [info] [map] Map Savepath: D:\projects\ykdzy\save1\
+[2024-11-14 15:01:42] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-14 15:01:42] [info] [map] Loaded Chunk: 0
+[2024-11-14 15:01:42] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk1.chunk
+[2024-11-14 15:01:42] [info] [map] Loaded Chunk: 1
+[2024-11-14 15:01:42] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk2.chunk
+[2024-11-14 15:01:42] [info] [map] Loaded Chunk: 2
+[2024-11-14 15:01:42] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk3.chunk
+[2024-11-14 15:01:42] [info] [map] Loaded Chunk: 3
+[2024-11-14 15:02:40] [info] [main] Hello, world!
+[2024-11-14 15:02:40] [info] [map] Map Name: map
+[2024-11-14 15:02:40] [info] [map] Map Savepath: D:\projects\ykdzy\save1\
+[2024-11-14 15:02:40] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-14 15:02:40] [info] [map] Loaded Chunk: 0
+[2024-11-14 15:02:40] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk1.chunk
+[2024-11-14 15:02:40] [info] [map] Loaded Chunk: 1
+[2024-11-14 15:02:40] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk2.chunk
+[2024-11-14 15:02:40] [info] [map] Loaded Chunk: 2
+[2024-11-14 15:02:40] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk3.chunk
+[2024-11-14 15:02:40] [info] [map] Loaded Chunk: 3
+[2024-11-14 15:03:07] [info] [main] Hello, world!
+[2024-11-14 15:03:07] [info] [map] Map Name: map
+[2024-11-14 15:03:07] [info] [map] Map Savepath: D:\projects\ykdzy\save1\
+[2024-11-14 15:03:07] [info] [map] Loaded Chunk: 0
+[2024-11-14 15:03:07] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk1.chunk
+[2024-11-14 15:03:07] [info] [map] Loaded Chunk: 1
+[2024-11-14 15:03:07] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk2.chunk
+[2024-11-14 15:03:07] [info] [map] Loaded Chunk: 2
+[2024-11-14 15:03:07] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk3.chunk
+[2024-11-14 15:03:07] [info] [map] Loaded Chunk: 3
+[2024-11-14 15:03:07] [info] [map] Saved Chunk: 0

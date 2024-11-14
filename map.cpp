@@ -32,61 +32,123 @@ int map::load(std::string name)
         return -1;
     }
     glog::log("info", "Map Name: " + std::string(map_name->valuestring), "map");
-
+    this->config.name = new std::string(map_name->valuestring);
+    cJSON *map_savepath = cJSON_GetObjectItem(root, "savepath");
+    if (map_savepath == NULL)
+    {
+        glog::log("error", "Failed to get map savepath", "map");
+        return -1;
+    }
+    glog::log("info", "Map Savepath: " + std::string(map_savepath->valuestring), "map");
+    this->config.savepath = new std::string(map_savepath->valuestring);
+    cJSON_Delete(root);
+    delete[] data;
+    // load chunks
+    this->chunks = new class chunk[CHUNKS_PER_MAP_X];
+    memset(this->chunks, 0, CHUNKS_PER_MAP_X * sizeof(class chunk));
+    for (int i = 0; i < CHUNKS_PER_MAP_X; i++)
+    {
+        this->chunks[i].x = i;
+        this->chunks[i].load(*this->config.savepath);
+        glog::log("info", "Loaded Chunk: " + std::to_string(i), "map");
+    }
     return 0;
 }
 
 void map::update()
 {
 }
-int block::save(std::vector<std::vector<char>> *data)
+int map::save()
 {
-    std::vector<char> block_data;
-    for (int i = 0; i < sizeof(this->type); i++)
+
+    // save chunks
+    for (int i = 0; i < CHUNKS_PER_MAP_X; i++)
     {
-        block_data.push_back(((char *)&this->type)[i]);
+        this->chunks[i].save(*this->config.savepath);
+        glog::log("info", "Saved Chunk: " + std::to_string(i), "map");
     }
-    for (int i = 0; i < sizeof(this->x); i++)
-    {
-        block_data.push_back(((char *)&this->x)[i]);
-    }
-    for (int i = 0; i < sizeof(this->y); i++)
-    {
-        block_data.push_back(((char *)&this->y)[i]);
-    }
-    for (int i = 0; i < this->data_size; i++)
-    {
-        block_data.push_back(((char *)this->data)[i]);
-    }
-    data->push_back(block_data);
+    return 0;
+}
+int block::save(std::vector<class data> *data)
+{
+    int data_size = sizeof(*this);
+    data_size += this->data_size;
+    class data d;
+    d.size = data_size;
+    d.data = new char[data_size];
+    memcpy(d.data, this, sizeof(*this));
+    memcpy((void *)((char *)d.data + sizeof(*this)), this->data, this->data_size);
+    data->push_back(d);
     return 0;
 }
 
 int chunk::save(std::string name)
 {
     std::fstream file;
+    name.append("chunk" + std::to_string(this->x));
+    name.append(".chunk");
     file.open(name, std::ios::out);
     if (!file.is_open())
     {
         glog::log("error", "Failed to open file: " + name, "chunk");
         return -1;
     }
-
-    file.write((char *)&this->type, sizeof(this->type));
-    file.write((char *)&this->x, sizeof(this->x));
-    file.write((char *)&this->block_count, sizeof(this->block_count));
-    std::vector<std::vector<char>> data;
+    file.write((char *)this, sizeof(*this));
+    std::vector<class data> data;
     for (int i = 0; i < this->block_count; i++)
     {
         this->blocks[i].save(&data);
     }
     for (int i = 0; i < data.size(); i++)
     {
-        file.write(data[i].data(), data[i].size());
+        file.write((char *)data[i].data, data[i].size);
+        delete[] data[i].data;
     }
     file.close();
     return 0;
 }
+int chunk::load(std::string name)
+{
+    std::fstream file;
+    name.append("chunk" + std::to_string(this->x));
+    name.append(".chunk");
+    file.open(name, std::ios::in);
+    if (!file.is_open())
+    {
+        glog::log("error", "Failed to open file: " + name, "chunk");
+        this->init(name);
+        return -1;
+    }
+    long long size = file.tellg();
+    file.seekg(0, std::ios::end);
+    size = file.tellg() - size;
+    file.seekg(0, std::ios::beg);
+    char *data = new char[size];
+    file.read(data, size);
+    file.close();
+    memcpy(this, data, sizeof(*this));
+    int offset = sizeof(*this);
+    for (int i = 0; i < this->block_count; i++)
+    {
+        this->blocks = new block[this->block_count];
+        memcpy(&this->blocks[i], (void *)((char *)data + offset), sizeof(this->blocks[i]));
+        offset += sizeof(this->blocks[i]);
+        this->blocks[i].data = new char[this->blocks[i].data_size];
+        memcpy(this->blocks[i].data, (void *)((char *)data + offset), this->blocks[i].data_size);
+        offset += this->blocks[i].data_size;
+    }
+    delete[] data;
+    return 0;
+}
+int chunk::init(std::string name)
+{
+    this->x = 0;
+    this->type = chunk_type::CHUNK_DESERT;
+    this->block_count = BLOCKS_PER_CHUNK_X * BLOCKS_PER_CHUNK_Y;
+    this->blocks = new class block[this->block_count];
+    return 0;
+}
+
 block::~block()
 {
     delete[] this->data;

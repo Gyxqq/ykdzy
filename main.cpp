@@ -10,10 +10,11 @@
 #include "map.hpp"
 #include "log.hpp"
 
-int  WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
-{ 
+int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
+{
     glog::log("info", "Hello, world!", "main");
     map m;
     m.load("D:\\projects\\ykdzy\\map.json");
+    m.save();
     return 0;
 }
