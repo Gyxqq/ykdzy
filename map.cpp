@@ -3,6 +3,7 @@
 #include "log.hpp"
 #include <fstream>
 #include <cJSON.h>
+#include <sys/stat.h>
 int map::load(std::string name)
 {
     std::fstream file;
@@ -69,94 +70,94 @@ int map::save()
     }
     return 0;
 }
-int block::save(std::vector<class data> *data)
-{
-    int data_size = sizeof(*this);
-    data_size += this->data_size;
-    class data d;
-    d.size = data_size;
-    if (data_size > 0)
-    {
-        d.data = new char[data_size];
-    }
-    else if (this->data_size < 0)
-    {
-        glog::log("error", "Invalid data size: " + std::to_string(data_size), "block");
-    }
-    memcpy(d.data, this, sizeof(*this));
-    if (this->data_size == 0)
-    {
-        data->push_back(d);
-        return 0;
-    }
-    memcpy((void *)((char *)d.data + sizeof(*this)), this->data, this->data_size);
-    data->push_back(d);
-    return 0;
-}
 
 int chunk::save(std::string name)
 {
-    std::fstream file;
+    FILE *file;
     name.append("chunk" + std::to_string(this->x));
     name.append(".chunk");
-    file.open(name, std::ios::out);
-    if (!file.is_open())
+    fopen_s(&file, name.c_str(), "wb");
+    if (!file)
     {
         glog::log("error", "Failed to open file: " + name, "chunk");
         return -1;
     }
-
-    file.write((char *)this, sizeof(*this));
-    std::vector<class data> data;
+    if (this->block_count != BLOCKS_PER_CHUNK_X * BLOCKS_PER_CHUNK_Y)
+    {
+        glog::log("error", "Invalid block count: " + std::to_string(this->block_count), "chunk");
+        return -1;
+    }
+    fwrite(this, sizeof(*this), 1, file);
     for (int i = 0; i < this->block_count; i++)
     {
-        this->blocks[i].save(&data);
+        fwrite(&this->blocks[i], sizeof(class block), 1, file);
+        if (this->blocks[i].data_size > 0)
+        {
+            // glog::log("info", "data size: " + std::to_string(this->blocks[i].data_size), "chunk");
+            fwrite(this->blocks[i].data, sizeof(char), this->blocks[i].data_size, file);
+        }
     }
-    for (int i = 0; i < data.size(); i++)
-    {
-        file.write((char *)data[i].data, data[i].size);
-        delete[] data[i].data;
-    }
-    file.flush();
-    file.close();
+    fflush(file);
+    fclose(file);
     glog::log("info", "Saved Chunk: " + std::to_string(this->x) + " to " + name, "chunk");
     return 0;
 }
 int chunk::load(std::string name)
 {
-    std::fstream file;
+    FILE *file;
     name.append("chunk" + std::to_string(this->x));
     name.append(".chunk");
-    file.open(name, std::ios::in);
-    if (!file.is_open())
+    file = fopen(name.c_str(), "rb");
+    if (!file)
     {
         glog::log("error", "Failed to open file: " + name, "chunk");
         this->init(name);
         return -1;
     }
-    long long size = file.tellg();
-    file.seekg(0, std::ios::end);
-    size = file.tellg() - size;
-    file.seekg(0, std::ios::beg);
-    if (size < sizeof(*this))
+    long long size = 0;
+    struct stat results;
+    if (stat(name.c_str(), &results) == 0)
     {
-        glog::log("error", "load Invalid file size: " + std::to_string(size), "chunk");
+        size = results.st_size;
+        glog::log("info", "File size: " + std::to_string(size), "chunk");
+    }
+    else
+    {
+        glog::log("error", "Failed to get file size: " + name, "chunk");
+        fclose(file);
         return -1;
     }
     char *data = new char[size];
-    file.read(data, size);
-    file.close();
+    memset(data, 0, size);
+    size_t read_size = fread(data, 1, size, file);
+    if (read_size != size)
+    {
+        glog::log("error", "read size: " + std::to_string(read_size) + " != " + std::to_string(size), "chunk");
+        delete[] data;
+        fclose(file);
+        return -1;
+    }
+    fclose(file);
     memcpy(this, data, sizeof(*this));
-    int offset = sizeof(*this);
+    long long offset = sizeof(*this);
     if (this->block_count != BLOCKS_PER_CHUNK_X * BLOCKS_PER_CHUNK_Y)
     {
         glog::log("error", "load Invalid block count: " + std::to_string(this->block_count), "chunk");
+        fclose(file);
+        delete[] data;
         return -1;
     }
     this->blocks = new class block[this->block_count];
     memset(this->blocks, 0, this->block_count * sizeof(class block));
     for (int i = 0; i < this->block_count; i++)
     {
+        if (offset + sizeof(class block) > size)
+        {
+            glog::log("error", "offset + sizeof(class block) > size", "chunk");
+            delete[] data;
+            fclose(file);
+            return -1;
+        }
         memcpy(&this->blocks[i], (void *)((char *)data + offset), sizeof(class block));
         offset += sizeof(class block);
         if (this->blocks[i].data_size == 0)
@@ -165,7 +166,7 @@ int chunk::load(std::string name)
         }
         else if (this->blocks[i].data_size > 0)
         {
-            glog::log("info", "data size: " + std::to_string(this->blocks[i].data_size), "chunk");
+            // glog::log("info", "data size: " + std::to_string(this->blocks[i].data_size), "chunk");
             this->blocks[i].data = new char[this->blocks[i].data_size];
             memcpy(this->blocks[i].data, (void *)((char *)data + offset), this->blocks[i].data_size);
             offset += this->blocks[i].data_size;
@@ -185,6 +186,14 @@ int chunk::init(std::string name)
     this->block_count = BLOCKS_PER_CHUNK_X * BLOCKS_PER_CHUNK_Y;
     this->blocks = new class block[this->block_count];
     memset(this->blocks, 0, this->block_count * sizeof(class block));
+    for (int i = 0; i < this->block_count; i++)
+    {
+        this->blocks[i].x = i % BLOCKS_PER_CHUNK_X;
+        this->blocks[i].y = i / BLOCKS_PER_CHUNK_X;
+        this->blocks[i].type = block_type::BLOCK_DIRT;
+        this->blocks[i].data_size = 1024;
+        this->blocks[i].data = new char[this->blocks[i].data_size];
+    }
     glog::log("info", "Initialized Chunk: " + std::to_string(this->x), "chunk");
     return 0;
 }
