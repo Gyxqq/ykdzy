@@ -15,9 +15,8 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
 
     glog::log("info", "Hello, world!", "main");
     class game game;
-    game.init("D:\\projects\\ykdzy\\");
-
-    game.world.load_chunk("D:\\projects\\ykdzy\\", 0, 20);
+    game.init("D:\\projects\\ykdzy\\save1\\");
+    game.world.load_chunk("D:\\projects\\ykdzy\\save1", 0, 20);
     game.save();
     return 0;
 }

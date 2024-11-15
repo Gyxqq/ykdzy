@@ -114,18 +114,6 @@ public:
     ~chunk();
 };
 
-class player
-{
-public:
-    float x;
-    float y;
-    int health;
-    int hunger;
-    // int thirst;
-    class item *items;
-    int item_count;
-};
-
 class map_config
 {
 public:
@@ -137,7 +125,6 @@ class map
 public:
     class chunk *chunks;
     int chunk_count;
-    player *players;
     int player_count;
     map_config config;
     void update();

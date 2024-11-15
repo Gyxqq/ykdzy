@@ -49,13 +49,14 @@ int map::load(std::string name)
     // load chunks
     this->chunks = new chunk[CHUNKS_PER_MAP_X];
     this->chunk_count = CHUNKS_PER_MAP_X;
-    for (int i = 0; i < CHUNKS_PER_MAP_X; i++)
-    {
-        this->chunks[i].x = i;
-        this->chunks[i].load(*this->config.savepath);
-        glog::log("info", "Loaded Chunk: " + std::to_string(i), "map");
-    }
-    this->chunk_count = CHUNKS_PER_MAP_X;
+    memset(this->chunks, 0, CHUNKS_PER_MAP_X * sizeof(chunk));
+    // for (int i = 0; i < CHUNKS_PER_MAP_X; i++)
+    // {
+    //     this->chunks[i].x = i;
+    //     this->chunks[i].load(*this->config.savepath);
+    //     glog::log("info", "Loaded Chunk: " + std::to_string(i), "map");
+    // }
+    // this->chunk_count = CHUNKS_PER_MAP_X;
     return 0;
 }
 int map::load_chunk(std::string name, int unload_index, int load_index)
@@ -74,6 +75,7 @@ int map::load_chunk(std::string name, int unload_index, int load_index)
         {
             this->chunks[i].save(*this->config.savepath);
             glog::log("info", "Saved Chunk: " + std::to_string(unload_index), "map");
+            this->chunks[i].x = load_index;
             this->chunks[i].load(*this->config.savepath);
             glog::log("info", "Loaded Chunk: " + std::to_string(load_index), "map");
             return 0;
@@ -155,6 +157,7 @@ int chunk::load(std::string name)
     {
         glog::log("error", "Failed to get file size: " + name, "chunk");
         fclose(file);
+        this->init(name);
         return -1;
     }
     char *data = new char[size];
