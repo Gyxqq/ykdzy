@@ -4,9 +4,11 @@
 #include <fstream>
 #include <cJSON.h>
 #include <sys/stat.h>
+#include <chrono>
 int map::load(std::string name)
 {
     std::fstream file;
+    name.append("map.json");
     file.open(name, std::ios::in);
     if (!file.is_open())
     {
@@ -56,8 +58,29 @@ int map::load(std::string name)
     this->chunk_count = CHUNKS_PER_MAP_X;
     return 0;
 }
-void load_chunk(std::string name, int index)
+int map::load_chunk(std::string name, int unload_index, int load_index)
 {
+    for (int i = 0; i < CHUNKS_PER_MAP_X; i++)
+    {
+        if (this->chunks[i].x == load_index)
+        {
+            glog::log("info", "Chunk: " + std::to_string(load_index) + " already loaded", "map");
+            return CHUNK_ALREDY_LOADED;
+        }
+    }
+    for (int i = 0; i < CHUNKS_PER_MAP_X; i++)
+    {
+        if (this->chunks[i].x == unload_index)
+        {
+            this->chunks[i].save(*this->config.savepath);
+            glog::log("info", "Saved Chunk: " + std::to_string(unload_index), "map");
+            this->chunks[i].load(*this->config.savepath);
+            glog::log("info", "Loaded Chunk: " + std::to_string(load_index), "map");
+            return 0;
+        }
+    }
+    glog::log("error", "chunk not found: " + std::to_string(unload_index), "map");
+    return CHUNK_NOT_LOADED;
 }
 
 void map::update()
@@ -76,6 +99,7 @@ int map::save()
 
 int chunk::save(std::string name)
 {
+    auto start = std::chrono::high_resolution_clock::now();
     FILE *file;
     name.append("chunk" + std::to_string(this->x));
     name.append(".chunk");
@@ -103,6 +127,9 @@ int chunk::save(std::string name)
     fflush(file);
     fclose(file);
     glog::log("info", "Saved Chunk: " + std::to_string(this->x) + " to " + name, "chunk");
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed = end - start;
+    glog::log("info", "Save Time: " + std::to_string(elapsed.count()), "chunk");
     return 0;
 }
 int chunk::load(std::string name)

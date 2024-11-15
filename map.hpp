@@ -1,9 +1,11 @@
+#pragma once
 #include <string>
 #include <vector>
 #define BLOCKS_PER_CHUNK_X 32
 #define BLOCKS_PER_CHUNK_Y 64
 #define CHUNKS_PER_MAP_X 8
-
+#define CHUNK_ALREDY_LOADED -2
+#define CHUNK_NOT_LOADED -1
 enum block_type
 {
     BLOCK_DIRT,              // 泥土
@@ -140,6 +142,6 @@ public:
     map_config config;
     void update();
     int load(std::string name);
-    int load_chunk(std::string name, int index);
+    int load_chunk(std::string name, int unload_index, int load_index);
     int save();
 };
