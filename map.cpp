@@ -9,12 +9,13 @@ int map::load(std::string name)
 {
     glog::log("info", "Loading Map: " + name, "map");
     this->config.savepath = new std::string();
+    *(this->config.savepath) = name;
     this->chunks = new chunk[CHUNKS_PER_MAP_X];
     this->chunk_count = CHUNKS_PER_MAP_X;
     memset(this->chunks, 0, CHUNKS_PER_MAP_X * sizeof(chunk));
     return 0;
 }
-int map::load_chunk(std::string name, int unload_index, int load_index)
+int map::load_chunk(std::string name, int unload_index, int load_index) // 将区块按照索引加载到内存
 {
     for (int i = 0; i < CHUNKS_PER_MAP_X; i++)
     {
@@ -38,6 +39,15 @@ int map::load_chunk(std::string name, int unload_index, int load_index)
     }
     glog::log("error", "chunk not found: " + std::to_string(unload_index), "map");
     return CHUNK_NOT_LOADED;
+}
+
+int map::load_chunk_pos(std::string name, int unload_pos, int load_pos) // 将区块按照位置加载到内存
+{
+    this->chunks[unload_pos].save(*this->config.savepath);
+    glog::log("info", "Saved Chunk: " + std::to_string(unload_pos), "map");
+    this->chunks[unload_pos].x = load_pos;
+    this->chunks[unload_pos].load(*this->config.savepath);
+    return 0;
 }
 
 void map::update()
@@ -148,7 +158,7 @@ int chunk::load(std::string name)
     if (this->block_count != BLOCKS_PER_CHUNK_X * BLOCKS_PER_CHUNK_Y)
     {
         glog::log("error", "load Invalid block count: " + std::to_string(this->block_count), "chunk");
-        fclose(file);
+        // fclose(file);
         delete[] data;
         return -1;
     }
@@ -160,7 +170,7 @@ int chunk::load(std::string name)
         {
             glog::log("error", "offset + sizeof(class block) > size", "chunk");
             delete[] data;
-            fclose(file);
+            // fclose(file);
             return -1;
         }
         memcpy(&this->blocks[i], (void *)((char *)data + offset), sizeof(class block));
@@ -210,7 +220,16 @@ chunk::~chunk()
 {
     for (int i = 0; i < this->block_count; i++)
     {
-        delete[] this->blocks[i].data;
+        if (this->blocks[i].data != NULL)
+            delete[] this->blocks[i].data;
     }
-    delete[] this->blocks;
+    if (this->blocks != NULL)
+        delete[] this->blocks;
+}
+map::~map()
+{
+    if (this->chunks != NULL)
+        delete[] this->chunks;
+    delete this->config.savepath;
+    delete this->config.name;
 }

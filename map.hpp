@@ -131,6 +131,8 @@ public:
     void update();
     int load(std::string name);
     int load_chunk(std::string name, int unload_index, int load_index);
+    int load_chunk_pos(std::string name, int unload_pos, int load_pos);
     int init(std::string name);
     int save();
+    ~map();
 };

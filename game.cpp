@@ -7,13 +7,14 @@
 int game::init(std::string name)
 {
     glog::log("info", "Initializing Game: " + name, "game");
+    this->savepath = name;
     this->world.init(name);
     this->players.push_back(player());
     cJSON *root = cJSON_CreateObject();
     cJSON_AddStringToObject(root, "savepath", this->savepath.c_str());
     cJSON *players = cJSON_CreateArray();
     std::string player_savepath = "00000.player";
-    this->players[0].save(this->savepath + player_savepath);
+    // this->players[0].save(this->savepath);
     cJSON_AddItemToArray(players, cJSON_CreateString(player_savepath.c_str()));
     cJSON_AddItemToObject(root, "players", players);
     char *data = cJSON_Print(root);
@@ -32,12 +33,12 @@ int game::init(std::string name)
 }
 int game::load(std::string name)
 {
-    glog::log("info", "Loading Game: " + name, "game");
+    glog::log("info", "Loading Game: " + name, "game loader");
     // this->world.load(name);
     FILE *file = fopen(name.c_str(), "r");
     if (!file)
     {
-        glog::log("error", "Failed to open file: " + name, "game");
+        glog::log("error", "Failed to open file: " + name, "game loader");
         return -1;
     }
     long long size = 0;
@@ -45,44 +46,38 @@ int game::load(std::string name)
     if (stat(name.c_str(), &results) == 0)
     {
         size = results.st_size;
-        glog::log("info", "File size: " + std::to_string(size), "game");
+        glog::log("info", "File size: " + std::to_string(size), "game loader");
     }
     else
     {
-        glog::log("error", "Failed to get file size: " + name, "game");
+        glog::log("error", "Failed to get file size: " + name, "game loader");
         fclose(file);
         return -1;
     }
     char *data = new char[size];
     memset(data, 0, size);
     size_t read_size = fread(data, 1, size, file);
-    if (read_size != size)
-    {
-        glog::log("error", "read size: " + std::to_string(read_size) + " != " + std::to_string(size), "game");
-        delete[] data;
-        fclose(file);
-        return -1;
-    }
+
     fclose(file);
     cJSON *root = cJSON_Parse(data);
     if (root == NULL)
     {
-        glog::log("error", "Failed to parse JSON Root", "game");
+        glog::log("error", "Failed to parse JSON Root", "game loader");
         return -1;
     }
     cJSON *savepath = cJSON_GetObjectItem(root, "savepath");
     if (savepath == NULL)
     {
-        glog::log("error", "Failed to get savepath", "game");
+        glog::log("error", "Failed to get savepath", "game loader");
         return -1;
     }
     this->savepath = savepath->valuestring;
-    glog::log("info", "Savepath: " + this->savepath, "game");
-
+    glog::log("info", "get Savepath: " + this->savepath, "game loader");
+    this->world.load(this->savepath);
     cJSON *players = cJSON_GetObjectItem(root, "players");
     if (players == NULL)
     {
-        glog::log("error", "Failed to get players", "game");
+        glog::log("error", "Failed to get players", "game loader");
         return -1;
     }
     cJSON *player = players->child;
@@ -96,7 +91,12 @@ int game::load(std::string name)
     }
     cJSON_Delete(root);
     delete[] data;
-
+    int center_x = this->players[0].x / BLOCKS_PER_CHUNK_X;
+    for (int i = 0; i < CHUNKS_PER_MAP_X; i++)
+    {
+        this->world.load_chunk_pos(this->savepath, i, center_x - CHUNKS_PER_MAP_X / 2 + i);
+        glog::log("info", "Loading Chunk: " + std::to_string(center_x - CHUNKS_PER_MAP_X / 2 + i), "game loader");
+    }
     return 0;
 }
 int game::save()
@@ -108,8 +108,9 @@ int game::save()
     cJSON *players = cJSON_CreateArray();
     for (int i = 0; i < this->players.size(); i++)
     {
-        std::string player_savepath = std::to_string(i) + ".player";
-        this->players[i].save(this->savepath + player_savepath);
+        std::string player_savepath = this->players[i].name + ".player";
+        this->players[i].save(this->savepath);
+        glog::log("info", "Saving Player: " + player_savepath, "game save");
         cJSON_AddItemToArray(players, cJSON_CreateString(player_savepath.c_str()));
     }
 
@@ -125,10 +126,12 @@ int game::save()
     fclose(file);
     cJSON_Delete(root);
     delete[] data;
-    for (int i = 0; i < this->players.size(); i++)
-    {
-        this->players[i].save(this->savepath);
-    }
+    // int size = this->players.size();
+    // for (int i = 0; i < size; i++)
+    // {
+    //     glog::log("info", "Saving Player: " + this->players[i].name, "game");
+    //     this->players[i].save(this->savepath);
+    // }
 
     return 0;
 }
@@ -141,7 +144,7 @@ int player::init(std::string name)
     this->y = 0;
     this->health = 100;
     this->hunger = 100;
-    memset(this->items, 0, sizeof(this->items) * MAX_ITEMS);
+    memset(this->items, 0, sizeof(class item) * MAX_ITEMS);
     return 0;
 }
 

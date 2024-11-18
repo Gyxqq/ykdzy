@@ -1,56 +1,252 @@
-[2024-11-15 12:15:08] [info] [main] Hello, world!
-[2024-11-15 12:15:08] [info] [game] Initializing Game: D:\projects\ykdzy\save2\
-[2024-11-15 12:15:08] [error] [map] Failed to open file: D:\projects\ykdzy\save2\map.json
-[2024-11-15 12:15:22] [info] [main] Hello, world!
-[2024-11-15 12:15:22] [info] [game] Initializing Game: D:\projects\ykdzy\save1\
-[2024-11-15 12:15:22] [info] [map] Map Name: map
-[2024-11-15 12:15:22] [info] [map] Map Savepath: D:\projects\ykdzy\save1\
-[2024-11-15 12:15:22] [error] [chunk] Invalid block count: 0
-[2024-11-15 12:15:22] [info] [map] Saved Chunk: 0
-[2024-11-15 12:15:22] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
-[2024-11-15 12:15:22] [info] [chunk] Initialized Chunk: 0
-[2024-11-15 12:15:22] [info] [map] Loaded Chunk: 20
-[2024-11-15 12:15:22] [info] [game] Saving Game
-[2024-11-15 12:15:22] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
-[2024-11-15 12:15:22] [info] [map] Saved Chunk: 0
-[2024-11-15 12:15:22] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
-[2024-11-15 12:15:22] [info] [map] Saved Chunk: 1
-[2024-11-15 12:15:22] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
-[2024-11-15 12:15:22] [info] [map] Saved Chunk: 2
-[2024-11-15 12:15:22] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
-[2024-11-15 12:15:22] [info] [map] Saved Chunk: 3
-[2024-11-15 12:15:22] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
-[2024-11-15 12:15:22] [info] [map] Saved Chunk: 4
-[2024-11-15 12:15:22] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
-[2024-11-15 12:15:22] [info] [map] Saved Chunk: 5
-[2024-11-15 12:15:22] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
-[2024-11-15 12:15:22] [info] [map] Saved Chunk: 6
-[2024-11-15 12:15:22] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
-[2024-11-15 12:15:22] [info] [map] Saved Chunk: 7
-[2024-11-15 12:18:44] [info] [main] Hello, world!
-[2024-11-15 12:18:44] [info] [game] Initializing Game: D:\projects\ykdzy\save1\
-[2024-11-15 12:18:44] [info] [map] Map Name: map
-[2024-11-15 12:18:44] [info] [map] Map Savepath: D:\projects\ykdzy\save1\
-[2024-11-15 12:18:44] [error] [chunk] Invalid block count: 0
-[2024-11-15 12:18:44] [info] [map] Saved Chunk: 0
-[2024-11-15 12:18:44] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk20.chunk
-[2024-11-15 12:18:44] [info] [chunk] Initialized Chunk: 20
-[2024-11-15 12:18:44] [info] [map] Loaded Chunk: 20
-[2024-11-15 12:18:44] [info] [game] Saving Game
-[2024-11-15 12:18:44] [info] [chunk] Saved Chunk: 20 to D:\projects\ykdzy\save1\chunk20.chunk
-[2024-11-15 12:18:44] [info] [chunk] Save Time: 0.009078
-[2024-11-15 12:18:44] [info] [map] Saved Chunk: 0
-[2024-11-15 12:18:44] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
-[2024-11-15 12:18:44] [info] [map] Saved Chunk: 1
-[2024-11-15 12:18:44] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
-[2024-11-15 12:18:44] [info] [map] Saved Chunk: 2
-[2024-11-15 12:18:44] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
-[2024-11-15 12:18:44] [info] [map] Saved Chunk: 3
-[2024-11-15 12:18:44] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
-[2024-11-15 12:18:44] [info] [map] Saved Chunk: 4
-[2024-11-15 12:18:44] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
-[2024-11-15 12:18:44] [info] [map] Saved Chunk: 5
-[2024-11-15 12:18:44] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
-[2024-11-15 12:18:44] [info] [map] Saved Chunk: 6
-[2024-11-15 12:18:44] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
-[2024-11-15 12:18:44] [info] [map] Saved Chunk: 7
+[2024-11-18 16:19:49] [info] [game loader] Loading Game: D:\projects\ykdzy\save1\game.json
+[2024-11-18 16:19:49] [info] [game loader] File size: 80
+[2024-11-18 16:19:49] [info] [game loader] get Savepath: D:\projects\ykdzy\save1\
+[2024-11-18 16:19:49] [info] [map] Loading Map: D:\projects\ykdzy\save1\
+[2024-11-18 16:19:49] [error] [chunk] Invalid block count: 0
+[2024-11-18 16:19:49] [info] [map] Saved Chunk: 0
+[2024-11-18 16:19:49] [info] [chunk] File size: 2162712
+[2024-11-18 16:19:49] [info] [game loader] Loading Chunk: -4
+[2024-11-18 16:19:49] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:19:49] [info] [map] Saved Chunk: 1
+[2024-11-18 16:19:49] [info] [chunk] File size: 2162712
+[2024-11-18 16:19:49] [info] [game loader] Loading Chunk: -3
+[2024-11-18 16:19:49] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:19:49] [info] [map] Saved Chunk: 2
+[2024-11-18 16:19:49] [info] [chunk] File size: 2162712
+[2024-11-18 16:19:49] [info] [game loader] Loading Chunk: -2
+[2024-11-18 16:19:49] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:19:49] [info] [map] Saved Chunk: 3
+[2024-11-18 16:19:49] [info] [chunk] File size: 2162712
+[2024-11-18 16:19:49] [info] [game loader] Loading Chunk: -1
+[2024-11-18 16:19:49] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:19:49] [info] [map] Saved Chunk: 4
+[2024-11-18 16:19:49] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:19:49] [info] [chunk] Initialized Chunk: 0
+[2024-11-18 16:19:49] [info] [game loader] Loading Chunk: 0
+[2024-11-18 16:19:49] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:19:49] [info] [map] Saved Chunk: 5
+[2024-11-18 16:19:49] [info] [chunk] File size: 2162712
+[2024-11-18 16:19:49] [info] [game loader] Loading Chunk: 1
+[2024-11-18 16:19:49] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:19:49] [info] [map] Saved Chunk: 6
+[2024-11-18 16:19:49] [info] [chunk] File size: 2162712
+[2024-11-18 16:19:49] [info] [game loader] Loading Chunk: 2
+[2024-11-18 16:19:49] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:19:49] [info] [map] Saved Chunk: 7
+[2024-11-18 16:19:49] [info] [chunk] File size: 2162712
+[2024-11-18 16:19:49] [info] [game loader] Loading Chunk: 3
+[2024-11-18 16:19:51] [info] [game] Saving Game
+[2024-11-18 16:19:52] [info] [chunk] Saved Chunk: -4 to D:\projects\ykdzy\save1\chunk-4.chunk
+[2024-11-18 16:19:52] [info] [chunk] Save Time: 0.009306
+[2024-11-18 16:19:52] [info] [map] Saved Chunk: 0
+[2024-11-18 16:19:52] [info] [chunk] Saved Chunk: -3 to D:\projects\ykdzy\save1\chunk-3.chunk
+[2024-11-18 16:19:52] [info] [chunk] Save Time: 0.015014
+[2024-11-18 16:19:52] [info] [map] Saved Chunk: 1
+[2024-11-18 16:19:52] [info] [chunk] Saved Chunk: -2 to D:\projects\ykdzy\save1\chunk-2.chunk
+[2024-11-18 16:19:52] [info] [chunk] Save Time: 0.008941
+[2024-11-18 16:19:52] [info] [map] Saved Chunk: 2
+[2024-11-18 16:19:52] [info] [chunk] Saved Chunk: -1 to D:\projects\ykdzy\save1\chunk-1.chunk
+[2024-11-18 16:19:52] [info] [chunk] Save Time: 0.008372
+[2024-11-18 16:19:52] [info] [map] Saved Chunk: 3
+[2024-11-18 16:19:52] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:19:52] [info] [map] Saved Chunk: 4
+[2024-11-18 16:19:52] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\save1\chunk1.chunk
+[2024-11-18 16:19:52] [info] [chunk] Save Time: 0.009313
+[2024-11-18 16:19:52] [info] [map] Saved Chunk: 5
+[2024-11-18 16:19:52] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\save1\chunk2.chunk
+[2024-11-18 16:19:52] [info] [chunk] Save Time: 0.010581
+[2024-11-18 16:19:52] [info] [map] Saved Chunk: 6
+[2024-11-18 16:19:52] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\save1\chunk3.chunk
+[2024-11-18 16:19:52] [info] [chunk] Save Time: 0.008503
+[2024-11-18 16:19:52] [info] [map] Saved Chunk: 7
+[2024-11-18 16:19:56] [info] [game save] Saving Player: 00000.player
+[2024-11-18 16:23:00] [info] [main] Hello, world!
+[2024-11-18 16:23:06] [info] [game loader] Loading Game: D:\projects\ykdzy\save1\game.json
+[2024-11-18 16:23:06] [info] [game loader] File size: 80
+[2024-11-18 16:23:06] [info] [game loader] get Savepath: D:\projects\ykdzy\save1\
+[2024-11-18 16:23:06] [info] [map] Loading Map: D:\projects\ykdzy\save1\
+[2024-11-18 16:23:06] [error] [chunk] Invalid block count: 0
+[2024-11-18 16:23:06] [info] [map] Saved Chunk: 0
+[2024-11-18 16:23:06] [info] [chunk] File size: 2162712
+[2024-11-18 16:23:06] [info] [game loader] Loading Chunk: -4
+[2024-11-18 16:23:06] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:23:06] [info] [map] Saved Chunk: 1
+[2024-11-18 16:23:06] [info] [chunk] File size: 2162712
+[2024-11-18 16:23:06] [info] [game loader] Loading Chunk: -3
+[2024-11-18 16:23:06] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:23:06] [info] [map] Saved Chunk: 2
+[2024-11-18 16:23:06] [info] [chunk] File size: 2162712
+[2024-11-18 16:23:06] [info] [game loader] Loading Chunk: -2
+[2024-11-18 16:23:06] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:23:06] [info] [map] Saved Chunk: 3
+[2024-11-18 16:23:06] [info] [chunk] File size: 2162712
+[2024-11-18 16:23:06] [info] [game loader] Loading Chunk: -1
+[2024-11-18 16:23:06] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:23:06] [info] [map] Saved Chunk: 4
+[2024-11-18 16:23:06] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:23:06] [info] [chunk] Initialized Chunk: 0
+[2024-11-18 16:23:06] [info] [game loader] Loading Chunk: 0
+[2024-11-18 16:23:06] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:23:06] [info] [map] Saved Chunk: 5
+[2024-11-18 16:23:06] [info] [chunk] File size: 2162712
+[2024-11-18 16:23:06] [info] [game loader] Loading Chunk: 1
+[2024-11-18 16:23:06] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:23:06] [info] [map] Saved Chunk: 6
+[2024-11-18 16:23:06] [info] [chunk] File size: 2162712
+[2024-11-18 16:23:06] [info] [game loader] Loading Chunk: 2
+[2024-11-18 16:23:06] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:23:06] [info] [map] Saved Chunk: 7
+[2024-11-18 16:23:06] [info] [chunk] File size: 2162712
+[2024-11-18 16:23:06] [info] [game loader] Loading Chunk: 3
+[2024-11-18 16:23:06] [info] [game] Saving Game
+[2024-11-18 16:23:06] [info] [chunk] Saved Chunk: -4 to D:\projects\ykdzy\save1\chunk-4.chunk
+[2024-11-18 16:23:06] [info] [chunk] Save Time: 0.010345
+[2024-11-18 16:23:06] [info] [map] Saved Chunk: 0
+[2024-11-18 16:23:06] [info] [chunk] Saved Chunk: -3 to D:\projects\ykdzy\save1\chunk-3.chunk
+[2024-11-18 16:23:06] [info] [chunk] Save Time: 0.010750
+[2024-11-18 16:23:06] [info] [map] Saved Chunk: 1
+[2024-11-18 16:23:06] [info] [chunk] Saved Chunk: -2 to D:\projects\ykdzy\save1\chunk-2.chunk
+[2024-11-18 16:23:06] [info] [chunk] Save Time: 0.008568
+[2024-11-18 16:23:06] [info] [map] Saved Chunk: 2
+[2024-11-18 16:23:06] [info] [chunk] Saved Chunk: -1 to D:\projects\ykdzy\save1\chunk-1.chunk
+[2024-11-18 16:23:06] [info] [chunk] Save Time: 0.009271
+[2024-11-18 16:23:06] [info] [map] Saved Chunk: 3
+[2024-11-18 16:23:06] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:23:06] [info] [map] Saved Chunk: 4
+[2024-11-18 16:23:06] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\save1\chunk1.chunk
+[2024-11-18 16:23:06] [info] [chunk] Save Time: 0.010376
+[2024-11-18 16:23:06] [info] [map] Saved Chunk: 5
+[2024-11-18 16:23:06] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\save1\chunk2.chunk
+[2024-11-18 16:23:06] [info] [chunk] Save Time: 0.009444
+[2024-11-18 16:23:06] [info] [map] Saved Chunk: 6
+[2024-11-18 16:23:06] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\save1\chunk3.chunk
+[2024-11-18 16:23:06] [info] [chunk] Save Time: 0.010973
+[2024-11-18 16:23:06] [info] [map] Saved Chunk: 7
+[2024-11-18 16:23:07] [info] [game save] Saving Player: 00000.player
+[2024-11-18 16:24:43] [info] [main] Hello, world!
+[2024-11-18 16:24:46] [info] [game loader] Loading Game: D:\projects\ykdzy\save1\game.json
+[2024-11-18 16:24:46] [info] [game loader] File size: 80
+[2024-11-18 16:24:46] [info] [game loader] get Savepath: D:\projects\ykdzy\save1\
+[2024-11-18 16:24:46] [info] [map] Loading Map: D:\projects\ykdzy\save1\
+[2024-11-18 16:24:46] [error] [chunk] Invalid block count: 0
+[2024-11-18 16:24:46] [info] [map] Saved Chunk: 0
+[2024-11-18 16:24:46] [info] [chunk] File size: 2162712
+[2024-11-18 16:24:46] [info] [game loader] Loading Chunk: -4
+[2024-11-18 16:24:46] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:24:46] [info] [map] Saved Chunk: 1
+[2024-11-18 16:24:46] [info] [chunk] File size: 2162712
+[2024-11-18 16:24:46] [info] [game loader] Loading Chunk: -3
+[2024-11-18 16:24:46] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:24:46] [info] [map] Saved Chunk: 2
+[2024-11-18 16:24:46] [info] [chunk] File size: 2162712
+[2024-11-18 16:24:46] [info] [game loader] Loading Chunk: -2
+[2024-11-18 16:24:46] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:24:46] [info] [map] Saved Chunk: 3
+[2024-11-18 16:24:46] [info] [chunk] File size: 2162712
+[2024-11-18 16:24:46] [info] [game loader] Loading Chunk: -1
+[2024-11-18 16:24:46] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:24:46] [info] [map] Saved Chunk: 4
+[2024-11-18 16:24:46] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:24:46] [info] [chunk] Initialized Chunk: 0
+[2024-11-18 16:24:46] [info] [game loader] Loading Chunk: 0
+[2024-11-18 16:24:46] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:24:46] [info] [map] Saved Chunk: 5
+[2024-11-18 16:24:46] [info] [chunk] File size: 2162712
+[2024-11-18 16:24:46] [info] [game loader] Loading Chunk: 1
+[2024-11-18 16:24:46] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:24:46] [info] [map] Saved Chunk: 6
+[2024-11-18 16:24:46] [info] [chunk] File size: 2162712
+[2024-11-18 16:24:46] [info] [game loader] Loading Chunk: 2
+[2024-11-18 16:24:46] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:24:46] [info] [map] Saved Chunk: 7
+[2024-11-18 16:24:46] [info] [chunk] File size: 2162712
+[2024-11-18 16:24:46] [info] [game loader] Loading Chunk: 3
+[2024-11-18 16:24:47] [info] [game] Saving Game
+[2024-11-18 16:24:47] [info] [chunk] Saved Chunk: -4 to D:\projects\ykdzy\save1\chunk-4.chunk
+[2024-11-18 16:24:47] [info] [chunk] Save Time: 0.008707
+[2024-11-18 16:24:47] [info] [map] Saved Chunk: 0
+[2024-11-18 16:24:47] [info] [chunk] Saved Chunk: -3 to D:\projects\ykdzy\save1\chunk-3.chunk
+[2024-11-18 16:24:47] [info] [chunk] Save Time: 0.007917
+[2024-11-18 16:24:47] [info] [map] Saved Chunk: 1
+[2024-11-18 16:24:47] [info] [chunk] Saved Chunk: -2 to D:\projects\ykdzy\save1\chunk-2.chunk
+[2024-11-18 16:24:47] [info] [chunk] Save Time: 0.010974
+[2024-11-18 16:24:47] [info] [map] Saved Chunk: 2
+[2024-11-18 16:24:47] [info] [chunk] Saved Chunk: -1 to D:\projects\ykdzy\save1\chunk-1.chunk
+[2024-11-18 16:24:47] [info] [chunk] Save Time: 0.009838
+[2024-11-18 16:24:47] [info] [map] Saved Chunk: 3
+[2024-11-18 16:24:47] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:24:47] [info] [map] Saved Chunk: 4
+[2024-11-18 16:24:47] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\save1\chunk1.chunk
+[2024-11-18 16:24:47] [info] [chunk] Save Time: 0.010470
+[2024-11-18 16:24:47] [info] [map] Saved Chunk: 5
+[2024-11-18 16:24:47] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\save1\chunk2.chunk
+[2024-11-18 16:24:47] [info] [chunk] Save Time: 0.011369
+[2024-11-18 16:24:47] [info] [map] Saved Chunk: 6
+[2024-11-18 16:24:47] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\save1\chunk3.chunk
+[2024-11-18 16:24:47] [info] [chunk] Save Time: 0.009704
+[2024-11-18 16:24:47] [info] [map] Saved Chunk: 7
+[2024-11-18 16:24:48] [info] [game save] Saving Player: 00000.player
+[2024-11-18 16:25:44] [info] [main] Hello, world!
+[2024-11-18 16:25:46] [info] [game loader] Loading Game: D:\projects\ykdzy\save1\game.json
+[2024-11-18 16:25:46] [info] [game loader] File size: 80
+[2024-11-18 16:25:46] [info] [game loader] get Savepath: D:\projects\ykdzy\save1\
+[2024-11-18 16:25:46] [info] [map] Loading Map: D:\projects\ykdzy\save1\
+[2024-11-18 16:25:46] [error] [chunk] Invalid block count: 0
+[2024-11-18 16:25:46] [info] [map] Saved Chunk: 0
+[2024-11-18 16:25:46] [info] [chunk] File size: 2162712
+[2024-11-18 16:25:46] [info] [game loader] Loading Chunk: -4
+[2024-11-18 16:25:46] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:25:46] [info] [map] Saved Chunk: 1
+[2024-11-18 16:25:46] [info] [chunk] File size: 2162712
+[2024-11-18 16:25:46] [info] [game loader] Loading Chunk: -3
+[2024-11-18 16:25:46] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:25:46] [info] [map] Saved Chunk: 2
+[2024-11-18 16:25:46] [info] [chunk] File size: 2162712
+[2024-11-18 16:25:46] [info] [game loader] Loading Chunk: -2
+[2024-11-18 16:25:46] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:25:46] [info] [map] Saved Chunk: 3
+[2024-11-18 16:25:46] [info] [chunk] File size: 2162712
+[2024-11-18 16:25:46] [info] [game loader] Loading Chunk: -1
+[2024-11-18 16:25:46] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:25:46] [info] [map] Saved Chunk: 4
+[2024-11-18 16:25:46] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:25:46] [info] [chunk] Initialized Chunk: 0
+[2024-11-18 16:25:46] [info] [game loader] Loading Chunk: 0
+[2024-11-18 16:25:46] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:25:46] [info] [map] Saved Chunk: 5
+[2024-11-18 16:25:46] [info] [chunk] File size: 2162712
+[2024-11-18 16:25:46] [info] [game loader] Loading Chunk: 1
+[2024-11-18 16:25:46] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:25:46] [info] [map] Saved Chunk: 6
+[2024-11-18 16:25:46] [info] [chunk] File size: 2162712
+[2024-11-18 16:25:46] [info] [game loader] Loading Chunk: 2
+[2024-11-18 16:25:46] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:25:46] [info] [map] Saved Chunk: 7
+[2024-11-18 16:25:46] [info] [chunk] File size: 2162712
+[2024-11-18 16:25:46] [info] [game loader] Loading Chunk: 3
+[2024-11-18 16:25:46] [info] [game] Saving Game
+[2024-11-18 16:25:47] [info] [chunk] Saved Chunk: -4 to D:\projects\ykdzy\save1\chunk-4.chunk
+[2024-11-18 16:25:47] [info] [chunk] Save Time: 0.009256
+[2024-11-18 16:25:47] [info] [map] Saved Chunk: 0
+[2024-11-18 16:25:47] [info] [chunk] Saved Chunk: -3 to D:\projects\ykdzy\save1\chunk-3.chunk
+[2024-11-18 16:25:47] [info] [chunk] Save Time: 0.008849
+[2024-11-18 16:25:47] [info] [map] Saved Chunk: 1
+[2024-11-18 16:25:47] [info] [chunk] Saved Chunk: -2 to D:\projects\ykdzy\save1\chunk-2.chunk
+[2024-11-18 16:25:47] [info] [chunk] Save Time: 0.007684
+[2024-11-18 16:25:47] [info] [map] Saved Chunk: 2
+[2024-11-18 16:25:47] [info] [chunk] Saved Chunk: -1 to D:\projects\ykdzy\save1\chunk-1.chunk
+[2024-11-18 16:25:47] [info] [chunk] Save Time: 0.012395
+[2024-11-18 16:25:47] [info] [map] Saved Chunk: 3
+[2024-11-18 16:25:47] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-18 16:25:47] [info] [map] Saved Chunk: 4
+[2024-11-18 16:25:47] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\save1\chunk1.chunk
+[2024-11-18 16:25:47] [info] [chunk] Save Time: 0.008122
+[2024-11-18 16:25:47] [info] [map] Saved Chunk: 5
+[2024-11-18 16:25:47] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\save1\chunk2.chunk
+[2024-11-18 16:25:47] [info] [chunk] Save Time: 0.012596
+[2024-11-18 16:25:47] [info] [map] Saved Chunk: 6
+[2024-11-18 16:25:47] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\save1\chunk3.chunk
+[2024-11-18 16:25:47] [info] [chunk] Save Time: 0.010551
+[2024-11-18 16:25:47] [info] [map] Saved Chunk: 7
+[2024-11-18 16:25:48] [info] [game save] Saving Player: 00000.player
+[2024-11-18 16:25:53] [info] [main] Game Loaded
