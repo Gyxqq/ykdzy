@@ -7,56 +7,11 @@
 #include <chrono>
 int map::load(std::string name)
 {
-    std::fstream file;
-    name.append("map.json");
-    file.open(name, std::ios::in);
-    if (!file.is_open())
-    {
-        glog::log("error", "Failed to open file: " + name, "map");
-        return -1;
-    }
-    long long size = file.tellg();
-    file.seekg(0, std::ios::end);
-    size = file.tellg() - size;
-    file.seekg(0, std::ios::beg);
-    char *data = new char[size];
-    file.read(data, size);
-    file.close();
-    cJSON *root = cJSON_Parse(data);
-    if (root == NULL)
-    {
-        glog::log("error", "Failed to parse JSON Root", "map");
-        return -1;
-    }
-    cJSON *map_name = cJSON_GetObjectItem(root, "name");
-    if (map_name == NULL)
-    {
-        glog::log("error", "Failed to get map name", "map");
-        return -1;
-    }
-    glog::log("info", "Map Name: " + std::string(map_name->valuestring), "map");
-    this->config.name = new std::string(map_name->valuestring);
-    cJSON *map_savepath = cJSON_GetObjectItem(root, "savepath");
-    if (map_savepath == NULL)
-    {
-        glog::log("error", "Failed to get map savepath", "map");
-        return -1;
-    }
-    glog::log("info", "Map Savepath: " + std::string(map_savepath->valuestring), "map");
-    this->config.savepath = new std::string(map_savepath->valuestring);
-    cJSON_Delete(root);
-    delete[] data;
-    // load chunks
+    glog::log("info", "Loading Map: " + name, "map");
+    this->config.savepath = new std::string();
     this->chunks = new chunk[CHUNKS_PER_MAP_X];
     this->chunk_count = CHUNKS_PER_MAP_X;
     memset(this->chunks, 0, CHUNKS_PER_MAP_X * sizeof(chunk));
-    // for (int i = 0; i < CHUNKS_PER_MAP_X; i++)
-    // {
-    //     this->chunks[i].x = i;
-    //     this->chunks[i].load(*this->config.savepath);
-    //     glog::log("info", "Loaded Chunk: " + std::to_string(i), "map");
-    // }
-    // this->chunk_count = CHUNKS_PER_MAP_X;
     return 0;
 }
 int map::load_chunk(std::string name, int unload_index, int load_index)
@@ -95,6 +50,23 @@ int map::save()
     {
         this->chunks[i].save(*this->config.savepath);
         glog::log("info", "Saved Chunk: " + std::to_string(i), "map");
+    }
+    return 0;
+}
+int map::init(std::string name)
+{
+    glog::log("info", "Initializing Map: " + name, "map");
+    this->config.savepath = new std::string();
+    this->config.name = new std::string();
+    *this->config.savepath = name;
+    *this->config.name = name;
+    this->chunks = new chunk[CHUNKS_PER_MAP_X];
+    this->chunk_count = CHUNKS_PER_MAP_X;
+    for (int i = 0; i < CHUNKS_PER_MAP_X; i++)
+    {
+        this->chunks[i].x = i;
+        this->chunks[i].init(*this->config.savepath);
+        glog::log("info", "Initialized Chunk: " + std::to_string(i), "map");
     }
     return 0;
 }

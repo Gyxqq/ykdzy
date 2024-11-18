@@ -2,6 +2,7 @@
 #include "map.hpp"
 #include "log.hpp"
 #include <vector>
+#define MAX_ITEMS 20
 class player
 {
 public:
@@ -10,10 +11,11 @@ public:
     int health;
     int hunger;
     // int thirst;
-    class item *items;
-    int item_count;
+    std::string name;
+    class item items[MAX_ITEMS];
     int save(std::string name);
     int load(std::string name);
+    int init(std::string name);
 };
 class game
 {

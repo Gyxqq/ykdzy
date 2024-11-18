@@ -1,8 +1,7 @@
 {
-    "map": "D:\\projects\\ykdzy\\save1\\map.json",
     "players": [
-        "D:\\projects\\ykdzy\\save1\\123.player",
-        "D:\\projects\\ykdzy\\save1\\456.player"
+        "123.player",
+        "456.player"
     ],
     "savepath": "D:\\projects\\ykdzy\\save1\\"
 }

@@ -8,6 +8,7 @@
 #define CHUNK_NOT_LOADED -1
 enum block_type
 {
+    BLOCK_AIR,               // 空气
     BLOCK_DIRT,              // 泥土
     BLOCK_GRASS,             // 草地
     BLOCK_STONE,             // 石头
@@ -130,5 +131,6 @@ public:
     void update();
     int load(std::string name);
     int load_chunk(std::string name, int unload_index, int load_index);
+    int init(std::string name);
     int save();
 };
