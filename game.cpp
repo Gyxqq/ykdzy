@@ -77,6 +77,13 @@ int game::load(std::string name)
         glog::log("error", "Failed to get savepath", "game loader");
         return -1;
     }
+    cJSON *seed = cJSON_GetObjectItem(root, "seed");
+    if (seed == NULL)
+    {
+        glog::log("error", "Failed to get seed", "game loader");
+        return -1;
+    }
+    this->world.seed = seed->valueint;
     this->savepath = savepath->valuestring;
     glog::log("info", "get Savepath: " + this->savepath, "game loader");
     this->world.load(this->savepath);

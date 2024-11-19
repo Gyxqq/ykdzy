@@ -110,7 +110,7 @@ public:
     block *blocks;
     int block_count;
     int save(std::string name);
-    int load(std::string name);
+    int load(std::string name,int seed);
     int init(std::string name, int seed);
     ~chunk();
 };
