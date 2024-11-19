@@ -3,15 +3,21 @@
 #include "log.hpp"
 #include "game.hpp"
 #include "cJSON.h"
+#include <time.h>
 #include <sys/stat.h>
 int game::init(std::string name)
 {
+    int seed = time(NULL);
+    srand(seed);
     glog::log("info", "Initializing Game: " + name, "game");
     this->savepath = name;
+    this->world.seed = seed;
     this->world.init(name);
     this->players.push_back(player());
     cJSON *root = cJSON_CreateObject();
     cJSON_AddStringToObject(root, "savepath", this->savepath.c_str());
+    cJSON_AddNumberToObject(root, "seed", seed);
+    glog::log("info", "Seed: " + std::to_string(seed), "game");
     cJSON *players = cJSON_CreateArray();
     std::string player_savepath = "00000.player";
     // this->players[0].save(this->savepath);

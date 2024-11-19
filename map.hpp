@@ -111,7 +111,7 @@ public:
     int block_count;
     int save(std::string name);
     int load(std::string name);
-    int init(std::string name);
+    int init(std::string name, int seed);
     ~chunk();
 };
 
@@ -128,6 +128,7 @@ public:
     int chunk_count;
     int player_count;
     map_config config;
+    int seed;
     void update();
     int load(std::string name);
     int load_chunk(std::string name, int unload_index, int load_index);

@@ -194,7 +194,7 @@ int chunk::load(std::string name)
     delete[] data;
     return 0;
 }
-int chunk::init(std::string name)
+int chunk::init(std::string name,int seed)
 {
     // this->x = 0;
     this->type = chunk_type::CHUNK_DESERT;
