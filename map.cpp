@@ -45,7 +45,15 @@ int map::load_chunk(std::string name, int unload_index, int load_index) // 将�
 int map::load_chunk_pos(std::string name, int unload_pos, int load_pos) // 将区块按照位置加载到内存
 {
     this->chunks[unload_pos].save(*this->config.savepath);
-    glog::log("info", "Saved Chunk: " + std::to_string(unload_pos), "map");
+    glog::log("info", "loading Chunk: " + std::to_string(load_pos), "map chunk loader");
+    this->chunks[unload_pos].x = load_pos;
+    this->chunks[unload_pos].load(*this->config.savepath, this->seed);
+    return 0;
+}
+int map::load_chunk_pos_no_save(std::string name, int unload_pos, int load_pos) // 将区块按照位置加载到内存
+{
+    // this->chunks[unload_pos].save(*this->config.savepath);
+    glog::log("info", "loading Chunk: " + std::to_string(load_pos), "map chunk loader");
     this->chunks[unload_pos].x = load_pos;
     this->chunks[unload_pos].load(*this->config.savepath, this->seed);
     return 0;
@@ -56,11 +64,10 @@ void map::update()
 }
 int map::save()
 {
-
     for (int i = 0; i < CHUNKS_PER_MAP_X; i++)
     {
         this->chunks[i].save(*this->config.savepath);
-        glog::log("info", "Saved Chunk: " + std::to_string(i), "map");
+        glog::log("info", "Saved Chunk: " + std::to_string(this->chunks[i].x), "map");
     }
     return 0;
 }
@@ -98,6 +105,7 @@ int chunk::save(std::string name)
     if (this->block_count != BLOCKS_PER_CHUNK_X * BLOCKS_PER_CHUNK_Y)
     {
         glog::log("error", "Invalid block count: " + std::to_string(this->block_count), "chunk");
+        fclose(file);
         return -1;
     }
     fwrite(this, sizeof(*this), 1, file);
@@ -160,7 +168,7 @@ int chunk::load(std::string name, int seed)
     if (this->block_count != BLOCKS_PER_CHUNK_X * BLOCKS_PER_CHUNK_Y)
     {
         glog::log("error", "load Invalid block count: " + std::to_string(this->block_count), "chunk");
-        // fclose(file);
+        this->init(name, seed);
         delete[] data;
         return -1;
     }
@@ -385,7 +393,7 @@ int chunk::init(std::string name, int seed)
             }
         }
     }
-
+    this->block_count = BLOCKS_PER_CHUNK_X * BLOCKS_PER_CHUNK_Y;
     glog::log("info", "Initialized Chunk: " + std::to_string(this->x), "chunk");
     return 0;
 }

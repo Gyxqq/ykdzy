@@ -107,7 +107,7 @@ int game::load(std::string name)
     int center_x = this->players[0].x / BLOCKS_PER_CHUNK_X;
     for (int i = 0; i < CHUNKS_PER_MAP_X; i++)
     {
-        this->world.load_chunk_pos(this->savepath, i, center_x - CHUNKS_PER_MAP_X / 2 + i);
+        this->world.load_chunk_pos_no_save(this->savepath, i, center_x - CHUNKS_PER_MAP_X / 2 + i);
         glog::log("info", "Loading Chunk: " + std::to_string(center_x - CHUNKS_PER_MAP_X / 2 + i), "game loader");
     }
     return 0;
