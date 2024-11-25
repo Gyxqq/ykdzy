@@ -204,36 +204,184 @@ int chunk::init(std::string name, int seed)
     this->blocks = new class block[this->block_count];
     memset(this->blocks, 0, this->block_count * sizeof(class block));
     int level = 32 + rand() % 6;
-    if (this->type == chunk_type::CHUNK_GRASSLAND)
+    block_type top_block = block_type::BLOCK_GRASS;
+    block_type middle_block = block_type::BLOCK_DIRT;
+    if (this->type == chunk_type::CHUNK_DESERT)
     {
-        for (int i = 0; i < this->block_count; i++)
+        top_block = block_type::BLOCK_SAND;
+        middle_block = block_type::BLOCK_SAND;
+    }
+    else if (this->type == chunk_type::CHUNK_FOREST)
+    {
+        top_block = block_type::BLOCK_GRASS;
+        middle_block = block_type::BLOCK_DIRT;
+    }
+    else if (this->type == chunk_type::CHUNK_MOUNTAIN)
+    {
+        top_block = block_type::BLOCK_STONE;
+        middle_block = block_type::BLOCK_STONE;
+    }
+    else if (this->type == chunk_type::CHUNK_OCEAN)
+    {
+        top_block = block_type::BLOCK_WATER;
+        middle_block = block_type::BLOCK_WATER;
+    }
+    else if (this->type == chunk_type::CHUNK_LAVA)
+    {
+        top_block = block_type::BLOCK_LAVA;
+        middle_block = block_type::BLOCK_LAVA;
+    }
+    else if (this->type == chunk_type::CHUNK_VOID)
+    {
+        top_block = block_type::BLOCK_AIR;
+        middle_block = block_type::BLOCK_AIR;
+    }
+    else if (this->type == chunk_type::CHUNK_SNOW)
+    {
+        top_block = block_type::BLOCK_SNOW;
+        middle_block = block_type::BLOCK_DIRT;
+    }
+    else if (this->type == chunk_type::CHUNK_GRASSLAND)
+    {
+        top_block = block_type::BLOCK_GRASS;
+        middle_block = block_type::BLOCK_DIRT;
+    }
+
+    for (int i = 0; i < this->block_count; i++)
+    {
+        this->blocks[i].x = i % BLOCKS_PER_CHUNK_X;
+        this->blocks[i].y = i / BLOCKS_PER_CHUNK_X;
+        if (this->blocks[i].y <= level)
         {
-            this->blocks[i].x = i % BLOCKS_PER_CHUNK_X;
-            this->blocks[i].y = i / BLOCKS_PER_CHUNK_X;
-            if (this->blocks[i].y <= level)
+            this->blocks[i].type = middle_block;
+        }
+        // else if (this->blocks[i].y == level)
+        // {
+        //     this->blocks[i].type = top_block;
+        // }
+        else
+        {
+            this->blocks[i].type = block_type::BLOCK_AIR;
+        }
+    } // 生成地形
+    for (int i = 0; i < this->block_count; i++) // 生成随机山峰
+    {
+        if (this->blocks[i].y == level)
+        {
+            if (rand() % 100 < 50)
             {
-                this->blocks[i].type = block_type::BLOCK_GRASS;
-            }
-            else
-            {
-                this->blocks[i].type = block_type::BLOCK_AIR;
+                int count = 0;
+                std::stack<class block> stack;
+                stack.push(this->blocks[i]);
+                count++;
+                while (!stack.empty())
+                {
+                    if (count > 100)
+                    {
+                        break;
+                    }
+                    class block current = stack.top();
+                    stack.pop();
+                    if (rand() % 100 < 10)
+                    {
+                        switch (rand() % 4)
+                        {
+                        case 0:
+                            if (current.x + 1 < BLOCKS_PER_CHUNK_X && this->blocks[current.x + 1 + current.y * BLOCKS_PER_CHUNK_X].type == block_type::BLOCK_AIR)
+                            {
+                                this->blocks[current.x + 1 + current.y * BLOCKS_PER_CHUNK_X].type = middle_block;
+                                stack.push(this->blocks[current.x + 1 + current.y * BLOCKS_PER_CHUNK_X]);
+                                count++;
+                            }
+                            break;
+                        case 1:
+                            if (current.x - 1 >= 0 && this->blocks[current.x - 1 + current.y * BLOCKS_PER_CHUNK_X].type == block_type::BLOCK_AIR)
+                            {
+                                this->blocks[current.x - 1 + current.y * BLOCKS_PER_CHUNK_X].type = middle_block;
+                                stack.push(this->blocks[current.x - 1 + current.y * BLOCKS_PER_CHUNK_X]);
+                                count++;
+                            }
+                            break;
+                        case 2:
+                            if (current.y + 1 < BLOCKS_PER_CHUNK_Y && this->blocks[current.x + (current.y + 1) * BLOCKS_PER_CHUNK_X].type == block_type::BLOCK_AIR)
+                            {
+                                this->blocks[current.x + (current.y + 1) * BLOCKS_PER_CHUNK_X].type = middle_block;
+                                stack.push(this->blocks[current.x + (current.y + 1) * BLOCKS_PER_CHUNK_X]);
+                                count++;
+                            }
+                            break;
+                        case 3:
+                            if (current.y - 1 >= 0 && this->blocks[current.x + (current.y - 1) * BLOCKS_PER_CHUNK_X].type == block_type::BLOCK_AIR)
+                            {
+                                this->blocks[current.x + (current.y - 1) * BLOCKS_PER_CHUNK_X].type = middle_block;
+                                stack.push(this->blocks[current.x + (current.y - 1) * BLOCKS_PER_CHUNK_X]);
+                                count++;
+                            }
+                            break;
+                        default:
+                            break;
+                        }
+                    }
+                }
             }
         }
-        for (int i = 0; i < this->block_count; i++)
+    }
+    for (int i = 0; i < BLOCKS_PER_CHUNK_X; i++) // 生成顶部
+    {
+        for (int j = BLOCKS_PER_CHUNK_Y - 1; j >= 0; j--)
         {
-            if (this->blocks[i].y == level)
+            if (this->blocks[i + j * BLOCKS_PER_CHUNK_X].type != block_type::BLOCK_AIR)
             {
-                if (rand() % 100 < 10)
+                this->blocks[i + j * BLOCKS_PER_CHUNK_X].type = top_block;
+                break;
+            }
+        }
+    }
+    // 生成随机矿物
+    for (int i = 0; i < this->block_count; i++)
+    {
+        if (rand() % 100 < 10)
+        {
+            switch (rand() % 4)
+            {
+            case 0:
+                if (this->blocks[this->blocks[i].x + this->blocks[i].y * BLOCKS_PER_CHUNK_X].type == middle_block)
                 {
-                    std::stack<class block> stack;
-                    stack.push(this->blocks[i]);
-                    while (!stack.empty())
-                    {
-                        class block current = stack.top();
-                        stack.pop();                       
-                    }                    
-                    
+                    this->blocks[this->blocks[i].x + this->blocks[i].y * BLOCKS_PER_CHUNK_X].type = block_type::BLOCK_COAL;
                 }
+                break;
+            case 1:
+                if (this->blocks[this->blocks[i].x + this->blocks[i].y * BLOCKS_PER_CHUNK_X].type == middle_block)
+                {
+                    this->blocks[this->blocks[i].x + this->blocks[i].y * BLOCKS_PER_CHUNK_X].type = block_type::BLOCK_IRON;
+                }
+                break;
+            case 2:
+                if (this->blocks[this->blocks[i].x + this->blocks[i].y * BLOCKS_PER_CHUNK_X].type == middle_block)
+                {
+                    this->blocks[this->blocks[i].x + this->blocks[i].y * BLOCKS_PER_CHUNK_X].type = block_type::BLOCK_GOLD;
+                }
+                break;
+            case 3:
+                if (this->blocks[this->blocks[i].x + this->blocks[i].y * BLOCKS_PER_CHUNK_X].type == middle_block)
+                {
+                    this->blocks[this->blocks[i].x + this->blocks[i].y * BLOCKS_PER_CHUNK_X].type = block_type::BLOCK_DIAMOND;
+                }
+                break;
+            case 4:
+                if (this->blocks[this->blocks[i].x + this->blocks[i].y * BLOCKS_PER_CHUNK_X].type == middle_block)
+                {
+                    this->blocks[this->blocks[i].x + this->blocks[i].y * BLOCKS_PER_CHUNK_X].type = block_type::BLOCK_EMERALD;
+                }
+                break;
+            case 5:
+                if (this->blocks[this->blocks[i].x + this->blocks[i].y * BLOCKS_PER_CHUNK_X].type == middle_block)
+                {
+                    this->blocks[this->blocks[i].x + this->blocks[i].y * BLOCKS_PER_CHUNK_X].type = block_type::BLOCK_COPPER;
+                }
+                break;
+            default:
+                break;
             }
         }
     }
