@@ -1,0 +1,165 @@
+{
+    "blocks": [
+        {
+            "name": "BLOCK_AIR",
+            "id": 0,
+            "texture": "air.png"
+        },
+        {
+            "name": "BLOCK_DIRT",
+            "id": 1,
+            "texture": "dirt.png"
+        },
+        {
+            "name": "BLOCK_GRASS",
+            "id": 2,
+            "texture": "grass_block_side.png"
+        },
+        {
+            "name": "BLOCK_STONE",
+            "id": 3,
+            "texture": "stone.png"
+        },
+        {
+            "name": "BLOCK_WOOD",
+            "id": 4,
+            "texture": "birch_log.png"
+        },
+        {
+            "name": "BLOCK_LEAVES",
+            "id": 5,
+            "texture": "azalea_leaves.png"
+        },
+        {
+            "name": "BLOCK_SAND",
+            "id": 7,
+            "texture": "sand.png"
+        },
+        {
+            "name": "BLOCK_CACTUS",
+            "id": 8,
+            "texture": "cactus_side.png"
+        },
+        {
+            "name": "BLOCK_SNOW",
+            "id": 9,
+            "texture": "snow.png"
+        },
+        {
+            "name": "BLOCK_ICE",
+            "id": 10,
+            "texture": "ice.png"
+        },
+        {
+            "name": "BLOCK_COAL",
+            "id": 12,
+            "texture": "coal_ore.png"
+        },
+        {
+            "name": "BLOCK_IRON",
+            "id": 13,
+            "texture": "iron_ore.png"
+        },
+        {
+            "name": "BLOCK_GOLD",
+            "id": 14,
+            "texture": "gold_ore.png"
+        },
+        {
+            "name": "BLOCK_DIAMOND",
+            "id": 15,
+            "texture": "diamond_ore.png"
+        },
+        {
+            "name": "BLOCK_EMERALD",
+            "id": 16,
+            "texture": "emerald_ore.png"
+        },
+        {
+            "name": "BLOCK_COPPER",
+            "id": 17,
+            "texture": "copper_ore.png"
+        },
+        {
+            "name": "BLOCK_BEDROCK",
+            "id": 22,
+            "texture": "bedrock.png"
+        },
+        {
+            "name": "BLOCK_CHEST",
+            "id": 23,
+            "texture": "barrel_top.png"
+        },
+        {
+            "name": "BLOCK_FURNACE",
+            "id": 24,
+            "texture": "furnace_front.png"
+        },
+        {
+            "name": "BLOCK_CRAFTING_TABLE",
+            "id": 25,
+            "texture": "crafting_table_front.png"
+        },
+        {
+            "name": "BLOCK_ANVIL",
+            "id": 26,
+            "texture": "anvil.png"
+        },
+        {
+            "name": "BLOCK_ENCHANTING_TABLE",
+            "id": 27,
+            "texture": "enchanting_table_side.png"
+        },
+        {
+            "name": "BLOCK_BEACON",
+            "id": 28,
+            "texture": "beacon.png"
+        },
+        {
+            "name": "BLOCK_TORCH",
+            "id": 29,
+            "texture": "torch.png"
+        },
+        {
+            "name": "BLOCK_LANTERN",
+            "id": 30,
+            "texture": "jack_o_lantern.png"
+        },
+        {
+            "name": "BLOCK_BED",
+            "id": 31,
+            "texture": "bed_feet_end.png"
+        },
+        {
+            "name": "BLOCK_CAKE",
+            "id": 32,
+            "texture": "cake_side.png"
+        },
+        {
+            "name": "BLOCK_FLOWER",
+            "id": 33,
+            "texture": "potted_flowering_azalea_bush_plant.png"
+        },
+        {
+            "name": "BLOCK_SAPLING",
+            "id": 34,
+            "texture": "potted_flowering_azalea_bush_plant.png"
+        },
+        {
+            "name": "BLOCK_LOG",
+            "id": 35,
+            "texture": "birch_log.png"
+        },
+        {
+            "name": "BLOCK_MUSHROOM",
+            "id": 36,
+            "texture": "brown_mushroom.png"
+        },
+        {
+            "name": "BLOCK_GLASS",
+            "id": 37,
+            "texture": "glass.png"
+        }
+    ],
+    "defaulttexture": "debug.png"
+}

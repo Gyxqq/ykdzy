@@ -10,6 +10,7 @@
 #include "map.hpp"
 #include "log.hpp"
 #include "game.hpp"
+#define  ASSETS_PATH "D:\\projects\\ykdzy\\assets\\"
 int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 

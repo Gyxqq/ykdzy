@@ -42,7 +42,6 @@ enum block_type
     BLOCK_BED,               // 床
     BLOCK_CAKE,              // 蛋糕
     BLOCK_FLOWER,            // 花
-    BLOCK_PLANT,             // 植物
     BLOCK_SAPLING,           // 树苗
     BLOCK_LOG,               // 木头
     BLOCK_MUSHROOM,          // 蘑菇
