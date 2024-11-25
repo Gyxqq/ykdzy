@@ -66,6 +66,52 @@ namespace assets
     int assets::load_player_textures(std::string config_path)
     {
         glog::log("info", "Loading Player Textures: " + config_path, "assets");
+        FILE *file;
+        file = fopen(config_path.c_str(), "rb");
+        if (!file)
+        {
+            glog::log("error", "Failed to open file: " + config_path, "assets");
+            return -1;
+        }
+
+        fseek(file, 0, SEEK_END);
+        long size = ftell(file);
+        fseek(file, 0, SEEK_SET);
+        char *data = new char[size];
+        memset(data, 0, size);
+        size_t read_size = fread(data, 1, size, file);
+        if (read_size != size)
+        {
+            glog::log("error", "read size: " + std::to_string(read_size) + " != " + std::to_string(size), "assets");
+            delete[] data;
+            fclose(file);
+            return -1;
+        }
+        fclose(file);
+        cJSON *root = cJSON_Parse(data);
+        if (root == NULL)
+        {
+            glog::log("error", "Failed to parse json: " + std::string(cJSON_GetErrorPtr()), "assets");
+            delete[] data;
+            return -1;
+        }
+        cJSON *path = cJSON_GetObjectItem(root, "run_left");
+        for (int i = 0; i < 6; i++)
+        {
+            player_textures.run_left[i] = cJSON_GetArrayItem(path, i)->valuestring;
+        }
+        path = cJSON_GetObjectItem(root, "run_right");
+        for (int i = 0; i < 6; i++)
+        {
+            player_textures.run_right[i] = cJSON_GetArrayItem(path, i)->valuestring;
+        }
+        path = cJSON_GetObjectItem(root, "jump");
+        for (int i = 0; i < 6; i++)
+        {
+            player_textures.jump[i] = cJSON_GetArrayItem(path, i)->valuestring;
+        }
+        cJSON_Delete(root);
+        glog::log("info", "Loaded Player Textures", "assets");
         return 0;
     }
 

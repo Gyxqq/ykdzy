@@ -1,0 +1,28 @@
+{
+    "path": "D:\\projects\\ykdzy\\assets\\player\\",
+    "run_left": [
+        "run_left_0.png",
+        "run_left_1.png",
+        "run_left_2.png",
+        "run_left_3.png",
+        "run_left_4.png",
+        "run_left_5.png"
+    ],
+    "run_right": [
+        "run_right_0.png",
+        "run_right_1.png",
+        "run_right_2.png",
+        "run_right_3.png",
+        "run_right_4.png",
+        "run_right_5.png"
+    ],
+    "jump": [
+        "jump_0.png",
+        "jump_1.png",
+        "jump_2.png",
+        "jump_3.png",
+        "jump_4.png",
+        "jump_5.png"
+    ],
+    "stand": "stand.png"
+}

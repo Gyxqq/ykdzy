@@ -12,7 +12,8 @@
 #include "game.hpp"
 #include "assets.hpp"
 #include "render.hpp"
-#define  ASSETS_PATH "D:\\projects\\ykdzy\\assets\\blocks\\blockconfig.json"
+#define BLOCK_ASSETS_PATH "D:\\projects\\ykdzy\\assets\\blocks\\blockconfig.json"
+#define PLAYER_ASSETS_PATH "D:\\projects\\ykdzy\\assets\\players\\playerconfig.json"
 int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 
@@ -20,7 +21,8 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
     class game game;
     // game.init("D:\\projects\\ykdzy\\save1\\");
     game.load("D:\\projects\\ykdzy\\save1\\game.json");
-    assets::load_block_textures(ASSETS_PATH);
+    assets::load_block_textures(BLOCK_ASSETS_PATH);
+    assets::load_player_textures(PLAYER_ASSETS_PATH);
     render::init(1240, 720);
     game.save();
     glog::log("info", "Game Loaded", "main");
