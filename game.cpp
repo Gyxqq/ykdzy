@@ -140,12 +140,6 @@ int game::save()
     fclose(file);
     cJSON_Delete(root);
     delete[] data;
-    // int size = this->players.size();
-    // for (int i = 0; i < size; i++)
-    // {
-    //     glog::log("info", "Saving Player: " + this->players[i].name, "game");
-    //     this->players[i].save(this->savepath);
-    // }
 
     return 0;
 }

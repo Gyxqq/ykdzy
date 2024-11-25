@@ -4,7 +4,7 @@
         {
             "name": "BLOCK_AIR",
             "id": 0,
-            "texture": "air.png"
+            "texture": "debug.png"
         },
         {
             "name": "BLOCK_DIRT",

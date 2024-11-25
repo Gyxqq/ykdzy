@@ -11,6 +11,7 @@
 #include "log.hpp"
 #include "game.hpp"
 #include "assets.hpp"
+#include "render.hpp"
 #define  ASSETS_PATH "D:\\projects\\ykdzy\\assets\\blocks\\blockconfig.json"
 int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
@@ -20,9 +21,9 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
     // game.init("D:\\projects\\ykdzy\\save1\\");
     game.load("D:\\projects\\ykdzy\\save1\\game.json");
     assets::load_block_textures(ASSETS_PATH);
+    render::init(1240, 720);
     game.save();
     glog::log("info", "Game Loaded", "main");
-    // return 0;
 }
 
 // int main()
