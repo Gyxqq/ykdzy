@@ -1,4 +1,5 @@
 {
+    "path": "D:\\projects\\ykdzy\\assets\\blocks\\",
     "blocks": [
         {
             "name": "BLOCK_AIR",
@@ -161,5 +162,5 @@
             "texture": "glass.png"
         }
     ],
-    "defaulttexture": "debug.png"
+    "default_texture": "debug.png"
 }

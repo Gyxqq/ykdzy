@@ -10,7 +10,8 @@
 #include "map.hpp"
 #include "log.hpp"
 #include "game.hpp"
-#define  ASSETS_PATH "D:\\projects\\ykdzy\\assets\\"
+#include "assets.hpp"
+#define  ASSETS_PATH "D:\\projects\\ykdzy\\assets\\blocks\\blockconfig.json"
 int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 
@@ -18,6 +19,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
     class game game;
     // game.init("D:\\projects\\ykdzy\\save1\\");
     game.load("D:\\projects\\ykdzy\\save1\\game.json");
+    assets::load_block_textures(ASSETS_PATH);
     game.save();
     glog::log("info", "Game Loaded", "main");
     // return 0;

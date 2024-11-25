@@ -46,6 +46,7 @@ enum block_type
     BLOCK_LOG,               // 木头
     BLOCK_MUSHROOM,          // 蘑菇
     BLOCK_GLASS,             // 玻璃
+    BLOCK_MAX_INDEX         // 最大索引
 };
 enum item_type
 {
