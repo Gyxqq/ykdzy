@@ -95,24 +95,41 @@ namespace assets
             delete[] data;
             return -1;
         }
+        std::string texture_path = cJSON_GetObjectItem(root, "path")->valuestring;
         cJSON *path = cJSON_GetObjectItem(root, "run_left");
         for (int i = 0; i < 6; i++)
         {
-            player_textures.run_left[i] = cJSON_GetArrayItem(path, i)->valuestring;
+            player_textures.run_left[i] = texture_path + cJSON_GetArrayItem(path, i)->valuestring;
         }
         path = cJSON_GetObjectItem(root, "run_right");
         for (int i = 0; i < 6; i++)
         {
-            player_textures.run_right[i] = cJSON_GetArrayItem(path, i)->valuestring;
+            player_textures.run_right[i] = texture_path + cJSON_GetArrayItem(path, i)->valuestring;
         }
         path = cJSON_GetObjectItem(root, "jump");
         for (int i = 0; i < 6; i++)
         {
-            player_textures.jump[i] = cJSON_GetArrayItem(path, i)->valuestring;
+            player_textures.jump[i] = texture_path + cJSON_GetArrayItem(path, i)->valuestring;
         }
         cJSON_Delete(root);
         glog::log("info", "Loaded Player Textures", "assets");
         return 0;
+    }
+    std::string assets::get_player_texture(std::string type, int index)
+    {
+        if (type == "run_left")
+        {
+            return player_textures.run_left[index];
+        }
+        else if (type == "run_right")
+        {
+            return player_textures.run_right[index];
+        }
+        else if (type == "jump")
+        {
+            return player_textures.jump[index];
+        }
+        return "";
     }
 
 } // namespace assets

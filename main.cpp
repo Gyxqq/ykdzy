@@ -13,7 +13,7 @@
 #include "assets.hpp"
 #include "render.hpp"
 #define BLOCK_ASSETS_PATH "D:\\projects\\ykdzy\\assets\\blocks\\blockconfig.json"
-#define PLAYER_ASSETS_PATH "D:\\projects\\ykdzy\\assets\\players\\playerconfig.json"
+#define PLAYER_ASSETS_PATH "D:\\projects\\ykdzy\\assets\\player\\playerconfig.json"
 int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 
