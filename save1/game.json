@@ -1,7 +1,5 @@
 {
-	"savepath": "D:\\projects\\ykdzy\\save1\\",
-	"players": [
-		"00000.player"
-	],
-	"seed": 234234
+	"savepath":	"D:\\projects\\ykdzy\\save1\\",
+	"seed":	1731998645,
+	"players":	["00000.player"]
 }

@@ -76,6 +76,7 @@ enum chunk_type
     CHUNK_OCEAN,     // 海洋
     CHUNK_LAVA,      // 火山
     CHUNK_VOID,      // 虚空
+    CHUNK_TYPE_END
 };
 class item
 {
@@ -110,7 +111,7 @@ public:
     block *blocks;
     int block_count;
     int save(std::string name);
-    int load(std::string name,int seed);
+    int load(std::string name, int seed);
     int init(std::string name, int seed);
     ~chunk();
 };
@@ -135,5 +136,6 @@ public:
     int load_chunk_pos(std::string name, int unload_pos, int load_pos);
     int init(std::string name);
     int save();
+    chunk_type cauculate_chunk_type(int x, int seed);
     ~map();
 };

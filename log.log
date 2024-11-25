@@ -250,3 +250,311 @@
 [2024-11-18 16:25:47] [info] [map] Saved Chunk: 7
 [2024-11-18 16:25:48] [info] [game save] Saving Player: 00000.player
 [2024-11-18 16:25:53] [info] [main] Game Loaded
+[2024-11-19 14:25:02] [info] [main] Hello, world!
+[2024-11-19 14:25:02] [info] [game] Initializing Game: D:\projects\ykdzy\save1\
+[2024-11-19 14:25:02] [info] [map] Initializing Map: D:\projects\ykdzy\save1\
+[2024-11-19 14:25:02] [info] [chunk] Initialized Chunk: 0
+[2024-11-19 14:25:02] [info] [map] Initialized Chunk: 0
+[2024-11-19 14:25:02] [info] [chunk] Initialized Chunk: 1
+[2024-11-19 14:25:02] [info] [map] Initialized Chunk: 1
+[2024-11-19 14:25:02] [info] [chunk] Initialized Chunk: 2
+[2024-11-19 14:25:02] [info] [map] Initialized Chunk: 2
+[2024-11-19 14:25:02] [info] [chunk] Initialized Chunk: 3
+[2024-11-19 14:25:02] [info] [map] Initialized Chunk: 3
+[2024-11-19 14:25:02] [info] [chunk] Initialized Chunk: 4
+[2024-11-19 14:25:02] [info] [map] Initialized Chunk: 4
+[2024-11-19 14:25:02] [info] [chunk] Initialized Chunk: 5
+[2024-11-19 14:25:02] [info] [map] Initialized Chunk: 5
+[2024-11-19 14:25:02] [info] [chunk] Initialized Chunk: 6
+[2024-11-19 14:25:02] [info] [map] Initialized Chunk: 6
+[2024-11-19 14:25:02] [info] [chunk] Initialized Chunk: 7
+[2024-11-19 14:25:02] [info] [map] Initialized Chunk: 7
+[2024-11-19 14:25:02] [info] [game] Seed: 1731997502
+[2024-11-19 14:25:02] [info] [player] Initializing Player: 00000
+[2024-11-19 14:25:02] [info] [game] Saving Game
+[2024-11-19 14:25:02] [info] [chunk] Saved Chunk: 0 to D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-19 14:25:02] [info] [chunk] Save Time: 0.047110
+[2024-11-19 14:25:02] [info] [map] Saved Chunk: 0
+[2024-11-19 14:25:02] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\save1\chunk1.chunk
+[2024-11-19 14:25:02] [info] [chunk] Save Time: 0.026994
+[2024-11-19 14:25:02] [info] [map] Saved Chunk: 1
+[2024-11-19 14:25:03] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\save1\chunk2.chunk
+[2024-11-19 14:25:03] [info] [chunk] Save Time: 0.036115
+[2024-11-19 14:25:03] [info] [map] Saved Chunk: 2
+[2024-11-19 14:25:03] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\save1\chunk3.chunk
+[2024-11-19 14:25:03] [info] [chunk] Save Time: 0.023155
+[2024-11-19 14:25:03] [info] [map] Saved Chunk: 3
+[2024-11-19 14:25:03] [info] [chunk] Saved Chunk: 4 to D:\projects\ykdzy\save1\chunk4.chunk
+[2024-11-19 14:25:03] [info] [chunk] Save Time: 0.037542
+[2024-11-19 14:25:03] [info] [map] Saved Chunk: 4
+[2024-11-19 14:25:03] [info] [chunk] Saved Chunk: 5 to D:\projects\ykdzy\save1\chunk5.chunk
+[2024-11-19 14:25:03] [info] [chunk] Save Time: 0.028515
+[2024-11-19 14:25:03] [info] [map] Saved Chunk: 5
+[2024-11-19 14:25:03] [info] [chunk] Saved Chunk: 6 to D:\projects\ykdzy\save1\chunk6.chunk
+[2024-11-19 14:25:03] [info] [chunk] Save Time: 0.038176
+[2024-11-19 14:25:03] [info] [map] Saved Chunk: 6
+[2024-11-19 14:25:03] [info] [chunk] Saved Chunk: 7 to D:\projects\ykdzy\save1\chunk7.chunk
+[2024-11-19 14:25:03] [info] [chunk] Save Time: 0.037423
+[2024-11-19 14:25:03] [info] [map] Saved Chunk: 7
+[2024-11-19 14:25:03] [info] [game save] Saving Player: 00000.player
+[2024-11-19 14:25:03] [info] [main] Game Loaded
+[2024-11-19 14:34:37] [info] [main] Hello, world!
+[2024-11-19 14:34:37] [info] [game] Initializing Game: D:\projects\ykdzy\save1\
+[2024-11-19 14:34:37] [info] [map] Initializing Map: D:\projects\ykdzy\save1\
+[2024-11-19 14:34:37] [info] [chunk] Initialized Chunk: 0
+[2024-11-19 14:34:37] [info] [map] Initialized Chunk: 0
+[2024-11-19 14:34:37] [info] [chunk] Initialized Chunk: 1
+[2024-11-19 14:34:37] [info] [map] Initialized Chunk: 1
+[2024-11-19 14:34:37] [info] [chunk] Initialized Chunk: 2
+[2024-11-19 14:34:37] [info] [map] Initialized Chunk: 2
+[2024-11-19 14:34:37] [info] [chunk] Initialized Chunk: 3
+[2024-11-19 14:34:37] [info] [map] Initialized Chunk: 3
+[2024-11-19 14:34:37] [info] [chunk] Initialized Chunk: 4
+[2024-11-19 14:34:37] [info] [map] Initialized Chunk: 4
+[2024-11-19 14:34:37] [info] [chunk] Initialized Chunk: 5
+[2024-11-19 14:34:37] [info] [map] Initialized Chunk: 5
+[2024-11-19 14:34:38] [info] [chunk] Initialized Chunk: 6
+[2024-11-19 14:34:38] [info] [map] Initialized Chunk: 6
+[2024-11-19 14:34:38] [info] [chunk] Initialized Chunk: 7
+[2024-11-19 14:34:38] [info] [map] Initialized Chunk: 7
+[2024-11-19 14:34:38] [info] [game] Seed: 1731998077
+[2024-11-19 14:34:38] [info] [player] Initializing Player: 00000
+[2024-11-19 14:34:38] [info] [game] Saving Game
+[2024-11-19 14:34:38] [info] [chunk] Saved Chunk: 0 to D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-19 14:34:38] [info] [chunk] Save Time: 0.036536
+[2024-11-19 14:34:38] [info] [map] Saved Chunk: 0
+[2024-11-19 14:34:38] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\save1\chunk1.chunk
+[2024-11-19 14:34:38] [info] [chunk] Save Time: 0.039781
+[2024-11-19 14:34:38] [info] [map] Saved Chunk: 1
+[2024-11-19 14:34:38] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\save1\chunk2.chunk
+[2024-11-19 14:34:38] [info] [chunk] Save Time: 0.039145
+[2024-11-19 14:34:38] [info] [map] Saved Chunk: 2
+[2024-11-19 14:34:38] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\save1\chunk3.chunk
+[2024-11-19 14:34:38] [info] [chunk] Save Time: 0.042531
+[2024-11-19 14:34:38] [info] [map] Saved Chunk: 3
+[2024-11-19 14:34:38] [info] [chunk] Saved Chunk: 4 to D:\projects\ykdzy\save1\chunk4.chunk
+[2024-11-19 14:34:38] [info] [chunk] Save Time: 0.044950
+[2024-11-19 14:34:38] [info] [map] Saved Chunk: 4
+[2024-11-19 14:34:38] [info] [chunk] Saved Chunk: 5 to D:\projects\ykdzy\save1\chunk5.chunk
+[2024-11-19 14:34:38] [info] [chunk] Save Time: 0.031591
+[2024-11-19 14:34:38] [info] [map] Saved Chunk: 5
+[2024-11-19 14:34:38] [info] [chunk] Saved Chunk: 6 to D:\projects\ykdzy\save1\chunk6.chunk
+[2024-11-19 14:34:38] [info] [chunk] Save Time: 0.027067
+[2024-11-19 14:34:38] [info] [map] Saved Chunk: 6
+[2024-11-19 14:34:38] [info] [chunk] Saved Chunk: 7 to D:\projects\ykdzy\save1\chunk7.chunk
+[2024-11-19 14:34:38] [info] [chunk] Save Time: 0.043878
+[2024-11-19 14:34:38] [info] [map] Saved Chunk: 7
+[2024-11-19 14:34:38] [info] [game save] Saving Player: 00000.player
+[2024-11-19 14:34:38] [info] [main] Game Loaded
+[2024-11-19 14:39:43] [info] [main] Hello, world!
+[2024-11-19 14:39:43] [info] [game] Initializing Game: D:\projects\ykdzy\save1\
+[2024-11-19 14:39:43] [info] [map] Initializing Map: D:\projects\ykdzy\save1\
+[2024-11-19 14:39:43] [info] [chunk] Initialized Chunk: 0
+[2024-11-19 14:39:43] [info] [map] Initialized Chunk: 0
+[2024-11-19 14:39:43] [info] [chunk] Initialized Chunk: 1
+[2024-11-19 14:39:43] [info] [map] Initialized Chunk: 1
+[2024-11-19 14:39:43] [info] [chunk] Initialized Chunk: 2
+[2024-11-19 14:39:43] [info] [map] Initialized Chunk: 2
+[2024-11-19 14:39:43] [info] [chunk] Initialized Chunk: 3
+[2024-11-19 14:39:43] [info] [map] Initialized Chunk: 3
+[2024-11-19 14:39:43] [info] [chunk] Initialized Chunk: 4
+[2024-11-19 14:39:43] [info] [map] Initialized Chunk: 4
+[2024-11-19 14:39:43] [info] [chunk] Initialized Chunk: 5
+[2024-11-19 14:39:43] [info] [map] Initialized Chunk: 5
+[2024-11-19 14:39:43] [info] [chunk] Initialized Chunk: 6
+[2024-11-19 14:39:43] [info] [map] Initialized Chunk: 6
+[2024-11-19 14:39:43] [info] [chunk] Initialized Chunk: 7
+[2024-11-19 14:39:43] [info] [map] Initialized Chunk: 7
+[2024-11-19 14:39:43] [info] [game] Seed: 1731998383
+[2024-11-19 14:39:43] [info] [player] Initializing Player: 00000
+[2024-11-19 14:39:43] [info] [game] Saving Game
+[2024-11-19 14:39:43] [info] [chunk] Saved Chunk: 0 to D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-19 14:39:43] [info] [chunk] Save Time: 0.036639
+[2024-11-19 14:39:43] [info] [map] Saved Chunk: 0
+[2024-11-19 14:39:43] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\save1\chunk1.chunk
+[2024-11-19 14:39:43] [info] [chunk] Save Time: 0.022679
+[2024-11-19 14:39:43] [info] [map] Saved Chunk: 1
+[2024-11-19 14:39:44] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\save1\chunk2.chunk
+[2024-11-19 14:39:44] [info] [chunk] Save Time: 0.018960
+[2024-11-19 14:39:44] [info] [map] Saved Chunk: 2
+[2024-11-19 14:39:44] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\save1\chunk3.chunk
+[2024-11-19 14:39:44] [info] [chunk] Save Time: 0.017843
+[2024-11-19 14:39:44] [info] [map] Saved Chunk: 3
+[2024-11-19 14:39:44] [info] [chunk] Saved Chunk: 4 to D:\projects\ykdzy\save1\chunk4.chunk
+[2024-11-19 14:39:44] [info] [chunk] Save Time: 0.035899
+[2024-11-19 14:39:44] [info] [map] Saved Chunk: 4
+[2024-11-19 14:39:44] [info] [chunk] Saved Chunk: 5 to D:\projects\ykdzy\save1\chunk5.chunk
+[2024-11-19 14:39:44] [info] [chunk] Save Time: 0.025654
+[2024-11-19 14:39:44] [info] [map] Saved Chunk: 5
+[2024-11-19 14:39:44] [info] [chunk] Saved Chunk: 6 to D:\projects\ykdzy\save1\chunk6.chunk
+[2024-11-19 14:39:44] [info] [chunk] Save Time: 0.026180
+[2024-11-19 14:39:44] [info] [map] Saved Chunk: 6
+[2024-11-19 14:39:44] [info] [chunk] Saved Chunk: 7 to D:\projects\ykdzy\save1\chunk7.chunk
+[2024-11-19 14:39:44] [info] [chunk] Save Time: 0.028238
+[2024-11-19 14:39:44] [info] [map] Saved Chunk: 7
+[2024-11-19 14:39:44] [info] [game save] Saving Player: 00000.player
+[2024-11-19 14:39:44] [info] [main] Game Loaded
+[2024-11-19 14:40:26] [info] [main] Hello, world!
+[2024-11-19 14:40:26] [info] [game] Initializing Game: D:\projects\ykdzy\save1\
+[2024-11-19 14:40:26] [info] [map] Initializing Map: D:\projects\ykdzy\save1\
+[2024-11-19 14:40:26] [info] [chunk] Initialized Chunk: 0
+[2024-11-19 14:40:26] [info] [map] Initialized Chunk: 0
+[2024-11-19 14:40:26] [info] [chunk] Initialized Chunk: 1
+[2024-11-19 14:40:26] [info] [map] Initialized Chunk: 1
+[2024-11-19 14:40:26] [info] [chunk] Initialized Chunk: 2
+[2024-11-19 14:40:26] [info] [map] Initialized Chunk: 2
+[2024-11-19 14:40:26] [info] [chunk] Initialized Chunk: 3
+[2024-11-19 14:40:26] [info] [map] Initialized Chunk: 3
+[2024-11-19 14:40:26] [info] [chunk] Initialized Chunk: 4
+[2024-11-19 14:40:26] [info] [map] Initialized Chunk: 4
+[2024-11-19 14:40:26] [info] [chunk] Initialized Chunk: 5
+[2024-11-19 14:40:26] [info] [map] Initialized Chunk: 5
+[2024-11-19 14:40:26] [info] [chunk] Initialized Chunk: 6
+[2024-11-19 14:40:26] [info] [map] Initialized Chunk: 6
+[2024-11-19 14:40:26] [info] [chunk] Initialized Chunk: 7
+[2024-11-19 14:40:26] [info] [map] Initialized Chunk: 7
+[2024-11-19 14:40:26] [info] [game] Seed: 1731998426
+[2024-11-19 14:40:26] [info] [player] Initializing Player: 00000
+[2024-11-19 14:40:26] [info] [game] Saving Game
+[2024-11-19 14:40:26] [info] [chunk] Saved Chunk: 0 to D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-19 14:40:26] [info] [chunk] Save Time: 0.029653
+[2024-11-19 14:40:26] [info] [map] Saved Chunk: 0
+[2024-11-19 14:40:26] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\save1\chunk1.chunk
+[2024-11-19 14:40:26] [info] [chunk] Save Time: 0.026740
+[2024-11-19 14:40:26] [info] [map] Saved Chunk: 1
+[2024-11-19 14:40:27] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\save1\chunk2.chunk
+[2024-11-19 14:40:27] [info] [chunk] Save Time: 0.025414
+[2024-11-19 14:40:27] [info] [map] Saved Chunk: 2
+[2024-11-19 14:40:27] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\save1\chunk3.chunk
+[2024-11-19 14:40:27] [info] [chunk] Save Time: 0.022532
+[2024-11-19 14:40:27] [info] [map] Saved Chunk: 3
+[2024-11-19 14:40:27] [info] [chunk] Saved Chunk: 4 to D:\projects\ykdzy\save1\chunk4.chunk
+[2024-11-19 14:40:27] [info] [chunk] Save Time: 0.034814
+[2024-11-19 14:40:27] [info] [map] Saved Chunk: 4
+[2024-11-19 14:40:27] [info] [chunk] Saved Chunk: 5 to D:\projects\ykdzy\save1\chunk5.chunk
+[2024-11-19 14:40:27] [info] [chunk] Save Time: 0.036177
+[2024-11-19 14:40:27] [info] [map] Saved Chunk: 5
+[2024-11-19 14:40:27] [info] [chunk] Saved Chunk: 6 to D:\projects\ykdzy\save1\chunk6.chunk
+[2024-11-19 14:40:27] [info] [chunk] Save Time: 0.017665
+[2024-11-19 14:40:27] [info] [map] Saved Chunk: 6
+[2024-11-19 14:40:27] [info] [chunk] Saved Chunk: 7 to D:\projects\ykdzy\save1\chunk7.chunk
+[2024-11-19 14:40:27] [info] [chunk] Save Time: 0.025666
+[2024-11-19 14:40:27] [info] [map] Saved Chunk: 7
+[2024-11-19 14:40:27] [info] [game save] Saving Player: 00000.player
+[2024-11-19 14:40:27] [info] [main] Game Loaded
+[2024-11-19 14:44:05] [info] [main] Hello, world!
+[2024-11-19 14:44:05] [info] [game] Initializing Game: D:\projects\ykdzy\save1\
+[2024-11-19 14:44:05] [info] [map] Initializing Map: D:\projects\ykdzy\save1\
+[2024-11-19 14:44:05] [info] [chunk] Initialized Chunk: 0
+[2024-11-19 14:44:05] [info] [map] Initialized Chunk: 0
+[2024-11-19 14:44:05] [info] [chunk] Initialized Chunk: 1
+[2024-11-19 14:44:05] [info] [map] Initialized Chunk: 1
+[2024-11-19 14:44:05] [info] [chunk] Initialized Chunk: 2
+[2024-11-19 14:44:05] [info] [map] Initialized Chunk: 2
+[2024-11-19 14:44:05] [info] [chunk] Initialized Chunk: 3
+[2024-11-19 14:44:05] [info] [map] Initialized Chunk: 3
+[2024-11-19 14:44:05] [info] [chunk] Initialized Chunk: 4
+[2024-11-19 14:44:05] [info] [map] Initialized Chunk: 4
+[2024-11-19 14:44:05] [info] [chunk] Initialized Chunk: 5
+[2024-11-19 14:44:05] [info] [map] Initialized Chunk: 5
+[2024-11-19 14:44:05] [info] [chunk] Initialized Chunk: 6
+[2024-11-19 14:44:05] [info] [map] Initialized Chunk: 6
+[2024-11-19 14:44:05] [info] [chunk] Initialized Chunk: 7
+[2024-11-19 14:44:05] [info] [map] Initialized Chunk: 7
+[2024-11-19 14:44:05] [info] [game] Seed: 1731998645
+[2024-11-19 14:44:05] [info] [player] Initializing Player: 00000
+[2024-11-19 14:44:05] [info] [game] Saving Game
+[2024-11-19 14:44:05] [info] [chunk] Saved Chunk: 0 to D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-19 14:44:05] [info] [chunk] Save Time: 0.025277
+[2024-11-19 14:44:05] [info] [map] Saved Chunk: 0
+[2024-11-19 14:44:05] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\save1\chunk1.chunk
+[2024-11-19 14:44:05] [info] [chunk] Save Time: 0.026800
+[2024-11-19 14:44:05] [info] [map] Saved Chunk: 1
+[2024-11-19 14:44:05] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\save1\chunk2.chunk
+[2024-11-19 14:44:05] [info] [chunk] Save Time: 0.023184
+[2024-11-19 14:44:05] [info] [map] Saved Chunk: 2
+[2024-11-19 14:44:05] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\save1\chunk3.chunk
+[2024-11-19 14:44:05] [info] [chunk] Save Time: 0.020179
+[2024-11-19 14:44:05] [info] [map] Saved Chunk: 3
+[2024-11-19 14:44:06] [info] [chunk] Saved Chunk: 4 to D:\projects\ykdzy\save1\chunk4.chunk
+[2024-11-19 14:44:06] [info] [chunk] Save Time: 0.019517
+[2024-11-19 14:44:06] [info] [map] Saved Chunk: 4
+[2024-11-19 14:44:06] [info] [chunk] Saved Chunk: 5 to D:\projects\ykdzy\save1\chunk5.chunk
+[2024-11-19 14:44:06] [info] [chunk] Save Time: 0.020266
+[2024-11-19 14:44:06] [info] [map] Saved Chunk: 5
+[2024-11-19 14:44:06] [info] [chunk] Saved Chunk: 6 to D:\projects\ykdzy\save1\chunk6.chunk
+[2024-11-19 14:44:06] [info] [chunk] Save Time: 0.020198
+[2024-11-19 14:44:06] [info] [map] Saved Chunk: 6
+[2024-11-19 14:44:06] [info] [chunk] Saved Chunk: 7 to D:\projects\ykdzy\save1\chunk7.chunk
+[2024-11-19 14:44:06] [info] [chunk] Save Time: 0.018020
+[2024-11-19 14:44:06] [info] [map] Saved Chunk: 7
+[2024-11-19 14:44:06] [info] [game save] Saving Player: 00000.player
+[2024-11-19 14:44:06] [info] [main] Game Loaded
+[2024-11-19 14:44:36] [info] [main] Hello, world!
+[2024-11-19 14:44:36] [info] [game loader] Loading Game: D:\projects\ykdzy\save1\game.json
+[2024-11-19 14:44:36] [info] [game loader] File size: 102
+[2024-11-19 14:44:36] [info] [game loader] get Savepath: D:\projects\ykdzy\save1\
+[2024-11-19 14:44:36] [info] [map] Loading Map: D:\projects\ykdzy\save1\
+[2024-11-19 14:44:36] [error] [chunk] Invalid block count: 0
+[2024-11-19 14:44:36] [info] [map] Saved Chunk: 0
+[2024-11-19 14:44:36] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk-4.chunk
+[2024-11-19 14:44:36] [info] [chunk] Initialized Chunk: -4
+[2024-11-19 14:44:36] [info] [game loader] Loading Chunk: -4
+[2024-11-19 14:44:36] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-19 14:44:36] [info] [map] Saved Chunk: 1
+[2024-11-19 14:44:36] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk-3.chunk
+[2024-11-19 14:44:36] [info] [chunk] Initialized Chunk: -3
+[2024-11-19 14:44:36] [info] [game loader] Loading Chunk: -3
+[2024-11-19 14:44:36] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-19 14:44:36] [info] [map] Saved Chunk: 2
+[2024-11-19 14:44:36] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk-2.chunk
+[2024-11-19 14:44:36] [info] [chunk] Initialized Chunk: -2
+[2024-11-19 14:44:36] [info] [game loader] Loading Chunk: -2
+[2024-11-19 14:44:36] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-19 14:44:36] [info] [map] Saved Chunk: 3
+[2024-11-19 14:44:36] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk-1.chunk
+[2024-11-19 14:44:36] [info] [chunk] Initialized Chunk: -1
+[2024-11-19 14:44:36] [info] [game loader] Loading Chunk: -1
+[2024-11-19 14:44:36] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-19 14:44:36] [info] [map] Saved Chunk: 4
+[2024-11-19 14:44:36] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-19 14:44:36] [info] [chunk] Initialized Chunk: 0
+[2024-11-19 14:44:36] [info] [game loader] Loading Chunk: 0
+[2024-11-19 14:44:36] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-19 14:44:36] [info] [map] Saved Chunk: 5
+[2024-11-19 14:44:36] [info] [chunk] File size: 2162712
+[2024-11-19 14:44:36] [info] [game loader] Loading Chunk: 1
+[2024-11-19 14:44:36] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-19 14:44:36] [info] [map] Saved Chunk: 6
+[2024-11-19 14:44:36] [info] [chunk] File size: 2162712
+[2024-11-19 14:44:36] [info] [game loader] Loading Chunk: 2
+[2024-11-19 14:44:36] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-19 14:44:36] [info] [map] Saved Chunk: 7
+[2024-11-19 14:44:36] [info] [chunk] File size: 2162712
+[2024-11-19 14:44:36] [info] [game loader] Loading Chunk: 3
+[2024-11-19 14:44:38] [info] [game] Saving Game
+[2024-11-19 14:44:39] [info] [chunk] Saved Chunk: -4 to D:\projects\ykdzy\save1\chunk-4.chunk
+[2024-11-19 14:44:39] [info] [chunk] Save Time: 0.015517
+[2024-11-19 14:44:39] [info] [map] Saved Chunk: 0
+[2024-11-19 14:44:39] [info] [chunk] Saved Chunk: -3 to D:\projects\ykdzy\save1\chunk-3.chunk
+[2024-11-19 14:44:39] [info] [chunk] Save Time: 0.031355
+[2024-11-19 14:44:39] [info] [map] Saved Chunk: 1
+[2024-11-19 14:44:39] [info] [chunk] Saved Chunk: -2 to D:\projects\ykdzy\save1\chunk-2.chunk
+[2024-11-19 14:44:39] [info] [chunk] Save Time: 0.020152
+[2024-11-19 14:44:39] [info] [map] Saved Chunk: 2
+[2024-11-19 14:44:39] [info] [chunk] Saved Chunk: -1 to D:\projects\ykdzy\save1\chunk-1.chunk
+[2024-11-19 14:44:39] [info] [chunk] Save Time: 0.017820
+[2024-11-19 14:44:39] [info] [map] Saved Chunk: 3
+[2024-11-19 14:44:39] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk0.chunk
+[2024-11-19 14:44:39] [info] [map] Saved Chunk: 4
+[2024-11-19 14:44:39] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\save1\chunk1.chunk
+[2024-11-19 14:44:39] [info] [chunk] Save Time: 0.018314
+[2024-11-19 14:44:40] [info] [map] Saved Chunk: 5
+[2024-11-19 14:44:40] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\save1\chunk2.chunk
+[2024-11-19 14:44:40] [info] [chunk] Save Time: 0.032225
+[2024-11-19 14:44:40] [info] [map] Saved Chunk: 6
+[2024-11-19 14:44:40] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\save1\chunk3.chunk
+[2024-11-19 14:44:40] [info] [chunk] Save Time: 0.025149
+[2024-11-19 14:44:40] [info] [map] Saved Chunk: 7
+[2024-11-19 14:44:43] [info] [game save] Saving Player: 00000.player
+[2024-11-19 14:44:44] [info] [main] Game Loaded

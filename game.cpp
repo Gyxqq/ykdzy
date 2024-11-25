@@ -16,8 +16,8 @@ int game::init(std::string name)
     this->players.push_back(player());
     cJSON *root = cJSON_CreateObject();
     cJSON_AddStringToObject(root, "savepath", this->savepath.c_str());
-    cJSON_AddNumberToObject(root, "seed", seed);
     glog::log("info", "Seed: " + std::to_string(seed), "game");
+    cJSON_AddNumberToObject(root, "seed", seed);
     cJSON *players = cJSON_CreateArray();
     std::string player_savepath = "00000.player";
     // this->players[0].save(this->savepath);
@@ -118,6 +118,7 @@ int game::save()
     this->world.save();
     cJSON *root = cJSON_CreateObject();
     cJSON_AddStringToObject(root, "savepath", this->savepath.c_str());
+    cJSON_AddNumberToObject(root, "seed", this->world.seed);
     cJSON *players = cJSON_CreateArray();
     for (int i = 0; i < this->players.size(); i++)
     {

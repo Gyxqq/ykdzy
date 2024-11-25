@@ -5,6 +5,7 @@
 #include <cJSON.h>
 #include <sys/stat.h>
 #include <chrono>
+#include <stack>
 int map::load(std::string name)
 {
     glog::log("info", "Loading Map: " + name, "map");
@@ -32,7 +33,7 @@ int map::load_chunk(std::string name, int unload_index, int load_index) // å°†åŒ
             this->chunks[i].save(*this->config.savepath);
             glog::log("info", "Saved Chunk: " + std::to_string(unload_index), "map");
             this->chunks[i].x = load_index;
-            this->chunks[i].load(*this->config.savepath,this->seed);
+            this->chunks[i].load(*this->config.savepath, this->seed);
             glog::log("info", "Loaded Chunk: " + std::to_string(load_index), "map");
             return 0;
         }
@@ -46,7 +47,7 @@ int map::load_chunk_pos(std::string name, int unload_pos, int load_pos) // å°†åŒ
     this->chunks[unload_pos].save(*this->config.savepath);
     glog::log("info", "Saved Chunk: " + std::to_string(unload_pos), "map");
     this->chunks[unload_pos].x = load_pos;
-    this->chunks[unload_pos].load(*this->config.savepath,this->seed);
+    this->chunks[unload_pos].load(*this->config.savepath, this->seed);
     return 0;
 }
 
@@ -75,7 +76,8 @@ int map::init(std::string name)
     for (int i = 0; i < CHUNKS_PER_MAP_X; i++)
     {
         this->chunks[i].x = i;
-        this->chunks[i].init(*this->config.savepath,this->seed);
+        this->chunks[i].type = this->cauculate_chunk_type(i, this->seed);
+        this->chunks[i].init(*this->config.savepath, this->seed);
         glog::log("info", "Initialized Chunk: " + std::to_string(i), "map");
     }
     return 0;
@@ -116,7 +118,7 @@ int chunk::save(std::string name)
     glog::log("info", "Save Time: " + std::to_string(elapsed.count()), "chunk");
     return 0;
 }
-int chunk::load(std::string name,int seed)
+int chunk::load(std::string name, int seed)
 {
     FILE *file;
     name.append("chunk" + std::to_string(this->x));
@@ -125,7 +127,7 @@ int chunk::load(std::string name,int seed)
     if (!file)
     {
         glog::log("error", "Failed to open file: " + name, "chunk");
-        this->init(name,seed);
+        this->init(name, seed);
         return -1;
     }
     long long size = 0;
@@ -139,7 +141,7 @@ int chunk::load(std::string name,int seed)
     {
         glog::log("error", "Failed to get file size: " + name, "chunk");
         fclose(file);
-        this->init(name,seed);
+        this->init(name, seed);
         return -1;
     }
     char *data = new char[size];
@@ -194,21 +196,48 @@ int chunk::load(std::string name,int seed)
     delete[] data;
     return 0;
 }
-int chunk::init(std::string name,int seed)
+int chunk::init(std::string name, int seed)
 {
     // this->x = 0;
-    this->type = chunk_type::CHUNK_DESERT;
+    // this->type = chunk_type::CHUNK_DESERT;
     this->block_count = BLOCKS_PER_CHUNK_X * BLOCKS_PER_CHUNK_Y;
     this->blocks = new class block[this->block_count];
     memset(this->blocks, 0, this->block_count * sizeof(class block));
-    for (int i = 0; i < this->block_count; i++)
+    int level = 32 + rand() % 6;
+    if (this->type == chunk_type::CHUNK_GRASSLAND)
     {
-        this->blocks[i].x = i % BLOCKS_PER_CHUNK_X;
-        this->blocks[i].y = i / BLOCKS_PER_CHUNK_X;
-        this->blocks[i].type = block_type::BLOCK_DIRT;
-        this->blocks[i].data_size = 1024;
-        this->blocks[i].data = new char[this->blocks[i].data_size];
+        for (int i = 0; i < this->block_count; i++)
+        {
+            this->blocks[i].x = i % BLOCKS_PER_CHUNK_X;
+            this->blocks[i].y = i / BLOCKS_PER_CHUNK_X;
+            if (this->blocks[i].y <= level)
+            {
+                this->blocks[i].type = block_type::BLOCK_GRASS;
+            }
+            else
+            {
+                this->blocks[i].type = block_type::BLOCK_AIR;
+            }
+        }
+        for (int i = 0; i < this->block_count; i++)
+        {
+            if (this->blocks[i].y == level)
+            {
+                if (rand() % 100 < 10)
+                {
+                    std::stack<class block> stack;
+                    stack.push(this->blocks[i]);
+                    while (!stack.empty())
+                    {
+                        class block current = stack.top();
+                        stack.pop();                       
+                    }                    
+                    
+                }
+            }
+        }
     }
+
     glog::log("info", "Initialized Chunk: " + std::to_string(this->x), "chunk");
     return 0;
 }
@@ -232,4 +261,10 @@ map::~map()
         delete[] this->chunks;
     delete this->config.savepath;
     delete this->config.name;
+}
+chunk_type map::cauculate_chunk_type(int x, int seed)
+{
+    x = x / 4;
+    int y = abs(((x + seed) * 54 / 2 - 42233) * 7 / 3);
+    return (chunk_type)(y % (chunk_type::CHUNK_TYPE_END));
 }
