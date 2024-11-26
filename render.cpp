@@ -3,18 +3,22 @@
 #include "log.hpp"
 #include "assets.hpp"
 #include "game.hpp"
+#include <queue>
 namespace render
 {
     IMAGE block_textures[block_type::BLOCK_MAX_INDEX];
     IMAGE player_textures[3][6];
     int width;
     int height;
+    std::deque<int> fps_queue;
     int init(int width, int height)
     {
         glog::log("info", "Initializing Render", "render");
         initgraph(width, height);
         render::width = width;
         render::height = height;
+        settextstyle(20, 0, _T("宋体"));
+        settextcolor(WHITE);
         BeginBatchDraw();
         for (int i = 0; i < block_type::BLOCK_MAX_INDEX; i++)
         {
@@ -39,6 +43,8 @@ namespace render
     int update_frame(game *game)
     {
         // rendplayer in center
+        // start time
+        auto start = std::chrono::high_resolution_clock::now();
         player player = game->players[0];
         // glog::log("info", "player x: " + std::to_string(player.x) + " y: " + std::to_string(player.y), "render");
         int x, y;
@@ -55,13 +61,30 @@ namespace render
             {
 
                 block_type block = game->world.get_block(x_start_pos + i, y_start_pos + j);
-                putimage(i * 32,render::reverse_y(j * 32), &block_textures[block]);
+                putimage(i * 32, render::reverse_y(j * 32), &block_textures[block]);
             }
         }
         x = render::width / 2 - 16;
         y = render::height / 2 - 16;
         putimage(x, y, &player_textures[0][0], SRCPAINT);
+        auto end = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> elapsed = end - start;
+        if (elapsed.count() < 0.01)
+            Sleep((0.01 - elapsed.count()) * 1000);
+        end = std::chrono::high_resolution_clock::now();
+        elapsed = end - start;
+        if (fps_queue.size() > 200)
+            fps_queue.pop_front();
+        fps_queue.push_back(1 / elapsed.count());
+        // 计算fps
+        int sum = 0;
+        for (int i = 0; i < fps_queue.size(); i++)
+        {
+            sum += fps_queue[i];
+        }
+        outtextxy(0, 0, ("FPS:" + std::to_string(sum / fps_queue.size())).c_str());
         FlushBatchDraw();
+        // end time
         return 0;
     }
     int reverse_y(int y)

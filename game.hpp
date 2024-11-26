@@ -25,5 +25,6 @@ public:
     std::string savepath;
     int init(std::string name);
     int load(std::string name);
+    int update();
     int save();
 };

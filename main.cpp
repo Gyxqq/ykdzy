@@ -12,6 +12,9 @@
 #include "game.hpp"
 #include "assets.hpp"
 #include "render.hpp"
+#include <mutex>
+#include <thread>
+std::mutex global_mutex;
 #define BLOCK_ASSETS_PATH "D:\\projects\\ykdzy\\assets\\blocks\\blockconfig.json"
 #define PLAYER_ASSETS_PATH "D:\\projects\\ykdzy\\assets\\player\\playerconfig.json"
 int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
@@ -23,12 +26,25 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
     game0.save();
     class game game;
     game.load("D:\\projects\\ykdzy\\save1\\game.json");
+    game.save();
     assets::load_block_textures(BLOCK_ASSETS_PATH);
     assets::load_player_textures(PLAYER_ASSETS_PATH);
     render::init(1240, 720);
+    std::thread game_thread([&game]()
+                            {
+                                while (1)
+                                {
+                                    game.update();
+                                }
+                            });
+
     while (1)
     {
+        // game.update();
+        global_mutex.lock();
         render::update_frame(&game);
+        global_mutex.unlock();
+        Sleep(1);
     }
     game.save();
     glog::log("info", "Game Loaded", "main");

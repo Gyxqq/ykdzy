@@ -5,6 +5,9 @@
 #include "cJSON.h"
 #include <time.h>
 #include <sys/stat.h>
+#include <graphics.h>
+#define SPEED 0.3
+extern std::mutex global_mutex;
 int game::init(std::string name)
 {
     int seed = time(NULL);
@@ -38,7 +41,7 @@ int game::init(std::string name)
     this->players[0].init("00000");
     for (int i = 0; i < BLOCKS_PER_CHUNK_Y; i++)
     {
-        if (this->world.chunks[0].blocks[i*BLOCKS_PER_CHUNK_X].type == block_type::BLOCK_AIR)
+        if (this->world.chunks[0].blocks[i * BLOCKS_PER_CHUNK_X].type == block_type::BLOCK_AIR)
         {
             this->players[0].y = i;
             glog::log("info", "Player y: " + std::to_string(i), "game");
@@ -207,5 +210,36 @@ int player::load(std::string name)
         }
     }
     fclose(file);
+    return 0;
+}
+int game::update()
+{
+    // auto msg = getmessage(EX_KEY);
+    ExMessage msg;
+    peekmessage(&msg, EX_KEY);
+    global_mutex.lock();
+    if (msg.message == WM_KEYDOWN)
+    {
+        switch (msg.vkcode)
+        {
+        case VK_LEFT:
+            this->players[0].x -= SPEED;
+            break;
+        case VK_RIGHT:
+            this->players[0].x += SPEED;
+            break;
+        case VK_UP:
+            this->players[0].y += SPEED;
+            break;
+        case VK_DOWN:
+            this->players[0].y -= SPEED;
+            break;
+        case VK_ESCAPE:
+            this->save();
+            exit(0);
+        }
+    }
+    global_mutex.unlock();
+    Sleep(1);
     return 0;
 }
