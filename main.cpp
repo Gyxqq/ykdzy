@@ -36,7 +36,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
                                 while (exit_flag == 0)
                                 {
                                     game.update();
-                                    Sleep(5);
+                                    Sleep(1);
                                 } });
 
     while (exit_flag == 0)

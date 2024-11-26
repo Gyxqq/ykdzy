@@ -6,9 +6,10 @@
 #include <time.h>
 #include <sys/stat.h>
 #include <graphics.h>
-#define SPEED 0.3
+#define SPEED 0.05
 extern std::mutex global_mutex;
 extern int exit_flag;
+int allow_fly = 1;
 BOOL IsKeyPressed(int vKey) { return (GetAsyncKeyState(vKey) & 0x8000) != 0; }
 int game::init(std::string name)
 {
@@ -45,7 +46,7 @@ int game::init(std::string name)
     {
         if (this->world.chunks[0].blocks[i * BLOCKS_PER_CHUNK_X].type == block_type::BLOCK_AIR)
         {
-            this->players[0].y = i;
+            this->players[0].y = i + 16;
             glog::log("info", "Player y: " + std::to_string(i), "game");
             break;
         }
@@ -168,6 +169,9 @@ int player::init(std::string name)
     this->y = 0;
     this->health = 100;
     this->hunger = 100;
+    this->run = 0;
+    this->run_state = 0;
+    this->gui_open = 0;
     memset(this->items, 0, sizeof(class item) * MAX_ITEMS);
     return 0;
 }
@@ -213,27 +217,93 @@ int player::load(std::string name)
         }
     }
     fclose(file);
+    this->run = 0;
+    this->run_state = 0;
+    this->gui_open = 0;
+    glog::log("info", "Player Loaded: " + name, "player");
     return 0;
 }
 int game::update()
 {
 
     global_mutex.lock();
+    if (allow_fly) // fly mode
+    {
+        if (IsKeyPressed(VK_UP))
+        {
+            this->players[0].y += SPEED;
+        }
+        if (IsKeyPressed(VK_DOWN))
+        {
+            this->players[0].y -= SPEED;
+        }
+    }
+    if (this->players[0].run == 3 && this->players[0].run_state <= 30)
+    {
+        this->players[0].run_state++;
+        this->players[0].y += 0.1;
+    }
+    else if (this->players[0].run == 3 && this->players[0].run_state > 30)
+    {
+        this->players[0].run = 0;
+        this->players[0].run_state = 0;
+    }
     if (IsKeyPressed(VK_LEFT))
     {
         this->players[0].x -= SPEED;
+        if (this->players[0].run == 3)
+        {
+        }
+        else if (this->players[0].run != 1)
+        {
+            this->players[0].run = 1;
+            this->players[0].run_state = 0;
+        }
+        else
+        {
+            this->players[0].run_state = (this->players[0].run_state + 1) % 6;
+        }
     }
     if (IsKeyPressed(VK_RIGHT))
     {
         this->players[0].x += SPEED;
+        if (this->players[0].run == 3)
+        {
+        }
+        else if (this->players[0].run != 3)
+        {
+            this->players[0].run = 2;
+            this->players[0].run_state = 0;
+        }
+        else
+        {
+            this->players[0].run_state = (this->players[0].run_state + 1) % 6;
+        }
     }
-    if (IsKeyPressed(VK_UP))
+    if (!player_on_ground(&this->players[0]))
     {
-        this->players[0].y += SPEED;
+        if (this->players[0].run != 3)
+        {
+
+            float dist = get_distance_to_ground(&this->players[0]);
+            if (dist < 0.2)
+            {
+                this->players[0].y -= dist;
+            }
+            else
+            {
+                this->players[0].y -= 0.2;
+            }
+        }
     }
-    if (IsKeyPressed(VK_DOWN))
+    else if (IsKeyPressed(VK_SPACE))
     {
-        this->players[0].y -= SPEED;
+        this->players[0].y += 1;
+        if (this->players[0].run != 3)
+        {
+            this->players[0].run = 3;
+            this->players[0].run_state = 0;
+        }
     }
     if (IsKeyPressed(VK_ESCAPE))
     {
@@ -273,5 +343,49 @@ int game::update()
         }
     }
     // Sleep(1);
+    return 0;
+}
+int game::player_on_ground(player *player)
+{
+    int x1, x2, y1, y2;
+    // 确定玩家站在哪个方块上
+    x1 = player->x - 0.45;
+    x2 = player->x + 0.45;
+    y1 = player->y - 0.55;
+    y2 = player->y - 0.55;
+    if (this->world.get_block(x1, y1) == block_type::BLOCK_AIR && this->world.get_block(x2, y2) == block_type::BLOCK_AIR)
+    {
+        return 0;
+    }
+    if (this->world.get_block(x1, y1) == block_type::BLOCK_SKY && this->world.get_block(x2, y2) == block_type::BLOCK_SKY)
+    {
+        return 0;
+    }
+    if (this->world.get_block(x1, y1) == block_type::BLOCK_VOID && this->world.get_block(x2, y2) == block_type::BLOCK_VOID)
+    {
+        return 0;
+    }
+
+    return 1;
+}
+float game::get_distance_to_ground(player *player)
+{
+    int x1, x2, y1, y2;
+    // 确定玩家站在哪个方块上
+    x1 = player->x - 0.5;
+    x2 = player->x + 0.5;
+    y1 = player->y - 0.6 + 1;
+    y2 = player->y - 0.6 + 1;
+    int distance = 0;
+    if ((this->world.get_block(x1, y1) == block_type::BLOCK_AIR || this->world.get_block(x2, y2) == block_type::BLOCK_AIR) && (this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x2, y2) != block_type::BLOCK_SKY) && (this->world.get_block(x1, y1) != block_type::BLOCK_VOID && this->world.get_block(x2, y2) != block_type::BLOCK_VOID))
+        return 1;
+    if (this->world.get_block(x1, y1) != block_type::BLOCK_AIR && this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x1, y1) != block_type::BLOCK_VOID)
+    {
+        distance = player->y - 0.6 - y1 + 1;
+    }
+    return distance;
+}
+int game::player_attack_side(player*player ,int side)
+{
     return 0;
 }

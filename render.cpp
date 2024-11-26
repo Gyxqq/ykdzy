@@ -6,7 +6,7 @@
 #include <queue>
 namespace render
 {
-  
+
     IMAGE block_textures[block_type::BLOCK_MAX_INDEX];
     IMAGE player_textures[3][6];
     int width;
@@ -51,15 +51,16 @@ namespace render
     {
         // rendplayer in center
         // start time
+        cleardevice();
         auto start = std::chrono::high_resolution_clock::now();
         player player = game->players[0];
         // glog::log("info", "player x: " + std::to_string(player.x) + " y: " + std::to_string(player.y), "render");
         int x, y;
-        // render blocks block大小64*64
-        x = player.x - 16;
-        y = player.y - 16;
-        int x_block = render::width / 32 + 1;
-        int y_block = render::height / 32 + 2;
+        // render blocks block大小32*32
+        x = player.x;
+        y = player.y;
+        int x_block = render::width / 32 + 4;
+        int y_block = render::height / 32 + 4;
         int x_start_pos = player.x - x_block / 2;
         int y_start_pos = player.y - y_block / 2;
         for (int i = 0; i < x_block; i++)
@@ -68,11 +69,17 @@ namespace render
             {
 
                 block_type block = game->world.get_block(x_start_pos + i, y_start_pos + j);
-                putimage(i * 32, render::reverse_y(j * 32), &block_textures[block]);
+                if (block < block_type::BLOCK_AIR || block >= block_type::BLOCK_MAX_INDEX)
+                    glog::log("error", "Block out of range: " + std::to_string(block), "render");
+                // 计算方块在屏幕上的位置
+                int pos_x = render::width / 2 - (player.x - x_start_pos * 1.0) * 32 + i * 32-16;
+                int pos_y = render::height / 2 - (player.y - y_start_pos * 1.0) * 32 + j * 32+16;
+
+                putimage(pos_x, reverse_y(pos_y), &block_textures[block], SRCPAINT);
             }
         }
-        x = render::width / 2 - 16;
-        y = render::height / 2 - 16;
+        x = render::width / 2;
+        y = render::height / 2;
         putimage(x, y, &player_textures[0][0], SRCPAINT);
         auto end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> elapsed = end - start;
@@ -93,6 +100,15 @@ namespace render
         FlushBatchDraw();
         // end time
         return 0;
+    }
+    void draw_player(player *player)
+    {
+        int x = player->x;
+        int y = player->y;
+        int i, j;
+        i = player->run - 1;
+        j = player->run_state;
+        putimage(x, y, &player_textures[i % 3][j % 6], SRCPAINT);
     }
     int reverse_y(int y)
     {

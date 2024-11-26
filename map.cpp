@@ -102,7 +102,7 @@ block_type map::get_block(int x, int y)
     {
         in_chunk_x = BLOCKS_PER_CHUNK_X + in_chunk_x;
     }
-    if (y < 0 || y >= BLOCKS_PER_CHUNK_Y)
+    if (y < 0 || y >= BLOCKS_PER_CHUNK_Y - 1)
     {
         return block_type::BLOCK_AIR;
     }
@@ -171,7 +171,7 @@ int chunk::save(std::string name)
     //         data[offset] = '0'+this->blocks[i].type;
     //         offset++;
     //     }
-     
+
     // }
     // glog::log("info", "Chunk Data: " + std::string(data), "chunk");
     return 0;
