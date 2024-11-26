@@ -6,6 +6,7 @@
 #include <queue>
 namespace render
 {
+  
     IMAGE block_textures[block_type::BLOCK_MAX_INDEX];
     IMAGE player_textures[3][6];
     int width;
@@ -20,6 +21,12 @@ namespace render
         settextstyle(20, 0, _T("宋体"));
         settextcolor(WHITE);
         BeginBatchDraw();
+        HWND hwnd = GetHWnd();
+        HMENU hmenu = GetSystemMenu(hwnd, FALSE);
+        if (hmenu != NULL)
+        {
+            DeleteMenu(hmenu, SC_CLOSE, MF_BYCOMMAND);
+        }
         for (int i = 0; i < block_type::BLOCK_MAX_INDEX; i++)
         {
             loadimage(&block_textures[i], assets::get_block_texture((block_type)i).c_str());

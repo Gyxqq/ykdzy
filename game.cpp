@@ -8,6 +8,8 @@
 #include <graphics.h>
 #define SPEED 0.3
 extern std::mutex global_mutex;
+extern int exit_flag;
+BOOL IsKeyPressed(int vKey) { return (GetAsyncKeyState(vKey) & 0x8000) != 0; }
 int game::init(std::string name)
 {
     int seed = time(NULL);
@@ -189,6 +191,7 @@ int player::save(std::string name)
     }
     fflush(file);
     fclose(file);
+    glog::log("info", "Player Saved: " + name, "player");
     return 0;
 }
 int player::load(std::string name)
@@ -214,32 +217,61 @@ int player::load(std::string name)
 }
 int game::update()
 {
-    // auto msg = getmessage(EX_KEY);
-    ExMessage msg;
-    peekmessage(&msg, EX_KEY);
+
     global_mutex.lock();
-    if (msg.message == WM_KEYDOWN)
+    if (IsKeyPressed(VK_LEFT))
     {
-        switch (msg.vkcode)
+        this->players[0].x -= SPEED;
+    }
+    if (IsKeyPressed(VK_RIGHT))
+    {
+        this->players[0].x += SPEED;
+    }
+    if (IsKeyPressed(VK_UP))
+    {
+        this->players[0].y += SPEED;
+    }
+    if (IsKeyPressed(VK_DOWN))
+    {
+        this->players[0].y -= SPEED;
+    }
+    if (IsKeyPressed(VK_ESCAPE))
+    {
+        exit_flag = 1;
+        global_mutex.unlock();
+        return 0;
+    }
+
+    global_mutex.unlock();
+    // load chunks
+    int center_x = this->players[0].x / BLOCKS_PER_CHUNK_X;
+    for (int i = 0; i < CHUNKS_PER_MAP_X; i++)
+    {
+        int index = center_x - CHUNKS_PER_MAP_X / 2 + i;
+        int found = 0;
+        for (int j = 0; j < CHUNKS_PER_MAP_X; j++)
         {
-        case VK_LEFT:
-            this->players[0].x -= SPEED;
-            break;
-        case VK_RIGHT:
-            this->players[0].x += SPEED;
-            break;
-        case VK_UP:
-            this->players[0].y += SPEED;
-            break;
-        case VK_DOWN:
-            this->players[0].y -= SPEED;
-            break;
-        case VK_ESCAPE:
-            this->save();
-            exit(0);
+            if (this->world.chunks[j].x == index)
+            {
+                found = 1;
+                break;
+            }
+        }
+        if (!found)
+        {
+            int farthest = 0;
+            for (int j = 0; j < CHUNKS_PER_MAP_X; j++)
+            {
+                //   找到距离玩家最远的区块
+                if (abs(this->world.chunks[j].x - center_x) > abs(this->world.chunks[farthest].x - center_x))
+                {
+                    farthest = j;
+                }
+            }
+            this->world.load_chunk_pos(this->savepath, farthest, center_x - CHUNKS_PER_MAP_X / 2 + i);
+            glog::log("info", "Loading Chunk: " + std::to_string(center_x - CHUNKS_PER_MAP_X / 2 + i), "game");
         }
     }
-    global_mutex.unlock();
-    Sleep(1);
+    // Sleep(1);
     return 0;
 }

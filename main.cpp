@@ -15,15 +15,16 @@
 #include <mutex>
 #include <thread>
 std::mutex global_mutex;
+int exit_flag = 0;
 #define BLOCK_ASSETS_PATH "D:\\projects\\ykdzy\\assets\\blocks\\blockconfig.json"
 #define PLAYER_ASSETS_PATH "D:\\projects\\ykdzy\\assets\\player\\playerconfig.json"
 int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 
     glog::log("info", "Hello, world!", "main");
-    class game game0;
-    game0.init("D:\\projects\\ykdzy\\save1\\");
-    game0.save();
+    // class game game0;
+    // game0.init("D:\\projects\\ykdzy\\save1\\");
+    // game0.save();
     class game game;
     game.load("D:\\projects\\ykdzy\\save1\\game.json");
     game.save();
@@ -32,13 +33,13 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
     render::init(1240, 720);
     std::thread game_thread([&game]()
                             {
-                                while (1)
+                                while (exit_flag == 0)
                                 {
                                     game.update();
-                                }
-                            });
+                                    Sleep(5);
+                                } });
 
-    while (1)
+    while (exit_flag == 0)
     {
         // game.update();
         global_mutex.lock();
@@ -46,6 +47,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
         global_mutex.unlock();
         Sleep(1);
     }
+    game_thread.join();
     game.save();
     glog::log("info", "Game Loaded", "main");
 }
