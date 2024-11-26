@@ -14,6 +14,7 @@ int game::init(std::string name)
     this->world.seed = seed;
     this->world.init(name);
     this->players.push_back(player());
+
     cJSON *root = cJSON_CreateObject();
     cJSON_AddStringToObject(root, "savepath", this->savepath.c_str());
     glog::log("info", "Seed: " + std::to_string(seed), "game");
@@ -35,6 +36,15 @@ int game::init(std::string name)
     cJSON_Delete(root);
     delete[] data;
     this->players[0].init("00000");
+    for (int i = 0; i < BLOCKS_PER_CHUNK_Y; i++)
+    {
+        if (this->world.chunks[0].blocks[i*BLOCKS_PER_CHUNK_X].type == block_type::BLOCK_AIR)
+        {
+            this->players[0].y = i;
+            glog::log("info", "Player y: " + std::to_string(i), "game");
+            break;
+        }
+    }
     return 0;
 }
 int game::load(std::string name)
@@ -97,6 +107,7 @@ int game::load(std::string name)
     int i = 0;
     while (player != NULL)
     {
+        glog::log("info", "Loading Player: " + std::string(player->valuestring), "game loader");
         this->players.push_back(class player());
         this->players[i].load(this->savepath + player->valuestring);
         i++;
@@ -125,6 +136,7 @@ int game::save()
         std::string player_savepath = this->players[i].name + ".player";
         this->players[i].save(this->savepath);
         glog::log("info", "Saving Player: " + player_savepath, "game save");
+        glog::log("info", "Player x: " + std::to_string(this->players[i].x) + " y: " + std::to_string(this->players[i].y), "game save");
         cJSON_AddItemToArray(players, cJSON_CreateString(player_savepath.c_str()));
     }
 
@@ -140,7 +152,6 @@ int game::save()
     fclose(file);
     cJSON_Delete(root);
     delete[] data;
-
     return 0;
 }
 
@@ -179,6 +190,7 @@ int player::save(std::string name)
 }
 int player::load(std::string name)
 {
+    glog::log("info", "Loading Player: " + name, "player");
     FILE *file = fopen(name.c_str(), "rb");
     if (!file)
     {

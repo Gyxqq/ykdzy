@@ -18,12 +18,18 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
 {
 
     glog::log("info", "Hello, world!", "main");
+    class game game0;
+    game0.init("D:\\projects\\ykdzy\\save1\\");
+    game0.save();
     class game game;
-    // game.init("D:\\projects\\ykdzy\\save1\\");
     game.load("D:\\projects\\ykdzy\\save1\\game.json");
     assets::load_block_textures(BLOCK_ASSETS_PATH);
     assets::load_player_textures(PLAYER_ASSETS_PATH);
     render::init(1240, 720);
+    while (1)
+    {
+        render::update_frame(&game);
+    }
     game.save();
     glog::log("info", "Game Loaded", "main");
 }

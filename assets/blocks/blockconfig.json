@@ -4,7 +4,7 @@
         {
             "name": "BLOCK_AIR",
             "id": 0,
-            "texture": "debug.png"
+            "texture": "sky.png"
         },
         {
             "name": "BLOCK_DIRT",
@@ -30,6 +30,11 @@
             "name": "BLOCK_LEAVES",
             "id": 5,
             "texture": "azalea_leaves.png"
+        },
+        {
+            "name": "BLOCK_WATER",
+            "id": 6,
+            "texture": "underwater.png"
         },
         {
             "name": "BLOCK_SAND",
@@ -80,6 +85,11 @@
             "name": "BLOCK_COPPER",
             "id": 17,
             "texture": "copper_ore.png"
+        },
+        {
+            "name": "BLOCK_VOID",
+            "id": 18,
+            "texture": "end_sky.png"
         },
         {
             "name": "BLOCK_BEDROCK",

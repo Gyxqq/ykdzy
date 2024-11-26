@@ -73,8 +73,8 @@ enum chunk_type
     CHUNK_SNOW,      // 雪地
     CHUNK_FOREST,    // 森林
     CHUNK_MOUNTAIN,  // 山地
-    CHUNK_OCEAN,     // 海洋
-    CHUNK_LAVA,      // 火山
+    // CHUNK_OCEAN,     // 海洋
+    // CHUNK_LAVA,      // 火山
     CHUNK_VOID,      // 虚空
     CHUNK_TYPE_END
 };
@@ -136,6 +136,7 @@ public:
     int load_chunk_pos(std::string name, int unload_pos, int load_pos);
     int load_chunk_pos_no_save(std::string name, int unload_pos, int load_pos);
     int init(std::string name);
+    block_type get_block(int x, int y);
     int save();
     chunk_type cauculate_chunk_type(int x, int seed);
     ~map();

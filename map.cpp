@@ -89,6 +89,31 @@ int map::init(std::string name)
     }
     return 0;
 }
+block_type map::get_block(int x, int y)
+{
+    int chunk_x = x / BLOCKS_PER_CHUNK_X;
+    if (x < 0)
+    {
+        chunk_x--;
+    }
+    int in_chunk_x = x % BLOCKS_PER_CHUNK_X;
+    if (chunk_x < 0)
+    {
+        in_chunk_x = BLOCKS_PER_CHUNK_X + in_chunk_x;
+    }
+    if (y < 0 || y >= BLOCKS_PER_CHUNK_Y)
+    {
+        return block_type::BLOCK_AIR;
+    }
+    for (int i = 0; i < CHUNKS_PER_MAP_X; i++)
+    {
+        if (this->chunks[i].x == chunk_x)
+        {
+            return this->chunks[i].blocks[in_chunk_x + y * BLOCKS_PER_CHUNK_X].type;
+        }
+    }
+    return block_type::BLOCK_AIR;
+}
 
 int chunk::save(std::string name)
 {
@@ -124,6 +149,29 @@ int chunk::save(std::string name)
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> elapsed = end - start;
     glog::log("info", "Save Time: " + std::to_string(elapsed.count()), "chunk");
+    char *data = new char[this->block_count*2];
+    memset(data, 0, this->block_count*2);
+    int offset = 0;
+    for (int i = 0; i < this->block_count; i++)
+    {
+        if (i%BLOCKS_PER_CHUNK_X == 0)
+        {
+            data[offset] = '\n';
+            offset++;
+        }
+        else if (this->blocks[i].type==block_type::BLOCK_AIR)
+        {
+            data[offset] = ' ';
+            offset++;
+        }
+        else
+        {
+            data[offset] = '0'+this->blocks[i].type;
+            offset++;
+        }
+     
+    }
+    glog::log("info", "Chunk Data: " + std::string(data), "chunk");
     return 0;
 }
 int chunk::load(std::string name, int seed)
@@ -229,20 +277,20 @@ int chunk::init(std::string name, int seed)
         top_block = block_type::BLOCK_STONE;
         middle_block = block_type::BLOCK_STONE;
     }
-    else if (this->type == chunk_type::CHUNK_OCEAN)
-    {
-        top_block = block_type::BLOCK_WATER;
-        middle_block = block_type::BLOCK_WATER;
-    }
-    else if (this->type == chunk_type::CHUNK_LAVA)
-    {
-        top_block = block_type::BLOCK_LAVA;
-        middle_block = block_type::BLOCK_LAVA;
-    }
+    // else if (this->type == chunk_type::CHUNK_OCEAN)
+    // {
+    //     top_block = block_type::BLOCK_WATER;
+    //     middle_block = block_type::BLOCK_WATER;
+    // }
+    // else if (this->type == chunk_type::CHUNK_LAVA)
+    // {
+    //     top_block = block_type::BLOCK_LAVA;
+    //     middle_block = block_type::BLOCK_LAVA;
+    // }
     else if (this->type == chunk_type::CHUNK_VOID)
     {
-        top_block = block_type::BLOCK_AIR;
-        middle_block = block_type::BLOCK_AIR;
+        top_block = block_type::BLOCK_VOID;
+        middle_block = block_type::BLOCK_VOID;
     }
     else if (this->type == chunk_type::CHUNK_SNOW)
     {
@@ -263,10 +311,6 @@ int chunk::init(std::string name, int seed)
         {
             this->blocks[i].type = middle_block;
         }
-        // else if (this->blocks[i].y == level)
-        // {
-        //     this->blocks[i].type = top_block;
-        // }
         else
         {
             this->blocks[i].type = block_type::BLOCK_AIR;
@@ -276,7 +320,7 @@ int chunk::init(std::string name, int seed)
     {
         if (this->blocks[i].y == level)
         {
-            if (rand() % 100 < 50)
+            if (rand() % 100 < 80)
             {
                 int count = 0;
                 std::stack<class block> stack;
@@ -290,7 +334,7 @@ int chunk::init(std::string name, int seed)
                     }
                     class block current = stack.top();
                     stack.pop();
-                    if (rand() % 100 < 10)
+                    if (rand() % 100 < 90)
                     {
                         switch (rand() % 4)
                         {
