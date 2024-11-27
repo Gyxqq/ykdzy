@@ -2,14 +2,22 @@
 #include "map.hpp"
 #include "log.hpp"
 #include "game.hpp"
-#include "cJSON.h"
+#include <cJSON.h>
 #include <time.h>
 #include <sys/stat.h>
 #include <graphics.h>
-#define SPEED 0.05
+#define SPEED 0.1
 extern std::mutex global_mutex;
 extern int exit_flag;
 int allow_fly = 1;
+
+int get_block_x(float x)
+{
+    if (x < 0)
+        return (int)x - 1;
+    return (int)x;
+}
+
 BOOL IsKeyPressed(int vKey) { return (GetAsyncKeyState(vKey) & 0x8000) != 0; }
 int game::init(std::string name)
 {
@@ -231,11 +239,11 @@ int game::update()
     {
         if (IsKeyPressed(VK_UP))
         {
-            this->players[0].y += SPEED;
+            this->players[0].y += 1;
         }
         if (IsKeyPressed(VK_DOWN))
         {
-            this->players[0].y -= SPEED;
+            this->players[0].y -= 1;
         }
     }
     if (this->players[0].run == 3 && this->players[0].run_state <= 30)
@@ -384,8 +392,8 @@ int game::player_on_ground(player *player)
 {
     int x1, x2, y1, y2;
     // 确定玩家站在哪个方块上
-    x1 = player->x - 0.45;
-    x2 = player->x + 0.45;
+    x1 = get_block_x(player->x - 0.45);
+    x2 = get_block_x(player->x + 0.45);
     y1 = player->y - 0.55;
     y2 = player->y - 0.55;
     if (this->world.get_block(x1, y1) == block_type::BLOCK_AIR && this->world.get_block(x2, y2) == block_type::BLOCK_AIR)
@@ -407,8 +415,8 @@ float game::get_distance_to_ground(player *player)
 {
     int x1, x2, y1, y2;
     // 确定玩家站在哪个方块上
-    x1 = player->x - 0.5;
-    x2 = player->x + 0.5;
+    x1 = get_block_x(player->x - 0.45);
+    x2 = get_block_x(player->x + 0.45);
     y1 = player->y - 0.6 + 1;
     y2 = player->y - 0.6 + 1;
     float distance = 0;
@@ -429,15 +437,15 @@ int game::player_attack_side(player *player, int side)
     int x1, x2, y1, y2;
     if (side == 0)
     { // left
-        x1 = player->x - 0.55;
-        x2 = player->x - 0.55;
+        x1 = get_block_x(player->x - 0.55);
+        x2 = get_block_x(player->x - 0.55);
         y1 = player->y - 0.3;
         y2 = player->y + 0.3;
     }
     else if (side == 1)
     { // right
-        x1 = player->x + 0.55;
-        x2 = player->x + 0.55;
+        x1 = get_block_x(player->x + 0.55);
+        x2 = get_block_x(player->x + 0.55);
         y1 = player->y - 0.3;
         y2 = player->y + 0.3;
     }
@@ -475,14 +483,15 @@ float game::get_distance_to_side(player *player, int side)
     float distance = 0;
     if (side == 0)
     { // left
-        x1 = player->x - 0.55 - 1;
-        x2 = player->x - 0.55 - 1;
+        x1 = get_block_x(player->x - 0.55 - 1);
+        x2 = get_block_x(player->x - 0.55 - 1);
         y1 = player->y - 0.45;
         y2 = player->y + 0.45;
         if ((this->world.get_block(x1, y1) == block_type::BLOCK_AIR || this->world.get_block(x2, y2) == block_type::BLOCK_AIR) && (this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x2, y2) != block_type::BLOCK_SKY) && (this->world.get_block(x1, y1) != block_type::BLOCK_VOID && this->world.get_block(x2, y2) != block_type::BLOCK_VOID))
             return 1;
         if (this->world.get_block(x1, y1) != block_type::BLOCK_AIR && this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x1, y1) != block_type::BLOCK_VOID)
         {
+
             distance = player->x - 0.5 - x1 - 1;
         }
         else
@@ -492,10 +501,10 @@ float game::get_distance_to_side(player *player, int side)
     }
     else if (side == 1)
     { // right
-        x1 = player->x + 0.55 + 1;
-        x2 = player->x + 0.55 + 1;
-        y1 = player->y - 0.4;
-        y2 = player->y + 0.4;
+        x1 = get_block_x(player->x + 0.55 + 1);
+        x2 = get_block_x(player->x + 0.55 + 1);
+        y1 = player->y - 0.45;
+        y2 = player->y + 0.45;
         if ((this->world.get_block(x1, y1) == block_type::BLOCK_AIR || this->world.get_block(x2, y2) == block_type::BLOCK_AIR) && (this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x2, y2) != block_type::BLOCK_SKY) && (this->world.get_block(x1, y1) != block_type::BLOCK_VOID && this->world.get_block(x2, y2) != block_type::BLOCK_VOID))
             return 1;
         if (this->world.get_block(x1, y1) != block_type::BLOCK_AIR && this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x1, y1) != block_type::BLOCK_VOID)
@@ -541,5 +550,7 @@ float game::get_distance_to_side(player *player, int side)
             distance = y2 - 1 - player->y - 0.55;
         }
     }
+    if (distance < 0)
+        distance = 0;
     return distance;
 }

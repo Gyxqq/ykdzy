@@ -6,7 +6,12 @@
 #include <queue>
 namespace render
 {
-
+    int get_block_x(float x)
+    {
+        if (x < 0)
+            return (int)x - 1;
+        return (int)x;
+    }
     IMAGE block_textures[block_type::BLOCK_MAX_INDEX];
     IMAGE player_textures[3][6];
     int width;
@@ -61,8 +66,10 @@ namespace render
         y = player.y;
         int x_block = render::width / 32 + 4;
         int y_block = render::height / 32 + 4;
-        int x_start_pos = player.x - x_block / 2;
-        int y_start_pos = player.y - y_block / 2;
+        int x_start_pos = get_block_x(player.x - x_block / 2.0);
+        int y_start_pos = player.y - y_block / 2.0;
+        // if (x_start_pos < 0)
+        //     x_start_pos += 1;
         for (int i = 0; i < x_block; i++)
         {
             for (int j = 0; j < y_block; j++)
@@ -72,9 +79,11 @@ namespace render
                 if (block < block_type::BLOCK_AIR || block >= block_type::BLOCK_MAX_INDEX)
                     glog::log("error", "Block out of range: " + std::to_string(block), "render");
                 // 计算方块在屏幕上的位置
-                int pos_x = render::width / 2 - (player.x - x_start_pos * 1.0) * 32 + i * 32-16;
-                int pos_y = render::height / 2 - (player.y - y_start_pos * 1.0) * 32 + j * 32+16;
 
+                int pos_x = render::width / 2 - (player.x - 0.5 - x_start_pos * 1.0 - i * 1.0) * 32;
+                int pos_y = render::height / 2 - (player.y - 0.5 - y_start_pos * 1.0 - j * 1.0) * 32;
+                // if (x_start_pos + i < 0)
+                //     pos_x -= 32;
                 putimage(pos_x, reverse_y(pos_y), &block_textures[block], SRCPAINT);
             }
         }
@@ -97,6 +106,7 @@ namespace render
             sum += fps_queue[i];
         }
         outtextxy(0, 0, ("FPS:" + std::to_string(sum / fps_queue.size())).c_str());
+        outtextxy(0, 20, ("X:" + std::to_string(player.x) + " Y:" + std::to_string(player.y)).c_str());
         FlushBatchDraw();
         // end time
         return 0;

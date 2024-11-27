@@ -22,9 +22,9 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
 {
 
     glog::log("info", "Hello, world!", "main");
-    class game game0;
-    game0.init("D:\\projects\\ykdzy\\save1\\");
-    game0.save();
+    // class game game0;
+    // game0.init("D:\\projects\\ykdzy\\save1\\");
+    // game0.save();
     class game game;
     game.load("D:\\projects\\ykdzy\\save1\\game.json");
     game.save();
@@ -52,14 +52,3 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
     glog::log("info", "Game Loaded", "main");
 }
 
-// int main()
-// {
-//     glog::log("info", "Hello, world!", "main");
-//     class game game;
-//     game.init("D:\\projects\\ykdzy\\save1\\");
-
-//     // game.load("D:\\projects\\ykdzy\\save1\\game.json");
-//     game.save();
-//     glog::log("info", "Game Loaded", "main");
-//     return 0;
-// }

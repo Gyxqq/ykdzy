@@ -330,13 +330,13 @@ int chunk::init(std::string name, int seed)
                 count++;
                 while (!stack.empty())
                 {
-                    if (count > 100)
+                    if (count > 200)
                     {
                         break;
                     }
                     class block current = stack.top();
                     stack.pop();
-                    if (rand() % 100 < 90)
+                    if (rand() % 100 < 80)
                     {
                         switch (rand() % 4)
                         {
