@@ -28,10 +28,7 @@ public:
     std::string savepath;
     int init(std::string name);
     int load(std::string name);
-    int player_on_ground(player *player);
-    float get_distance_to_ground(player *player);
-    int player_attack_side(player *player, int side);
-    float get_distance_to_side(player *player, int side);
+
     int update();
     int save();
 };
