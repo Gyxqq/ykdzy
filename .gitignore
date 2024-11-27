@@ -2,4 +2,8 @@ build/*
 *.lib
 *.chunk
 other/*
-*.player
+*player
+save1/*.*
+00000.player
+*.log
+*.json

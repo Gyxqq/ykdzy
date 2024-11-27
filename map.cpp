@@ -394,8 +394,11 @@ int chunk::init(std::string name, int seed)
     // 生成随机矿物
     for (int i = 0; i < this->block_count; i++)
     {
+        if (this->blocks[i].y > 25)
+            continue;
         if (rand() % 100 < 10)
         {
+
             switch (rand() % 4)
             {
             case 0:
