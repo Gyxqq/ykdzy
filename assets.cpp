@@ -4,6 +4,7 @@ namespace assets
 {
     block_texture block_textures[block_type::BLOCK_MAX_INDEX];
     player_texture player_textures;
+    const_texture const_textures[const_texture_type::CONST_TEXTURE_MAX_INDEX];
     int assets::load_block_textures(std::string config_path)
     {
         glog::log("info", "Loading Block Textures: " + config_path, "assets");
@@ -130,6 +131,13 @@ namespace assets
             return player_textures.jump[index];
         }
         return "";
+    }
+    int assets::load_const_textures(std::string pre_path)
+    {
+        glog::log("info", "Loading Const Textures: " + pre_path, "assets");
+        const_textures[const_texture_type::CONST_TEXTURE_HEART].type = const_texture_type::CONST_TEXTURE_HEART;
+        const_textures[const_texture_type::CONST_TEXTURE_HEART].texture = pre_path + "heart.png";
+        return 0;
     }
 
 } // namespace assets

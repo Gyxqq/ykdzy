@@ -451,7 +451,7 @@ int game::player_attack_side(player *player, int side)
     }
     else if (side == 2)
     { // up
-        x1 =get_block_x(player->x - 0.45);
+        x1 = get_block_x(player->x - 0.45);
         x2 = get_block_x(player->x + 0.45);
         y1 = player->y + 0.55;
         y2 = player->y + 0.55;

@@ -6,6 +6,16 @@
 #include <queue>
 namespace render
 {
+    void transparentimage(IMAGE *dstimg, int x, int y, IMAGE *srcimg, UINT transparentcolor)
+    {
+        HDC dstDC = GetImageHDC(dstimg);
+        HDC srcDC = GetImageHDC(srcimg);
+        int w = srcimg->getwidth();
+        int h = srcimg->getheight();
+
+        // 使用 Windows GDI 函数实现透明位图
+        TransparentBlt(dstDC, x, y, w, h, srcDC, 0, 0, w, h, transparentcolor);
+    }
     int get_block_x(float x)
     {
         if (x < 0)
@@ -14,6 +24,7 @@ namespace render
     }
     IMAGE block_textures[block_type::BLOCK_MAX_INDEX];
     IMAGE player_textures[3][6];
+    IMAGE const_textures[assets::const_texture_type::CONST_TEXTURE_MAX_INDEX];
     int width;
     int height;
     std::deque<int> fps_queue;
@@ -25,6 +36,7 @@ namespace render
         render::height = height;
         settextstyle(20, 0, _T("宋体"));
         settextcolor(WHITE);
+        setbkmode(TRANSPARENT);
         BeginBatchDraw();
         HWND hwnd = GetHWnd();
         HMENU hmenu = GetSystemMenu(hwnd, FALSE);
@@ -49,6 +61,10 @@ namespace render
         {
             loadimage(&player_textures[2][j], assets::get_player_texture("jump", j).c_str());
         }
+        for (int i = 0; i < assets::const_texture_type::CONST_TEXTURE_MAX_INDEX; i++)
+        {
+            loadimage(&const_textures[i], assets::const_textures[i].texture.c_str());
+        }
         glog::log("info", "Render Initialized", "render");
         return 0;
     }
@@ -68,8 +84,6 @@ namespace render
         int y_block = render::height / 32 + 4;
         int x_start_pos = get_block_x(player.x - x_block / 2.0);
         int y_start_pos = player.y - y_block / 2.0;
-        // if (x_start_pos < 0)
-        //     x_start_pos += 1;
         for (int i = 0; i < x_block; i++)
         {
             for (int j = 0; j < y_block; j++)
@@ -79,7 +93,6 @@ namespace render
                 if (block < block_type::BLOCK_AIR || block >= block_type::BLOCK_MAX_INDEX)
                     glog::log("error", "Block out of range: " + std::to_string(block), "render");
                 // 计算方块在屏幕上的位置
-
                 int pos_x = render::width / 2 - (player.x - 0.5 - x_start_pos * 1.0 - i * 1.0) * 32;
                 int pos_y = render::height / 2 - (player.y - 0.5 - y_start_pos * 1.0 - j * 1.0) * 32;
                 // if (x_start_pos + i < 0)
@@ -89,7 +102,8 @@ namespace render
         }
         x = render::width / 2;
         y = render::height / 2;
-        putimage(x, y, &player_textures[0][0], SRCPAINT);
+        putimage(x, y, &player_textures[0][0], SRCPAINT); // player
+        draw_player_info(&(game->players[0]));
         auto end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> elapsed = end - start;
         if (elapsed.count() < 0.01)
@@ -121,6 +135,16 @@ namespace render
         i = player->run - 1;
         j = player->run_state;
         putimage(x, y, &player_textures[i % 3][j % 6], SRCPAINT);
+    }
+    void draw_player_info(player *player)
+    {
+        int heart_count = player->health / 10;
+        for (int i = 0; i < heart_count; i++)
+        {
+
+            putimage(render::width - (16 + i * 16), 5, &const_textures[assets::const_texture_type::CONST_TEXTURE_HEART]);
+            transparentimage(&const_textures[assets::const_texture_type::CONST_TEXTURE_HEART], render::width - (16 + i * 16), 5, &const_textures[assets::const_texture_type::CONST_TEXTURE_HEART], BLACK);
+        }
     }
     int reverse_y(int y)
     {
