@@ -106,7 +106,9 @@ namespace render
             sum += fps_queue[i];
         }
         outtextxy(0, 0, ("FPS:" + std::to_string(sum / fps_queue.size())).c_str());
-        outtextxy(0, 20, ("X:" + std::to_string(player.x) + " Y:" + std::to_string(player.y)).c_str());
+        char pos[100];
+        sprintf(pos, "X:%.2f Y:%.2f", player.x, player.y);
+        outtextxy(0, 20, pos);
         FlushBatchDraw();
         // end time
         return 0;

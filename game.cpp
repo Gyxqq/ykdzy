@@ -451,17 +451,17 @@ int game::player_attack_side(player *player, int side)
     }
     else if (side == 2)
     { // up
-        x1 = player->x - 0.45;
-        x2 = player->x + 0.45;
-        y1 = player->y - 0.55;
-        y2 = player->y - 0.55;
+        x1 =get_block_x(player->x - 0.45);
+        x2 = get_block_x(player->x + 0.45);
+        y1 = player->y + 0.55;
+        y2 = player->y + 0.55;
     }
     else if (side == 3)
     { // down
-        x1 = player->x - 0.45;
-        x2 = player->x + 0.45;
-        y1 = player->y + 0.55;
-        y2 = player->y + 0.55;
+        x1 = get_block_x(player->x - 0.45);
+        x2 = get_block_x(player->x + 0.45);
+        y1 = player->y - 0.55;
+        y2 = player->y - 0.55;
     }
     if (this->world.get_block(x1, y1) == block_type::BLOCK_AIR && this->world.get_block(x2, y2) == block_type::BLOCK_AIR)
     {
@@ -518,10 +518,10 @@ float game::get_distance_to_side(player *player, int side)
     }
     else if (side == 2)
     { // up
-        x1 = player->x - 0.45;
-        x2 = player->x + 0.45;
-        y1 = player->y - 0.55 - 1;
-        y2 = player->y - 0.55 - 1;
+        x1 = get_block_x(player->x - 0.45);
+        x2 = get_block_x(player->x + 0.45);
+        y1 = player->y + 0.55 + 1;
+        y2 = player->y + 0.55 + 1;
         if ((this->world.get_block(x1, y1) == block_type::BLOCK_AIR || this->world.get_block(x2, y2) == block_type::BLOCK_AIR) && (this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x2, y2) != block_type::BLOCK_SKY) && (this->world.get_block(x1, y1) != block_type::BLOCK_VOID && this->world.get_block(x2, y2) != block_type::BLOCK_VOID))
             return 1;
         if (this->world.get_block(x1, y1) != block_type::BLOCK_AIR && this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x1, y1) != block_type::BLOCK_VOID)
@@ -535,10 +535,10 @@ float game::get_distance_to_side(player *player, int side)
     }
     else if (side == 3)
     { // down
-        x1 = player->x - 0.45;
-        x2 = player->x + 0.45;
-        y1 = player->y + 0.55 + 1;
-        y2 = player->y + 0.55 + 1;
+        x1 = get_block_x(player->x - 0.45);
+        x2 = get_block_x(player->x + 0.45);
+        y1 = player->y - 0.55 - 1;
+        y2 = player->y - 0.55 - 1;
         if ((this->world.get_block(x1, y1) == block_type::BLOCK_AIR || this->world.get_block(x2, y2) == block_type::BLOCK_AIR) && (this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x2, y2) != block_type::BLOCK_SKY) && (this->world.get_block(x1, y1) != block_type::BLOCK_VOID && this->world.get_block(x2, y2) != block_type::BLOCK_VOID))
             return 1;
         if (this->world.get_block(x1, y1) != block_type::BLOCK_AIR && this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x1, y1) != block_type::BLOCK_VOID)

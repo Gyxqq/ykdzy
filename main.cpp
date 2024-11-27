@@ -16,8 +16,8 @@
 #include <thread>
 std::mutex global_mutex;
 int exit_flag = 0;
-#define BLOCK_ASSETS_PATH "D:\\projects\\ykdzy\\assets\\blocks\\blockconfig.json"
-#define PLAYER_ASSETS_PATH "D:\\projects\\ykdzy\\assets\\player\\playerconfig.json"
+#define BLOCK_ASSETS_PATH ".\\assets\\blocks\\blockconfig.json"
+#define PLAYER_ASSETS_PATH ".\\assets\\player\\playerconfig.json"
 int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 
@@ -26,7 +26,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
     // game0.init("D:\\projects\\ykdzy\\save1\\");
     // game0.save();
     class game game;
-    game.load("D:\\projects\\ykdzy\\save1\\game.json");
+    game.load(".\\save1\\game.json");
     game.save();
     assets::load_block_textures(BLOCK_ASSETS_PATH);
     assets::load_player_textures(PLAYER_ASSETS_PATH);
