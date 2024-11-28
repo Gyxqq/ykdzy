@@ -321,7 +321,7 @@ int chunk::init(std::string name, int seed)
         {
             this->blocks[i].type = block_type::BLOCK_BEDROCK;
         }
-        else
+        else  
         {
             this->blocks[i].type = block_type::BLOCK_AIR;
         }

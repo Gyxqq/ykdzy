@@ -246,6 +246,13 @@ int game::update()
             this->players[0].y -= 1;
         }
     }
+    // E key
+    if (IsKeyPressed(0x45))
+    {
+
+        this->players[0].gui_open = !this->players[0].gui_open;
+        Sleep(200);
+    }
     if (this->players[0].run == 3 && this->players[0].run_state <= 30)
     {
         this->players[0].run_state++;
@@ -267,7 +274,7 @@ int game::update()
         this->players[0].run = 0;
         this->players[0].run_state = 0;
     }
-    if (IsKeyPressed(VK_LEFT))
+    if (IsKeyPressed(VK_LEFT) || IsKeyPressed('A'))
     {
         if (!player_attack_side(&this->players[0], 0))
         {
@@ -294,7 +301,7 @@ int game::update()
             this->players[0].run_state = (this->players[0].run_state + 1) % 6;
         }
     }
-    if (IsKeyPressed(VK_RIGHT))
+    if (IsKeyPressed(VK_RIGHT) || IsKeyPressed('D'))
     {
         if (!player_attack_side(&this->players[0], 1))
         {

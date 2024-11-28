@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
-#define BLOCKS_PER_CHUNK_X 32
+#define BLOCKS_PER_CHUNK_X 128
 #define BLOCKS_PER_CHUNK_Y 128
 #define CHUNKS_PER_MAP_X 8
 #define CHUNK_ALREDY_LOADED -2

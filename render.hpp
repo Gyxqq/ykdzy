@@ -9,4 +9,5 @@ namespace render
     int reverse_y(int y);
     void draw_player(player *player);
     void draw_player_info(player *player);
+    void draw_inventory(player *player);
 }

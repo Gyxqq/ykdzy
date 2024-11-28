@@ -4,17 +4,31 @@
 #include "assets.hpp"
 #include "game.hpp"
 #include <queue>
+#define BLOCK_TEXTURES_SIZE 32
 namespace render
 {
-    void transparentimage(IMAGE *dstimg, int x, int y, IMAGE *srcimg, UINT transparentcolor)
-    {
-        HDC dstDC = GetImageHDC(dstimg);
-        HDC srcDC = GetImageHDC(srcimg);
-        int w = srcimg->getwidth();
-        int h = srcimg->getheight();
 
-        // 使用 Windows GDI 函数实现透明位图
-        TransparentBlt(dstDC, x, y, w, h, srcDC, 0, 0, w, h, transparentcolor);
+    void put_transparentimage(int x, int y, IMAGE *img)
+    {
+        IMAGE img1;
+        DWORD *d1;
+        img1 = *img;
+        d1 = GetImageBuffer(&img1);
+        float h, s, l;
+        for (int i = 0; i < img1.getheight() * img1.getwidth(); i++)
+        {
+            RGBtoHSL(BGR(d1[i]), &h, &s, &l);
+            if (l < 0.03)
+            {
+                d1[i] = BGR(WHITE);
+            }
+            if (d1[i] != BGR(WHITE))
+            {
+                d1[i] = 0;
+            }
+        }
+        putimage(x, y, &img1, SRCAND);
+        putimage(x, y, img, SRCPAINT);
     }
     int get_block_x(float x)
     {
@@ -80,8 +94,8 @@ namespace render
         // render blocks block大小32*32
         x = player.x;
         y = player.y;
-        int x_block = render::width / 32 + 4;
-        int y_block = render::height / 32 + 4;
+        int x_block = render::width / BLOCK_TEXTURES_SIZE + 4;
+        int y_block = render::height / BLOCK_TEXTURES_SIZE + 4;
         int x_start_pos = get_block_x(player.x - x_block / 2.0);
         int y_start_pos = player.y - y_block / 2.0;
         for (int i = 0; i < x_block; i++)
@@ -93,8 +107,8 @@ namespace render
                 if (block < block_type::BLOCK_AIR || block >= block_type::BLOCK_MAX_INDEX)
                     glog::log("error", "Block out of range: " + std::to_string(block), "render");
                 // 计算方块在屏幕上的位置
-                int pos_x = render::width / 2 - (player.x - 0.5 - x_start_pos * 1.0 - i * 1.0) * 32;
-                int pos_y = render::height / 2 - (player.y - 0.5 - y_start_pos * 1.0 - j * 1.0) * 32;
+                int pos_x = render::width / 2 - (player.x - 0.5 - x_start_pos * 1.0 - i * 1.0) * BLOCK_TEXTURES_SIZE;
+                int pos_y = render::height / 2 - (player.y - 0.5 - y_start_pos * 1.0 - j * 1.0) * BLOCK_TEXTURES_SIZE;
                 // if (x_start_pos + i < 0)
                 //     pos_x -= 32;
                 putimage(pos_x, reverse_y(pos_y), &block_textures[block], SRCPAINT);
@@ -102,27 +116,35 @@ namespace render
         }
         x = render::width / 2;
         y = render::height / 2;
-        putimage(x, y, &player_textures[0][0], SRCPAINT); // player
+        // putimage(x, y, &player_textures[0][0], SRCPAINT); // player
+        put_transparentimage(x, reverse_y(y), &player_textures[0][0]);
         draw_player_info(&(game->players[0]));
-        auto end = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double> elapsed = end - start;
-        if (elapsed.count() < 0.01)
-            Sleep((0.01 - elapsed.count()) * 1000);
-        end = std::chrono::high_resolution_clock::now();
-        elapsed = end - start;
-        if (fps_queue.size() > 200)
-            fps_queue.pop_front();
-        fps_queue.push_back(1 / elapsed.count());
-        // 计算fps
-        int sum = 0;
-        for (int i = 0; i < fps_queue.size(); i++)
+        if (game->players[0].gui_open)
         {
-            sum += fps_queue[i];
+            draw_inventory(&(game->players[0]));
         }
-        outtextxy(0, 0, ("FPS:" + std::to_string(sum / fps_queue.size())).c_str());
-        char pos[100];
-        sprintf(pos, "X:%.2f Y:%.2f", player.x, player.y);
-        outtextxy(0, 20, pos);
+
+        {
+            auto end = std::chrono::high_resolution_clock::now();
+            std::chrono::duration<double> elapsed = end - start;
+            if (elapsed.count() < 0.01)
+                Sleep((0.01 - elapsed.count()) * 1000);
+            end = std::chrono::high_resolution_clock::now();
+            elapsed = end - start;
+            if (fps_queue.size() > 200)
+                fps_queue.pop_front();
+            fps_queue.push_back(1 / elapsed.count());
+            // 计算fps
+            int sum = 0;
+            for (int i = 0; i < fps_queue.size(); i++)
+            {
+                sum += fps_queue[i];
+            }
+            outtextxy(0, 0, ("FPS:" + std::to_string(sum / fps_queue.size())).c_str());
+            char pos[100];
+            sprintf(pos, "X:%.2f Y:%.2f", player.x, player.y);
+            outtextxy(0, 20, pos);
+        }
         FlushBatchDraw();
         // end time
         return 0;
@@ -142,9 +164,18 @@ namespace render
         for (int i = 0; i < heart_count; i++)
         {
 
-            putimage(render::width - (16 + i * 16), 5, &const_textures[assets::const_texture_type::CONST_TEXTURE_HEART],SRCPAINT);
-            
+            // putimage(render::width - (16 + i * 16), 5, &const_textures[assets::const_texture_type::CONST_TEXTURE_HEART], SRCPAINT);
+            put_transparentimage(render::width - (16 + i * 16), 5, &const_textures[assets::const_texture_type::CONST_TEXTURE_HEART]);
         }
+        int hunger=player->hunger/10;
+        for (int i = 0; i < hunger; i++)
+        {
+            put_transparentimage(render::width - (16 + i * 16), 25, &const_textures[assets::const_texture_type::CONST_TEXTURE_HUNGER]);
+        }
+    }
+    void draw_inventory(player *player)
+    {
+        put_transparentimage(render::width / 2 - 160, render::height / 2 - 169, &const_textures[assets::const_texture_type::CONST_TEXTURE_BACKPACK]);
     }
     int reverse_y(int y)
     {

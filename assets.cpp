@@ -137,6 +137,10 @@ namespace assets
         glog::log("info", "Loading Const Textures: " + pre_path, "assets");
         const_textures[const_texture_type::CONST_TEXTURE_HEART].type = const_texture_type::CONST_TEXTURE_HEART;
         const_textures[const_texture_type::CONST_TEXTURE_HEART].texture = pre_path + "heart.png";
+        const_textures[const_texture_type::CONST_TEXTURE_BACKPACK].type = const_texture_type::CONST_TEXTURE_BACKPACK;
+        const_textures[const_texture_type::CONST_TEXTURE_BACKPACK].texture = pre_path + "inventory.png";
+        const_textures[const_texture_type::CONST_TEXTURE_HUNGER].type = const_texture_type::CONST_TEXTURE_HUNGER;
+        const_textures[const_texture_type::CONST_TEXTURE_HUNGER].texture = pre_path + "hunger.png";
         return 0;
     }
 

@@ -7,6 +7,8 @@ namespace assets
     enum const_texture_type
     {
         CONST_TEXTURE_HEART,
+        CONST_TEXTURE_BACKPACK,
+        CONST_TEXTURE_HUNGER,
         CONST_TEXTURE_MAX_INDEX
     };
     class block_texture
