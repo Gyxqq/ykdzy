@@ -142,8 +142,8 @@ namespace render
         for (int i = 0; i < heart_count; i++)
         {
 
-            putimage(render::width - (16 + i * 16), 5, &const_textures[assets::const_texture_type::CONST_TEXTURE_HEART]);
-            transparentimage(&const_textures[assets::const_texture_type::CONST_TEXTURE_HEART], render::width - (16 + i * 16), 5, &const_textures[assets::const_texture_type::CONST_TEXTURE_HEART], BLACK);
+            putimage(render::width - (16 + i * 16), 5, &const_textures[assets::const_texture_type::CONST_TEXTURE_HEART],SRCPAINT);
+            
         }
     }
     int reverse_y(int y)

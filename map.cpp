@@ -102,9 +102,13 @@ block_type map::get_block(int x, int y)
     {
         in_chunk_x = BLOCKS_PER_CHUNK_X + in_chunk_x;
     }
-    if (y < 0 || y >= BLOCKS_PER_CHUNK_Y - 1)
+    if ( y >= BLOCKS_PER_CHUNK_Y - 1)
     {
         return block_type::BLOCK_AIR;
+    }
+    if (y < 0)
+    {
+        return block_type::BLOCK_VOID;
     }
     for (int i = 0; i < CHUNKS_PER_MAP_X; i++)
     {
@@ -312,6 +316,10 @@ int chunk::init(std::string name, int seed)
         if (this->blocks[i].y <= level)
         {
             this->blocks[i].type = middle_block;
+        }
+        else if (this->blocks[i].y == 0)
+        {
+            this->blocks[i].type = block_type::BLOCK_BEDROCK;
         }
         else
         {
