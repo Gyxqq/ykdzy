@@ -7,7 +7,6 @@
 #define BLOCK_TEXTURES_SIZE 32
 namespace render
 {
-
     void put_transparentimage(int x, int y, IMAGE *img)
     {
         IMAGE img1;
@@ -140,10 +139,13 @@ namespace render
             {
                 sum += fps_queue[i];
             }
-            outtextxy(0, 0, ("FPS:" + std::to_string(sum / fps_queue.size())).c_str());
-            char pos[100];
-            sprintf(pos, "X:%.2f Y:%.2f", player.x, player.y);
-            outtextxy(0, 20, pos);
+            if (game->show_debug)
+            {
+                outtextxy(0, 0, ("FPS:" + std::to_string(sum / fps_queue.size())).c_str());
+                char pos[100];
+                sprintf(pos, "X:%.2f Y:%.2f", player.x, player.y);
+                outtextxy(0, 20, pos);
+            }
         }
         FlushBatchDraw();
         // end time
@@ -167,7 +169,7 @@ namespace render
             // putimage(render::width - (16 + i * 16), 5, &const_textures[assets::const_texture_type::CONST_TEXTURE_HEART], SRCPAINT);
             put_transparentimage(render::width - (16 + i * 16), 5, &const_textures[assets::const_texture_type::CONST_TEXTURE_HEART]);
         }
-        int hunger=player->hunger/10;
+        int hunger = player->hunger / 10;
         for (int i = 0; i < hunger; i++)
         {
             put_transparentimage(render::width - (16 + i * 16), 25, &const_textures[assets::const_texture_type::CONST_TEXTURE_HUNGER]);

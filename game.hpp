@@ -3,6 +3,12 @@
 #include "log.hpp"
 #include <vector>
 #define MAX_ITEMS 20
+class block_attcking
+{
+public:
+    block *block;
+    int attacking_state;
+};
 class player
 {
 public:
@@ -26,6 +32,8 @@ public:
     map world;
     std::vector<player> players;
     std::string savepath;
+    block_attcking attacking_block;
+    int show_debug;
     int init(std::string name);
     int load(std::string name);
     int player_on_ground(player *player);

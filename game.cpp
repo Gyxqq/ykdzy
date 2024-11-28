@@ -135,6 +135,8 @@ int game::load(std::string name)
         this->world.load_chunk_pos_no_save(this->savepath, i, center_x - CHUNKS_PER_MAP_X / 2 + i);
         glog::log("info", "Loading Chunk: " + std::to_string(center_x - CHUNKS_PER_MAP_X / 2 + i), "game loader");
     }
+    memset(&this->attacking_block, 0, sizeof(this->attacking_block));
+    this->show_debug = 0;
     return 0;
 }
 int game::save()
@@ -247,10 +249,14 @@ int game::update()
         }
     }
     // E key
-    if (IsKeyPressed(0x45))
+    if (IsKeyPressed('E'))
     {
 
         this->players[0].gui_open = !this->players[0].gui_open;
+        Sleep(200);
+    }
+    if (IsKeyPressed(VK_F3)){
+        this->show_debug = !this->show_debug;
         Sleep(200);
     }
     if (this->players[0].run == 3 && this->players[0].run_state <= 30)
@@ -362,7 +368,6 @@ int game::update()
         return 0;
     }
 
-    global_mutex.unlock();
     // load chunks
     int center_x = this->players[0].x / BLOCKS_PER_CHUNK_X;
     for (int i = 0; i < CHUNKS_PER_MAP_X; i++)
@@ -392,6 +397,7 @@ int game::update()
             glog::log("info", "Loading Chunk: " + std::to_string(center_x - CHUNKS_PER_MAP_X / 2 + i), "game");
         }
     }
+    global_mutex.unlock();
     // Sleep(1);
     return 0;
 }

@@ -283,16 +283,7 @@ int chunk::init(std::string name, int seed)
         top_block = block_type::BLOCK_STONE;
         middle_block = block_type::BLOCK_STONE;
     }
-    // else if (this->type == chunk_type::CHUNK_OCEAN)
-    // {
-    //     top_block = block_type::BLOCK_WATER;
-    //     middle_block = block_type::BLOCK_WATER;
-    // }
-    // else if (this->type == chunk_type::CHUNK_LAVA)
-    // {
-    //     top_block = block_type::BLOCK_LAVA;
-    //     middle_block = block_type::BLOCK_LAVA;
-    // }
+
     else if (this->type == chunk_type::CHUNK_VOID)
     {
         top_block = block_type::BLOCK_VOID;
