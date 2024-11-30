@@ -354,7 +354,7 @@ int game::update()
 
     else if (IsKeyPressed(VK_SPACE))
     {
-        this->players[0].y += 1;
+        // this->players[0].y += 1;
         if (this->players[0].run != 3)
         {
             this->players[0].run = 3;
@@ -539,11 +539,11 @@ float game::get_distance_to_side(player *player, int side)
             return 1;
         if (this->world.get_block(x1, y1) != block_type::BLOCK_AIR && this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x1, y1) != block_type::BLOCK_VOID)
         {
-            distance = player->y - 0.55 - y1 - 1;
+            distance = player->y - 0.55 - y1 + 1;
         }
         else
         {
-            distance = player->y - 0.55 - y2 - 1;
+            distance = player->y - 0.55 - y2 + 1;
         }
     }
     else if (side == 3)

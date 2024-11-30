@@ -10,7 +10,7 @@ namespace render
     void put_transparentimage(int x, int y, IMAGE *img)
     {
         IMAGE img1;
-        DWORD *d1;
+        DWORD *d1;      
         img1 = *img;
         d1 = GetImageBuffer(&img1);
         float h, s, l;

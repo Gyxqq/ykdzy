@@ -155,29 +155,7 @@ int chunk::save(std::string name)
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> elapsed = end - start;
     glog::log("info", "Save Time: " + std::to_string(elapsed.count()), "chunk");
-    // char *data = new char[this->block_count*2];
-    // memset(data, 0, this->block_count*2);
-    // int offset = 0;
-    // for (int i = 0; i < this->block_count; i++)
-    // {
-    //     if (i%BLOCKS_PER_CHUNK_X == 0)
-    //     {
-    //         data[offset] = '\n';
-    //         offset++;
-    //     }
-    //     else if (this->blocks[i].type==block_type::BLOCK_AIR)
-    //     {
-    //         data[offset] = ' ';
-    //         offset++;
-    //     }
-    //     else
-    //     {
-    //         data[offset] = '0'+this->blocks[i].type;
-    //         offset++;
-    //     }
 
-    // }
-    // glog::log("info", "Chunk Data: " + std::string(data), "chunk");
     return 0;
 }
 int chunk::load(std::string name, int seed)
