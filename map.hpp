@@ -65,6 +65,7 @@ enum item_type
     ITEM_FURNACE,        // 熔炉
     ITEM_CRAFTING_TABLE, // 工作台
     ITEM_GLASS,          // 玻璃
+    ITEM_MAX_INDEX
 };
 enum chunk_type
 {

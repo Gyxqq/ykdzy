@@ -17,6 +17,13 @@ namespace assets
         block_type type;
         std::string texture;
     };
+    class item_texture
+    {
+    public:
+        item_type type;
+        std::string texture;
+    };
+    extern item_texture item_textures[ITEM_MAX_INDEX];
     extern block_texture block_textures[block_type::BLOCK_MAX_INDEX];
     int load_block_textures(std::string config_path);
     std::string get_block_texture(block_type type);
@@ -38,4 +45,5 @@ namespace assets
     std::string get_player_texture(std::string type, int index);
     int load_const_textures(std::string pre_path);
     extern const_texture const_textures[CONST_TEXTURE_MAX_INDEX];
+    int load_item_textures(std::string config_path);
 }

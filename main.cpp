@@ -19,6 +19,7 @@ int exit_flag = 0;
 #define BLOCK_ASSETS_PATH "D:\\projects\\ykdzy\\assets\\blocks\\blockconfig.json"
 #define PLAYER_ASSETS_PATH "D:\\projects\\ykdzy\\assets\\player\\playerconfig.json"
 #define CONST_TEXTURES_PATH "D:\\projects\\ykdzy\\assets\\const\\"
+#define ITEM_TEXTURES_PATH "D:\\projects\\ykdzy\\assets\\items\\itemconfig.json"
 int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 
@@ -32,13 +33,14 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
     assets::load_block_textures(BLOCK_ASSETS_PATH);
     assets::load_player_textures(PLAYER_ASSETS_PATH);
     assets::load_const_textures(CONST_TEXTURES_PATH);
+    assets::load_item_textures(ITEM_TEXTURES_PATH);
     render::init(1240, 720);
     std::thread game_thread([&game]()
                             {
                                 while (exit_flag == 0)
                                 {
                                     game.update();
-                                    Sleep(1);
+                                    Sleep(10);
                                 } });
 
     while (exit_flag == 0)
@@ -53,4 +55,3 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
     game.save();
     glog::log("info", "Game Loaded", "main");
 }
-

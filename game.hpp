@@ -2,7 +2,7 @@
 #include "map.hpp"
 #include "log.hpp"
 #include <vector>
-#define MAX_ITEMS 20
+#define MAX_ITEMS 36
 class block_attcking
 {
 public:

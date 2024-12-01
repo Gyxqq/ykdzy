@@ -5,12 +5,19 @@
 #include "game.hpp"
 #include <queue>
 #define BLOCK_TEXTURES_SIZE 32
+#define ITEM_TEXTURES_SIZE 32
+#define MAX_ITEMS_X 9
+#define MAX_ITEMS_Y 4
+#define item_begin_x 16
+#define item_begin_y 168
+#define inventory_begin_x 16
+#define inventory_begin_y 284
 namespace render
 {
     void put_transparentimage(int x, int y, IMAGE *img)
     {
         IMAGE img1;
-        DWORD *d1;      
+        DWORD *d1;
         img1 = *img;
         d1 = GetImageBuffer(&img1);
         float h, s, l;
@@ -38,6 +45,7 @@ namespace render
     IMAGE block_textures[block_type::BLOCK_MAX_INDEX];
     IMAGE player_textures[3][6];
     IMAGE const_textures[assets::const_texture_type::CONST_TEXTURE_MAX_INDEX];
+    IMAGE item_textures[item_type::ITEM_MAX_INDEX];
     int width;
     int height;
     std::deque<int> fps_queue;
@@ -77,6 +85,10 @@ namespace render
         for (int i = 0; i < assets::const_texture_type::CONST_TEXTURE_MAX_INDEX; i++)
         {
             loadimage(&const_textures[i], assets::const_textures[i].texture.c_str());
+        }
+        for (int i = 0; i < item_type::ITEM_MAX_INDEX; i++)
+        {
+            loadimage(&item_textures[i], assets::item_textures[i].texture.c_str());
         }
         glog::log("info", "Render Initialized", "render");
         return 0;
@@ -178,6 +190,20 @@ namespace render
     void draw_inventory(player *player)
     {
         put_transparentimage(render::width / 2 - 160, render::height / 2 - 169, &const_textures[assets::const_texture_type::CONST_TEXTURE_BACKPACK]);
+        int pos_x = render::width / 2 - 160 + item_begin_x;
+        int pos_y = render::height / 2 - 169 + item_begin_y;
+        for (int i = 0; i < 27; i++)
+        {
+            int x = i % 9;
+            int y = i / 9;
+            put_transparentimage(pos_x + x * 36, pos_y + y * 36, &item_textures[player->items[i].type]);
+        }
+        pos_x = render::width / 2 - 160 + inventory_begin_x;
+        pos_y = render::height / 2 - 169 + inventory_begin_y;
+        for (int i = 0; i < 9; i++)
+        {
+            put_transparentimage(pos_x + i * 36, pos_y, &item_textures[player->items[i + 27].type]);
+        }
     }
     int reverse_y(int y)
     {
