@@ -4,14 +4,7 @@
 #include "assets.hpp"
 #include "game.hpp"
 #include <queue>
-#define BLOCK_TEXTURES_SIZE 32
-#define ITEM_TEXTURES_SIZE 32
-#define MAX_ITEMS_X 9
-#define MAX_ITEMS_Y 4
-#define item_begin_x 16
-#define item_begin_y 168
-#define inventory_begin_x 16
-#define inventory_begin_y 284
+
 namespace render
 {
     void put_transparentimage(int x, int y, IMAGE *img)
@@ -157,6 +150,8 @@ namespace render
                 char pos[100];
                 sprintf(pos, "X:%.2f Y:%.2f", player.x, player.y);
                 outtextxy(0, 20, pos);
+                sprintf(pos, "mouse X:%d Y:%d", game->mouse_pos.x, game->mouse_pos.y);
+                outtextxy(0, 40, pos);
             }
         }
         FlushBatchDraw();

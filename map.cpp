@@ -102,7 +102,7 @@ block_type map::get_block(int x, int y)
     {
         in_chunk_x = BLOCKS_PER_CHUNK_X + in_chunk_x;
     }
-    if ( y >= BLOCKS_PER_CHUNK_Y - 1)
+    if (y >= BLOCKS_PER_CHUNK_Y - 1)
     {
         return block_type::BLOCK_AIR;
     }
@@ -119,6 +119,37 @@ block_type map::get_block(int x, int y)
     }
     glog::log("error", "Chunk not found: " + std::to_string(chunk_x), "map");
     return block_type::BLOCK_AIR;
+}
+block *map::get_block_ptr(int x, int y)
+{
+    int chunk_x = x / BLOCKS_PER_CHUNK_X;
+    if (x < 0)
+    {
+        chunk_x--;
+    }
+
+    int in_chunk_x = x % BLOCKS_PER_CHUNK_X;
+    if (chunk_x < 0)
+    {
+        in_chunk_x = BLOCKS_PER_CHUNK_X + in_chunk_x;
+    }
+    if (y >= BLOCKS_PER_CHUNK_Y - 1)
+    {
+        return NULL;
+    }
+    if (y < 0)
+    {
+        return NULL;
+    }
+    for (int i = 0; i < CHUNKS_PER_MAP_X; i++)
+    {
+        if (this->chunks[i].x == chunk_x)
+        {     
+            return &this->chunks[i].blocks[in_chunk_x + y * BLOCKS_PER_CHUNK_X];
+        }
+    }
+    glog::log("error", "Chunk not found: " + std::to_string(chunk_x), "map");
+    return NULL;
 }
 
 int chunk::save(std::string name)
@@ -290,7 +321,7 @@ int chunk::init(std::string name, int seed)
         {
             this->blocks[i].type = block_type::BLOCK_BEDROCK;
         }
-        else  
+        else
         {
             this->blocks[i].type = block_type::BLOCK_AIR;
         }

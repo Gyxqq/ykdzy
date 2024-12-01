@@ -138,6 +138,7 @@ public:
     int load_chunk_pos_no_save(std::string name, int unload_pos, int load_pos);
     int init(std::string name);
     block_type get_block(int x, int y);
+    block* get_block_ptr(int x, int y);
     int save();
     chunk_type cauculate_chunk_type(int x, int seed);
     ~map();

@@ -6,6 +6,8 @@
 #include <time.h>
 #include <sys/stat.h>
 #include <graphics.h>
+#include <Windows.h>
+#include "render.hpp"
 #define SPEED 0.1
 extern std::mutex global_mutex;
 extern int exit_flag;
@@ -249,13 +251,79 @@ int game::update()
         }
     }
     // E key
+    if (GetCursorPos(&this->mouse_pos))
+    {
+        ScreenToClient(GetHWnd(), &this->mouse_pos);
+    } // 获取鼠标位置
+
+    if (IsKeyPressed(VK_LBUTTON) && !this->players[0].gui_open)
+    {
+        if (this->mouse_pos.x >= 0 && this->mouse_pos.x <= render::width && this->mouse_pos.y >= 0 && this->mouse_pos.y <= render::height)
+        {
+            int x = render::width / 2 + BLOCK_TEXTURES_SIZE / 2;
+            int y = render::height / 2 + BLOCK_TEXTURES_SIZE / 2;
+            float offset_x = (this->mouse_pos.x - x) * 1.0 / BLOCK_TEXTURES_SIZE;
+            float offset_y = (this->mouse_pos.y - y) * 1.0 / BLOCK_TEXTURES_SIZE;
+            if (offset_x * offset_x + offset_y * offset_y <= 16)
+            {
+
+                int block_x = get_block_x(this->players[0].x + offset_x);
+                int block_y = this->players[0].y - offset_y;
+                // glog::log("info", "block x: " + std::to_string(block_x) + " y: " + std::to_string(block_y), "game");
+                if (block_y < BLOCKS_PER_CHUNK_Y && block_y >= 0)
+                {
+                    int type = this->world.get_block(block_x, block_y);
+                    if (type != block_type::BLOCK_AIR && type != block_type::BLOCK_VOID)
+                    {
+
+                        if (this->attacking_block.block == NULL)
+                        {
+                            this->attacking_block.block = this->world.get_block_ptr(block_x, block_y);
+                            this->attacking_block.attacking_state = 0;
+                        }
+                        else
+                        {
+                            if (this->attacking_block.block == this->world.get_block_ptr(block_x, block_y))
+                            {
+                                this->attacking_block.attacking_state++;
+                                // glog::log("info", "attacking block x: " + std::to_string(block_x) + " y: " + std::to_string(block_y) + " state: " + std::to_string(this->attacking_block.attacking_state), "game");
+                                if (this->attacking_block.attacking_state >= 10)
+                                {
+                                    if (this->attacking_block.block->data != NULL)
+                                    {
+                                        delete this->attacking_block.block->data;
+                                        this->attacking_block.block->data = NULL;
+                                        this->attacking_block.block->data_size = 0;
+                                    }
+                                    this->attacking_block.block->type = block_type::BLOCK_AIR;
+                                    this->attacking_block.block = NULL;
+                                    glog::log("info", "destroy block x: " + std::to_string(block_x) + " y: " + std::to_string(block_y), "game");
+                                }
+                            }
+                            else
+                            {
+                                this->attacking_block.block = this->world.get_block_ptr(block_x, block_y);
+                                this->attacking_block.attacking_state = 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    else if (!IsKeyPressed(VK_LBUTTON) && !this->players[0].gui_open)
+    {
+        this->attacking_block.block = NULL;
+        this->attacking_block.attacking_state = 0;
+    }
     if (IsKeyPressed('E'))
     {
 
         this->players[0].gui_open = !this->players[0].gui_open;
         Sleep(200);
     }
-    if (IsKeyPressed(VK_F3)){
+    if (IsKeyPressed(VK_F3))
+    {
         this->show_debug = !this->show_debug;
         Sleep(200);
     }

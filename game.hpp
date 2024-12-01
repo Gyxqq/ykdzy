@@ -2,6 +2,7 @@
 #include "map.hpp"
 #include "log.hpp"
 #include <vector>
+#include <windows.h>
 #define MAX_ITEMS 36
 class block_attcking
 {
@@ -34,6 +35,7 @@ public:
     std::string savepath;
     block_attcking attacking_block;
     int show_debug;
+    POINT mouse_pos;
     int init(std::string name);
     int load(std::string name);
     int player_on_ground(player *player);
