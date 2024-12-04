@@ -7,3 +7,4 @@ save1/*.*
 00000.player
 *.log
 *.json
+**/build/*
