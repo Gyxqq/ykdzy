@@ -46,10 +46,11 @@ enum block_type
     BLOCK_LOG,               // 木头
     BLOCK_MUSHROOM,          // 蘑菇
     BLOCK_GLASS,             // 玻璃
-    BLOCK_MAX_INDEX         // 最大索引
+    BLOCK_MAX_INDEX          // 最大索引
 };
 enum item_type
 {
+    ITEM_AIR,            // 空气
     ITEM_STICK,          // 木棍
     ITEM_WOOD,           // 木头
     ITEM_COAL,           // 煤炭
@@ -65,6 +66,12 @@ enum item_type
     ITEM_FURNACE,        // 熔炉
     ITEM_CRAFTING_TABLE, // 工作台
     ITEM_GLASS,          // 玻璃
+    ITEM_DIRT,           // 泥土
+    ITEM_GRASS,          // 草地
+    ITEM_SAND,           // 沙子
+    ITEM_SNOW,           // 雪
+    ITEM_ICE,            // 冰
+    ITEM_LOG,
     ITEM_MAX_INDEX
 };
 enum chunk_type
@@ -76,7 +83,7 @@ enum chunk_type
     CHUNK_MOUNTAIN,  // 山地
     // CHUNK_OCEAN,     // 海洋
     // CHUNK_LAVA,      // 火山
-    CHUNK_VOID,      // 虚空
+    CHUNK_VOID, // 虚空
     CHUNK_TYPE_END
 };
 class item
@@ -138,7 +145,7 @@ public:
     int load_chunk_pos_no_save(std::string name, int unload_pos, int load_pos);
     int init(std::string name);
     block_type get_block(int x, int y);
-    block* get_block_ptr(int x, int y);
+    block *get_block_ptr(int x, int y);
     int save();
     chunk_type cauculate_chunk_type(int x, int seed);
     ~map();

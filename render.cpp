@@ -184,6 +184,7 @@ namespace render
     }
     void draw_inventory(player *player)
     {
+        settextstyle(14, 0, _T("宋体"));
         put_transparentimage(render::width / 2 - 160, render::height / 2 - 169, &const_textures[assets::const_texture_type::CONST_TEXTURE_BACKPACK]);
         int pos_x = render::width / 2 - 160 + item_begin_x;
         int pos_y = render::height / 2 - 169 + item_begin_y;
@@ -192,13 +193,17 @@ namespace render
             int x = i % 9;
             int y = i / 9;
             put_transparentimage(pos_x + x * 36, pos_y + y * 36, &item_textures[player->items[i].type]);
+            
+            outtextxy(pos_x + x * 36+16, pos_y + y * 36+20, std::to_string(player->items[i].count).c_str());
         }
         pos_x = render::width / 2 - 160 + inventory_begin_x;
         pos_y = render::height / 2 - 169 + inventory_begin_y;
         for (int i = 0; i < 9; i++)
         {
             put_transparentimage(pos_x + i * 36, pos_y, &item_textures[player->items[i + 27].type]);
+            outtextxy(pos_x + i * 36+16, pos_y+20, std::to_string(player->items[i+27].count).c_str());
         }
+        settextstyle(20, 0, _T("宋体"));
     }
     int reverse_y(int y)
     {

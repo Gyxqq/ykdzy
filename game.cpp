@@ -289,6 +289,51 @@ int game::update()
                                 // glog::log("info", "attacking block x: " + std::to_string(block_x) + " y: " + std::to_string(block_y) + " state: " + std::to_string(this->attacking_block.attacking_state), "game");
                                 if (this->attacking_block.attacking_state >= 10)
                                 {
+                                    item drop = this->get_block_drop(this->attacking_block.block);
+                                    if (drop.type != item_type::ITEM_AIR)
+                                    {
+                                        for (int i = 0; i < MAX_ITEMS; i++)
+                                        {
+                                            if (this->players[0].items[i].type == drop.type)
+                                            {
+                                                this->players[0].items[i].stack_count = drop.stack_count;
+                                                if (this->players[0].items[i].stack_count - this->players[0].items[i].count >= 0)
+                                                {
+                                                    if (this->players[0].items[i].stack_count - this->players[0].items[i].count >= drop.count)
+                                                    {
+                                                        this->players[0].items[i].count += drop.count;
+                                                        drop.count = 0;
+                                                        break;
+                                                    }
+                                                    else
+                                                    {
+                                                        drop.count -= this->players[0].items[i].stack_count - this->players[0].items[i].count;
+                                                        this->players[0].items[i].count = this->players[0].items[i].stack_count;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        if (drop.count > 0)
+                                        {
+                                            for (int i = 0; i < MAX_ITEMS; i++)
+                                            {
+                                                if (this->players[0].items[i].type == item_type::ITEM_AIR)
+                                                {
+                                                    this->players[0].items[i] = drop;
+                                                    drop.count = 0;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (drop.count > 0)
+                                        {
+                                            if (drop.data != NULL)
+                                            {
+                                                delete drop.data;
+                                                drop.data = NULL;
+                                            }
+                                        }
+                                    }
                                     if (this->attacking_block.block->data != NULL)
                                     {
                                         delete this->attacking_block.block->data;
@@ -298,6 +343,7 @@ int game::update()
                                     this->attacking_block.block->type = block_type::BLOCK_AIR;
                                     this->attacking_block.block = NULL;
                                     glog::log("info", "destroy block x: " + std::to_string(block_x) + " y: " + std::to_string(block_y), "game");
+                                    glog::log("info", "drop item type: " + std::to_string(drop.type) + " count: " + std::to_string(drop.count), "game");
                                 }
                             }
                             else
@@ -634,4 +680,21 @@ float game::get_distance_to_side(player *player, int side)
     if (distance < 0)
         distance = 0;
     return distance;
+}
+item game::get_block_drop(block *block)
+{
+    item item;
+    item.type = item_type::ITEM_AIR;
+    item.stack_count = 0;
+    item.count = 0;
+    item.data = NULL;
+    switch (block->type)
+    {
+    case block_type::BLOCK_DIRT:
+        item.type = item_type::ITEM_DIRT;
+        item.stack_count = 64;
+        item.count = 1;
+        break;
+    }
+    return item;
 }
