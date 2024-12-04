@@ -192,14 +192,17 @@ namespace render
         {
             int x = i % 9;
             int y = i / 9;
+            if (player->items[i].type == item_type::ITEM_AIR)
+                continue;
             put_transparentimage(pos_x + x * 36, pos_y + y * 36, &item_textures[player->items[i].type]);
-
             outtextxy(pos_x + x * 36 + 16, pos_y + y * 36 + 20, std::to_string(player->items[i].count).c_str());
         }
         pos_x = render::width / 2 - 160 + inventory_begin_x;
         pos_y = render::height / 2 - 169 + inventory_begin_y;
         for (int i = 0; i < 9; i++)
         {
+            if (player->items[i + 27].type == item_type::ITEM_AIR)
+                continue;
             put_transparentimage(pos_x + i * 36, pos_y, &item_textures[player->items[i + 27].type]);
             outtextxy(pos_x + i * 36 + 16, pos_y + 20, std::to_string(player->items[i + 27].count).c_str());
         }
@@ -213,6 +216,8 @@ namespace render
         settextstyle(14, 0, _T("宋体"));
         for (int i = 0; i < 9; i++)
         {
+            if (player->items[i + 27].type == item_type::ITEM_AIR)
+                continue;
             put_transparentimage(x + 6 + i * 40, y + 6, &item_textures[player->items[i + 27].type]);
             outtextxy(x + 6 + i * 40 + 16, y + 6 + 20, std::to_string(player->items[i + 27].count).c_str());
         }

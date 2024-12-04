@@ -4576,3 +4576,577 @@
 [2024-12-04 20:05:15] [info] [game save] Saving Player: 00000.player
 [2024-12-04 20:05:15] [info] [game save] Player x: -301.500610 y: 13.495084
 [2024-12-04 20:05:15] [info] [main] Game Loaded
+[2024-12-04 20:08:20] [info] [main] Hello, world!
+[2024-12-04 20:08:20] [info] [game loader] Loading Game: D:\projects\ykdzy\save1\game.json
+[2024-12-04 20:08:20] [info] [game loader] File size: 102
+[2024-12-04 20:08:20] [info] [game loader] get Savepath: D:\projects\ykdzy\save1\
+[2024-12-04 20:08:20] [info] [map] Loading Map: D:\projects\ykdzy\save1\
+[2024-12-04 20:08:20] [info] [game loader] Loading Player: 00000.player
+[2024-12-04 20:08:20] [info] [player] Loading Player: D:\projects\ykdzy\save1\00000.player
+[2024-12-04 20:08:20] [info] [player] Player Loaded: D:\projects\ykdzy\save1\00000.player
+[2024-12-04 20:08:20] [info] [map chunk loader] loading Chunk: -6
+[2024-12-04 20:08:20] [info] [chunk] File size: 524312
+[2024-12-04 20:08:20] [info] [game loader] Loading Chunk: -6
+[2024-12-04 20:08:20] [info] [map chunk loader] loading Chunk: -5
+[2024-12-04 20:08:20] [info] [chunk] File size: 524312
+[2024-12-04 20:08:20] [info] [game loader] Loading Chunk: -5
+[2024-12-04 20:08:20] [info] [map chunk loader] loading Chunk: -4
+[2024-12-04 20:08:20] [info] [chunk] File size: 524312
+[2024-12-04 20:08:20] [info] [game loader] Loading Chunk: -4
+[2024-12-04 20:08:20] [info] [map chunk loader] loading Chunk: -3
+[2024-12-04 20:08:20] [info] [chunk] File size: 524312
+[2024-12-04 20:08:20] [info] [game loader] Loading Chunk: -3
+[2024-12-04 20:08:20] [info] [map chunk loader] loading Chunk: -2
+[2024-12-04 20:08:20] [info] [chunk] File size: 524312
+[2024-12-04 20:08:20] [info] [game loader] Loading Chunk: -2
+[2024-12-04 20:08:20] [info] [map chunk loader] loading Chunk: -1
+[2024-12-04 20:08:20] [info] [chunk] File size: 524312
+[2024-12-04 20:08:20] [info] [game loader] Loading Chunk: -1
+[2024-12-04 20:08:20] [info] [map chunk loader] loading Chunk: 0
+[2024-12-04 20:08:20] [info] [chunk] File size: 524312
+[2024-12-04 20:08:20] [info] [game loader] Loading Chunk: 0
+[2024-12-04 20:08:20] [info] [map chunk loader] loading Chunk: 1
+[2024-12-04 20:08:20] [info] [chunk] File size: 524312
+[2024-12-04 20:08:20] [info] [game loader] Loading Chunk: 1
+[2024-12-04 20:08:20] [info] [game] Saving Game
+[2024-12-04 20:08:20] [info] [chunk] Saved Chunk: -6 to D:\projects\ykdzy\save1\chunk-6.chunk
+[2024-12-04 20:08:20] [info] [chunk] Save Time: 0.004258
+[2024-12-04 20:08:20] [info] [map] Saved Chunk: -6
+[2024-12-04 20:08:20] [info] [chunk] Saved Chunk: -5 to D:\projects\ykdzy\save1\chunk-5.chunk
+[2024-12-04 20:08:20] [info] [chunk] Save Time: 0.007760
+[2024-12-04 20:08:20] [info] [map] Saved Chunk: -5
+[2024-12-04 20:08:20] [info] [chunk] Saved Chunk: -4 to D:\projects\ykdzy\save1\chunk-4.chunk
+[2024-12-04 20:08:20] [info] [chunk] Save Time: 0.004868
+[2024-12-04 20:08:20] [info] [map] Saved Chunk: -4
+[2024-12-04 20:08:20] [info] [chunk] Saved Chunk: -3 to D:\projects\ykdzy\save1\chunk-3.chunk
+[2024-12-04 20:08:20] [info] [chunk] Save Time: 0.007310
+[2024-12-04 20:08:20] [info] [map] Saved Chunk: -3
+[2024-12-04 20:08:20] [info] [chunk] Saved Chunk: -2 to D:\projects\ykdzy\save1\chunk-2.chunk
+[2024-12-04 20:08:20] [info] [chunk] Save Time: 0.005176
+[2024-12-04 20:08:20] [info] [map] Saved Chunk: -2
+[2024-12-04 20:08:20] [info] [chunk] Saved Chunk: -1 to D:\projects\ykdzy\save1\chunk-1.chunk
+[2024-12-04 20:08:20] [info] [chunk] Save Time: 0.010666
+[2024-12-04 20:08:20] [info] [map] Saved Chunk: -1
+[2024-12-04 20:08:20] [info] [chunk] Saved Chunk: 0 to D:\projects\ykdzy\save1\chunk0.chunk
+[2024-12-04 20:08:20] [info] [chunk] Save Time: 0.007968
+[2024-12-04 20:08:20] [info] [map] Saved Chunk: 0
+[2024-12-04 20:08:20] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\save1\chunk1.chunk
+[2024-12-04 20:08:20] [info] [chunk] Save Time: 0.005618
+[2024-12-04 20:08:20] [info] [map] Saved Chunk: 1
+[2024-12-04 20:08:20] [info] [player] Player Saved: D:\projects\ykdzy\save1\00000.player
+[2024-12-04 20:08:20] [info] [game save] Saving Player: 00000.player
+[2024-12-04 20:08:20] [info] [game save] Player x: -301.500610 y: 13.495084
+[2024-12-04 20:08:20] [info] [assets] Loading Block Textures: D:\projects\ykdzy\assets\blocks\blockconfig.json
+[2024-12-04 20:08:20] [info] [assets] Texture Path: D:\projects\ykdzy\assets\blocks\
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_AIR path: D:\projects\ykdzy\assets\blocks\sky.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_DIRT path: D:\projects\ykdzy\assets\blocks\dirt.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_GRASS path: D:\projects\ykdzy\assets\blocks\grass_block_side.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_STONE path: D:\projects\ykdzy\assets\blocks\stone.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_WOOD path: D:\projects\ykdzy\assets\blocks\birch_log.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_LEAVES path: D:\projects\ykdzy\assets\blocks\azalea_leaves.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_WATER path: D:\projects\ykdzy\assets\blocks\underwater.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_SAND path: D:\projects\ykdzy\assets\blocks\sand.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_CACTUS path: D:\projects\ykdzy\assets\blocks\cactus_side.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_SNOW path: D:\projects\ykdzy\assets\blocks\snow.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_ICE path: D:\projects\ykdzy\assets\blocks\ice.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_COAL path: D:\projects\ykdzy\assets\blocks\coal_ore.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_IRON path: D:\projects\ykdzy\assets\blocks\iron_ore.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_GOLD path: D:\projects\ykdzy\assets\blocks\gold_ore.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_DIAMOND path: D:\projects\ykdzy\assets\blocks\diamond_ore.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_EMERALD path: D:\projects\ykdzy\assets\blocks\emerald_ore.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_COPPER path: D:\projects\ykdzy\assets\blocks\copper_ore.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_VOID path: D:\projects\ykdzy\assets\blocks\end_sky.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_BEDROCK path: D:\projects\ykdzy\assets\blocks\bedrock.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_CHEST path: D:\projects\ykdzy\assets\blocks\barrel_top.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_FURNACE path: D:\projects\ykdzy\assets\blocks\furnace_front.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_CRAFTING_TABLE path: D:\projects\ykdzy\assets\blocks\crafting_table_front.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_ANVIL path: D:\projects\ykdzy\assets\blocks\anvil.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_ENCHANTING_TABLE path: D:\projects\ykdzy\assets\blocks\enchanting_table_side.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_BEACON path: D:\projects\ykdzy\assets\blocks\beacon.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_TORCH path: D:\projects\ykdzy\assets\blocks\torch.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_LANTERN path: D:\projects\ykdzy\assets\blocks\jack_o_lantern.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_BED path: D:\projects\ykdzy\assets\blocks\bed_feet_end.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_CAKE path: D:\projects\ykdzy\assets\blocks\cake_side.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_FLOWER path: D:\projects\ykdzy\assets\blocks\potted_flowering_azalea_bush_plant.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_SAPLING path: D:\projects\ykdzy\assets\blocks\potted_flowering_azalea_bush_plant.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_LOG path: D:\projects\ykdzy\assets\blocks\birch_log.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_MUSHROOM path: D:\projects\ykdzy\assets\blocks\brown_mushroom.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Block Texture: BLOCK_GLASS path: D:\projects\ykdzy\assets\blocks\glass.png
+[2024-12-04 20:08:20] [info] [assets] Loading Player Textures: D:\projects\ykdzy\assets\player\playerconfig.json
+[2024-12-04 20:08:20] [info] [assets] Loaded Player Textures
+[2024-12-04 20:08:20] [info] [assets] Loading Const Textures: D:\projects\ykdzy\assets\const\
+[2024-12-04 20:08:20] [info] [assets] Loading Item Textures: D:\projects\ykdzy\assets\items\itemconfig.json
+[2024-12-04 20:08:20] [info] [assets] Texture Path: D:\projects\ykdzy\assets\items\
+[2024-12-04 20:08:20] [info] [assets] Loaded Item Texture: ITEM_AIR path: D:\projects\ykdzy\assets\items\miss.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Item Texture: ITEM_COAL path: D:\projects\ykdzy\assets\items\coal.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Item Texture: ITEM_RAW_IRON path: D:\projects\ykdzy\assets\items\raw_iron.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Item Texture: ITEM_RAW_GOLD path: D:\projects\ykdzy\assets\items\raw_gold.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Item Texture: ITEM_DIAMOND path: D:\projects\ykdzy\assets\items\diamond.png
+[2024-12-04 20:08:20] [info] [assets] Loaded Item Texture: ITEM_DIRT path: D:\projects\ykdzy\assets\items\dirt.png
+[2024-12-04 20:08:20] [info] [render] Initializing Render
+[2024-12-04 20:08:21] [info] [render] Render Initialized
+[2024-12-04 20:08:30] [info] [game] destroy block x: -302 y: 12
+[2024-12-04 20:08:30] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:31] [info] [game] destroy block x: -303 y: 12
+[2024-12-04 20:08:31] [info] [game] drop item type: 4 count: 0
+[2024-12-04 20:08:32] [info] [game] destroy block x: -304 y: 12
+[2024-12-04 20:08:32] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:33] [info] [game] destroy block x: -305 y: 12
+[2024-12-04 20:08:33] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:34] [info] [game] destroy block x: -306 y: 12
+[2024-12-04 20:08:34] [info] [game] drop item type: 3 count: 0
+[2024-12-04 20:08:34] [info] [game] destroy block x: -307 y: 12
+[2024-12-04 20:08:34] [info] [game] drop item type: 8 count: 0
+[2024-12-04 20:08:35] [info] [game] destroy block x: -308 y: 12
+[2024-12-04 20:08:35] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:36] [info] [game] destroy block x: -309 y: 12
+[2024-12-04 20:08:36] [info] [game] drop item type: 6 count: 0
+[2024-12-04 20:08:36] [info] [game] destroy block x: -310 y: 12
+[2024-12-04 20:08:36] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:37] [info] [game] destroy block x: -311 y: 12
+[2024-12-04 20:08:37] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:37] [info] [game] destroy block x: -312 y: 12
+[2024-12-04 20:08:37] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:37] [info] [game] destroy block x: -313 y: 12
+[2024-12-04 20:08:37] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:51] [info] [game] destroy block x: -336 y: 38
+[2024-12-04 20:08:51] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:52] [info] [game] destroy block x: -334 y: 37
+[2024-12-04 20:08:52] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:52] [info] [game] destroy block x: -335 y: 37
+[2024-12-04 20:08:52] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:52] [info] [game] destroy block x: -335 y: 36
+[2024-12-04 20:08:52] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:52] [info] [game] destroy block x: -335 y: 35
+[2024-12-04 20:08:52] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:53] [info] [game] destroy block x: -335 y: 34
+[2024-12-04 20:08:53] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:53] [info] [game] destroy block x: -335 y: 33
+[2024-12-04 20:08:53] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:53] [info] [game] destroy block x: -335 y: 32
+[2024-12-04 20:08:53] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:53] [info] [game] destroy block x: -335 y: 31
+[2024-12-04 20:08:53] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:53] [info] [game] destroy block x: -335 y: 30
+[2024-12-04 20:08:53] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:54] [info] [game] destroy block x: -335 y: 29
+[2024-12-04 20:08:54] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:54] [info] [game] destroy block x: -335 y: 28
+[2024-12-04 20:08:54] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:54] [info] [game] destroy block x: -335 y: 27
+[2024-12-04 20:08:54] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:54] [info] [game] destroy block x: -335 y: 26
+[2024-12-04 20:08:54] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:54] [info] [game] destroy block x: -335 y: 25
+[2024-12-04 20:08:54] [info] [game] drop item type: 3 count: 0
+[2024-12-04 20:08:55] [info] [game] destroy block x: -335 y: 24
+[2024-12-04 20:08:55] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:55] [info] [game] destroy block x: -335 y: 23
+[2024-12-04 20:08:55] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:55] [info] [game] destroy block x: -335 y: 22
+[2024-12-04 20:08:55] [info] [game] drop item type: 3 count: 0
+[2024-12-04 20:08:55] [info] [game] destroy block x: -336 y: 22
+[2024-12-04 20:08:55] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:56] [info] [game] destroy block x: -337 y: 22
+[2024-12-04 20:08:56] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:56] [info] [game] destroy block x: -338 y: 22
+[2024-12-04 20:08:56] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:56] [info] [game] destroy block x: -339 y: 22
+[2024-12-04 20:08:56] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:56] [info] [game] destroy block x: -340 y: 22
+[2024-12-04 20:08:56] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:56] [info] [game] destroy block x: -341 y: 22
+[2024-12-04 20:08:56] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:57] [info] [game] destroy block x: -342 y: 22
+[2024-12-04 20:08:57] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:57] [info] [game] destroy block x: -343 y: 22
+[2024-12-04 20:08:57] [info] [game] drop item type: 3 count: 0
+[2024-12-04 20:08:57] [info] [game] destroy block x: -344 y: 22
+[2024-12-04 20:08:57] [info] [game] drop item type: 4 count: 0
+[2024-12-04 20:08:57] [info] [game] destroy block x: -345 y: 22
+[2024-12-04 20:08:57] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:59] [info] [game] destroy block x: -346 y: 22
+[2024-12-04 20:08:59] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:59] [info] [game] destroy block x: -347 y: 22
+[2024-12-04 20:08:59] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:08:59] [info] [game] destroy block x: -348 y: 22
+[2024-12-04 20:08:59] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:00] [info] [game] destroy block x: -349 y: 22
+[2024-12-04 20:09:00] [info] [game] drop item type: 3 count: 0
+[2024-12-04 20:09:00] [info] [game] destroy block x: -350 y: 22
+[2024-12-04 20:09:00] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:00] [info] [game] destroy block x: -351 y: 22
+[2024-12-04 20:09:00] [info] [game] drop item type: 8 count: 0
+[2024-12-04 20:09:01] [info] [game] destroy block x: -351 y: 21
+[2024-12-04 20:09:01] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:01] [info] [game] destroy block x: -351 y: 20
+[2024-12-04 20:09:01] [info] [game] drop item type: 8 count: 0
+[2024-12-04 20:09:01] [info] [game] destroy block x: -351 y: 19
+[2024-12-04 20:09:01] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:01] [info] [game] destroy block x: -351 y: 18
+[2024-12-04 20:09:01] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:01] [info] [game] destroy block x: -352 y: 18
+[2024-12-04 20:09:01] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:02] [info] [game] destroy block x: -354 y: 19
+[2024-12-04 20:09:02] [info] [game] drop item type: 8 count: 0
+[2024-12-04 20:09:02] [info] [game] destroy block x: -353 y: 18
+[2024-12-04 20:09:02] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:02] [info] [game] destroy block x: -354 y: 18
+[2024-12-04 20:09:02] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:03] [info] [game] destroy block x: -355 y: 18
+[2024-12-04 20:09:03] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:03] [info] [game] destroy block x: -356 y: 18
+[2024-12-04 20:09:03] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:03] [info] [game] destroy block x: -357 y: 18
+[2024-12-04 20:09:03] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:03] [info] [game] destroy block x: -358 y: 18
+[2024-12-04 20:09:03] [info] [game] drop item type: 4 count: 0
+[2024-12-04 20:09:04] [info] [game] destroy block x: -359 y: 18
+[2024-12-04 20:09:04] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:04] [info] [game] destroy block x: -360 y: 18
+[2024-12-04 20:09:04] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:04] [info] [game] destroy block x: -361 y: 18
+[2024-12-04 20:09:04] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:04] [info] [game] destroy block x: -362 y: 18
+[2024-12-04 20:09:04] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:04] [info] [game] destroy block x: -363 y: 18
+[2024-12-04 20:09:04] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:05] [info] [game] destroy block x: -364 y: 18
+[2024-12-04 20:09:05] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:05] [info] [game] destroy block x: -365 y: 18
+[2024-12-04 20:09:05] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:05] [info] [game] destroy block x: -366 y: 18
+[2024-12-04 20:09:05] [info] [game] drop item type: 6 count: 0
+[2024-12-04 20:09:05] [info] [game] destroy block x: -367 y: 18
+[2024-12-04 20:09:05] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:06] [info] [game] destroy block x: -368 y: 18
+[2024-12-04 20:09:06] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:06] [info] [game] destroy block x: -369 y: 18
+[2024-12-04 20:09:06] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:06] [info] [game] destroy block x: -370 y: 18
+[2024-12-04 20:09:06] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:06] [info] [game] destroy block x: -371 y: 18
+[2024-12-04 20:09:06] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:07] [info] [game] destroy block x: -372 y: 18
+[2024-12-04 20:09:07] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:07] [info] [game] destroy block x: -373 y: 18
+[2024-12-04 20:09:07] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:07] [info] [game] destroy block x: -374 y: 18
+[2024-12-04 20:09:07] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:07] [info] [game] destroy block x: -375 y: 18
+[2024-12-04 20:09:07] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:07] [info] [game] destroy block x: -376 y: 18
+[2024-12-04 20:09:07] [info] [game] drop item type: 6 count: 0
+[2024-12-04 20:09:08] [info] [game] destroy block x: -377 y: 18
+[2024-12-04 20:09:08] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:08] [info] [game] destroy block x: -378 y: 18
+[2024-12-04 20:09:08] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:08] [info] [game] destroy block x: -379 y: 18
+[2024-12-04 20:09:08] [info] [game] drop item type: 4 count: 0
+[2024-12-04 20:09:08] [info] [game] destroy block x: -380 y: 18
+[2024-12-04 20:09:08] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:09] [info] [game] destroy block x: -381 y: 18
+[2024-12-04 20:09:09] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:09] [info] [game] destroy block x: -382 y: 18
+[2024-12-04 20:09:09] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:09] [info] [game] destroy block x: -383 y: 18
+[2024-12-04 20:09:09] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:09] [info] [game] destroy block x: -384 y: 18
+[2024-12-04 20:09:09] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:10] [info] [game] destroy block x: -385 y: 18
+[2024-12-04 20:09:10] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:10] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\save1\chunk1.chunk
+[2024-12-04 20:09:10] [info] [chunk] Save Time: 0.005433
+[2024-12-04 20:09:10] [info] [map chunk loader] loading Chunk: -7
+[2024-12-04 20:09:10] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk-7.chunk
+[2024-12-04 20:09:10] [info] [chunk] Initialized Chunk: -7
+[2024-12-04 20:09:10] [info] [game] Loading Chunk: -7
+[2024-12-04 20:09:10] [info] [game] destroy block x: -387 y: 18
+[2024-12-04 20:09:10] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:11] [info] [game] destroy block x: -386 y: 18
+[2024-12-04 20:09:11] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:11] [info] [game] destroy block x: -388 y: 18
+[2024-12-04 20:09:11] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:12] [info] [game] destroy block x: -389 y: 18
+[2024-12-04 20:09:12] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:12] [info] [game] destroy block x: -390 y: 18
+[2024-12-04 20:09:12] [info] [game] drop item type: 4 count: 0
+[2024-12-04 20:09:12] [info] [game] destroy block x: -391 y: 18
+[2024-12-04 20:09:12] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:12] [info] [game] destroy block x: -392 y: 18
+[2024-12-04 20:09:12] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:13] [info] [game] destroy block x: -393 y: 18
+[2024-12-04 20:09:13] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:13] [info] [game] destroy block x: -394 y: 18
+[2024-12-04 20:09:13] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:13] [info] [game] destroy block x: -395 y: 18
+[2024-12-04 20:09:13] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:13] [info] [game] destroy block x: -396 y: 18
+[2024-12-04 20:09:13] [info] [game] drop item type: 3 count: 0
+[2024-12-04 20:09:14] [info] [game] destroy block x: -397 y: 18
+[2024-12-04 20:09:14] [info] [game] drop item type: 4 count: 0
+[2024-12-04 20:09:14] [info] [game] destroy block x: -398 y: 18
+[2024-12-04 20:09:14] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:14] [info] [game] destroy block x: -399 y: 18
+[2024-12-04 20:09:14] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:14] [info] [game] destroy block x: -400 y: 18
+[2024-12-04 20:09:14] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:15] [info] [game] destroy block x: -401 y: 18
+[2024-12-04 20:09:15] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:15] [info] [game] destroy block x: -402 y: 18
+[2024-12-04 20:09:15] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:15] [info] [game] destroy block x: -403 y: 18
+[2024-12-04 20:09:15] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:15] [info] [game] destroy block x: -404 y: 18
+[2024-12-04 20:09:15] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:16] [info] [game] destroy block x: -405 y: 18
+[2024-12-04 20:09:16] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:16] [info] [game] destroy block x: -406 y: 18
+[2024-12-04 20:09:16] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:16] [info] [game] destroy block x: -407 y: 18
+[2024-12-04 20:09:16] [info] [game] drop item type: 8 count: 0
+[2024-12-04 20:09:16] [info] [game] destroy block x: -408 y: 18
+[2024-12-04 20:09:16] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:17] [info] [game] destroy block x: -409 y: 18
+[2024-12-04 20:09:17] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:17] [info] [game] destroy block x: -410 y: 18
+[2024-12-04 20:09:17] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:17] [info] [game] destroy block x: -411 y: 18
+[2024-12-04 20:09:17] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:17] [info] [game] destroy block x: -412 y: 18
+[2024-12-04 20:09:17] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:18] [info] [game] destroy block x: -413 y: 18
+[2024-12-04 20:09:18] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:18] [info] [game] destroy block x: -414 y: 18
+[2024-12-04 20:09:18] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:18] [info] [game] destroy block x: -415 y: 18
+[2024-12-04 20:09:18] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:18] [info] [game] destroy block x: -416 y: 18
+[2024-12-04 20:09:18] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:19] [info] [game] destroy block x: -417 y: 18
+[2024-12-04 20:09:19] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:19] [info] [game] destroy block x: -418 y: 18
+[2024-12-04 20:09:19] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:19] [info] [game] destroy block x: -419 y: 18
+[2024-12-04 20:09:19] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:19] [info] [game] destroy block x: -420 y: 18
+[2024-12-04 20:09:19] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:20] [info] [game] destroy block x: -421 y: 18
+[2024-12-04 20:09:20] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:20] [info] [game] destroy block x: -422 y: 18
+[2024-12-04 20:09:20] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:20] [info] [game] destroy block x: -423 y: 18
+[2024-12-04 20:09:20] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:20] [info] [game] destroy block x: -424 y: 18
+[2024-12-04 20:09:20] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:31] [info] [game] destroy block x: -404 y: 17
+[2024-12-04 20:09:31] [info] [game] drop item type: 4 count: 0
+[2024-12-04 20:09:31] [info] [game] destroy block x: -404 y: 16
+[2024-12-04 20:09:31] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:31] [info] [game] destroy block x: -404 y: 15
+[2024-12-04 20:09:31] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:32] [info] [game] destroy block x: -404 y: 14
+[2024-12-04 20:09:32] [info] [game] drop item type: 6 count: 0
+[2024-12-04 20:09:32] [info] [game] destroy block x: -404 y: 13
+[2024-12-04 20:09:32] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:32] [info] [game] destroy block x: -404 y: 12
+[2024-12-04 20:09:32] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:32] [info] [game] destroy block x: -404 y: 11
+[2024-12-04 20:09:32] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:32] [info] [game] destroy block x: -404 y: 10
+[2024-12-04 20:09:32] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:33] [info] [game] destroy block x: -404 y: 9
+[2024-12-04 20:09:33] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:33] [info] [game] destroy block x: -404 y: 8
+[2024-12-04 20:09:33] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:33] [info] [game] destroy block x: -404 y: 7
+[2024-12-04 20:09:33] [info] [game] drop item type: 3 count: 0
+[2024-12-04 20:09:33] [info] [game] destroy block x: -404 y: 6
+[2024-12-04 20:09:33] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:34] [info] [game] destroy block x: -404 y: 5
+[2024-12-04 20:09:34] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:34] [info] [game] destroy block x: -404 y: 4
+[2024-12-04 20:09:34] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:34] [info] [game] destroy block x: -404 y: 3
+[2024-12-04 20:09:34] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:34] [info] [game] destroy block x: -404 y: 2
+[2024-12-04 20:09:34] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:35] [info] [game] destroy block x: -404 y: 1
+[2024-12-04 20:09:35] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:35] [info] [game] destroy block x: -404 y: 0
+[2024-12-04 20:09:35] [info] [game] drop item type: 16 count: 0
+[2024-12-04 20:09:55] [info] [chunk] Saved Chunk: 0 to D:\projects\ykdzy\save1\chunk0.chunk
+[2024-12-04 20:09:55] [info] [chunk] Save Time: 0.007758
+[2024-12-04 20:09:55] [info] [map chunk loader] loading Chunk: -8
+[2024-12-04 20:09:55] [error] [chunk] Failed to open file: D:\projects\ykdzy\save1\chunk-8.chunk
+[2024-12-04 20:09:55] [info] [chunk] Initialized Chunk: -8
+[2024-12-04 20:09:55] [info] [game] Loading Chunk: -8
+[2024-12-04 20:09:57] [info] [game] destroy block x: -515 y: 37
+[2024-12-04 20:09:57] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:09:58] [info] [game] destroy block x: -515 y: 36
+[2024-12-04 20:09:58] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:09:58] [info] [game] destroy block x: -515 y: 35
+[2024-12-04 20:09:58] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:09:58] [info] [game] destroy block x: -515 y: 34
+[2024-12-04 20:09:58] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:09:59] [info] [game] destroy block x: -515 y: 33
+[2024-12-04 20:09:59] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:09:59] [info] [game] destroy block x: -515 y: 32
+[2024-12-04 20:09:59] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:09:59] [info] [game] destroy block x: -515 y: 31
+[2024-12-04 20:09:59] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:09:59] [info] [game] destroy block x: -515 y: 30
+[2024-12-04 20:09:59] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:00] [info] [game] destroy block x: -516 y: 31
+[2024-12-04 20:10:00] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:00] [info] [game] destroy block x: -516 y: 30
+[2024-12-04 20:10:00] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:00] [info] [game] destroy block x: -517 y: 30
+[2024-12-04 20:10:00] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:01] [info] [game] destroy block x: -518 y: 30
+[2024-12-04 20:10:01] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:01] [info] [game] destroy block x: -519 y: 30
+[2024-12-04 20:10:01] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:01] [info] [game] destroy block x: -520 y: 29
+[2024-12-04 20:10:01] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:02] [info] [game] destroy block x: -519 y: 29
+[2024-12-04 20:10:02] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:03] [info] [game] destroy block x: -520 y: 30
+[2024-12-04 20:10:03] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:03] [info] [game] destroy block x: -521 y: 30
+[2024-12-04 20:10:03] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:03] [info] [game] destroy block x: -521 y: 29
+[2024-12-04 20:10:03] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:03] [info] [game] destroy block x: -522 y: 29
+[2024-12-04 20:10:03] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:04] [info] [game] destroy block x: -522 y: 28
+[2024-12-04 20:10:04] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:04] [info] [game] destroy block x: -521 y: 28
+[2024-12-04 20:10:04] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:04] [info] [game] destroy block x: -521 y: 27
+[2024-12-04 20:10:04] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:05] [info] [game] destroy block x: -522 y: 27
+[2024-12-04 20:10:05] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:05] [info] [game] destroy block x: -523 y: 27
+[2024-12-04 20:10:05] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:05] [info] [game] destroy block x: -524 y: 27
+[2024-12-04 20:10:05] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:05] [info] [game] destroy block x: -524 y: 28
+[2024-12-04 20:10:05] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:06] [info] [game] destroy block x: -523 y: 28
+[2024-12-04 20:10:06] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:07] [info] [game] destroy block x: -525 y: 26
+[2024-12-04 20:10:07] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:07] [info] [game] destroy block x: -524 y: 26
+[2024-12-04 20:10:07] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:08] [info] [game] destroy block x: -526 y: 27
+[2024-12-04 20:10:08] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:17] [info] [game] destroy block x: -526 y: 26
+[2024-12-04 20:10:17] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:17] [info] [game] destroy block x: -525 y: 27
+[2024-12-04 20:10:17] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:18] [info] [game] destroy block x: -527 y: 26
+[2024-12-04 20:10:18] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:18] [info] [game] destroy block x: -527 y: 27
+[2024-12-04 20:10:18] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:21] [info] [game] destroy block x: -528 y: 26
+[2024-12-04 20:10:21] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:21] [info] [game] destroy block x: -529 y: 26
+[2024-12-04 20:10:21] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:22] [info] [game] destroy block x: -529 y: 25
+[2024-12-04 20:10:22] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:22] [info] [game] destroy block x: -529 y: 24
+[2024-12-04 20:10:22] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:23] [info] [game] destroy block x: -530 y: 24
+[2024-12-04 20:10:23] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:23] [info] [game] destroy block x: -531 y: 24
+[2024-12-04 20:10:23] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:24] [info] [game] destroy block x: -531 y: 25
+[2024-12-04 20:10:24] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:25] [info] [game] destroy block x: -532 y: 24
+[2024-12-04 20:10:25] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:25] [info] [game] destroy block x: -533 y: 24
+[2024-12-04 20:10:25] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:25] [info] [game] destroy block x: -534 y: 24
+[2024-12-04 20:10:25] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:26] [info] [game] destroy block x: -535 y: 24
+[2024-12-04 20:10:26] [info] [game] drop item type: 6 count: 0
+[2024-12-04 20:10:26] [info] [game] destroy block x: -536 y: 24
+[2024-12-04 20:10:26] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:26] [info] [game] destroy block x: -537 y: 24
+[2024-12-04 20:10:26] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:27] [info] [game] destroy block x: -538 y: 24
+[2024-12-04 20:10:27] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:27] [info] [game] destroy block x: -539 y: 24
+[2024-12-04 20:10:27] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:27] [info] [game] destroy block x: -538 y: 23
+[2024-12-04 20:10:27] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:28] [info] [game] destroy block x: -538 y: 22
+[2024-12-04 20:10:28] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:28] [info] [game] destroy block x: -538 y: 21
+[2024-12-04 20:10:28] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:28] [info] [game] destroy block x: -538 y: 20
+[2024-12-04 20:10:28] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:28] [info] [game] destroy block x: -539 y: 20
+[2024-12-04 20:10:28] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:29] [info] [game] destroy block x: -540 y: 21
+[2024-12-04 20:10:29] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:29] [info] [game] destroy block x: -539 y: 21
+[2024-12-04 20:10:29] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:30] [info] [game] destroy block x: -539 y: 19
+[2024-12-04 20:10:30] [info] [game] drop item type: 8 count: 0
+[2024-12-04 20:10:30] [info] [game] destroy block x: -539 y: 18
+[2024-12-04 20:10:30] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:32] [info] [game] destroy block x: -539 y: 17
+[2024-12-04 20:10:32] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:32] [info] [game] destroy block x: -539 y: 16
+[2024-12-04 20:10:32] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:32] [info] [game] destroy block x: -539 y: 15
+[2024-12-04 20:10:32] [info] [game] drop item type: 3 count: 0
+[2024-12-04 20:10:33] [info] [game] destroy block x: -539 y: 14
+[2024-12-04 20:10:33] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:33] [info] [game] destroy block x: -540 y: 15
+[2024-12-04 20:10:33] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:34] [info] [game] destroy block x: -540 y: 14
+[2024-12-04 20:10:34] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:34] [info] [game] destroy block x: -540 y: 16
+[2024-12-04 20:10:34] [info] [game] drop item type: 8 count: 0
+[2024-12-04 20:10:35] [info] [game] destroy block x: -541 y: 15
+[2024-12-04 20:10:35] [info] [game] drop item type: 4 count: 0
+[2024-12-04 20:10:35] [info] [game] destroy block x: -541 y: 14
+[2024-12-04 20:10:35] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:35] [info] [game] destroy block x: -542 y: 14
+[2024-12-04 20:10:35] [info] [game] drop item type: 8 count: 0
+[2024-12-04 20:10:36] [info] [game] destroy block x: -542 y: 13
+[2024-12-04 20:10:36] [info] [game] drop item type: 6 count: 0
+[2024-12-04 20:10:36] [info] [game] destroy block x: -541 y: 13
+[2024-12-04 20:10:36] [info] [game] drop item type: 22 count: 0
+[2024-12-04 20:10:37] [info] [game] Saving Game
+[2024-12-04 20:10:37] [info] [chunk] Saved Chunk: -6 to D:\projects\ykdzy\save1\chunk-6.chunk
+[2024-12-04 20:10:37] [info] [chunk] Save Time: 0.006266
+[2024-12-04 20:10:37] [info] [map] Saved Chunk: -6
+[2024-12-04 20:10:37] [info] [chunk] Saved Chunk: -5 to D:\projects\ykdzy\save1\chunk-5.chunk
+[2024-12-04 20:10:37] [info] [chunk] Save Time: 0.005907
+[2024-12-04 20:10:37] [info] [map] Saved Chunk: -5
+[2024-12-04 20:10:37] [info] [chunk] Saved Chunk: -4 to D:\projects\ykdzy\save1\chunk-4.chunk
+[2024-12-04 20:10:37] [info] [chunk] Save Time: 0.007531
+[2024-12-04 20:10:37] [info] [map] Saved Chunk: -4
+[2024-12-04 20:10:37] [info] [chunk] Saved Chunk: -3 to D:\projects\ykdzy\save1\chunk-3.chunk
+[2024-12-04 20:10:37] [info] [chunk] Save Time: 0.006521
+[2024-12-04 20:10:37] [info] [map] Saved Chunk: -3
+[2024-12-04 20:10:37] [info] [chunk] Saved Chunk: -2 to D:\projects\ykdzy\save1\chunk-2.chunk
+[2024-12-04 20:10:37] [info] [chunk] Save Time: 0.006822
+[2024-12-04 20:10:37] [info] [map] Saved Chunk: -2
+[2024-12-04 20:10:37] [info] [chunk] Saved Chunk: -1 to D:\projects\ykdzy\save1\chunk-1.chunk
+[2024-12-04 20:10:37] [info] [chunk] Save Time: 0.005793
+[2024-12-04 20:10:37] [info] [map] Saved Chunk: -1
+[2024-12-04 20:10:37] [info] [chunk] Saved Chunk: -8 to D:\projects\ykdzy\save1\chunk-8.chunk
+[2024-12-04 20:10:37] [info] [chunk] Save Time: 0.006675
+[2024-12-04 20:10:37] [info] [map] Saved Chunk: -8
+[2024-12-04 20:10:37] [info] [chunk] Saved Chunk: -7 to D:\projects\ykdzy\save1\chunk-7.chunk
+[2024-12-04 20:10:37] [info] [chunk] Save Time: 0.006250
+[2024-12-04 20:10:37] [info] [map] Saved Chunk: -7
+[2024-12-04 20:10:37] [info] [player] Player Saved: D:\projects\ykdzy\save1\00000.player
+[2024-12-04 20:10:37] [info] [game save] Saving Player: 00000.player
+[2024-12-04 20:10:37] [info] [game save] Player x: -539.495361 y: 14.548843
+[2024-12-04 20:10:37] [info] [main] Game Loaded
