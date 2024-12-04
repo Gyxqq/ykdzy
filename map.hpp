@@ -72,6 +72,8 @@ enum item_type
     ITEM_SNOW,           // 雪
     ITEM_ICE,            // 冰
     ITEM_LOG,
+    ITEM_COBBLESTONE, // 圆石
+    ITEM_STONE,       // 石头
     ITEM_MAX_INDEX
 };
 enum chunk_type

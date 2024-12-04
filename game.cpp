@@ -695,6 +695,41 @@ item game::get_block_drop(block *block)
         item.stack_count = 64;
         item.count = 1;
         break;
+    case block_type::BLOCK_GRASS:
+        item.type = item_type::ITEM_DIRT;
+        item.stack_count = 64;
+        item.count = 1;
+        break;
+    case block_type::BLOCK_STONE:
+        item.type = item_type::ITEM_COBBLESTONE;
+        item.stack_count = 64;
+        item.count = 1;
+        break;
+    case block_type::BLOCK_LOG:
+        item.type = item_type::ITEM_LOG;
+        item.stack_count = 64;
+        item.count = 1;
+        break;
+    case block_type::BLOCK_SAND:
+        item.type = item_type::ITEM_SAND;
+        item.stack_count = 64;
+        item.count = 1;
+        break;
+    case block_type::BLOCK_SNOW:
+        item.type = item_type::ITEM_SNOW;
+        item.stack_count = 64;
+        item.count = 1;
+        break;
+    case block_type::BLOCK_IRON:
+        item.type = item_type::ITEM_RAW_IRON;
+        item.stack_count = 64;
+        item.count = 1;
+        break;
+    case block_type::BLOCK_GOLD:
+        item.type = item_type::ITEM_RAW_GOLD;
+        item.stack_count = 64;
+        item.count = 1;
+        break;
     }
     return item;
 }
