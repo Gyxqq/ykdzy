@@ -127,7 +127,7 @@ namespace render
         {
             draw_inventory(&(game->players[0]));
         }
-
+        draw_widgets(&(game->players[0]));
         {
             auto end = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> elapsed = end - start;
@@ -193,17 +193,32 @@ namespace render
             int x = i % 9;
             int y = i / 9;
             put_transparentimage(pos_x + x * 36, pos_y + y * 36, &item_textures[player->items[i].type]);
-            
-            outtextxy(pos_x + x * 36+16, pos_y + y * 36+20, std::to_string(player->items[i].count).c_str());
+
+            outtextxy(pos_x + x * 36 + 16, pos_y + y * 36 + 20, std::to_string(player->items[i].count).c_str());
         }
         pos_x = render::width / 2 - 160 + inventory_begin_x;
         pos_y = render::height / 2 - 169 + inventory_begin_y;
         for (int i = 0; i < 9; i++)
         {
             put_transparentimage(pos_x + i * 36, pos_y, &item_textures[player->items[i + 27].type]);
-            outtextxy(pos_x + i * 36+16, pos_y+20, std::to_string(player->items[i+27].count).c_str());
+            outtextxy(pos_x + i * 36 + 16, pos_y + 20, std::to_string(player->items[i + 27].count).c_str());
         }
         settextstyle(20, 0, _T("宋体"));
+    }
+    void draw_widgets(player *player)
+    {
+        int x = render::width / 2 - 180;
+        int y = render::height - 48;
+        put_transparentimage(x, y, &const_textures[assets::const_texture_type::CONST_TEXTURE_WIDGETS]);
+        settextstyle(14, 0, _T("宋体"));
+        for (int i = 0; i < 9; i++)
+        {
+            put_transparentimage(x + 6 + i * 40, y + 6, &item_textures[player->items[i + 27].type]);
+            outtextxy(x + 6 + i * 40 + 16, y + 6 + 20, std::to_string(player->items[i + 27].count).c_str());
+        }
+        settextstyle(20, 0, _T("宋体"));
+        setlinecolor(WHITE);
+        rectangle(x + 6 + player->chossing_item * 40, y + 6, x + 6 + player->chossing_item * 40 + 32, y + 6 + 32);
     }
     int reverse_y(int y)
     {

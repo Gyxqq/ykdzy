@@ -20,6 +20,7 @@ public:
     int run;
     int run_state;
     int gui_open;
+    int chossing_item;
     // int thirst;
     std::string name;
     class item items[MAX_ITEMS];
@@ -36,6 +37,8 @@ public:
     block_attcking attacking_block;
     int show_debug;
     POINT mouse_pos;
+    item item_on_mouse;
+    // int chossing_item;
     int init(std::string name);
     int load(std::string name);
     int player_on_ground(player *player);
@@ -43,6 +46,7 @@ public:
     int player_attack_side(player *player, int side);
     float get_distance_to_side(player *player, int side);
     item get_block_drop(block *block);
+    void check_num();
     int update();
     int save();
 };

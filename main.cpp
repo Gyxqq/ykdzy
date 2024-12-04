@@ -39,8 +39,14 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
                             {
                                 while (exit_flag == 0)
                                 {
+                                    auto start = std::chrono::system_clock::now();
                                     game.update();
-                                    Sleep(10);
+                                    auto end = std::chrono::system_clock::now();
+                                    std::chrono::duration<double> elapsed_seconds = end - start;
+                                    if (elapsed_seconds.count() < 0.01)
+                                    {
+                                        Sleep((0.01 - elapsed_seconds.count()) * 1000);
+                                    }
                                 } });
 
     while (exit_flag == 0)

@@ -9,6 +9,7 @@ namespace assets
         CONST_TEXTURE_HEART,
         CONST_TEXTURE_BACKPACK,
         CONST_TEXTURE_HUNGER,
+        CONST_TEXTURE_WIDGETS,
         CONST_TEXTURE_MAX_INDEX
     };
     class block_texture

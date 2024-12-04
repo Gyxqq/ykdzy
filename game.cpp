@@ -8,7 +8,8 @@
 #include <graphics.h>
 #include <Windows.h>
 #include "render.hpp"
-#define SPEED 0.1
+#define SPEED speed_all
+float speed_all = 0.1;
 extern std::mutex global_mutex;
 extern int exit_flag;
 int allow_fly = 1;
@@ -30,6 +31,7 @@ int game::init(std::string name)
     this->world.seed = seed;
     this->world.init(name);
     this->players.push_back(player());
+    this->attacking_block.block = NULL;
 
     cJSON *root = cJSON_CreateObject();
     cJSON_AddStringToObject(root, "savepath", this->savepath.c_str());
@@ -139,6 +141,9 @@ int game::load(std::string name)
     }
     memset(&this->attacking_block, 0, sizeof(this->attacking_block));
     this->show_debug = 0;
+    memset(&this->mouse_pos, 0, sizeof(this->mouse_pos));
+    memset(&this->item_on_mouse, 0, sizeof(this->item_on_mouse));
+    // this->chossing_item = 0;
     return 0;
 }
 int game::save()
@@ -232,6 +237,7 @@ int player::load(std::string name)
     this->run = 0;
     this->run_state = 0;
     this->gui_open = 0;
+    this->chossing_item = 0;
     glog::log("info", "Player Loaded: " + name, "player");
     return 0;
 }
@@ -239,6 +245,15 @@ int game::update()
 {
 
     global_mutex.lock();
+    {
+        if (rand() % 10000 == 0)
+        {
+            if (this->players[0].hunger > 0)
+            {
+                this->players[0].hunger--;
+            }
+        }
+    }
     if (allow_fly) // fly mode
     {
         if (IsKeyPressed(VK_UP))
@@ -250,12 +265,12 @@ int game::update()
             this->players[0].y -= 1;
         }
     }
-    // E key
+
     if (GetCursorPos(&this->mouse_pos))
     {
         ScreenToClient(GetHWnd(), &this->mouse_pos);
     } // 获取鼠标位置
-
+    check_num();
     if (IsKeyPressed(VK_LBUTTON) && !this->players[0].gui_open)
     {
         if (this->mouse_pos.x >= 0 && this->mouse_pos.x <= render::width && this->mouse_pos.y >= 0 && this->mouse_pos.y <= render::height)
@@ -362,16 +377,19 @@ int game::update()
         this->attacking_block.block = NULL;
         this->attacking_block.attacking_state = 0;
     }
+    else if (IsKeyPressed(VK_LBUTTON) && this->players[0].gui_open)
+    {
+    }
     if (IsKeyPressed('E'))
     {
 
         this->players[0].gui_open = !this->players[0].gui_open;
-        Sleep(200);
+        Sleep(100);
     }
     if (IsKeyPressed(VK_F3))
     {
         this->show_debug = !this->show_debug;
-        Sleep(200);
+        Sleep(100);
     }
     if (this->players[0].run == 3 && this->players[0].run_state <= 30)
     {
@@ -730,6 +748,67 @@ item game::get_block_drop(block *block)
         item.stack_count = 64;
         item.count = 1;
         break;
+    case block_type::BLOCK_COAL:
+        item.type = item_type::ITEM_COAL;
+        item.stack_count = 64;
+        item.count = 1;
+        break;
+    case block_type::BLOCK_DIAMOND:
+        item.type = item_type::ITEM_DIAMOND;
+        item.stack_count = 64;
+        item.count = 1;
+        break;
     }
     return item;
+}
+void game::check_num()
+{
+    if (IsKeyPressed(0x31))
+    {
+        glog::log("info", "chossing item 0", "game");
+        this->players[0].chossing_item = 0;
+        Sleep(100);
+    }
+    if (IsKeyPressed(0x32))
+    {
+        this->players[0].chossing_item = 1;
+        Sleep(100);
+    }
+    if (IsKeyPressed(0x33))
+    {
+        this->players[0].chossing_item = 2;
+        Sleep(100);
+    }
+    if (IsKeyPressed(0x34))
+    {
+        this->players[0].chossing_item = 3;
+        Sleep(100);
+    }
+    if (IsKeyPressed(0x35))
+    {
+        this->players[0].chossing_item = 4;
+        Sleep(100);
+    }
+    if (IsKeyPressed(0x36))
+    {
+        this->players[0].chossing_item = 5;
+        Sleep(100);
+    }
+    if (IsKeyPressed(0x37))
+    {
+        this->players[0].chossing_item = 6;
+        Sleep(100);
+    }
+    if (IsKeyPressed(0x38))
+    {
+        this->players[0].chossing_item = 7;
+        Sleep(100);
+    }
+    if (IsKeyPressed(0x39))
+    {
+        this->players[0].chossing_item = 8;
+        Sleep(100);
+    }
+
+    // Sleep(100);
 }
