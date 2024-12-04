@@ -24,9 +24,9 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
 {
 
     glog::log("info", "Hello, world!", "main");
-    // class game game0;
-    // game0.init("D:\\projects\\ykdzy\\save1\\");
-    // game0.save();
+    class game game0;
+    game0.init("D:\\projects\\ykdzy\\save1\\");
+    game0.save();
     class game game;
     game.load("D:\\projects\\ykdzy\\save1\\game.json");
     game.save();

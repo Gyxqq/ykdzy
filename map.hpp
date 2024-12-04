@@ -85,7 +85,7 @@ enum chunk_type
     CHUNK_MOUNTAIN,  // 山地
     // CHUNK_OCEAN,     // 海洋
     // CHUNK_LAVA,      // 火山
-    CHUNK_VOID, // 虚空
+    // CHUNK_VOID, // 虚空
     CHUNK_TYPE_END
 };
 class item

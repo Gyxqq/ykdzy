@@ -152,6 +152,8 @@ namespace render
                 outtextxy(0, 20, pos);
                 sprintf(pos, "mouse X:%d Y:%d", game->mouse_pos.x, game->mouse_pos.y);
                 outtextxy(0, 40, pos);
+                sprintf(pos, "hungry:%d health:%d", player.hunger, player.health);
+                outtextxy(0, 60, pos);
             }
         }
         FlushBatchDraw();
