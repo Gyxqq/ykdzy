@@ -379,6 +379,7 @@ int game::update()
     }
     else if (IsKeyPressed(VK_LBUTTON) && this->players[0].gui_open)
     {
+        
     }
     if (IsKeyPressed('E'))
     {
