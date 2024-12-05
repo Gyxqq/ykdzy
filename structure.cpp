@@ -73,6 +73,7 @@ namespace structure
             if (dll == NULL)
             {
                 glog::log("error", "Failed to load DLL", "structure");
+                glog::log("error", "Error code: " + std::to_string(GetLastError()), "structure");
                 return 5;
             }
             for (int j = 0; j < names_size; j++)
@@ -82,6 +83,7 @@ namespace structure
                 if (structure == NULL)
                 {
                     glog::log("error", "Failed to get fun address " + name, "structure");
+                    glog::log("error", "Error code: " + std::to_string(GetLastError()), "structure");
                     continue;
                 }
                 glog::log("info", "Loaded structure func [" + name + "]", "structure");

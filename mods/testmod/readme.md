@@ -63,6 +63,7 @@ add_library(testmod SHARED testmod.cpp)
 运行build.bat即可编译出动态链接库
 dll可以在build/Debug中找到
 比如说testmod.dll
+使用脚本编译或者使用cmake install的可以在本木目录下找到生成目标
 ### 打包
 将dll按照modname.json中的路径放入对应文件夹或者根目录
 注意一个mod只能有一个dll
