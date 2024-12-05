@@ -235,6 +235,9 @@ namespace render
         int x = game->mouse_pos.x - 16;
         int y = game->mouse_pos.y - 16;
         put_transparentimage(x, y, &item_textures[game->item_on_mouse.type]);
+        settextstyle(14, 0, _T("宋体"));
+        outtextxy(x + 16, y + 20, std::to_string(game->item_on_mouse.count).c_str());
+        settextstyle(20, 0, _T("宋体"));
 
     }
     int reverse_y(int y)

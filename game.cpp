@@ -384,7 +384,9 @@ int game::update()
         int x, y, index;
         if (this->mouse_pos.x >= pos_x && this->mouse_pos.x <= pos_x + 9 * 36 && this->mouse_pos.y >= pos_y && this->mouse_pos.y <= pos_y + 4 * 36)
         {
+            global_mutex.unlock();
             Sleep(200);
+            global_mutex.lock();
             glog::log("info", "get item", "game");
             x = (this->mouse_pos.x - pos_x) / 36;
             y = (this->mouse_pos.y - pos_y) / 36;
@@ -392,7 +394,9 @@ int game::update()
         }
         else if (this->mouse_pos.x >= render::width / 2 - 160 + inventory_begin_x && this->mouse_pos.x <= render::width / 2 - 160 + inventory_begin_x + 9 * 36 && this->mouse_pos.y >= render::height / 2 - 169 + inventory_begin_y && this->mouse_pos.y <= render::height / 2 - 169 + inventory_begin_y + 36)
         {
+            global_mutex.unlock();
             Sleep(200);
+            global_mutex.lock();
             glog::log("info", "get item", "game");
             x = (this->mouse_pos.x - render::width / 2 - 160 + inventory_begin_x) / 36;
             index = x + 27;
@@ -431,16 +435,40 @@ int game::update()
             }
         }
     }
+    if (IsKeyPressed('Q') && !this->players[0].gui_open)
+
+    {
+        if (this->players[0].items[this->players[0].chossing_item + 27].type != item_type::ITEM_AIR)
+        {
+            if (this->players[0].items[this->players[0].chossing_item + 27].count > 0)
+            {
+                this->players[0].items[this->players[0].chossing_item + 27].count--;
+                if (this->players[0].items[this->players[0].chossing_item + 27].count == 0)
+                {
+                    this->players[0].items[this->players[0].chossing_item + 27].type = item_type::ITEM_AIR;
+                    this->players[0].items[this->players[0].chossing_item + 27].count = 0;
+                    this->players[0].items[this->players[0].chossing_item + 27].stack_count = 0;
+                }
+            }
+        }
+        global_mutex.unlock();
+        Sleep(200);
+        global_mutex.lock();
+    }
     if (IsKeyPressed('E'))
     {
 
         this->players[0].gui_open = !this->players[0].gui_open;
+        global_mutex.unlock();
         Sleep(200);
+        global_mutex.lock();
     }
     if (IsKeyPressed(VK_F3))
     {
         this->show_debug = !this->show_debug;
+        global_mutex.unlock();
         Sleep(200);
+        global_mutex.lock();
     }
     if (this->players[0].run == 3 && this->players[0].run_state <= 30)
     {
