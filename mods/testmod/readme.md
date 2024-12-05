@@ -70,4 +70,6 @@ dll可以在build/Debug中找到
 然后将mod文件夹打包成zip文件
 
 
-
+### 更新日志
+加入mingw64支持，加入log调试支持
+支持cmake install 生成dll到指定目录

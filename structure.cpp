@@ -88,6 +88,16 @@ namespace structure
                 }
                 glog::log("info", "Loaded structure func [" + name + "]", "structure");
                 structures.push_back(structure);
+                typedef void (*set_log_func)(log_func func);
+                set_log_func set_log = (set_log_func)GetProcAddress(dll, "set_log_func");
+                if (set_log == NULL)
+                {
+                    glog::log("error", "Failed to get set_log_func address", "structure");
+                    glog::log("error", "Error code: " + std::to_string(GetLastError()), "structure");
+                    continue;
+                }
+                set_log(glog::log_str);
+                glog::log("info", "Set log func for [" + name + "]", "structure");
             }
         }
     }
