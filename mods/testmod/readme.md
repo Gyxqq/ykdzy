@@ -2,7 +2,7 @@
 ### modname.json
 ```json
 {
-    "path": "testmod\\testmod.dll",
+    "path": "testmod\\libtestmod.dll",
     "name": [
         "test_fun",
         "test_fun2"
@@ -49,6 +49,9 @@ chunk的大小也可以在map.h中找到
 #### 编译环境
 > vs2017以上+cmake
 
+> mingw64+cmake
+
+选择一种编译环境即可
 使用cmake配置项目
 ```cmake
 cmake_minimum_required(VERSION 3.0)
