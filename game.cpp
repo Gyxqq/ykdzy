@@ -455,6 +455,46 @@ int game::update()
         Sleep(200);
         global_mutex.lock();
     }
+    if (IsKeyPressed('Q') && this->players[0].gui_open)
+    {
+        int pos_x = render::width / 2 - 160 + item_begin_x;
+        int pos_y = render::height / 2 - 169 + item_begin_y;
+        int x, y, index;
+        if (this->mouse_pos.x >= pos_x && this->mouse_pos.x <= pos_x + 9 * 36 && this->mouse_pos.y >= pos_y && this->mouse_pos.y <= pos_y + 4 * 36)
+        {
+            global_mutex.unlock();
+            Sleep(200);
+            global_mutex.lock();
+            glog::log("info", "get item", "game");
+            x = (this->mouse_pos.x - pos_x) / 36;
+            y = (this->mouse_pos.y - pos_y) / 36;
+            index = y * 9 + x;
+        }
+        else if (this->mouse_pos.x >= render::width / 2 - 160 + inventory_begin_x && this->mouse_pos.x <= render::width / 2 - 160 + inventory_begin_x + 9 * 36 && this->mouse_pos.y >= render::height / 2 - 169 + inventory_begin_y && this->mouse_pos.y <= render::height / 2 - 169 + inventory_begin_y + 36)
+        {
+            global_mutex.unlock();
+            Sleep(200);
+            global_mutex.lock();
+            glog::log("info", "get item", "game");
+            x = (this->mouse_pos.x - render::width / 2 - 160 + inventory_begin_x) / 36;
+            index = x + 27;
+        }
+        _ASSERT(index >= 0 && index < MAX_ITEMS);
+
+        if (this->players[0].items[index].type != item_type::ITEM_AIR)
+        {
+            if (this->players[0].items[index].count > 0)
+            {
+                this->players[0].items[index].count--;
+                if (this->players[0].items[index].count == 0)
+                {
+                    this->players[0].items[index].type = item_type::ITEM_AIR;
+                    this->players[0].items[index].count = 0;
+                    this->players[0].items[index].stack_count = 0;
+                }
+            }
+        }
+    }
     if (IsKeyPressed('E'))
     {
 
