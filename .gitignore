@@ -5,7 +5,7 @@ other/*
 *player
 save1/*.*
 00000.player
-*.log
+**/*.log
 *.json
 **/build/*
 *.zip
