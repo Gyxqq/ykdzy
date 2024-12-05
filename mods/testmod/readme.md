@@ -41,6 +41,7 @@ public:
 block_type和chunk_type为枚举类型，分别表示方块类型和区块类型，定义可以在map.h中找到
 data为指向数据的指针，data_size为数据大小
 blocks[i+j*BLOCKS_PER_CHUNK_X]表示y为j，x为i的方块
+坐标轴方向为x右为正，y上为正
 mod 的主要功能是对chunk进行操作，增加、删除、修改block来生成特定的自定义的结构
 请保证不要出现内存错误，否则会导致游戏崩溃
 chunk的大小也可以在map.h中找到

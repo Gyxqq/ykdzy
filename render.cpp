@@ -128,6 +128,7 @@ namespace render
             draw_inventory(&(game->players[0]));
         }
         draw_widgets(&(game->players[0]));
+        draw_item_on_mouse(game);   
         {
             auto end = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> elapsed = end - start;
@@ -226,6 +227,15 @@ namespace render
         settextstyle(20, 0, _T("宋体"));
         setlinecolor(WHITE);
         rectangle(x + 6 + player->chossing_item * 40, y + 6, x + 6 + player->chossing_item * 40 + 32, y + 6 + 32);
+    }
+    void draw_item_on_mouse(game* game)
+    {
+        if (game->item_on_mouse.type == item_type::ITEM_AIR)
+            return;
+        int x = game->mouse_pos.x - 16;
+        int y = game->mouse_pos.y - 16;
+        put_transparentimage(x, y, &item_textures[game->item_on_mouse.type]);
+
     }
     int reverse_y(int y)
     {

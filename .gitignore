@@ -8,3 +8,4 @@ save1/*.*
 *.log
 *.json
 **/build/*
+*.zip

@@ -21,4 +21,5 @@ namespace render
     void draw_player_info(player *player);
     void draw_inventory(player *player);
     void draw_widgets(player *player);
+    void draw_item_on_mouse(game *game);
 }

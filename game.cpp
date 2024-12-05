@@ -379,18 +379,68 @@ int game::update()
     }
     else if (IsKeyPressed(VK_LBUTTON) && this->players[0].gui_open)
     {
-        
+        int pos_x = render::width / 2 - 160 + item_begin_x;
+        int pos_y = render::height / 2 - 169 + item_begin_y;
+        int x, y, index;
+        if (this->mouse_pos.x >= pos_x && this->mouse_pos.x <= pos_x + 9 * 36 && this->mouse_pos.y >= pos_y && this->mouse_pos.y <= pos_y + 4 * 36)
+        {
+            Sleep(200);
+            glog::log("info", "get item", "game");
+            x = (this->mouse_pos.x - pos_x) / 36;
+            y = (this->mouse_pos.y - pos_y) / 36;
+            index = y * 9 + x;
+        }
+        else if (this->mouse_pos.x >= render::width / 2 - 160 + inventory_begin_x && this->mouse_pos.x <= render::width / 2 - 160 + inventory_begin_x + 9 * 36 && this->mouse_pos.y >= render::height / 2 - 169 + inventory_begin_y && this->mouse_pos.y <= render::height / 2 - 169 + inventory_begin_y + 36)
+        {
+            Sleep(200);
+            glog::log("info", "get item", "game");
+            x = (this->mouse_pos.x - render::width / 2 - 160 + inventory_begin_x) / 36;
+            index = x + 27;
+        }
+        _ASSERT(index >= 0 && index < MAX_ITEMS);
+
+        if (this->players[0].items[index].type != item_type::ITEM_AIR && this->item_on_mouse.type == item_type::ITEM_AIR)
+        {
+            this->item_on_mouse = this->players[0].items[index];
+            this->players[0].items[index].type = item_type::ITEM_AIR;
+            this->players[0].items[index].count = 0;
+            this->players[0].items[index].stack_count = 0;
+        }
+        else if (this->players[0].items[index].type == item_type::ITEM_AIR && this->item_on_mouse.type != item_type::ITEM_AIR)
+        {
+            this->players[0].items[index] = this->item_on_mouse;
+            this->item_on_mouse.type = item_type::ITEM_AIR;
+            this->item_on_mouse.count = 0;
+            this->item_on_mouse.stack_count = 0;
+        }
+        else if (this->players[0].items[index].type == item_type::ITEM_AIR && this->item_on_mouse.type == item_type::ITEM_AIR)
+        {
+            ;
+        }
+        else if (this->players[0].items[index].type == this->item_on_mouse.type)
+        {
+            if (this->players[0].items[index].count + this->item_on_mouse.count <= this->players[0].items[index].stack_count)
+            {
+                this->players[0].items[index].count += this->item_on_mouse.count;
+                this->item_on_mouse.count = 0;
+            }
+            else
+            {
+                this->item_on_mouse.count = this->players[0].items[index].count + this->item_on_mouse.count - this->players[0].items[index].stack_count;
+                this->players[0].items[index].count = this->players[0].items[index].stack_count;
+            }
+        }
     }
     if (IsKeyPressed('E'))
     {
 
         this->players[0].gui_open = !this->players[0].gui_open;
-        Sleep(100);
+        Sleep(200);
     }
     if (IsKeyPressed(VK_F3))
     {
         this->show_debug = !this->show_debug;
-        Sleep(100);
+        Sleep(200);
     }
     if (this->players[0].run == 3 && this->players[0].run_state <= 30)
     {
