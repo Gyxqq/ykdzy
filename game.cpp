@@ -264,6 +264,14 @@ int game::update()
         {
             this->players[0].y -= 1;
         }
+        if (IsKeyPressed(VK_LEFT))
+        {
+            this->players[0].x -= 1;
+        }
+        if (IsKeyPressed(VK_RIGHT))
+        {
+            this->players[0].x += 1;
+        }
     }
 
     if (GetCursorPos(&this->mouse_pos))
