@@ -46,6 +46,7 @@ public:
     int player_attack_side(player *player, int side);
     float get_distance_to_side(player *player, int side);
     item get_block_drop(block *block);
+    block get_block_by_item(item item);
     void check_num();
     int update();
     int save();

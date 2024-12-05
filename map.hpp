@@ -43,9 +43,10 @@ enum block_type
     BLOCK_CAKE,              // 蛋糕
     BLOCK_FLOWER,            // 花
     BLOCK_SAPLING,           // 树苗
-    BLOCK_LOG,               // 木头
+    BLOCK_LOG,               // 原木
     BLOCK_MUSHROOM,          // 蘑菇
     BLOCK_GLASS,             // 玻璃
+    BLOCK_COBBLESTONE,       // 圆石
     BLOCK_MAX_INDEX          // 最大索引
 };
 enum item_type

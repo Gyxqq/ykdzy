@@ -503,6 +503,43 @@ int game::update()
             }
         }
     }
+    if (IsKeyPressed(VK_RBUTTON) && !this->players[0].gui_open)
+    {
+        if (this->mouse_pos.x >= 0 && this->mouse_pos.x <= render::width && this->mouse_pos.y >= 0 && this->mouse_pos.y <= render::height)
+        {
+            int x = render::width / 2 + BLOCK_TEXTURES_SIZE / 2;
+            int y = render::height / 2 + BLOCK_TEXTURES_SIZE / 2;
+            float offset_x = (this->mouse_pos.x - x) * 1.0 / BLOCK_TEXTURES_SIZE;
+            float offset_y = (this->mouse_pos.y - y) * 1.0 / BLOCK_TEXTURES_SIZE;
+            if (offset_x * offset_x + offset_y * offset_y <= 16&& offset_x * offset_x + offset_y * offset_y >= 1)
+            {
+                int block_x = get_block_x(this->players[0].x + offset_x);
+                int block_y = this->players[0].y - offset_y;
+                if (block_y < BLOCKS_PER_CHUNK_Y && block_y >= 0)
+                {
+                    int type = this->world.get_block(block_x, block_y);
+                    if (type == block_type::BLOCK_AIR)
+                    {
+                        if (this->players[0].items[this->players[0].chossing_item + 27].type != item_type::ITEM_AIR)
+                        {
+                            block block = this->get_block_by_item(this->players[0].items[this->players[0].chossing_item + 27]);
+                            block.x = block_x;
+                            block.y = block_y;
+                            *this->world.get_block_ptr(block_x, block_y) = block;
+                            glog::log("info", "place block x: " + std::to_string(block_x) + " y: " + std::to_string(block_y), "game");
+                            this->players[0].items[this->players[0].chossing_item + 27].count--;
+                            if (this->players[0].items[this->players[0].chossing_item + 27].count == 0)
+                            {
+                                this->players[0].items[this->players[0].chossing_item + 27].type = item_type::ITEM_AIR;
+                                this->players[0].items[this->players[0].chossing_item + 27].count = 0;
+                                this->players[0].items[this->players[0].chossing_item + 27].stack_count = 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     if (IsKeyPressed('E'))
     {
 
@@ -938,4 +975,27 @@ void game::check_num()
     }
 
     // Sleep(100);
+}
+block game::get_block_by_item(item item)
+{
+    block block;
+    block.type = block_type::BLOCK_AIR;
+    block.data = NULL;
+    block.data_size = 0;
+    switch (item.type)
+    {
+    case item_type::ITEM_DIRT:
+        block.type = block_type::BLOCK_DIRT;
+        break;
+    case item_type::ITEM_COBBLESTONE:
+        block.type = block_type::BLOCK_STONE;
+        break;
+    case item_type::ITEM_LOG:
+        block.type = block_type::BLOCK_LOG;
+        break;
+    case item_type::ITEM_SAND:
+        block.type = block_type::BLOCK_SAND;
+        break;
+    }
+    return block;
 }
