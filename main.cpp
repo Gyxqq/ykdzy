@@ -12,6 +12,7 @@
 #include "game.hpp"
 #include "assets.hpp"
 #include "render.hpp"
+#include "structure.hpp"
 #include <mutex>
 #include <thread>
 std::mutex global_mutex;
@@ -20,10 +21,12 @@ int exit_flag = 0;
 #define PLAYER_ASSETS_PATH "D:\\projects\\ykdzy\\assets\\player\\playerconfig.json"
 #define CONST_TEXTURES_PATH "D:\\projects\\ykdzy\\assets\\const\\"
 #define ITEM_TEXTURES_PATH "D:\\projects\\ykdzy\\assets\\items\\itemconfig.json"
+#define MODS_PATH "D:\\projects\\ykdzy\\mods\\mods.json"
 int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 
     glog::log("info", "Hello, world!", "main");
+    structure::init(MODS_PATH);
     class game game0;
     game0.init("D:\\projects\\ykdzy\\save1\\");
     game0.save();

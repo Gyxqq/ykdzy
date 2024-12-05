@@ -1,7 +1,7 @@
 #pragma once
 #include "map.hpp"
 
-void test_fun(chunk *chunk)
+extern "C" __declspec(dllexport)  void test_fun(chunk *chunk)
 {
     int j = 0;
     for (int i = 0; i < chunk->block_count; i++)

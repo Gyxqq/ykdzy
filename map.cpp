@@ -1,6 +1,7 @@
 #pragma once
 #include "map.hpp"
 #include "log.hpp"
+#include "structure.hpp"
 #include <fstream>
 #include <cJSON.h>
 #include <sys/stat.h>
@@ -416,7 +417,7 @@ int chunk::init(std::string name, int seed)
                         }
                     }
                 }
-                break;  
+                break;
             }
         }
     }
@@ -484,6 +485,12 @@ int chunk::init(std::string name, int seed)
     }
     this->block_count = BLOCKS_PER_CHUNK_X * BLOCKS_PER_CHUNK_Y;
     glog::log("info", "Initialized Chunk: " + std::to_string(this->x), "chunk");
+    for (int i = 0; i < structure::structures.size(); i++)
+    {
+        glog::log("info", "Running structure: " + std::to_string(i), "chunk");
+        structure::structures[i](this);
+    }
+
     return 0;
 }
 
