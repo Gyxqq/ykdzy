@@ -7,6 +7,7 @@
 #include <sys/stat.h>
 #include <graphics.h>
 #include <Windows.h>
+#include <algorithm>
 #include "render.hpp"
 #define SPEED speed_all
 float speed_all = 0.1;
@@ -390,6 +391,7 @@ int game::update()
         int pos_x = render::width / 2 - 160 + item_begin_x;
         int pos_y = render::height / 2 - 169 + item_begin_y;
         int x, y, index;
+        index=  -1;
         if (this->mouse_pos.x >= pos_x && this->mouse_pos.x <= pos_x + 9 * 36 && this->mouse_pos.y >= pos_y && this->mouse_pos.y <= pos_y + 4 * 36)
         {
             global_mutex.unlock();
@@ -409,37 +411,39 @@ int game::update()
             x = (this->mouse_pos.x - render::width / 2 - 160 + inventory_begin_x) / 36;
             index = x + 27;
         }
-        _ASSERT(index >= 0 && index < MAX_ITEMS);
-
-        if (this->players[0].items[index].type != item_type::ITEM_AIR && this->item_on_mouse.type == item_type::ITEM_AIR)
+        // _ASSERT(index >= 0 && index < MAX_ITEMS);
+        if (index >= 0 && index < MAX_ITEMS)
         {
-            this->item_on_mouse = this->players[0].items[index];
-            this->players[0].items[index].type = item_type::ITEM_AIR;
-            this->players[0].items[index].count = 0;
-            this->players[0].items[index].stack_count = 0;
-        }
-        else if (this->players[0].items[index].type == item_type::ITEM_AIR && this->item_on_mouse.type != item_type::ITEM_AIR)
-        {
-            this->players[0].items[index] = this->item_on_mouse;
-            this->item_on_mouse.type = item_type::ITEM_AIR;
-            this->item_on_mouse.count = 0;
-            this->item_on_mouse.stack_count = 0;
-        }
-        else if (this->players[0].items[index].type == item_type::ITEM_AIR && this->item_on_mouse.type == item_type::ITEM_AIR)
-        {
-            ;
-        }
-        else if (this->players[0].items[index].type == this->item_on_mouse.type)
-        {
-            if (this->players[0].items[index].count + this->item_on_mouse.count <= this->players[0].items[index].stack_count)
+            if (this->players[0].items[index].type != item_type::ITEM_AIR && this->item_on_mouse.type == item_type::ITEM_AIR)
             {
-                this->players[0].items[index].count += this->item_on_mouse.count;
-                this->item_on_mouse.count = 0;
+                this->item_on_mouse = this->players[0].items[index];
+                this->players[0].items[index].type = item_type::ITEM_AIR;
+                this->players[0].items[index].count = 0;
+                this->players[0].items[index].stack_count = 0;
             }
-            else
+            else if (this->players[0].items[index].type == item_type::ITEM_AIR && this->item_on_mouse.type != item_type::ITEM_AIR)
             {
-                this->item_on_mouse.count = this->players[0].items[index].count + this->item_on_mouse.count - this->players[0].items[index].stack_count;
-                this->players[0].items[index].count = this->players[0].items[index].stack_count;
+                this->players[0].items[index] = this->item_on_mouse;
+                this->item_on_mouse.type = item_type::ITEM_AIR;
+                this->item_on_mouse.count = 0;
+                this->item_on_mouse.stack_count = 0;
+            }
+            else if (this->players[0].items[index].type == item_type::ITEM_AIR && this->item_on_mouse.type == item_type::ITEM_AIR)
+            {
+                ;
+            }
+            else if (this->players[0].items[index].type == this->item_on_mouse.type)
+            {
+                if (this->players[0].items[index].count + this->item_on_mouse.count <= this->players[0].items[index].stack_count)
+                {
+                    this->players[0].items[index].count += this->item_on_mouse.count;
+                    this->item_on_mouse.count = 0;
+                }
+                else
+                {
+                    this->item_on_mouse.count = this->players[0].items[index].count + this->item_on_mouse.count - this->players[0].items[index].stack_count;
+                    this->players[0].items[index].count = this->players[0].items[index].stack_count;
+                }
             }
         }
     }
@@ -468,6 +472,7 @@ int game::update()
         int pos_x = render::width / 2 - 160 + item_begin_x;
         int pos_y = render::height / 2 - 169 + item_begin_y;
         int x, y, index;
+        index = -1;
         if (this->mouse_pos.x >= pos_x && this->mouse_pos.x <= pos_x + 9 * 36 && this->mouse_pos.y >= pos_y && this->mouse_pos.y <= pos_y + 4 * 36)
         {
             global_mutex.unlock();
@@ -487,18 +492,20 @@ int game::update()
             x = (this->mouse_pos.x - render::width / 2 - 160 + inventory_begin_x) / 36;
             index = x + 27;
         }
-        _ASSERT(index >= 0 && index < MAX_ITEMS);
-
-        if (this->players[0].items[index].type != item_type::ITEM_AIR)
+        // _ASSERT(index >= 0 && index < MAX_ITEMS);
+        if (index >= 0 && index < MAX_ITEMS)
         {
-            if (this->players[0].items[index].count > 0)
+            if (this->players[0].items[index].type != item_type::ITEM_AIR)
             {
-                this->players[0].items[index].count--;
-                if (this->players[0].items[index].count == 0)
+                if (this->players[0].items[index].count > 0)
                 {
-                    this->players[0].items[index].type = item_type::ITEM_AIR;
-                    this->players[0].items[index].count = 0;
-                    this->players[0].items[index].stack_count = 0;
+                    this->players[0].items[index].count--;
+                    if (this->players[0].items[index].count == 0)
+                    {
+                        this->players[0].items[index].type = item_type::ITEM_AIR;
+                        this->players[0].items[index].count = 0;
+                        this->players[0].items[index].stack_count = 0;
+                    }
                 }
             }
         }
@@ -511,7 +518,7 @@ int game::update()
             int y = render::height / 2 + BLOCK_TEXTURES_SIZE / 2;
             float offset_x = (this->mouse_pos.x - x) * 1.0 / BLOCK_TEXTURES_SIZE;
             float offset_y = (this->mouse_pos.y - y) * 1.0 / BLOCK_TEXTURES_SIZE;
-            if (offset_x * offset_x + offset_y * offset_y <= 16&& offset_x * offset_x + offset_y * offset_y >= 1)
+            if (offset_x * offset_x + offset_y * offset_y <= 16 && offset_x * offset_x + offset_y * offset_y >= 1)
             {
                 int block_x = get_block_x(this->players[0].x + offset_x);
                 int block_y = this->players[0].y - offset_y;
@@ -523,16 +530,19 @@ int game::update()
                         if (this->players[0].items[this->players[0].chossing_item + 27].type != item_type::ITEM_AIR)
                         {
                             block block = this->get_block_by_item(this->players[0].items[this->players[0].chossing_item + 27]);
-                            block.x = block_x;
-                            block.y = block_y;
-                            *this->world.get_block_ptr(block_x, block_y) = block;
-                            glog::log("info", "place block x: " + std::to_string(block_x) + " y: " + std::to_string(block_y), "game");
-                            this->players[0].items[this->players[0].chossing_item + 27].count--;
-                            if (this->players[0].items[this->players[0].chossing_item + 27].count == 0)
+                            if (block.type != block_type::BLOCK_AIR)
                             {
-                                this->players[0].items[this->players[0].chossing_item + 27].type = item_type::ITEM_AIR;
-                                this->players[0].items[this->players[0].chossing_item + 27].count = 0;
-                                this->players[0].items[this->players[0].chossing_item + 27].stack_count = 0;
+                                block.x = block_x;
+                                block.y = block_y;
+                                *this->world.get_block_ptr(block_x, block_y) = block;
+                                glog::log("info", "place block x: " + std::to_string(block_x) + " y: " + std::to_string(block_y), "game");
+                                this->players[0].items[this->players[0].chossing_item + 27].count--;
+                                if (this->players[0].items[this->players[0].chossing_item + 27].count == 0)
+                                {
+                                    this->players[0].items[this->players[0].chossing_item + 27].type = item_type::ITEM_AIR;
+                                    this->players[0].items[this->players[0].chossing_item + 27].count = 0;
+                                    this->players[0].items[this->players[0].chossing_item + 27].stack_count = 0;
+                                }
                             }
                         }
                     }
@@ -544,6 +554,14 @@ int game::update()
     {
 
         this->players[0].gui_open = !this->players[0].gui_open;
+        global_mutex.unlock();
+        Sleep(200);
+        global_mutex.lock();
+    }
+    if (IsKeyPressed('R'))
+    {
+        std::sort(this->players[0].items, this->players[0].items + 27, [](item a, item b) -> bool
+                  { return a.type > b.type || (a.type == b.type && a.count > b.count); });
         global_mutex.unlock();
         Sleep(200);
         global_mutex.lock();
@@ -921,6 +939,31 @@ item game::get_block_drop(block *block)
         item.type = item_type::ITEM_DIAMOND;
         item.stack_count = 64;
         item.count = 1;
+        break;
+    case block_type::BLOCK_WOOD:
+        item.type = item_type::ITEM_LOG;
+        item.stack_count = 64;
+        item.count = 1;
+        break;
+    case block_type::BLOCK_LEAVES:
+        if (rand() % 100 < 20)
+        {
+            item.type = item_type::ITEM_APPLE;
+            item.stack_count = 64;
+            item.count = 1;
+        }
+        else if (rand() % 100 < 20)
+        {
+            item.type = item_type::ITEM_LEAVES;
+            item.stack_count = 64;
+            item.count = 1;
+        }
+        else if (rand() % 100 < 20)
+        {
+            item.type = item_type::ITEM_SAPLING;
+            item.stack_count = 0;
+            item.count = 0;
+        }
         break;
     }
     return item;

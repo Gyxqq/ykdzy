@@ -128,7 +128,7 @@ namespace render
             draw_inventory(&(game->players[0]));
         }
         draw_widgets(&(game->players[0]));
-        draw_item_on_mouse(game);   
+        draw_item_on_mouse(game);
         {
             auto end = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> elapsed = end - start;
@@ -155,6 +155,7 @@ namespace render
                 outtextxy(0, 40, pos);
                 sprintf(pos, "hungry:%d health:%d", player.hunger, player.health);
                 outtextxy(0, 60, pos);
+                outtextxy(0, 80, ("chunk type:" + get_chunk_type_name(game->world.get_chunk_type(player.x))).c_str());
             }
         }
         FlushBatchDraw();
@@ -228,7 +229,7 @@ namespace render
         setlinecolor(WHITE);
         rectangle(x + 6 + player->chossing_item * 40, y + 6, x + 6 + player->chossing_item * 40 + 32, y + 6 + 32);
     }
-    void draw_item_on_mouse(game* game)
+    void draw_item_on_mouse(game *game)
     {
         if (game->item_on_mouse.type == item_type::ITEM_AIR)
             return;
@@ -238,7 +239,6 @@ namespace render
         settextstyle(14, 0, _T("宋体"));
         outtextxy(x + 16, y + 20, std::to_string(game->item_on_mouse.count).c_str());
         settextstyle(20, 0, _T("宋体"));
-
     }
     int reverse_y(int y)
     {

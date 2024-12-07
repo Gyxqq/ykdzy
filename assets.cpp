@@ -144,6 +144,8 @@ namespace assets
         const_textures[const_texture_type::CONST_TEXTURE_HUNGER].texture = pre_path + "hunger.png";
         const_textures[const_texture_type::CONST_TEXTURE_WIDGETS].type = const_texture_type::CONST_TEXTURE_WIDGETS;
         const_textures[const_texture_type::CONST_TEXTURE_WIDGETS].texture = pre_path + "widgets.png";
+        const_textures[const_texture_type::CONST_TEXTURE_START_BACKGROUND].type = const_texture_type::CONST_TEXTURE_START_BACKGROUND;
+        const_textures[const_texture_type::CONST_TEXTURE_START_BACKGROUND].texture = pre_path + "start_background.png";
         return 0;
     }
     int assets::load_item_textures(std::string config_path)

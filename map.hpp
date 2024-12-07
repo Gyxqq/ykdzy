@@ -12,7 +12,7 @@ enum block_type
     BLOCK_DIRT,              // 泥土
     BLOCK_GRASS,             // 草地
     BLOCK_STONE,             // 石头
-    BLOCK_WOOD,              // 木头
+    BLOCK_WOOD,              // 木板
     BLOCK_LEAVES,            // 树叶
     BLOCK_WATER,             // 水
     BLOCK_SAND,              // 沙子
@@ -53,7 +53,7 @@ enum item_type
 {
     ITEM_AIR,            // 空气
     ITEM_STICK,          // 木棍
-    ITEM_WOOD,           // 木头
+    ITEM_WOOD,           // 木板
     ITEM_COAL,           // 煤炭
     ITEM_RAW_IRON,       // 铁矿
     ITEM_INGOT_IRON,     // 铁锭
@@ -75,6 +75,10 @@ enum item_type
     ITEM_LOG,
     ITEM_COBBLESTONE, // 圆石
     ITEM_STONE,       // 石头
+    ITEM_LEAVES,      // 树叶
+    ITEM_APPLE,       // 苹果
+    ITEM_SAPLING,     // 树苗
+    ITEM_TORCH,       // 火把
     ITEM_MAX_INDEX
 };
 enum chunk_type
@@ -152,4 +156,6 @@ public:
     int save();
     chunk_type cauculate_chunk_type(int x, int seed);
     ~map();
+    chunk_type get_chunk_type(float x);
 };
+std::string get_chunk_type_name(chunk_type type);

@@ -516,7 +516,47 @@ map::~map()
 }
 chunk_type map::cauculate_chunk_type(int x, int seed)
 {
-    x = x / 4;
+    x = x / 2;
     int y = abs(((x + seed) - 42233));
     return (chunk_type)(y % (chunk_type::CHUNK_TYPE_END));
+}
+std::string get_chunk_type_name(chunk_type type)
+{
+    switch (type)
+    {
+    case chunk_type::CHUNK_DESERT:
+        return "Desert";
+        break;
+    case chunk_type::CHUNK_FOREST:
+        return "Forest";
+        break;
+    case chunk_type::CHUNK_MOUNTAIN:
+        return "Mountain";
+        break;
+    case chunk_type::CHUNK_SNOW:
+        return "Snow";
+        break;
+    case chunk_type::CHUNK_GRASSLAND:
+        return "Grassland";
+        break;
+    default:
+        return "Unknown";
+        break;
+    }
+}
+chunk_type map::get_chunk_type(float x)
+{
+    int index = x / BLOCKS_PER_CHUNK_X;
+    if (x < 0)
+    {
+        index--;
+    }
+    for (int i = 0; i < CHUNKS_PER_MAP_X; i++)
+    {
+        if (this->chunks[i].x == index)
+        {
+            return this->chunks[i].type;
+        }
+    }
+    return chunk_type::CHUNK_TYPE_END;
 }
