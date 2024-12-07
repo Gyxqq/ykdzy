@@ -13,6 +13,7 @@ namespace render
 {
     extern int width;
     extern int height;
+    extern IMAGE* light; // 光照
     int init(int width, int height);
     void close();
     int update_frame(game *game);

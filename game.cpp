@@ -8,6 +8,8 @@
 #include <graphics.h>
 #include <Windows.h>
 #include <algorithm>
+#include <thread>
+#include <regex>
 #include "render.hpp"
 #define SPEED speed_all
 float speed_all = 0.1;
@@ -22,7 +24,12 @@ int get_block_x(float x)
     return (int)x;
 }
 
-BOOL IsKeyPressed(int vKey) { return (GetAsyncKeyState(vKey) & 0x8000) != 0; }
+BOOL IsKeyPressed(int vKey)
+{
+    if (GetForegroundWindow() != GetHWnd())
+        return 0;
+    return (GetAsyncKeyState(vKey) & 0x8000) != 0;
+}
 int game::init(std::string name)
 {
     int seed = time(NULL);
@@ -33,11 +40,12 @@ int game::init(std::string name)
     this->world.init(name);
     this->players.push_back(player());
     this->attacking_block.block = NULL;
-
+    this->world_time = 0;
     cJSON *root = cJSON_CreateObject();
     cJSON_AddStringToObject(root, "savepath", this->savepath.c_str());
     glog::log("info", "Seed: " + std::to_string(seed), "game");
     cJSON_AddNumberToObject(root, "seed", seed);
+    cJSON_AddNumberToObject(root, "time", 0);
     cJSON *players = cJSON_CreateArray();
     std::string player_savepath = "00000.player";
     // this->players[0].save(this->savepath);
@@ -112,7 +120,16 @@ int game::load(std::string name)
         glog::log("error", "Failed to get seed", "game loader");
         return -1;
     }
+    cJSON *time = cJSON_GetObjectItem(root, "time");
+    if (time == NULL)
+    {
+        glog::log("error", "Failed to get time", "game loader");
+        return -1;
+    }
     this->world.seed = seed->valueint;
+    glog::log("info", "get Seed: " + std::to_string(this->world.seed), "game loader");
+    this->world_time = time->valueint;
+    glog::log("info", "get Time: " + std::to_string(this->world_time), "game loader");
     this->savepath = savepath->valuestring;
     glog::log("info", "get Savepath: " + this->savepath, "game loader");
     this->world.load(this->savepath);
@@ -154,6 +171,7 @@ int game::save()
     cJSON *root = cJSON_CreateObject();
     cJSON_AddStringToObject(root, "savepath", this->savepath.c_str());
     cJSON_AddNumberToObject(root, "seed", this->world.seed);
+    cJSON_AddNumberToObject(root, "time", this->world_time);
     cJSON *players = cJSON_CreateArray();
     for (int i = 0; i < this->players.size(); i++)
     {
@@ -280,6 +298,66 @@ int game::update()
         ScreenToClient(GetHWnd(), &this->mouse_pos);
     } // 获取鼠标位置
     check_num();
+    if (IsKeyPressed(VK_F1))
+    {
+        std::thread debug([&]()
+                          {
+                                  char input[2048];
+                                int get=  InputBox(input, 2048, "Debug", "Input Command:");
+                                if (get){
+                                    glog::log("info", "Debug Command: " + std::string(input), "game");
+                                    std::regex reg("tp\\s+(-?\\d+)\\s+(\\d+)");
+                                    std::smatch match;
+                                    std::string input_str(input);
+                                    if (std::regex_match(input_str, match, reg))
+                                    {
+                                        global_mutex.lock();
+                                        this->players[0].x = std::stoi(match[1].str());
+                                        this->players[0].y = std::stoi(match[2].str());
+                                        if (this->players[0].y < 0)
+                                        {
+                                            this->players[0].y = 0;
+                                        }
+                                        glog::log("info", "Teleport to: " + std::to_string(this->players[0].x) + " " + std::to_string(this->players[0].y), "game");
+                                        global_mutex.unlock();
+                                        return;
+                                    }
+                                    reg = std::regex("st\\s+(\\d+)\\s+(\\d+)");
+                                    if (std::regex_match(input_str, match, reg))
+                                    {
+                                        global_mutex.lock();
+                                        int hour = std::stoi(match[1].str());
+                                        int minute = std::stoi(match[2].str());
+                                        if (hour < 0||hour>23)
+                                        {
+                                            glog::log("error", "Invalid Hour", "game");
+
+                                        }
+                                        else if (minute < 0 || minute > 59)
+                                        {
+                                            glog::log("error", "Invalid Hour", "game");
+
+                                        }
+                                        else
+                                        {
+                                            this->world_time-=this->world_time%(60*24);
+                                            this->world_time+=hour*60+minute;
+                                        }
+                                        glog ::log("info","set Time: "+std::to_string(this->world_time),"game");
+                                        global_mutex.unlock();
+                                        return;
+                                    }
+                                    
+                                    else
+                                    {
+                                        glog::log("error", "Invalid Command", "game");
+                                    }
+                                    } });
+
+        Sleep(200);
+        debug.detach();
+    }
+
     if (IsKeyPressed(VK_LBUTTON) && !this->players[0].gui_open)
     {
         if (this->mouse_pos.x >= 0 && this->mouse_pos.x <= render::width && this->mouse_pos.y >= 0 && this->mouse_pos.y <= render::height)
@@ -391,7 +469,7 @@ int game::update()
         int pos_x = render::width / 2 - 160 + item_begin_x;
         int pos_y = render::height / 2 - 169 + item_begin_y;
         int x, y, index;
-        index=  -1;
+        index = -1;
         if (this->mouse_pos.x >= pos_x && this->mouse_pos.x <= pos_x + 9 * 36 && this->mouse_pos.y >= pos_y && this->mouse_pos.y <= pos_y + 4 * 36)
         {
             global_mutex.unlock();

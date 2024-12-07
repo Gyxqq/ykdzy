@@ -36,6 +36,7 @@ public:
     std::string savepath;
     block_attcking attacking_block;
     int show_debug;
+    int world_time;
     POINT mouse_pos;
     item item_on_mouse;
     // int chossing_item;

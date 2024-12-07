@@ -4,9 +4,10 @@
 #include "assets.hpp"
 #include "game.hpp"
 #include <queue>
-
+#include "EasyXPng.hpp"
 namespace render
 {
+    IMAGE *light;
     void put_transparentimage(int x, int y, IMAGE *img)
     {
         IMAGE img1;
@@ -28,6 +29,25 @@ namespace render
         }
         putimage(x, y, &img1, SRCAND);
         putimage(x, y, img, SRCPAINT);
+    }
+    void fill_image_rgba(IMAGE *pSrcImg, int r, int g, int b, int a)
+    {
+
+        DWORD *src = GetImageBuffer(pSrcImg);
+        int src_width = pSrcImg->getwidth();
+        int src_height = pSrcImg->getheight();
+        DWORD clo = 0;
+        clo += a;
+        clo = clo << 8;
+        clo += r;
+        clo = clo << 8;
+        clo += g;
+        clo = clo << 8;
+        clo += b;
+        for (int i = 0; i < src_width * src_height; i++)
+        {
+            src[i] = clo;
+        }
     }
     int get_block_x(float x)
     {
@@ -52,6 +72,8 @@ namespace render
         settextcolor(WHITE);
         setbkmode(TRANSPARENT);
         BeginBatchDraw();
+        light = new IMAGE(width, height);
+
         HWND hwnd = GetHWnd();
         HMENU hmenu = GetSystemMenu(hwnd, FALSE);
         if (hmenu != NULL)
@@ -122,6 +144,44 @@ namespace render
         y = render::height / 2;
         // putimage(x, y, &player_textures[0][0], SRCPAINT); // player
         put_transparentimage(x, reverse_y(y), &player_textures[0][0]);
+
+        { //光照渲染
+            int alpha = 0; // 0-230
+            int hour = (game->world_time / 60) % 24;
+            int minute = game->world_time % 60;
+            if (hour >= 9 && hour < 18)
+            {
+                alpha = 0;
+            }
+            else if (hour >= 22)
+            {
+                alpha = 230;
+            }
+            else if (hour < 6)
+            {
+                alpha = 230;
+            }
+            else if (hour >= 6 && hour < 9)
+            {
+                alpha = 230 - 230 * ((hour - 6) * 60 + minute) / 180;
+                _ASSERT(alpha >= 0);
+            }
+            else if (hour >= 18 && hour < 22)
+            {
+                alpha = 230 * ((hour - 18) * 60 + minute) / 240;
+                _ASSERT(alpha <= 230);
+            }
+            else
+            {
+                _ASSERT(0);
+                alpha = 0;
+            }
+            // IMAGE light(render::width, render::height);
+            _ASSERT(light != NULL);
+            fill_image_rgba(light, 0, 0, 0, alpha);
+            putimagePng(0, 0, light);
+        }
+
         draw_player_info(&(game->players[0]));
         if (game->players[0].gui_open)
         {
@@ -156,6 +216,11 @@ namespace render
                 sprintf(pos, "hungry:%d health:%d", player.hunger, player.health);
                 outtextxy(0, 60, pos);
                 outtextxy(0, 80, ("chunk type:" + get_chunk_type_name(game->world.get_chunk_type(player.x))).c_str());
+                int day = game->world_time / 1440;
+                int hour = (game->world_time / 60) % 24;
+                int minute = game->world_time % 60;
+                sprintf(pos, "d-h-m:%d %d:%d", day, hour, minute);
+                outtextxy(0, 100, pos);
             }
         }
         FlushBatchDraw();

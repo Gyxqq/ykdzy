@@ -27,9 +27,9 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
 
     glog::log("info", "Hello, world!", "main");
     structure::init(MODS_PATH);
-    class game game0;
-    game0.init("D:\\projects\\ykdzy\\save1\\");
-    game0.save();
+    // class game game0;
+    // game0.init("D:\\projects\\ykdzy\\save1\\");
+    // game0.save();
     class game game;
     game.load("D:\\projects\\ykdzy\\save1\\game.json");
     game.save();
@@ -51,7 +51,20 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
                                         Sleep((0.01 - elapsed_seconds.count()) * 1000);
                                     }
                                 } });
-
+    std::thread game_time = std::thread([&game]()
+                                        {
+                                            while (exit_flag == 0)
+                                            {
+                                                auto start = std::chrono::system_clock::now();
+                                                global_mutex.lock();
+                                                game.world_time++;
+                                                global_mutex.unlock();
+                                                auto end = std::chrono::system_clock::now();
+                                                if (std::chrono::duration<double>(end - start).count() < 1)
+                                                {
+                                                    Sleep((1 - std::chrono::duration<double>(end - start).count()) * 1000);
+                                                }
+                                            } }); // 世界时间线程
     while (exit_flag == 0)
     {
         // game.update();
@@ -61,11 +74,12 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
         Sleep(1);
     }
     game_thread.join();
+    game_time.join();
     game.save();
     glog::log("info", "Game Loaded", "main");
 }
 
-game& get_game()
+game &get_game()
 {
     static game game;
     return game;
