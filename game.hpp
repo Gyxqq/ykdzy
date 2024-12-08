@@ -52,3 +52,4 @@ public:
     int update();
     int save();
 };
+item get_item_by_type(item_type type);

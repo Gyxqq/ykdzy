@@ -303,7 +303,7 @@ int game::update()
         std::thread debug([&]()
                           {
                                   char input[2048];
-                                int get=  InputBox(input, 2048, "Debug", "Input Command:");
+                                int get=  InputBox(input, 2048, "Debug", "Input Command:",0,0,0,0);
                                 if (get){
                                     glog::log("info", "Debug Command: " + std::string(input), "game");
                                     std::regex reg("tp\\s+(-?\\d+)\\s+(\\d+)");
@@ -344,6 +344,76 @@ int game::update()
                                             this->world_time+=hour*60+minute;
                                         }
                                         glog ::log("info","set Time: "+std::to_string(this->world_time),"game");
+                                        global_mutex.unlock();
+                                        return;
+                                    }
+                                    reg.assign("fly");
+                                    if (std::regex_match(input_str, match, reg))
+                                    {
+                                        global_mutex.lock();
+                                        allow_fly = !allow_fly;
+                                        glog::log("info", "Fly Mode: " + std::to_string(allow_fly), "game");
+                                        global_mutex.unlock();
+                                        return;
+                                    }
+                                    reg.assign("give\\s+(\\d+)\\s+(\\d+)");
+                                    if (std::regex_match(input_str, match, reg))
+                                    {
+                                        global_mutex.lock();
+                                        int type = std::stoi(match[1].str());
+                                        int count = std::stoi(match[2].str());
+                                        if (type < 0 || type >= item_type::ITEM_MAX_INDEX)
+                                        {
+                                            glog::log("error", "Invalid Item Type", "game");
+                                        }
+                                        else if (count < 0)
+                                        {
+                                            glog::log("error", "Invalid Item Count", "game");
+                                        }
+                                        else
+                                        {
+                                            item item = get_item_by_type((item_type)type);
+                                            item.stack_count>=count?item.count=count:item.count=item.stack_count;
+                                            if (item.type == item_type::ITEM_AIR)
+                                            {
+                                                glog::log("error", "Invalid Item Type", "game");
+                                            }
+                                            else
+                                            {
+                                            for (int i = 0; i < MAX_ITEMS; i++)
+                                            {
+                                                if (this->players[0].items[i].type == type)
+                                                {
+                                                    if (this->players[0].items[i].stack_count - this->players[0].items[i].count >= 0)
+                                                    {
+                                                        if (this->players[0].items[i].stack_count - this->players[0].items[i].count >= count)
+                                                        {
+                                                            this->players[0].items[i].count += count;
+                                                            count = 0;
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            count -= this->players[0].items[i].stack_count - this->players[0].items[i].count;
+                                                            this->players[0].items[i].count = this->players[0].items[i].stack_count;
+                                                        }
+                                                    }
+                                                    
+                                                }
+                                                else if (this->players[0].items[i].type == item_type::ITEM_AIR)
+                                                {
+                                                    this->players[0].items[i] = item;
+                                                    count = 0;
+                                                    break;
+                                                }
+                                                if (count == 0)
+                                                {
+                                                    break;
+                                                }
+                                            }
+                                            }
+                                        }
+                                        glog::log("info", "Give Item: " + std::to_string(type) + " " + std::to_string(count), "game");
                                         global_mutex.unlock();
                                         return;
                                     }
@@ -759,6 +829,16 @@ int game::update()
         global_mutex.unlock();
         return 0;
     }
+    
+    for (int i = 0; i < MAX_ITEMS; i++)
+    {
+        if (this->players[0].items[i].type != item_type::ITEM_AIR && this->players[0].items[i].count == 0)
+        {
+            this->players[0].items[i].type = item_type::ITEM_AIR;
+            this->players[0].items[i].count = 0;
+            this->players[0].items[i].stack_count = 0;
+        }
+    }
 
     // load chunks
     int center_x = this->players[0].x / BLOCKS_PER_CHUNK_X;
@@ -1119,4 +1199,20 @@ block game::get_block_by_item(item item)
         break;
     }
     return block;
+}
+item get_item_by_type(item_type type)
+{
+    item item;
+    switch (type)
+    {
+
+    default:
+        item.type = type;
+        item.stack_count = 64;
+        item.count = 1;
+        item.data = NULL;
+
+        break;
+    }
+    return item;
 }
