@@ -1,6 +1,7 @@
 #pragma once
 #include "map.hpp"
 #include "log.hpp"
+#include "craft_table.hpp"
 #include <vector>
 #include <windows.h>
 #define MAX_ITEMS 36
@@ -39,6 +40,8 @@ public:
     int world_time;
     POINT mouse_pos;
     item item_on_mouse;
+    item craft_table[5];
+    craft_table::craft_table *now_craft_table;
     // int chossing_item;
     int init(std::string name);
     int load(std::string name);
@@ -49,6 +52,7 @@ public:
     item get_block_drop(block *block);
     block get_block_by_item(item item);
     void check_num();
+    void check_craft();
     int update();
     int save();
 };

@@ -10,6 +10,10 @@
 #define item_begin_y 168
 #define inventory_begin_x 16
 #define inventory_begin_y 284
+#define CRAFT_TABLE_BEGIN_X 195
+#define CRAFT_TABLE_BEGIN_Y 35
+#define CRAFT_OUT_X 307
+#define CRAFT_OUT_Y 55
 namespace render
 {
     extern int width;
@@ -24,6 +28,7 @@ namespace render
     void draw_inventory(player *player);
     void draw_widgets(player *player);
     void draw_item_on_mouse(game *game);
+    void draw_craft_table(game* game);
     class light
     {
     public:

@@ -9,3 +9,4 @@ save1/*.*
 *.json
 **/build/*
 *.zip
+.vs/*

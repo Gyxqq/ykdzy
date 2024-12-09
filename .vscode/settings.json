@@ -7,7 +7,10 @@
         "cwchar": "cpp",
         "cstring": "cpp",
         "cstdio": "cpp",
-        "xtr1common": "cpp"
+        "xtr1common": "cpp",
+        "deque": "cpp",
+        "vector": "cpp",
+        "format": "cpp"
     },
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
 }

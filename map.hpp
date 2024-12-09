@@ -72,7 +72,7 @@ enum item_type
     ITEM_SAND,           // 沙子
     ITEM_SNOW,           // 雪
     ITEM_ICE,            // 冰
-    ITEM_LOG,
+    ITEM_LOG, // 原木
     ITEM_COBBLESTONE, // 圆石
     ITEM_STONE,       // 石头
     ITEM_LEAVES,      // 树叶
