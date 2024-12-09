@@ -8,6 +8,7 @@
 namespace render
 {
     IMAGE *light;
+    std::vector<class light> lights_list;
     void put_transparentimage(int x, int y, IMAGE *img)
     {
         IMAGE img1;
@@ -73,7 +74,7 @@ namespace render
         setbkmode(TRANSPARENT);
         BeginBatchDraw();
         light = new IMAGE(width, height);
-
+        setbkcolor(RGB(70, 145, 253));
         HWND hwnd = GetHWnd();
         HMENU hmenu = GetSystemMenu(hwnd, FALSE);
         if (hmenu != NULL)
@@ -137,7 +138,9 @@ namespace render
                 int pos_y = render::height / 2 - (player.y - 0.5 - y_start_pos * 1.0 - j * 1.0) * BLOCK_TEXTURES_SIZE;
                 // if (x_start_pos + i < 0)
                 //     pos_x -= 32;
-                putimage(pos_x, reverse_y(pos_y), &block_textures[block], SRCPAINT);
+                // putimage(pos_x, reverse_y(pos_y), &block_textures[block], SRCPAINT);
+                putimagePng(pos_x, reverse_y(pos_y), &block_textures[block]);
+                get_light((game->world.get_block_ptr(x_start_pos + i, y_start_pos + j)), &player);
             }
         }
         x = render::width / 2;
@@ -145,7 +148,7 @@ namespace render
         // putimage(x, y, &player_textures[0][0], SRCPAINT); // player
         put_transparentimage(x, reverse_y(y), &player_textures[0][0]);
 
-        { //光照渲染
+        {                  // 光照渲染
             int alpha = 0; // 0-230
             int hour = (game->world_time / 60) % 24;
             int minute = game->world_time % 60;
@@ -179,6 +182,7 @@ namespace render
             // IMAGE light(render::width, render::height);
             _ASSERT(light != NULL);
             fill_image_rgba(light, 0, 0, 0, alpha);
+            draw_light();
             putimagePng(0, 0, light);
         }
 
@@ -313,5 +317,70 @@ namespace render
     {
         glog::log("info", "Closing Render", "render");
         closegraph();
+    }
+    POINT get_render_pos(float x, float y, player *player)
+    {
+        POINT pos;
+        pos.x = render::width / 2 + (x - player->x + 0.5) * BLOCK_TEXTURES_SIZE;
+        pos.y = render::height / 2 + (y - player->y - 0.5) * BLOCK_TEXTURES_SIZE;
+        pos.y = reverse_y(pos.y);
+        return pos;
+    }
+
+    void get_light(block *block, player *player)
+    {
+        switch (block->type)
+        {
+        case BLOCK_TORCH:
+            /* code */
+            class light temp;
+            temp.world_x = block->x + 0.5;
+            temp.world_y = block->y + 0.5;
+            temp.radius = 5 * BLOCK_TEXTURES_SIZE;
+            temp.intensity = 0;
+            temp.render_pos = get_render_pos(temp.world_x, temp.world_y, player);
+            lights_list.push_back(temp);
+            break;
+        default:
+            break;
+        }
+    }
+
+    void draw_light()
+    {
+        _ASSERT(light != NULL);
+        DWORD *src = GetImageBuffer(light);
+        int src_width = light->getwidth();
+        int src_height = light->getheight();
+        int intensity_g = src[0] >> 24;
+        for (int i = 0; i < lights_list.size(); i++)
+        {
+            class light temp = lights_list[i];
+            POINT start;
+            start.x = temp.render_pos.x - temp.radius;
+            start.y = temp.render_pos.y - temp.radius;
+            POINT end;
+            end.x = temp.render_pos.x + temp.radius;
+            end.y = temp.render_pos.y + temp.radius;
+            for (int x = start.x; x < end.x; x++)
+            {
+                for (int y = start.y; y < end.y; y++)
+                {
+                    if (x < 0 || x >= src_width || y < 0 || y >= src_height)
+                        continue;
+                    float dis = (x - temp.render_pos.x) * (x - temp.render_pos.x) + (y - temp.render_pos.y) * (y - temp.render_pos.y);
+                    if (dis <= temp.radius * temp.radius)
+                    {
+                        DWORD intensity = intensity_g * exp(-1 + dis / (temp.radius * temp.radius));
+                        DWORD now = (src[y * src_width + x] & 0x00FF000000) >> 24;
+                        if (now > intensity)
+                        {
+                            src[y * src_width + x] = (src[y * src_width + x] & 0x00FFFFFF) + (intensity << 24);
+                        }
+                    }
+                }
+            }
+        }
+        lights_list.clear();
     }
 } // namespace render

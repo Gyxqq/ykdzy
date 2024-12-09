@@ -1,7 +1,7 @@
 #pragma once
+#include "game.hpp"
 #include "map.hpp"
 #include "log.hpp"
-#include "game.hpp"
 #include <cJSON.h>
 #include <time.h>
 #include <sys/stat.h>
@@ -11,6 +11,7 @@
 #include <thread>
 #include <regex>
 #include "render.hpp"
+#include <mutex>
 #define SPEED speed_all
 float speed_all = 0.1;
 extern std::mutex global_mutex;
@@ -538,61 +539,69 @@ int game::update()
     {
         int pos_x = render::width / 2 - 160 + item_begin_x;
         int pos_y = render::height / 2 - 169 + item_begin_y;
-        int x, y, index;
-        index = -1;
-        if (this->mouse_pos.x >= pos_x && this->mouse_pos.x <= pos_x + 9 * 36 && this->mouse_pos.y >= pos_y && this->mouse_pos.y <= pos_y + 4 * 36)
+
+        if ((this->mouse_pos.x >= pos_x && this->mouse_pos.x <= pos_x + 9 * 36 && this->mouse_pos.y >= pos_y && this->mouse_pos.y <= pos_y + 4 * 36) || this->mouse_pos.x >= render::width / 2 - 160 + inventory_begin_x && this->mouse_pos.x <= render::width / 2 - 160 + inventory_begin_x + 9 * 36 && this->mouse_pos.y >= render::height / 2 - 169 + inventory_begin_y && this->mouse_pos.y <= render::height / 2 - 169 + inventory_begin_y + 36)
         {
-            global_mutex.unlock();
-            Sleep(200);
-            global_mutex.lock();
-            glog::log("info", "get item", "game");
-            x = (this->mouse_pos.x - pos_x) / 36;
-            y = (this->mouse_pos.y - pos_y) / 36;
-            index = y * 9 + x;
-        }
-        else if (this->mouse_pos.x >= render::width / 2 - 160 + inventory_begin_x && this->mouse_pos.x <= render::width / 2 - 160 + inventory_begin_x + 9 * 36 && this->mouse_pos.y >= render::height / 2 - 169 + inventory_begin_y && this->mouse_pos.y <= render::height / 2 - 169 + inventory_begin_y + 36)
-        {
-            global_mutex.unlock();
-            Sleep(200);
-            global_mutex.lock();
-            glog::log("info", "get item", "game");
-            x = (this->mouse_pos.x - render::width / 2 - 160 + inventory_begin_x) / 36;
-            index = x + 27;
-        }
-        // _ASSERT(index >= 0 && index < MAX_ITEMS);
-        if (index >= 0 && index < MAX_ITEMS)
-        {
-            if (this->players[0].items[index].type != item_type::ITEM_AIR && this->item_on_mouse.type == item_type::ITEM_AIR)
+
+            int x, y, index;
+            index = -1;
+            if (this->mouse_pos.x >= pos_x && this->mouse_pos.x <= pos_x + 9 * 36 && this->mouse_pos.y >= pos_y && this->mouse_pos.y <= pos_y + 4 * 36)
             {
-                this->item_on_mouse = this->players[0].items[index];
-                this->players[0].items[index].type = item_type::ITEM_AIR;
-                this->players[0].items[index].count = 0;
-                this->players[0].items[index].stack_count = 0;
+                global_mutex.unlock();
+                Sleep(200);
+                global_mutex.lock();
+                glog::log("info", "get item", "game");
+                x = (this->mouse_pos.x - pos_x) / 36;
+                y = (this->mouse_pos.y - pos_y) / 36;
+                index = y * 9 + x;
             }
-            else if (this->players[0].items[index].type == item_type::ITEM_AIR && this->item_on_mouse.type != item_type::ITEM_AIR)
+            else if (this->mouse_pos.x >= render::width / 2 - 160 + inventory_begin_x && this->mouse_pos.x <= render::width / 2 - 160 + inventory_begin_x + 9 * 36 && this->mouse_pos.y >= render::height / 2 - 169 + inventory_begin_y && this->mouse_pos.y <= render::height / 2 - 169 + inventory_begin_y + 36)
             {
-                this->players[0].items[index] = this->item_on_mouse;
-                this->item_on_mouse.type = item_type::ITEM_AIR;
-                this->item_on_mouse.count = 0;
-                this->item_on_mouse.stack_count = 0;
+                global_mutex.unlock();
+                Sleep(200);
+                global_mutex.lock();
+                glog::log("info", "get item", "game");
+                x = (this->mouse_pos.x - render::width / 2 - 160 + inventory_begin_x) / 36;
+                index = x + 27;
             }
-            else if (this->players[0].items[index].type == item_type::ITEM_AIR && this->item_on_mouse.type == item_type::ITEM_AIR)
+            // _ASSERT(index >= 0 && index < MAX_ITEMS);
+            if (index >= 0 && index < MAX_ITEMS)
             {
-                ;
-            }
-            else if (this->players[0].items[index].type == this->item_on_mouse.type)
-            {
-                if (this->players[0].items[index].count + this->item_on_mouse.count <= this->players[0].items[index].stack_count)
+                if (this->players[0].items[index].type != item_type::ITEM_AIR && this->item_on_mouse.type == item_type::ITEM_AIR)
                 {
-                    this->players[0].items[index].count += this->item_on_mouse.count;
+                    this->item_on_mouse = this->players[0].items[index];
+                    this->players[0].items[index].type = item_type::ITEM_AIR;
+                    this->players[0].items[index].count = 0;
+                    this->players[0].items[index].stack_count = 0;
+                }
+                else if (this->players[0].items[index].type == item_type::ITEM_AIR && this->item_on_mouse.type != item_type::ITEM_AIR)
+                {
+                    this->players[0].items[index] = this->item_on_mouse;
+                    this->item_on_mouse.type = item_type::ITEM_AIR;
                     this->item_on_mouse.count = 0;
+                    this->item_on_mouse.stack_count = 0;
                 }
-                else
+                else if (this->players[0].items[index].type == item_type::ITEM_AIR && this->item_on_mouse.type == item_type::ITEM_AIR)
                 {
-                    this->item_on_mouse.count = this->players[0].items[index].count + this->item_on_mouse.count - this->players[0].items[index].stack_count;
-                    this->players[0].items[index].count = this->players[0].items[index].stack_count;
+                    ;
+                }
+                else if (this->players[0].items[index].type == this->item_on_mouse.type)
+                {
+                    if (this->players[0].items[index].count + this->item_on_mouse.count <= this->players[0].items[index].stack_count)
+                    {
+                        this->players[0].items[index].count += this->item_on_mouse.count;
+                        this->item_on_mouse.count = 0;
+                    }
+                    else
+                    {
+                        this->item_on_mouse.count = this->players[0].items[index].count + this->item_on_mouse.count - this->players[0].items[index].stack_count;
+                        this->players[0].items[index].count = this->players[0].items[index].stack_count;
+                    }
                 }
             }
+        }
+        else if (true)
+        {
         }
     }
     if (IsKeyPressed('Q') && !this->players[0].gui_open)
@@ -829,7 +838,7 @@ int game::update()
         global_mutex.unlock();
         return 0;
     }
-    
+
     for (int i = 0; i < MAX_ITEMS; i++)
     {
         if (this->players[0].items[i].type != item_type::ITEM_AIR && this->players[0].items[i].count == 0)
@@ -1123,6 +1132,11 @@ item game::get_block_drop(block *block)
             item.count = 0;
         }
         break;
+    case block_type::BLOCK_TORCH:
+        item.type = item_type::ITEM_TORCH;
+        item.stack_count = 64;
+        item.count = 1;
+        break;
     }
     return item;
 }
@@ -1196,6 +1210,9 @@ block game::get_block_by_item(item item)
         break;
     case item_type::ITEM_SAND:
         block.type = block_type::BLOCK_SAND;
+        break;
+    case item_type::ITEM_TORCH:
+        block.type = block_type::BLOCK_TORCH;
         break;
     }
     return block;

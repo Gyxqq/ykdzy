@@ -38,6 +38,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
     assets::load_const_textures(CONST_TEXTURES_PATH);
     assets::load_item_textures(ITEM_TEXTURES_PATH);
     render::init(1240, 720);
+    
     std::thread game_thread([&game]()
                             {
                                 while (exit_flag == 0)
