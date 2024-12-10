@@ -126,7 +126,9 @@ int update_frame(game* game)
             //     pos_x -= 32;
             // putimage(pos_x, reverse_y(pos_y), &block_textures[block], SRCPAINT);
             putimagePng(pos_x, reverse_y(pos_y), &block_textures[block]);
-            get_light((game->world.get_block_ptr(x_start_pos + i, y_start_pos + j)), &player);
+            if (game->world.get_block_ptr(x_start_pos + i, y_start_pos + j)!=NULL) {
+                get_light((game->world.get_block_ptr(x_start_pos + i, y_start_pos + j)), &player);
+            }
         }
     }
     x = render::width / 2;
@@ -352,7 +354,7 @@ void draw_craft_table(game* game)
     settextstyle(14, 0, _T ("宋体"));
     for (int i = 0; i < 2; i++) {
         for (int j = 0; j < 2; j++) {
-            if (game->craft_table[i+j*2].type == item_type::ITEM_AIR)
+            if (game->craft_table[i + j * 2].type == item_type::ITEM_AIR)
                 continue;
             put_transparentimage(pos_x + CRAFT_TABLE_BEGIN_X + 1 + i * 36, pos_y + CRAFT_TABLE_BEGIN_Y + 1 + j * 36, &item_textures[game->craft_table[i + j * 2].type]);
             outtextxy(pos_x + CRAFT_TABLE_BEGIN_X + 1 + i * 36 + 16, pos_y + CRAFT_TABLE_BEGIN_Y + 1 + j * 36 + 20, std::to_string(game->craft_table[i + j * 2].count).c_str());

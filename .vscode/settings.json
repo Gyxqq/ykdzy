@@ -10,7 +10,8 @@
         "xtr1common": "cpp",
         "deque": "cpp",
         "vector": "cpp",
-        "format": "cpp"
+        "format": "cpp",
+        "mutex": "cpp"
     },
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
 }

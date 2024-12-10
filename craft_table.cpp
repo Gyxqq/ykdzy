@@ -3,63 +3,30 @@
 namespace craft_table {
 craft_table::craft_table()
 {
-    this->next = NULL;
-    this->is_order = 0;
-    for (int i = 0; i < 9; i++) {
-        this->items[i].type = item_type::ITEM_AIR;
-        this->items[i].count = 0;
-        this->items[i].stack_count = 0;
-    }
-    this->result.type = item_type::ITEM_AIR;
-    this->result.count = 0;
-    this->result.stack_count = 0;
-    this->need_count = 0;
+    memset(this, 0, sizeof(craft_table));
 }
 
-craft_table* craft_table::craft_tables;
+std::vector<craft_table> craft_table::craft_tables;
 int craft_table::len;
-craft_table& craft_table::operator[](int index)
+
+int craft_table::add_craft_table(craft_table* table)
 {
-    craft_table* table = craft_table::craft_tables;
-    for (int i = 0; i < index; i++) {
-        if (table->next == NULL) {
-            glog::log("error", "craft_table index out of range", "craft_table");
-            return *table;
-        }
-        table = table->next;
-    }
-    return *table;
-}
-int craft_table::add_crft_table(craft_table* table)
-{
-    craft_table* t = craft_table::craft_tables;
-    while (t->next != NULL) {
-        t = t->next;
-    }
-    t->next = table;
-    craft_table::len++;
+    craft_table::craft_tables.push_back(*table);
     return 0;
 }
 int craft_table::get_len()
 {
-    int len = 0;
-    craft_table* t = craft_table::craft_tables;
-    while (t != NULL) {
-        t = t->next;
-        len++;
-    }
-    len -= 1;
-    craft_table::len = len;
-    return len;
+    craft_table::len = craft_table::craft_tables.size();
+    return craft_table::len;
 }
 int craft_table::init()
 {
-    craft_table::craft_tables = new craft_table;
-    craft_table::len = 1;
+
     craft_table* table;
 
     {
-        table = new craft_table;
+        table = new craft_table();
+        memset(table, 0, sizeof(craft_table));
         table->items[0].type = item_type::ITEM_STICK;
         table->items[0].count = 1;
         table->items[0].stack_count = 64;
@@ -71,10 +38,11 @@ int craft_table::init()
         table->result.stack_count = 64;
         table->need_count = 2;
         table->is_order = 0;
-        table->add_crft_table(table); // 火把
+        table->add_craft_table(table); // 火把
     }
     {
-        table = new craft_table;
+        table = new craft_table();
+        memset(table, 0, sizeof(craft_table));
         table->items[0].type = item_type::ITEM_LOG;
         table->items[0].count = 1;
         table->items[0].stack_count = 64;
@@ -83,10 +51,11 @@ int craft_table::init()
         table->result.stack_count = 64;
         table->need_count = 1;
         table->is_order = 0;
-        table->add_crft_table(table); // 木头合成木板
+        table->add_craft_table(table); // 木头合成木板
     }
     {
-        table = new craft_table;
+        memset(table, 0, sizeof(craft_table));
+        table = new craft_table();
         table->items[0].type = item_type::ITEM_WOOD;
         table->items[0].count = 1;
         table->items[0].stack_count = 64;
@@ -98,19 +67,31 @@ int craft_table::init()
         table->result.stack_count = 64;
         table->need_count = 2;
         table->is_order = 1;
-        table->add_crft_table(table); // 木板合成木棍
+        table->add_craft_table(table); // 木板合成木棍
     }
+    glog::log("info", "start Log", "craft log");
+    int len = craft_table::craft_table::get_len();
+    glog::log("info", "craft_table len: " + std::to_string(len), "craft log");
+    for (int i = 0; i < len; i++) {
+        glog::log("info", "craft_table[" + std::to_string(i) + "]: ", "craft log");
+        glog::log("info", "items: ", "craft log");
+        int j = craft_table::craft_table::craft_tables[i].need_count;
+        glog::log("info", "need_count: " + std::to_string(j), "craft log");
+        for (int k = 0; k < 9; k++) {
+            glog::log("info",
+                "type: " + std::to_string(craft_table::craft_table::craft_tables[i].items[k].type) + " count: " + std::to_string(craft_table::craft_table::craft_tables[i].items[k].count),
+                "craft log");
+        }
+        glog::log("info",
+            "result: type: " + std::to_string(craft_table::craft_table::craft_tables[i].result.type) + " count: " + std::to_string(craft_table::craft_table::craft_tables[i].result.count),
+            "craft log");
+    }
+
     return 0;
 }
 int craft_table::deinit()
 {
-    craft_table* t = craft_table::craft_tables;
-    craft_table* temp;
-    while (t != NULL) {
-        temp = t;
-        t = t->next;
-        delete temp;
-    }
+
     return 0;
 }
 }

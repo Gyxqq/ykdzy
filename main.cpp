@@ -27,6 +27,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
 {
 
     glog::log("info", "Hello, world!", "main");
+    craft_table::craft_table::init();
     structure::init(MODS_PATH);
     // class game game0;
     // game0.init("D:\\projects\\ykdzy\\save1\\");
@@ -39,7 +40,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
     assets::load_const_textures(CONST_TEXTURES_PATH);
     assets::load_item_textures(ITEM_TEXTURES_PATH);
     render::init(1240, 720);
-    craft_table::craft_table::init();
+    
     std::thread game_thread([&game]() {
                                 while (exit_flag == 0)
                                 {

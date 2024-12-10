@@ -284,6 +284,12 @@ int game::update()
             this->craft_table[i].data = NULL;
         }
     }
+    if (this->item_on_mouse.count == 0) {
+        this->item_on_mouse.type = item_type::ITEM_AIR;
+        this->item_on_mouse.count = 0;
+        this->item_on_mouse.stack_count = 0;
+        this->item_on_mouse.data = NULL;
+    }
     if (allow_fly) // fly mode
     {
         if (IsKeyPressed(VK_UP)) {
@@ -399,6 +405,28 @@ int game::update()
                         "Give Item: " + std::to_string(type) + " " + std::to_string(count),
                         "game");
                     global_mutex.unlock();
+                    return;
+                }
+                reg.assign("log");
+                if (std::regex_match(input_str, match, reg)) {
+                    glog::log("info", "start Log", "game log");
+                    int len = craft_table::craft_table::get_len();
+                    glog::log("info", "craft_table len: " + std::to_string(len), "game log");
+                    for (int i = 0; i < len; i++) {
+                        glog::log("info", "craft_table[" + std::to_string(i) + "]: ", "game log");
+                        glog::log("info", "items: ", "game log");
+                        int j = craft_table::craft_table::craft_tables[i].need_count;
+                        glog::log("info", "need_count: " + std::to_string(j), "game log");
+                        for (int k = 0; k < 9; k++) {
+                            glog::log("info",
+                                "type: " + std::to_string(craft_table::craft_table::craft_tables[i].items[k].type) + " count: " + std::to_string(craft_table::craft_table::craft_tables[i].items[k].count),
+                                "game log");
+                        }
+                        glog::log("info",
+                            "result: type: " + std::to_string(craft_table::craft_table::craft_tables[i].result.type) + " count: " + std::to_string(craft_table::craft_table::craft_tables[i].result.count),
+                            "game log");
+                    }
+
                     return;
                 }
 
@@ -584,708 +612,741 @@ int game::update()
                     }
                 }
             }
-        } else if (this->mouse_pos.x >= CRAFT_OUT_X && this->mouse_pos.y >= CRAFT_OUT_Y && this->mouse_pos.x <= 36 + CRAFT_OUT_X && this->mouse_pos.y <= 36 + CRAFT_OUT_Y) {
+        } else if (this->mouse_pos.x >= render::width / 2 - 160 + CRAFT_OUT_X && this->mouse_pos.y >= CRAFT_OUT_Y + render::height / 2 - 169 && this->mouse_pos.x <= 36 + CRAFT_OUT_X + render::width / 2 - 160 && this->mouse_pos.y <= 36 + CRAFT_OUT_Y + render::height / 2 - 169) {
+            global_mutex.unlock();
+            Sleep(200);
+            global_mutex.lock();
             if (this->now_craft_table != NULL) {
                 item res = this->now_craft_table->result;
                 if (this->item_on_mouse.type == item_type::ITEM_AIR) {
                     if (res.type != item_type::ITEM_AIR) {
                         if (res.count > 0) {
-                            // this->item_on_mouse = res;
-                            int index[9];
-                            int count = 0;
-                            int count_1 = 0;
-                            int count_2 = 0;
-                            while (true) {
-                                if (count == this->now_craft_table->need_count)
-                                    break;
-                                if (this->now_craft_table->items[count_1].type == item_type::ITEM_AIR) {
-                                    count_1++;
-                                    continue;
-                                }
-                                for (count_2 = 0; count_2 < 4; count_2++) {
-                                    if (this->craft_table[count_2].type == this->now_craft_table->items[count_1].type) {
-                                        _ASSERT(this->craft_table[count_2].count >= this->now_craft_table->items[count_1].count);
-                                        index[count] = count_2;
-                                        count++;
-                                        count_1++;
-                                        this->craft_table[count_2].count -= this->now_craft_table->items[count_1].count;
+                            int get_count = 0;
+                            int flag = 1;
+                            int get_index[4] = { 0 };
+                            std::vector<item> tmp;
+                            for (int i = 0; i < 4; i++) {
+                                tmp.push_back(this->craft_table[i]);
+                            }
+                            for (int i = 0; i < 9; i++) {
+                                if (this->now_craft_table->items[i].type != item_type::ITEM_AIR) {
+                                    if (get_count >= this->now_craft_table->need_count) {
+                                        break;
+                                    }
+                                    for (int j = 0; j < 4; j++) {
+                                        if (get_index[j] == 1)
+                                            continue;
+                                        if (this->craft_table[j].type == this->now_craft_table->items[i].type) {
+                                            if (this->craft_table[j].count >= this->now_craft_table->items[i].count) {
+                                                get_index[j] = 1;
+                                                get_count++;
+                                                tmp[j].count -= this->now_craft_table->items[i].count;
+                                                break;
+                                            }
+                                        }
+                                        if (j == 3) {
+                                            flag = 0;
+                                            break;
+                                        }
+                                    }
+                                    if (flag == 0) {
                                         break;
                                     }
                                 }
                             }
-                            for (int i = 0; i < 4; i++) {
-                                if (this->craft_table[i].count == 0) {
-                                    this->craft_table[i].type = item_type::ITEM_AIR;
-                                    this->craft_table[i].count = 0;
-                                    this->craft_table[i].stack_count = 0;
-                                    this->craft_table[i].data = NULL;
+                            if (flag == 1) {
+                                for (int i = 0; i < 4; i++) {
+                                    this->craft_table[i] = tmp[i];
+                                }
+                                this->item_on_mouse = res;
+                            }
+                        }
+                    }
+                } else if (res.type == this->item_on_mouse.type) {
+                    if (this->item_on_mouse.stack_count - this->item_on_mouse.count >= res.count) {
+                        if (res.type != item_type::ITEM_AIR) {
+                            if (res.count > 0) {
+                                int get_count = 0;
+                                int flag = 1;
+                                int get_index[4] = { 0 };
+                                std::vector<item> tmp;
+                                for (int i = 0; i < 4; i++) {
+                                    tmp.push_back(this->craft_table[i]);
+                                }
+                                for (int i = 0; i < 9; i++) {
+                                    if (this->now_craft_table->items[i].type != item_type::ITEM_AIR) {
+                                        if (get_count >= this->now_craft_table->need_count) {
+                                            break;
+                                        }
+                                        for (int j = 0; j < 4; j++) {
+                                            if (get_index[j] == 1)
+                                                continue;
+                                            if (this->craft_table[j].type == this->now_craft_table->items[i].type) {
+                                                if (this->craft_table[j].count >= this->now_craft_table->items[i].count) {
+                                                    get_index[j] = 1;
+                                                    get_count++;
+                                                    tmp[j].count -= this->now_craft_table->items[i].count;
+                                                    break;
+                                                }
+                                            }
+                                            if (j == 3) {
+                                                flag = 0;
+                                                break;
+                                            }
+                                        }
+                                        if (flag == 0) {
+                                            break;
+                                        }
+                                    }
+                                }
+                                if (flag == 1) {
+                                    for (int i = 0; i < 4; i++) {
+                                        this->craft_table[i] = tmp[i];
+                                    }
+                                    this->item_on_mouse.count += res.count;
                                 }
                             }
-                            this->item_on_mouse = res;
                         }
+                    }
+                }
+            }
+        }
+    }
+            if (IsKeyPressed('Q') && !this->players[0].gui_open)
+
+            {
+                if (this->players[0].items[this->players[0].chossing_item + 27].type != item_type::ITEM_AIR) {
+                    if (this->players[0].items[this->players[0].chossing_item + 27].count > 0) {
+                        this->players[0].items[this->players[0].chossing_item + 27].count--;
+                        if (this->players[0].items[this->players[0].chossing_item + 27].count == 0) {
+                            this->players[0].items[this->players[0].chossing_item + 27].type = item_type::ITEM_AIR;
+                            this->players[0].items[this->players[0].chossing_item + 27].count = 0;
+                            this->players[0]
+                                .items[this->players[0].chossing_item + 27]
+                                .stack_count
+                                = 0;
+                        }
+                    }
+                }
+                global_mutex.unlock();
+                Sleep(200);
+                global_mutex.lock();
+            }
+            if (IsKeyPressed('Q') && this->players[0].gui_open) {
+                int pos_x = render::width / 2 - 160 + item_begin_x;
+                int pos_y = render::height / 2 - 169 + item_begin_y;
+                int x, y, index;
+                index = -1;
+                if (this->mouse_pos.x >= pos_x && this->mouse_pos.x <= pos_x + 9 * 36 && this->mouse_pos.y >= pos_y && this->mouse_pos.y <= pos_y + 4 * 36) {
+                    global_mutex.unlock();
+                    Sleep(200);
+                    global_mutex.lock();
+                    glog::log("info", "get item", "game");
+                    x = (this->mouse_pos.x - pos_x) / 36;
+                    y = (this->mouse_pos.y - pos_y) / 36;
+                    index = y * 9 + x;
+                } else if (this->mouse_pos.x >= render::width / 2 - 160 + inventory_begin_x && this->mouse_pos.x <= render::width / 2 - 160 + inventory_begin_x + 9 * 36 && this->mouse_pos.y >= render::height / 2 - 169 + inventory_begin_y && this->mouse_pos.y <= render::height / 2 - 169 + inventory_begin_y + 36) {
+                    global_mutex.unlock();
+                    Sleep(200);
+                    global_mutex.lock();
+                    glog::log("info", "get item", "game");
+                    x = (this->mouse_pos.x - render::width / 2 - 160 + inventory_begin_x) / 36;
+                    index = x + 27;
+                }
+                // _ASSERT(index >= 0 && index < MAX_ITEMS);
+                if (index >= 0 && index < MAX_ITEMS) {
+                    if (this->players[0].items[index].type != item_type::ITEM_AIR) {
+                        if (this->players[0].items[index].count > 0) {
+                            this->players[0].items[index].count--;
+                            if (this->players[0].items[index].count == 0) {
+                                this->players[0].items[index].type = item_type::ITEM_AIR;
+                                this->players[0].items[index].count = 0;
+                                this->players[0].items[index].stack_count = 0;
+                            }
+                        }
+                    }
+                }
+            }
+            if (IsKeyPressed(VK_RBUTTON) && !this->players[0].gui_open) {
+                if (this->mouse_pos.x >= 0 && this->mouse_pos.x <= render::width && this->mouse_pos.y >= 0 && this->mouse_pos.y <= render::height) {
+                    int x = render::width / 2 + BLOCK_TEXTURES_SIZE / 2;
+                    int y = render::height / 2 + BLOCK_TEXTURES_SIZE / 2;
+                    float offset_x = (this->mouse_pos.x - x) * 1.0 / BLOCK_TEXTURES_SIZE;
+                    float offset_y = (this->mouse_pos.y - y) * 1.0 / BLOCK_TEXTURES_SIZE;
+                    if (offset_x * offset_x + offset_y * offset_y <= 16 && offset_x * offset_x + offset_y * offset_y >= 1) {
+                        int block_x = get_block_x(this->players[0].x + offset_x);
+                        int block_y = this->players[0].y - offset_y;
+                        if (block_y < BLOCKS_PER_CHUNK_Y && block_y >= 0) {
+                            int type = this->world.get_block(block_x, block_y);
+                            if (type == block_type::BLOCK_AIR) {
+                                if (this->players[0]
+                                        .items[this->players[0].chossing_item + 27]
+                                        .type
+                                    != item_type::ITEM_AIR) {
+                                    block block = this->get_block_by_item(
+                                        this->players[0].items[this->players[0].chossing_item + 27]);
+                                    if (block.type != block_type::BLOCK_AIR) {
+                                        block.x = block_x;
+                                        block.y = block_y;
+                                        *this->world.get_block_ptr(block_x, block_y) = block;
+                                        glog::log("info",
+                                            "place block x: " + std::to_string(block_x) + " y: " + std::to_string(block_y),
+                                            "game");
+                                        this->players[0]
+                                            .items[this->players[0].chossing_item + 27]
+                                            .count--;
+                                        if (this->players[0]
+                                                .items[this->players[0].chossing_item + 27]
+                                                .count
+                                            == 0) {
+                                            this->players[0]
+                                                .items[this->players[0].chossing_item + 27]
+                                                .type
+                                                = item_type::ITEM_AIR;
+                                            this->players[0]
+                                                .items[this->players[0].chossing_item + 27]
+                                                .count
+                                                = 0;
+                                            this->players[0]
+                                                .items[this->players[0].chossing_item + 27]
+                                                .stack_count
+                                                = 0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if (IsKeyPressed('E')) {
+                this->players[0].gui_open = !this->players[0].gui_open;
+                global_mutex.unlock();
+                Sleep(200);
+                global_mutex.lock();
+            }
+            if (IsKeyPressed('R')) {
+                std::sort(this->players[0].items, this->players[0].items + 27,
+                    [](item a, item b) -> bool {
+                        return a.type > b.type || (a.type == b.type && a.count > b.count);
+                    });
+                global_mutex.unlock();
+                Sleep(200);
+                global_mutex.lock();
+            }
+            if (IsKeyPressed(VK_F3)) {
+                this->show_debug = !this->show_debug;
+                global_mutex.unlock();
+                Sleep(200);
+                global_mutex.lock();
+            }
+            if (this->players[0].run == 3 && this->players[0].run_state <= 30) {
+                this->players[0].run_state++;
+                if (!player_attack_side(&this->players[0], 2)) {
+                    float dist = get_distance_to_side(&this->players[0], 2);
+                    if (dist < 0.1) {
+                        this->players[0].y += dist;
+                    } else {
+                        this->players[0].y += 0.1;
+                    }
+                }
+            } else if (this->players[0].run == 3 && this->players[0].run_state > 30) {
+                this->players[0].run = 0;
+                this->players[0].run_state = 0;
+            }
+            if (IsKeyPressed(VK_LEFT) || IsKeyPressed('A')) {
+                if (!player_attack_side(&this->players[0], 0)) {
+                    float dist = get_distance_to_side(&this->players[0], 0);
+                    if (dist < SPEED) {
+                        this->players[0].x -= dist;
+                    } else {
+                        this->players[0].x -= SPEED;
+                    }
+                }
+                if (this->players[0].run == 3) {
+                } else if (this->players[0].run != 1) {
+                    this->players[0].run = 1;
+                    this->players[0].run_state = 0;
+                } else {
+                    this->players[0].run_state = (this->players[0].run_state + 1) % 6;
+                }
+            }
+            if (IsKeyPressed(VK_RIGHT) || IsKeyPressed('D')) {
+                if (!player_attack_side(&this->players[0], 1)) {
+                    float dist = get_distance_to_side(&this->players[0], 1);
+                    if (dist < SPEED) {
+                        this->players[0].x += dist;
+                    } else {
+                        this->players[0].x += SPEED;
+                    }
+                }
+
+                if (this->players[0].run == 3) {
+                } else if (this->players[0].run != 3) {
+                    this->players[0].run = 2;
+                    this->players[0].run_state = 0;
+                } else {
+                    this->players[0].run_state = (this->players[0].run_state + 1) % 6;
+                }
+            }
+            if (!player_on_ground(&this->players[0])) {
+                if (this->players[0].run != 3) {
+                    float dist = get_distance_to_ground(&this->players[0]);
+                    if (dist < 0.2) {
+                        this->players[0].y -= dist;
+                    } else {
+                        this->players[0].y -= 0.2;
+                    }
+                }
+            }
+
+            else if (IsKeyPressed(VK_SPACE)) {
+                // this->players[0].y += 1;
+                if (this->players[0].run != 3) {
+                    this->players[0].run = 3;
+                    this->players[0].run_state = 0;
+                }
+            }
+            if (IsKeyPressed(VK_ESCAPE)) {
+                exit_flag = 1;
+                global_mutex.unlock();
+                return 0;
+            }
+
+            // load chunks
+            int center_x = this->players[0].x / BLOCKS_PER_CHUNK_X;
+            for (int i = 0; i < CHUNKS_PER_MAP_X; i++) {
+                int index = center_x - CHUNKS_PER_MAP_X / 2 + i;
+                int found = 0;
+                for (int j = 0; j < CHUNKS_PER_MAP_X; j++) {
+                    if (this->world.chunks[j].x == index) {
+                        found = 1;
+                        break;
+                    }
+                }
+                if (!found) {
+                    int farthest = 0;
+                    for (int j = 0; j < CHUNKS_PER_MAP_X; j++) {
+                        //   找到距离玩家最远的区块
+                        if (abs(this->world.chunks[j].x - center_x) > abs(this->world.chunks[farthest].x - center_x)) {
+                            farthest = j;
+                        }
+                    }
+                    this->world.load_chunk_pos(this->savepath, farthest,
+                        center_x - CHUNKS_PER_MAP_X / 2 + i);
+                    glog::log("info",
+                        "Loading Chunk: " + std::to_string(center_x - CHUNKS_PER_MAP_X / 2 + i),
+                        "game");
+                }
+            }
+            global_mutex.unlock();
+            // Sleep(1);
+            return 0;
+        }
+        int game::player_on_ground(player * player)
+        {
+            int x1, x2, y1, y2;
+            // 确定玩家站在哪个方块上
+            x1 = get_block_x(player->x - 0.45);
+            x2 = get_block_x(player->x + 0.45);
+            y1 = player->y - 0.55;
+            y2 = player->y - 0.55;
+            if (this->world.get_block(x1, y1) == block_type::BLOCK_AIR && this->world.get_block(x2, y2) == block_type::BLOCK_AIR) {
+                return 0;
+            }
+            if (this->world.get_block(x1, y1) == block_type::BLOCK_SKY && this->world.get_block(x2, y2) == block_type::BLOCK_SKY) {
+                return 0;
+            }
+            if (this->world.get_block(x1, y1) == block_type::BLOCK_VOID && this->world.get_block(x2, y2) == block_type::BLOCK_VOID) {
+                return 0;
+            }
+
+            return 1;
+        }
+        float game::get_distance_to_ground(player * player)
+        {
+            int x1, x2, y1, y2;
+            // 确定玩家站在哪个方块上
+            x1 = get_block_x(player->x - 0.45);
+            x2 = get_block_x(player->x + 0.45);
+            y1 = player->y - 0.6 + 1;
+            y2 = player->y - 0.6 + 1;
+            float distance = 0;
+            if ((this->world.get_block(x1, y1) == block_type::BLOCK_AIR || this->world.get_block(x2, y2) == block_type::BLOCK_AIR) && (this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x2, y2) != block_type::BLOCK_SKY) && (this->world.get_block(x1, y1) != block_type::BLOCK_VOID && this->world.get_block(x2, y2) != block_type::BLOCK_VOID))
+                return 1;
+            if (this->world.get_block(x1, y1) != block_type::BLOCK_AIR && this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x1, y1) != block_type::BLOCK_VOID) {
+                distance = player->y - 0.65 - y1 + 1;
+            } else {
+                distance = player->y - 0.65 - y2 + 1;
+            }
+            return distance;
+        }
+        int game::player_attack_side(player * player, int side)
+        {
+            int x1, x2, y1, y2;
+            if (side == 0) { // left
+                x1 = get_block_x(player->x - 0.55);
+                x2 = get_block_x(player->x - 0.55);
+                y1 = player->y - 0.3;
+                y2 = player->y + 0.3;
+            } else if (side == 1) { // right
+                x1 = get_block_x(player->x + 0.55);
+                x2 = get_block_x(player->x + 0.55);
+                y1 = player->y - 0.3;
+                y2 = player->y + 0.3;
+            } else if (side == 2) { // up
+                x1 = get_block_x(player->x - 0.45);
+                x2 = get_block_x(player->x + 0.45);
+                y1 = player->y + 0.55;
+                y2 = player->y + 0.55;
+            } else if (side == 3) { // down
+                x1 = get_block_x(player->x - 0.45);
+                x2 = get_block_x(player->x + 0.45);
+                y1 = player->y - 0.55;
+                y2 = player->y - 0.55;
+            }
+            if (this->world.get_block(x1, y1) == block_type::BLOCK_AIR && this->world.get_block(x2, y2) == block_type::BLOCK_AIR) {
+                return 0;
+            }
+            if (this->world.get_block(x1, y1) == block_type::BLOCK_SKY && this->world.get_block(x2, y2) == block_type::BLOCK_SKY) {
+                return 0;
+            }
+            if (this->world.get_block(x1, y1) == block_type::BLOCK_VOID && this->world.get_block(x2, y2) == block_type::BLOCK_VOID) {
+                return 0;
+            }
+            return 1;
+        }
+        float game::get_distance_to_side(player * player, int side)
+        {
+            int x1, x2, y1, y2;
+            float distance = 0;
+            if (side == 0) { // left
+                x1 = get_block_x(player->x - 0.55 - 1);
+                x2 = get_block_x(player->x - 0.55 - 1);
+                y1 = player->y - 0.45;
+                y2 = player->y + 0.45;
+                if ((this->world.get_block(x1, y1) == block_type::BLOCK_AIR || this->world.get_block(x2, y2) == block_type::BLOCK_AIR) && (this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x2, y2) != block_type::BLOCK_SKY) && (this->world.get_block(x1, y1) != block_type::BLOCK_VOID && this->world.get_block(x2, y2) != block_type::BLOCK_VOID))
+                    return 1;
+                if (this->world.get_block(x1, y1) != block_type::BLOCK_AIR && this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x1, y1) != block_type::BLOCK_VOID) {
+                    distance = player->x - 0.5 - x1 - 1;
+                } else {
+                    distance = player->x - 0.5 - x2 - 1;
+                }
+            } else if (side == 1) { // right
+                x1 = get_block_x(player->x + 0.55 + 1);
+                x2 = get_block_x(player->x + 0.55 + 1);
+                y1 = player->y - 0.45;
+                y2 = player->y + 0.45;
+                if ((this->world.get_block(x1, y1) == block_type::BLOCK_AIR || this->world.get_block(x2, y2) == block_type::BLOCK_AIR) && (this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x2, y2) != block_type::BLOCK_SKY) && (this->world.get_block(x1, y1) != block_type::BLOCK_VOID && this->world.get_block(x2, y2) != block_type::BLOCK_VOID))
+                    return 1;
+                if (this->world.get_block(x1, y1) != block_type::BLOCK_AIR && this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x1, y1) != block_type::BLOCK_VOID) {
+                    distance = x1 - 1 - player->x - 0.5 + 1;
+                } else {
+                    distance = x2 - 1 - player->x - 0.5 + 1;
+                }
+            } else if (side == 2) { // up
+                x1 = get_block_x(player->x - 0.45);
+                x2 = get_block_x(player->x + 0.45);
+                y1 = player->y + 0.55 + 1;
+                y2 = player->y + 0.55 + 1;
+                if ((this->world.get_block(x1, y1) == block_type::BLOCK_AIR || this->world.get_block(x2, y2) == block_type::BLOCK_AIR) && (this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x2, y2) != block_type::BLOCK_SKY) && (this->world.get_block(x1, y1) != block_type::BLOCK_VOID && this->world.get_block(x2, y2) != block_type::BLOCK_VOID))
+                    return 1;
+                if (this->world.get_block(x1, y1) != block_type::BLOCK_AIR && this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x1, y1) != block_type::BLOCK_VOID) {
+                    distance = player->y - 0.55 - y1 + 1;
+                } else {
+                    distance = player->y - 0.55 - y2 + 1;
+                }
+            } else if (side == 3) { // down
+                x1 = get_block_x(player->x - 0.45);
+                x2 = get_block_x(player->x + 0.45);
+                y1 = player->y - 0.55 - 1;
+                y2 = player->y - 0.55 - 1;
+                if ((this->world.get_block(x1, y1) == block_type::BLOCK_AIR || this->world.get_block(x2, y2) == block_type::BLOCK_AIR) && (this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x2, y2) != block_type::BLOCK_SKY) && (this->world.get_block(x1, y1) != block_type::BLOCK_VOID && this->world.get_block(x2, y2) != block_type::BLOCK_VOID))
+                    return 1;
+                if (this->world.get_block(x1, y1) != block_type::BLOCK_AIR && this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x1, y1) != block_type::BLOCK_VOID) {
+                    distance = y1 - 1 - player->y - 0.55;
+                } else {
+                    distance = y2 - 1 - player->y - 0.55;
+                }
+            }
+            if (distance < 0)
+                distance = 0;
+            return distance;
+        }
+        item game::get_block_drop(block * block)
+        {
+            item item;
+            item.type = item_type::ITEM_AIR;
+            item.stack_count = 0;
+            item.count = 0;
+            item.data = NULL;
+            switch (block->type) {
+            case block_type::BLOCK_DIRT:
+                item.type = item_type::ITEM_DIRT;
+                item.stack_count = 64;
+                item.count = 1;
+                break;
+            case block_type::BLOCK_GRASS:
+                item.type = item_type::ITEM_DIRT;
+                item.stack_count = 64;
+                item.count = 1;
+                break;
+            case block_type::BLOCK_STONE:
+                item.type = item_type::ITEM_COBBLESTONE;
+                item.stack_count = 64;
+                item.count = 1;
+                break;
+            case block_type::BLOCK_LOG:
+                item.type = item_type::ITEM_LOG;
+                item.stack_count = 64;
+                item.count = 1;
+                break;
+            case block_type::BLOCK_SAND:
+                item.type = item_type::ITEM_SAND;
+                item.stack_count = 64;
+                item.count = 1;
+                break;
+            case block_type::BLOCK_SNOW:
+                item.type = item_type::ITEM_SNOW;
+                item.stack_count = 64;
+                item.count = 1;
+                break;
+            case block_type::BLOCK_IRON:
+                item.type = item_type::ITEM_RAW_IRON;
+                item.stack_count = 64;
+                item.count = 1;
+                break;
+            case block_type::BLOCK_GOLD:
+                item.type = item_type::ITEM_RAW_GOLD;
+                item.stack_count = 64;
+                item.count = 1;
+                break;
+            case block_type::BLOCK_COAL:
+                item.type = item_type::ITEM_COAL;
+                item.stack_count = 64;
+                item.count = 1;
+                break;
+            case block_type::BLOCK_DIAMOND:
+                item.type = item_type::ITEM_DIAMOND;
+                item.stack_count = 64;
+                item.count = 1;
+                break;
+            case block_type::BLOCK_WOOD:
+                item.type = item_type::ITEM_LOG;
+                item.stack_count = 64;
+                item.count = 1;
+                break;
+            case block_type::BLOCK_LEAVES:
+                if (rand() % 100 < 20) {
+                    item.type = item_type::ITEM_APPLE;
+                    item.stack_count = 64;
+                    item.count = 2;
+                } else if (rand() % 100 < 20) {
+                    item.type = item_type::ITEM_LEAVES;
+                    item.stack_count = 64;
+                    item.count = 1;
+                } else if (rand() % 100 < 20) {
+                    item.type = item_type::ITEM_SAPLING;
+                    item.stack_count = 0;
+                    item.count = 1;
+                } else if (rand() % 100 < 20) {
+                    item.type = item_type::ITEM_STICK;
+                    item.stack_count = 64;
+                    item.count = 3;
+                }
+
+                break;
+            case block_type::BLOCK_TORCH:
+                item.type = item_type::ITEM_TORCH;
+                item.stack_count = 64;
+                item.count = 1;
+                break;
+            }
+            return item;
+        }
+        void game::check_num()
+        {
+            if (IsKeyPressed(0x31)) {
+                glog::log("info", "chossing item 0", "game");
+                this->players[0].chossing_item = 0;
+                Sleep(100);
+            }
+            if (IsKeyPressed(0x32)) {
+                this->players[0].chossing_item = 1;
+                Sleep(100);
+            }
+            if (IsKeyPressed(0x33)) {
+                this->players[0].chossing_item = 2;
+                Sleep(100);
+            }
+            if (IsKeyPressed(0x34)) {
+                this->players[0].chossing_item = 3;
+                Sleep(100);
+            }
+            if (IsKeyPressed(0x35)) {
+                this->players[0].chossing_item = 4;
+                Sleep(100);
+            }
+            if (IsKeyPressed(0x36)) {
+                this->players[0].chossing_item = 5;
+                Sleep(100);
+            }
+            if (IsKeyPressed(0x37)) {
+                this->players[0].chossing_item = 6;
+                Sleep(100);
+            }
+            if (IsKeyPressed(0x38)) {
+                this->players[0].chossing_item = 7;
+                Sleep(100);
+            }
+            if (IsKeyPressed(0x39)) {
+                this->players[0].chossing_item = 8;
+                Sleep(100);
+            }
+
+            // Sleep(100);
+        }
+        block game::get_block_by_item(item item)
+        {
+            block block;
+            block.type = block_type::BLOCK_AIR;
+            block.data = NULL;
+            block.data_size = 0;
+            switch (item.type) {
+            case item_type::ITEM_DIRT:
+                block.type = block_type::BLOCK_DIRT;
+                break;
+            case item_type::ITEM_COBBLESTONE:
+                block.type = block_type::BLOCK_STONE;
+                break;
+            case item_type::ITEM_LOG:
+                block.type = block_type::BLOCK_LOG;
+                break;
+            case item_type::ITEM_SAND:
+                block.type = block_type::BLOCK_SAND;
+                break;
+            case item_type::ITEM_TORCH:
+                block.type = block_type::BLOCK_TORCH;
+                break;
+            }
+            return block;
+        }
+        item get_item_by_type(item_type type)
+        {
+            item item;
+            switch (type) {
+            default:
+                item.type = type;
+                item.stack_count = 64;
+                item.count = 1;
+                item.data = NULL;
+
+                break;
+            }
+            return item;
+        }
+        void game::check_craft()
+        {
+            int len = craft_table::craft_table::get_len();
+            int found = 0;
+            for (int i = 0; i < len; i++) {
+                int craft_table_flag = 1;
+                if (craft_table::craft_table::craft_tables[i].result.type == item_type::ITEM_AIR) {
+                    craft_table_flag = 0;
+                    continue;
+                }
+                /*  craft_table::craft_table tmp = craft_table::craft_table::craft_tables[i];
+                  int c = 0;*/
+                if (craft_table::craft_table::craft_tables[i].is_order == true) {
+                    for (int j = 0; j < 9; j++) {
+                        int j_1 = 0;
+                        switch (j) {
+                        case 0:
+                            j_1 = 0;
+                            break;
+                        case 1:
+                            j_1 = 1;
+                            break;
+                        case 3:
+                            j_1 = 2;
+                            break;
+                        case 4:
+                            j_1 = 3;
+                            break;
+                        default:
+                            j_1 = -1;
+                            break;
+                        }
+                        if (j_1 == -1 && craft_table::craft_table::craft_tables[i].result.type != item_type::ITEM_AIR) {
+                            craft_table_flag = 0;
+                            break;
+                        }
+                        if (j_1 == -1) {
+                            continue;
+                        }
+                        if (this->craft_table[j_1].type != craft_table::craft_table::craft_tables[i].items[j].type) {
+                            craft_table_flag = 0;
+                            break;
+                        }
+                        // craft_table_flag = 1;
                     }
                 } else {
 
-                    if (res.type == this->item_on_mouse.type) {
-                        if (this->item_on_mouse.stack_count - this->item_on_mouse.count >= res.count) {
-                            int index[9];
-                            int count = 0;
-                            int count_1 = 0;
-                            int count_2 = 0;
-                            while (true) {
-                                if (count == this->now_craft_table->need_count)
+                    std::vector<item> temp_items;
+                    for (int j = 0; j < 4; j++) {
+                        if (this->craft_table[j].type != item_type::ITEM_AIR) {
+                            temp_items.push_back(this->craft_table[j]);
+                        }
+                    }
+                    int get_item = 0;
+                    for (int j = 0; j < 9; j++) {
+                        if (temp_items.size() == 0) {
+                            if (get_item == craft_table::craft_table::craft_tables[i].need_count) {
+                                break;
+                            } else {
+                                craft_table_flag = 0;
+                                break;
+                            }
+                        }
+                        if (craft_table::craft_table::craft_tables[i].items[j].type == item_type::ITEM_AIR) {
+                            continue;
+                        }
+
+                        int flag = 0;
+                        for (int k = 0; k < temp_items.size(); k++) {
+
+                            if (temp_items[k].type == craft_table::craft_table::craft_tables[i].items[j].type) {
+                                if (temp_items[k].count >= craft_table::craft_table::craft_tables[i].items[j].count) {
+                                    flag = 1;
+                                    get_item++;
+                                    temp_items.erase(temp_items.begin() + k);
                                     break;
-                                if (this->now_craft_table->items[count_1].type == item_type::ITEM_AIR) {
-                                    count_1++;
-                                    continue;
-                                }
-                                for (count_2 = 0; count_2 < 4; count_2++) {
-                                    if (this->craft_table[count_2].type == this->now_craft_table->items[count_1].type) {
-                                        _ASSERT(this->craft_table[count_2].count >= this->now_craft_table->items[count_1].count);
-                                        index[count] = count_2;
-                                        count++;
-                                        count_1++;
-                                        this->craft_table[count_2].count -= this->now_craft_table->items[count_1].count;
-                                        break;
-                                    }
-                                }
-                            }
-                            this->item_on_mouse.count += res.count;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    if (IsKeyPressed('Q') && !this->players[0].gui_open)
-
-    {
-        if (this->players[0].items[this->players[0].chossing_item + 27].type != item_type::ITEM_AIR) {
-            if (this->players[0].items[this->players[0].chossing_item + 27].count > 0) {
-                this->players[0].items[this->players[0].chossing_item + 27].count--;
-                if (this->players[0].items[this->players[0].chossing_item + 27].count == 0) {
-                    this->players[0].items[this->players[0].chossing_item + 27].type = item_type::ITEM_AIR;
-                    this->players[0].items[this->players[0].chossing_item + 27].count = 0;
-                    this->players[0]
-                        .items[this->players[0].chossing_item + 27]
-                        .stack_count
-                        = 0;
-                }
-            }
-        }
-        global_mutex.unlock();
-        Sleep(200);
-        global_mutex.lock();
-    }
-    if (IsKeyPressed('Q') && this->players[0].gui_open) {
-        int pos_x = render::width / 2 - 160 + item_begin_x;
-        int pos_y = render::height / 2 - 169 + item_begin_y;
-        int x, y, index;
-        index = -1;
-        if (this->mouse_pos.x >= pos_x && this->mouse_pos.x <= pos_x + 9 * 36 && this->mouse_pos.y >= pos_y && this->mouse_pos.y <= pos_y + 4 * 36) {
-            global_mutex.unlock();
-            Sleep(200);
-            global_mutex.lock();
-            glog::log("info", "get item", "game");
-            x = (this->mouse_pos.x - pos_x) / 36;
-            y = (this->mouse_pos.y - pos_y) / 36;
-            index = y * 9 + x;
-        } else if (this->mouse_pos.x >= render::width / 2 - 160 + inventory_begin_x && this->mouse_pos.x <= render::width / 2 - 160 + inventory_begin_x + 9 * 36 && this->mouse_pos.y >= render::height / 2 - 169 + inventory_begin_y && this->mouse_pos.y <= render::height / 2 - 169 + inventory_begin_y + 36) {
-            global_mutex.unlock();
-            Sleep(200);
-            global_mutex.lock();
-            glog::log("info", "get item", "game");
-            x = (this->mouse_pos.x - render::width / 2 - 160 + inventory_begin_x) / 36;
-            index = x + 27;
-        }
-        // _ASSERT(index >= 0 && index < MAX_ITEMS);
-        if (index >= 0 && index < MAX_ITEMS) {
-            if (this->players[0].items[index].type != item_type::ITEM_AIR) {
-                if (this->players[0].items[index].count > 0) {
-                    this->players[0].items[index].count--;
-                    if (this->players[0].items[index].count == 0) {
-                        this->players[0].items[index].type = item_type::ITEM_AIR;
-                        this->players[0].items[index].count = 0;
-                        this->players[0].items[index].stack_count = 0;
-                    }
-                }
-            }
-        }
-    }
-    if (IsKeyPressed(VK_RBUTTON) && !this->players[0].gui_open) {
-        if (this->mouse_pos.x >= 0 && this->mouse_pos.x <= render::width && this->mouse_pos.y >= 0 && this->mouse_pos.y <= render::height) {
-            int x = render::width / 2 + BLOCK_TEXTURES_SIZE / 2;
-            int y = render::height / 2 + BLOCK_TEXTURES_SIZE / 2;
-            float offset_x = (this->mouse_pos.x - x) * 1.0 / BLOCK_TEXTURES_SIZE;
-            float offset_y = (this->mouse_pos.y - y) * 1.0 / BLOCK_TEXTURES_SIZE;
-            if (offset_x * offset_x + offset_y * offset_y <= 16 && offset_x * offset_x + offset_y * offset_y >= 1) {
-                int block_x = get_block_x(this->players[0].x + offset_x);
-                int block_y = this->players[0].y - offset_y;
-                if (block_y < BLOCKS_PER_CHUNK_Y && block_y >= 0) {
-                    int type = this->world.get_block(block_x, block_y);
-                    if (type == block_type::BLOCK_AIR) {
-                        if (this->players[0]
-                                .items[this->players[0].chossing_item + 27]
-                                .type
-                            != item_type::ITEM_AIR) {
-                            block block = this->get_block_by_item(
-                                this->players[0].items[this->players[0].chossing_item + 27]);
-                            if (block.type != block_type::BLOCK_AIR) {
-                                block.x = block_x;
-                                block.y = block_y;
-                                *this->world.get_block_ptr(block_x, block_y) = block;
-                                glog::log("info",
-                                    "place block x: " + std::to_string(block_x) + " y: " + std::to_string(block_y),
-                                    "game");
-                                this->players[0]
-                                    .items[this->players[0].chossing_item + 27]
-                                    .count--;
-                                if (this->players[0]
-                                        .items[this->players[0].chossing_item + 27]
-                                        .count
-                                    == 0) {
-                                    this->players[0]
-                                        .items[this->players[0].chossing_item + 27]
-                                        .type
-                                        = item_type::ITEM_AIR;
-                                    this->players[0]
-                                        .items[this->players[0].chossing_item + 27]
-                                        .count
-                                        = 0;
-                                    this->players[0]
-                                        .items[this->players[0].chossing_item + 27]
-                                        .stack_count
-                                        = 0;
                                 }
                             }
                         }
-                    }
-                }
-            }
-        }
-    }
-    if (IsKeyPressed('E')) {
-        this->players[0].gui_open = !this->players[0].gui_open;
-        global_mutex.unlock();
-        Sleep(200);
-        global_mutex.lock();
-    }
-    if (IsKeyPressed('R')) {
-        std::sort(this->players[0].items, this->players[0].items + 27,
-            [](item a, item b) -> bool {
-                return a.type > b.type || (a.type == b.type && a.count > b.count);
-            });
-        global_mutex.unlock();
-        Sleep(200);
-        global_mutex.lock();
-    }
-    if (IsKeyPressed(VK_F3)) {
-        this->show_debug = !this->show_debug;
-        global_mutex.unlock();
-        Sleep(200);
-        global_mutex.lock();
-    }
-    if (this->players[0].run == 3 && this->players[0].run_state <= 30) {
-        this->players[0].run_state++;
-        if (!player_attack_side(&this->players[0], 2)) {
-            float dist = get_distance_to_side(&this->players[0], 2);
-            if (dist < 0.1) {
-                this->players[0].y += dist;
-            } else {
-                this->players[0].y += 0.1;
-            }
-        }
-    } else if (this->players[0].run == 3 && this->players[0].run_state > 30) {
-        this->players[0].run = 0;
-        this->players[0].run_state = 0;
-    }
-    if (IsKeyPressed(VK_LEFT) || IsKeyPressed('A')) {
-        if (!player_attack_side(&this->players[0], 0)) {
-            float dist = get_distance_to_side(&this->players[0], 0);
-            if (dist < SPEED) {
-                this->players[0].x -= dist;
-            } else {
-                this->players[0].x -= SPEED;
-            }
-        }
-        if (this->players[0].run == 3) {
-        } else if (this->players[0].run != 1) {
-            this->players[0].run = 1;
-            this->players[0].run_state = 0;
-        } else {
-            this->players[0].run_state = (this->players[0].run_state + 1) % 6;
-        }
-    }
-    if (IsKeyPressed(VK_RIGHT) || IsKeyPressed('D')) {
-        if (!player_attack_side(&this->players[0], 1)) {
-            float dist = get_distance_to_side(&this->players[0], 1);
-            if (dist < SPEED) {
-                this->players[0].x += dist;
-            } else {
-                this->players[0].x += SPEED;
-            }
-        }
-
-        if (this->players[0].run == 3) {
-        } else if (this->players[0].run != 3) {
-            this->players[0].run = 2;
-            this->players[0].run_state = 0;
-        } else {
-            this->players[0].run_state = (this->players[0].run_state + 1) % 6;
-        }
-    }
-    if (!player_on_ground(&this->players[0])) {
-        if (this->players[0].run != 3) {
-            float dist = get_distance_to_ground(&this->players[0]);
-            if (dist < 0.2) {
-                this->players[0].y -= dist;
-            } else {
-                this->players[0].y -= 0.2;
-            }
-        }
-    }
-
-    else if (IsKeyPressed(VK_SPACE)) {
-        // this->players[0].y += 1;
-        if (this->players[0].run != 3) {
-            this->players[0].run = 3;
-            this->players[0].run_state = 0;
-        }
-    }
-    if (IsKeyPressed(VK_ESCAPE)) {
-        exit_flag = 1;
-        global_mutex.unlock();
-        return 0;
-    }
-
-    // load chunks
-    int center_x = this->players[0].x / BLOCKS_PER_CHUNK_X;
-    for (int i = 0; i < CHUNKS_PER_MAP_X; i++) {
-        int index = center_x - CHUNKS_PER_MAP_X / 2 + i;
-        int found = 0;
-        for (int j = 0; j < CHUNKS_PER_MAP_X; j++) {
-            if (this->world.chunks[j].x == index) {
-                found = 1;
-                break;
-            }
-        }
-        if (!found) {
-            int farthest = 0;
-            for (int j = 0; j < CHUNKS_PER_MAP_X; j++) {
-                //   找到距离玩家最远的区块
-                if (abs(this->world.chunks[j].x - center_x) > abs(this->world.chunks[farthest].x - center_x)) {
-                    farthest = j;
-                }
-            }
-            this->world.load_chunk_pos(this->savepath, farthest,
-                center_x - CHUNKS_PER_MAP_X / 2 + i);
-            glog::log("info",
-                "Loading Chunk: " + std::to_string(center_x - CHUNKS_PER_MAP_X / 2 + i),
-                "game");
-        }
-    }
-    global_mutex.unlock();
-    // Sleep(1);
-    return 0;
-}
-int game::player_on_ground(player* player)
-{
-    int x1, x2, y1, y2;
-    // 确定玩家站在哪个方块上
-    x1 = get_block_x(player->x - 0.45);
-    x2 = get_block_x(player->x + 0.45);
-    y1 = player->y - 0.55;
-    y2 = player->y - 0.55;
-    if (this->world.get_block(x1, y1) == block_type::BLOCK_AIR && this->world.get_block(x2, y2) == block_type::BLOCK_AIR) {
-        return 0;
-    }
-    if (this->world.get_block(x1, y1) == block_type::BLOCK_SKY && this->world.get_block(x2, y2) == block_type::BLOCK_SKY) {
-        return 0;
-    }
-    if (this->world.get_block(x1, y1) == block_type::BLOCK_VOID && this->world.get_block(x2, y2) == block_type::BLOCK_VOID) {
-        return 0;
-    }
-
-    return 1;
-}
-float game::get_distance_to_ground(player* player)
-{
-    int x1, x2, y1, y2;
-    // 确定玩家站在哪个方块上
-    x1 = get_block_x(player->x - 0.45);
-    x2 = get_block_x(player->x + 0.45);
-    y1 = player->y - 0.6 + 1;
-    y2 = player->y - 0.6 + 1;
-    float distance = 0;
-    if ((this->world.get_block(x1, y1) == block_type::BLOCK_AIR || this->world.get_block(x2, y2) == block_type::BLOCK_AIR) && (this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x2, y2) != block_type::BLOCK_SKY) && (this->world.get_block(x1, y1) != block_type::BLOCK_VOID && this->world.get_block(x2, y2) != block_type::BLOCK_VOID))
-        return 1;
-    if (this->world.get_block(x1, y1) != block_type::BLOCK_AIR && this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x1, y1) != block_type::BLOCK_VOID) {
-        distance = player->y - 0.65 - y1 + 1;
-    } else {
-        distance = player->y - 0.65 - y2 + 1;
-    }
-    return distance;
-}
-int game::player_attack_side(player* player, int side)
-{
-    int x1, x2, y1, y2;
-    if (side == 0) { // left
-        x1 = get_block_x(player->x - 0.55);
-        x2 = get_block_x(player->x - 0.55);
-        y1 = player->y - 0.3;
-        y2 = player->y + 0.3;
-    } else if (side == 1) { // right
-        x1 = get_block_x(player->x + 0.55);
-        x2 = get_block_x(player->x + 0.55);
-        y1 = player->y - 0.3;
-        y2 = player->y + 0.3;
-    } else if (side == 2) { // up
-        x1 = get_block_x(player->x - 0.45);
-        x2 = get_block_x(player->x + 0.45);
-        y1 = player->y + 0.55;
-        y2 = player->y + 0.55;
-    } else if (side == 3) { // down
-        x1 = get_block_x(player->x - 0.45);
-        x2 = get_block_x(player->x + 0.45);
-        y1 = player->y - 0.55;
-        y2 = player->y - 0.55;
-    }
-    if (this->world.get_block(x1, y1) == block_type::BLOCK_AIR && this->world.get_block(x2, y2) == block_type::BLOCK_AIR) {
-        return 0;
-    }
-    if (this->world.get_block(x1, y1) == block_type::BLOCK_SKY && this->world.get_block(x2, y2) == block_type::BLOCK_SKY) {
-        return 0;
-    }
-    if (this->world.get_block(x1, y1) == block_type::BLOCK_VOID && this->world.get_block(x2, y2) == block_type::BLOCK_VOID) {
-        return 0;
-    }
-    return 1;
-}
-float game::get_distance_to_side(player* player, int side)
-{
-    int x1, x2, y1, y2;
-    float distance = 0;
-    if (side == 0) { // left
-        x1 = get_block_x(player->x - 0.55 - 1);
-        x2 = get_block_x(player->x - 0.55 - 1);
-        y1 = player->y - 0.45;
-        y2 = player->y + 0.45;
-        if ((this->world.get_block(x1, y1) == block_type::BLOCK_AIR || this->world.get_block(x2, y2) == block_type::BLOCK_AIR) && (this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x2, y2) != block_type::BLOCK_SKY) && (this->world.get_block(x1, y1) != block_type::BLOCK_VOID && this->world.get_block(x2, y2) != block_type::BLOCK_VOID))
-            return 1;
-        if (this->world.get_block(x1, y1) != block_type::BLOCK_AIR && this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x1, y1) != block_type::BLOCK_VOID) {
-            distance = player->x - 0.5 - x1 - 1;
-        } else {
-            distance = player->x - 0.5 - x2 - 1;
-        }
-    } else if (side == 1) { // right
-        x1 = get_block_x(player->x + 0.55 + 1);
-        x2 = get_block_x(player->x + 0.55 + 1);
-        y1 = player->y - 0.45;
-        y2 = player->y + 0.45;
-        if ((this->world.get_block(x1, y1) == block_type::BLOCK_AIR || this->world.get_block(x2, y2) == block_type::BLOCK_AIR) && (this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x2, y2) != block_type::BLOCK_SKY) && (this->world.get_block(x1, y1) != block_type::BLOCK_VOID && this->world.get_block(x2, y2) != block_type::BLOCK_VOID))
-            return 1;
-        if (this->world.get_block(x1, y1) != block_type::BLOCK_AIR && this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x1, y1) != block_type::BLOCK_VOID) {
-            distance = x1 - 1 - player->x - 0.5 + 1;
-        } else {
-            distance = x2 - 1 - player->x - 0.5 + 1;
-        }
-    } else if (side == 2) { // up
-        x1 = get_block_x(player->x - 0.45);
-        x2 = get_block_x(player->x + 0.45);
-        y1 = player->y + 0.55 + 1;
-        y2 = player->y + 0.55 + 1;
-        if ((this->world.get_block(x1, y1) == block_type::BLOCK_AIR || this->world.get_block(x2, y2) == block_type::BLOCK_AIR) && (this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x2, y2) != block_type::BLOCK_SKY) && (this->world.get_block(x1, y1) != block_type::BLOCK_VOID && this->world.get_block(x2, y2) != block_type::BLOCK_VOID))
-            return 1;
-        if (this->world.get_block(x1, y1) != block_type::BLOCK_AIR && this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x1, y1) != block_type::BLOCK_VOID) {
-            distance = player->y - 0.55 - y1 + 1;
-        } else {
-            distance = player->y - 0.55 - y2 + 1;
-        }
-    } else if (side == 3) { // down
-        x1 = get_block_x(player->x - 0.45);
-        x2 = get_block_x(player->x + 0.45);
-        y1 = player->y - 0.55 - 1;
-        y2 = player->y - 0.55 - 1;
-        if ((this->world.get_block(x1, y1) == block_type::BLOCK_AIR || this->world.get_block(x2, y2) == block_type::BLOCK_AIR) && (this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x2, y2) != block_type::BLOCK_SKY) && (this->world.get_block(x1, y1) != block_type::BLOCK_VOID && this->world.get_block(x2, y2) != block_type::BLOCK_VOID))
-            return 1;
-        if (this->world.get_block(x1, y1) != block_type::BLOCK_AIR && this->world.get_block(x1, y1) != block_type::BLOCK_SKY && this->world.get_block(x1, y1) != block_type::BLOCK_VOID) {
-            distance = y1 - 1 - player->y - 0.55;
-        } else {
-            distance = y2 - 1 - player->y - 0.55;
-        }
-    }
-    if (distance < 0)
-        distance = 0;
-    return distance;
-}
-item game::get_block_drop(block* block)
-{
-    item item;
-    item.type = item_type::ITEM_AIR;
-    item.stack_count = 0;
-    item.count = 0;
-    item.data = NULL;
-    switch (block->type) {
-    case block_type::BLOCK_DIRT:
-        item.type = item_type::ITEM_DIRT;
-        item.stack_count = 64;
-        item.count = 1;
-        break;
-    case block_type::BLOCK_GRASS:
-        item.type = item_type::ITEM_DIRT;
-        item.stack_count = 64;
-        item.count = 1;
-        break;
-    case block_type::BLOCK_STONE:
-        item.type = item_type::ITEM_COBBLESTONE;
-        item.stack_count = 64;
-        item.count = 1;
-        break;
-    case block_type::BLOCK_LOG:
-        item.type = item_type::ITEM_LOG;
-        item.stack_count = 64;
-        item.count = 1;
-        break;
-    case block_type::BLOCK_SAND:
-        item.type = item_type::ITEM_SAND;
-        item.stack_count = 64;
-        item.count = 1;
-        break;
-    case block_type::BLOCK_SNOW:
-        item.type = item_type::ITEM_SNOW;
-        item.stack_count = 64;
-        item.count = 1;
-        break;
-    case block_type::BLOCK_IRON:
-        item.type = item_type::ITEM_RAW_IRON;
-        item.stack_count = 64;
-        item.count = 1;
-        break;
-    case block_type::BLOCK_GOLD:
-        item.type = item_type::ITEM_RAW_GOLD;
-        item.stack_count = 64;
-        item.count = 1;
-        break;
-    case block_type::BLOCK_COAL:
-        item.type = item_type::ITEM_COAL;
-        item.stack_count = 64;
-        item.count = 1;
-        break;
-    case block_type::BLOCK_DIAMOND:
-        item.type = item_type::ITEM_DIAMOND;
-        item.stack_count = 64;
-        item.count = 1;
-        break;
-    case block_type::BLOCK_WOOD:
-        item.type = item_type::ITEM_LOG;
-        item.stack_count = 64;
-        item.count = 1;
-        break;
-    case block_type::BLOCK_LEAVES:
-        if (rand() % 100 < 20) {
-            item.type = item_type::ITEM_APPLE;
-            item.stack_count = 64;
-            item.count = 2;
-        } else if (rand() % 100 < 20) {
-            item.type = item_type::ITEM_LEAVES;
-            item.stack_count = 64;
-            item.count = 1;
-        } else if (rand() % 100 < 20) {
-            item.type = item_type::ITEM_SAPLING;
-            item.stack_count = 0;
-            item.count = 1;
-        } else if (rand() % 100 < 20) {
-            item.type = item_type::ITEM_STICK;
-            item.stack_count = 64;
-            item.count = 3;
-        }
-
-        break;
-    case block_type::BLOCK_TORCH:
-        item.type = item_type::ITEM_TORCH;
-        item.stack_count = 64;
-        item.count = 1;
-        break;
-    }
-    return item;
-}
-void game::check_num()
-{
-    if (IsKeyPressed(0x31)) {
-        glog::log("info", "chossing item 0", "game");
-        this->players[0].chossing_item = 0;
-        Sleep(100);
-    }
-    if (IsKeyPressed(0x32)) {
-        this->players[0].chossing_item = 1;
-        Sleep(100);
-    }
-    if (IsKeyPressed(0x33)) {
-        this->players[0].chossing_item = 2;
-        Sleep(100);
-    }
-    if (IsKeyPressed(0x34)) {
-        this->players[0].chossing_item = 3;
-        Sleep(100);
-    }
-    if (IsKeyPressed(0x35)) {
-        this->players[0].chossing_item = 4;
-        Sleep(100);
-    }
-    if (IsKeyPressed(0x36)) {
-        this->players[0].chossing_item = 5;
-        Sleep(100);
-    }
-    if (IsKeyPressed(0x37)) {
-        this->players[0].chossing_item = 6;
-        Sleep(100);
-    }
-    if (IsKeyPressed(0x38)) {
-        this->players[0].chossing_item = 7;
-        Sleep(100);
-    }
-    if (IsKeyPressed(0x39)) {
-        this->players[0].chossing_item = 8;
-        Sleep(100);
-    }
-
-    // Sleep(100);
-}
-block game::get_block_by_item(item item)
-{
-    block block;
-    block.type = block_type::BLOCK_AIR;
-    block.data = NULL;
-    block.data_size = 0;
-    switch (item.type) {
-    case item_type::ITEM_DIRT:
-        block.type = block_type::BLOCK_DIRT;
-        break;
-    case item_type::ITEM_COBBLESTONE:
-        block.type = block_type::BLOCK_STONE;
-        break;
-    case item_type::ITEM_LOG:
-        block.type = block_type::BLOCK_LOG;
-        break;
-    case item_type::ITEM_SAND:
-        block.type = block_type::BLOCK_SAND;
-        break;
-    case item_type::ITEM_TORCH:
-        block.type = block_type::BLOCK_TORCH;
-        break;
-    }
-    return block;
-}
-item get_item_by_type(item_type type)
-{
-    item item;
-    switch (type) {
-    default:
-        item.type = type;
-        item.stack_count = 64;
-        item.count = 1;
-        item.data = NULL;
-
-        break;
-    }
-    return item;
-}
-void game::check_craft()
-{
-    int len = craft_table::craft_table::get_len();
-    int found = 0;
-    for (int i = 0; i < len; i++) {
-        int craft_table_flag = 1;
-        if (craft_table::craft_table::craft_tables[i].result.type == item_type::ITEM_AIR) {
-            craft_table_flag = 0;
-            continue;
-        }
-      /*  craft_table::craft_table tmp = craft_table::craft_table::craft_tables[i];
-        int c = 0;*/
-        if (craft_table::craft_table::craft_tables[i].is_order == true) {
-            for (int j = 0; j < 9; j++) {
-                int j_1 = 0;
-                switch (j) {
-                case 0:
-                    j_1 = 0;
-                    break;
-                case 1:
-                    j_1 = 1;
-                    break;
-                case 3:
-                    j_1 = 2;
-                    break;
-                case 4:
-                    j_1 = 3;
-                    break;
-                default:
-                    j_1 = -1;
-                    break;
-                }
-                if (j_1 == -1 && craft_table::craft_table::craft_tables[i].result.type != item_type::ITEM_AIR) {
-                    craft_table_flag = 0;
-                    break;
-                }
-                if (j_1 == -1) {
-                    continue;
-                }
-                if (this->craft_table[j_1].type != craft_table::craft_table::craft_tables[i].items[j].type) {
-                    craft_table_flag = 0;
-                    break;
-                }
-                // craft_table_flag = 1;
-            }
-        } else {
-            std::vector<item> temp_items;
-            for (int j = 0; j < 4; j++) {
-                if (this->craft_table[j].type != item_type::ITEM_AIR) {
-                    temp_items.push_back(this->craft_table[j]);
-                }
-            }
-            int get_item = 0;
-            for (int j = 0; j < 9; j++) {
-                if (temp_items.size() == 0) {
-                    craft_table_flag = 0;
-                    break;
-                }
-                if (craft_table::craft_table::craft_tables[i].items[j].type == item_type::ITEM_AIR) {
-                    continue;
-                }
-
-                int flag = 0;
-                for (int k = 0; k < temp_items.size(); k++) {
-                    if (temp_items[k].type == craft_table::craft_table::craft_tables[i].items[j].type) {
-                        if (temp_items[k].count >= craft_table::craft_table::craft_tables[i].items[j].count) {
-                            flag = 1;
-                            get_item++;
-                            temp_items.erase(temp_items.begin() + k);
+                        if (flag == 0) {
+                            craft_table_flag = 0;
                             break;
                         }
+                        if (j == 8 && get_item < craft_table::craft_table::craft_tables[i].need_count) {
+                            craft_table_flag = 0;
+                            break;
+                        }
+                        // craft_table_flag = 1;
                     }
                 }
-                if (flag == 0) {
-                    craft_table_flag = 0;
+                if (craft_table_flag == 1) {
+                    this->now_craft_table = &craft_table::craft_table::craft_tables[i];
+                    this->craft_table[4] = craft_table::craft_table::craft_tables[i].result;
+                    found = 1;
                     break;
                 }
-                if (j == 8 && get_item < craft_table::craft_table::craft_tables[i].need_count) {
-                    craft_table_flag = 0;
-                    break;
-                }
-                // craft_table_flag = 1;
+            }
+            if (found == 0) {
+                this->now_craft_table = NULL;
+                this->craft_table[4].type = item_type::ITEM_AIR;
+                this->craft_table[4].count = 0;
+                this->craft_table[4].stack_count = 0;
+                this->craft_table[4].data = NULL;
             }
         }
-        if (craft_table_flag == 1) {
-            this->now_craft_table = &craft_table::craft_table::craft_tables[i];
-            this->craft_table[4] = craft_table::craft_table::craft_tables[i].result;
-            found = 1;
-            break;
-        }
-    }
-    if (found == 0) {
-        this->now_craft_table = NULL;
-        this->craft_table[4].type = item_type::ITEM_AIR;
-        this->craft_table[4].count = 0;
-        this->craft_table[4].stack_count = 0;
-        this->craft_table[4].data = NULL;
-    }
-}
