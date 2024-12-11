@@ -52,6 +52,7 @@ public:
     float get_distance_to_side(player *player, int side);
     item get_block_drop(block *block);
     block get_block_by_item(item item);
+    int get_food(item* item);
     void check_num();
     void check_craft();
     int update();

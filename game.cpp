@@ -44,7 +44,7 @@ int game::init(std::string name)
     this->world.init(name);
     this->players.push_back(player());
     this->attacking_block.block = NULL;
-    this->world_time = 8*60;
+    this->world_time = 8 * 60;
     memset(this->craft_table, 0, sizeof(this->craft_table));
     this->now_craft_table = NULL;
     cJSON* root = cJSON_CreateObject();
@@ -803,7 +803,27 @@ int game::update()
         }
     }
     if (IsKeyPressed(VK_RBUTTON) && !this->players[0].gui_open) {
+
         if (this->mouse_pos.x >= 0 && this->mouse_pos.x <= render::width && this->mouse_pos.y >= 0 && this->mouse_pos.y <= render::height) {
+            auto food = this->get_food(&this->players[0].items[this->players[0].chossing_item+27]);
+            if (food != 0 && this->players[0].hunger < 100) {
+                glog::log("info", "eat food", "game");
+                global_mutex.unlock();
+                Sleep(200);
+                global_mutex.lock();
+                if (this->players[0].hunger + food <= 100) {
+                    this->players[0].hunger += food;
+                } else {
+                    this->players[0].hunger = 100;
+                }
+                this->players[0].items[this->players[0].chossing_item+27].count--;
+                if (this->players[0].items[this->players[0].chossing_item+27].count == 0) {
+                    this->players[0].items[this->players[0].chossing_item+27].type = item_type::ITEM_AIR;
+                    this->players[0].items[this->players[0].chossing_item+27].count = 0;
+                    this->players[0].items[this->players[0].chossing_item+27].stack_count = 0;
+                    this->players[0].items[this->players[0].chossing_item+27].data = NULL;
+                }
+            }
             int x = render::width / 2 + BLOCK_TEXTURES_SIZE / 2;
             int y = render::height / 2 + BLOCK_TEXTURES_SIZE / 2;
             float offset_x = (this->mouse_pos.x - x) * 1.0 / BLOCK_TEXTURES_SIZE;
@@ -1394,12 +1414,23 @@ void game::check_craft()
 }
 int player::get_destroy_speed()
 {
-    switch (this->items[this->chossing_item].type) {
+    switch (this->items[this->chossing_item+27].type) {
     case item_type::ITEM_PICKAXE:
-        return 10;
+        return 3;
         break;
     default:
         return 1;
+        break;
+    }
+}
+int game::get_food(item* item)
+{
+    switch (item->type) {
+    case item_type::ITEM_APPLE:
+        return 20;
+        break;
+    default:
+        return 0;
         break;
     }
 }

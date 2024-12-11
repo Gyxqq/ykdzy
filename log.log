@@ -11736,3 +11736,1625 @@
 [2024-12-11 20:00:36] [info] [structure] Loaded structure func [test_fun]
 [2024-12-11 20:00:36] [error] [structure] Failed to get set_log_func address
 [2024-12-11 20:00:36] [error] [structure] Error code: 183
+[2024-12-11 20:14:41] [info] [main] Hello, world!
+[2024-12-11 20:14:41] [info] [craft log] start Log
+[2024-12-11 20:14:41] [info] [craft log] craft_table len: 4
+[2024-12-11 20:14:41] [info] [craft log] craft_table[0]: 
+[2024-12-11 20:14:41] [info] [craft log] items: 
+[2024-12-11 20:14:41] [info] [craft log] need_count: 2
+[2024-12-11 20:14:41] [info] [craft log] type: 1 count: 1
+[2024-12-11 20:14:41] [info] [craft log] type: 3 count: 1
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] result: type: 27 count: 4
+[2024-12-11 20:14:41] [info] [craft log] craft_table[1]: 
+[2024-12-11 20:14:41] [info] [craft log] items: 
+[2024-12-11 20:14:41] [info] [craft log] need_count: 1
+[2024-12-11 20:14:41] [info] [craft log] type: 21 count: 1
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] result: type: 2 count: 4
+[2024-12-11 20:14:41] [info] [craft log] craft_table[2]: 
+[2024-12-11 20:14:41] [info] [craft log] items: 
+[2024-12-11 20:14:41] [info] [craft log] need_count: 2
+[2024-12-11 20:14:41] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] result: type: 1 count: 4
+[2024-12-11 20:14:41] [info] [craft log] craft_table[3]: 
+[2024-12-11 20:14:41] [info] [craft log] items: 
+[2024-12-11 20:14:41] [info] [craft log] need_count: 3
+[2024-12-11 20:14:41] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:14:41] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 1 count: 1
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:14:41] [info] [craft log] result: type: 29 count: 1
+[2024-12-11 20:14:41] [info] [structure] Initializing structures
+[2024-12-11 20:14:41] [info] [structure] Loaded DLL D:\projects\ykdzy\mods\testmod\libtestmod.dll
+[2024-12-11 20:14:41] [info] [structure] Loaded structure func [test_fun]
+[2024-12-11 20:14:41] [info] [structure] Set log func for [test_fun]
+[2024-12-11 20:14:41] [info] [structure] Loaded DLL D:\projects\ykdzy\mods\tree_gen\testmod.dll
+[2024-12-11 20:14:41] [info] [structure] Loaded structure func [test_fun]
+[2024-12-11 20:14:41] [error] [structure] Failed to get set_log_func address
+[2024-12-11 20:14:41] [error] [structure] Error code: 183
+[2024-12-11 20:14:41] [info] [game loader] Loading Game: D:\projects\ykdzy\saves\gyxqqq\game.json
+[2024-12-11 20:14:41] [info] [game loader] File size: 125
+[2024-12-11 20:14:41] [info] [game loader] get Seed: 1733918269
+[2024-12-11 20:14:41] [info] [game loader] get Time: 629
+[2024-12-11 20:14:41] [info] [game loader] get Savepath: D:\projects\ykdzy\saves\gyxqqq\
+[2024-12-11 20:14:41] [info] [map] Loading Map: D:\projects\ykdzy\saves\gyxqqq\
+[2024-12-11 20:14:41] [info] [game loader] Loading Player: 00000.player
+[2024-12-11 20:14:41] [info] [player] Loading Player: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:14:41] [info] [player] Player Loaded: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:14:41] [info] [map chunk loader] loading Chunk: -4
+[2024-12-11 20:14:41] [info] [chunk] File size: 524312
+[2024-12-11 20:14:41] [info] [game loader] Loading Chunk: -4
+[2024-12-11 20:14:41] [info] [map chunk loader] loading Chunk: -3
+[2024-12-11 20:14:41] [info] [chunk] File size: 524312
+[2024-12-11 20:14:41] [info] [game loader] Loading Chunk: -3
+[2024-12-11 20:14:41] [info] [map chunk loader] loading Chunk: -2
+[2024-12-11 20:14:41] [info] [chunk] File size: 524312
+[2024-12-11 20:14:41] [info] [game loader] Loading Chunk: -2
+[2024-12-11 20:14:41] [info] [map chunk loader] loading Chunk: -1
+[2024-12-11 20:14:41] [info] [chunk] File size: 524312
+[2024-12-11 20:14:41] [info] [game loader] Loading Chunk: -1
+[2024-12-11 20:14:41] [info] [map chunk loader] loading Chunk: 0
+[2024-12-11 20:14:41] [info] [chunk] File size: 524312
+[2024-12-11 20:14:41] [info] [game loader] Loading Chunk: 0
+[2024-12-11 20:14:41] [info] [map chunk loader] loading Chunk: 1
+[2024-12-11 20:14:41] [info] [chunk] File size: 524312
+[2024-12-11 20:14:41] [info] [game loader] Loading Chunk: 1
+[2024-12-11 20:14:41] [info] [map chunk loader] loading Chunk: 2
+[2024-12-11 20:14:41] [info] [chunk] File size: 524312
+[2024-12-11 20:14:41] [info] [game loader] Loading Chunk: 2
+[2024-12-11 20:14:41] [info] [map chunk loader] loading Chunk: 3
+[2024-12-11 20:14:41] [info] [chunk] File size: 524312
+[2024-12-11 20:14:41] [info] [game loader] Loading Chunk: 3
+[2024-12-11 20:14:41] [info] [game] Saving Game
+[2024-12-11 20:14:41] [info] [chunk] Saved Chunk: -4 to D:\projects\ykdzy\saves\gyxqqq\chunk-4.chunk
+[2024-12-11 20:14:41] [info] [chunk] Save Time: 0.003276
+[2024-12-11 20:14:41] [info] [map] Saved Chunk: -4
+[2024-12-11 20:14:41] [info] [chunk] Saved Chunk: -3 to D:\projects\ykdzy\saves\gyxqqq\chunk-3.chunk
+[2024-12-11 20:14:41] [info] [chunk] Save Time: 0.003496
+[2024-12-11 20:14:41] [info] [map] Saved Chunk: -3
+[2024-12-11 20:14:41] [info] [chunk] Saved Chunk: -2 to D:\projects\ykdzy\saves\gyxqqq\chunk-2.chunk
+[2024-12-11 20:14:41] [info] [chunk] Save Time: 0.003514
+[2024-12-11 20:14:41] [info] [map] Saved Chunk: -2
+[2024-12-11 20:14:41] [info] [chunk] Saved Chunk: -1 to D:\projects\ykdzy\saves\gyxqqq\chunk-1.chunk
+[2024-12-11 20:14:41] [info] [chunk] Save Time: 0.003492
+[2024-12-11 20:14:41] [info] [map] Saved Chunk: -1
+[2024-12-11 20:14:41] [info] [chunk] Saved Chunk: 0 to D:\projects\ykdzy\saves\gyxqqq\chunk0.chunk
+[2024-12-11 20:14:41] [info] [chunk] Save Time: 0.003570
+[2024-12-11 20:14:41] [info] [map] Saved Chunk: 0
+[2024-12-11 20:14:41] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\saves\gyxqqq\chunk1.chunk
+[2024-12-11 20:14:41] [info] [chunk] Save Time: 0.003921
+[2024-12-11 20:14:41] [info] [map] Saved Chunk: 1
+[2024-12-11 20:14:41] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\saves\gyxqqq\chunk2.chunk
+[2024-12-11 20:14:41] [info] [chunk] Save Time: 0.003729
+[2024-12-11 20:14:41] [info] [map] Saved Chunk: 2
+[2024-12-11 20:14:41] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\saves\gyxqqq\chunk3.chunk
+[2024-12-11 20:14:41] [info] [chunk] Save Time: 0.003470
+[2024-12-11 20:14:41] [info] [map] Saved Chunk: 3
+[2024-12-11 20:14:41] [info] [player] Player Saved: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:14:41] [info] [game save] Saving Player: 00000.player
+[2024-12-11 20:14:41] [info] [game save] Player x: -23.999998 y: 42.498840
+[2024-12-11 20:14:41] [info] [assets] Loading Block Textures: D:\projects\ykdzy\assets\blocks\blockconfig.json
+[2024-12-11 20:14:41] [info] [assets] Texture Path: D:\projects\ykdzy\assets\blocks\
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_AIR path: D:\projects\ykdzy\assets\blocks\sky.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_DIRT path: D:\projects\ykdzy\assets\blocks\dirt.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_GRASS path: D:\projects\ykdzy\assets\blocks\grass_block_side.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_STONE path: D:\projects\ykdzy\assets\blocks\stone.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_WOOD path: D:\projects\ykdzy\assets\blocks\birch_log.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_LEAVES path: D:\projects\ykdzy\assets\blocks\azalea_leaves.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_WATER path: D:\projects\ykdzy\assets\blocks\underwater.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_SAND path: D:\projects\ykdzy\assets\blocks\sand.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_CACTUS path: D:\projects\ykdzy\assets\blocks\cactus_side.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_SNOW path: D:\projects\ykdzy\assets\blocks\snow.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_ICE path: D:\projects\ykdzy\assets\blocks\ice.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_COAL path: D:\projects\ykdzy\assets\blocks\coal_ore.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_IRON path: D:\projects\ykdzy\assets\blocks\iron_ore.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_GOLD path: D:\projects\ykdzy\assets\blocks\gold_ore.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_DIAMOND path: D:\projects\ykdzy\assets\blocks\diamond_ore.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_EMERALD path: D:\projects\ykdzy\assets\blocks\emerald_ore.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_COPPER path: D:\projects\ykdzy\assets\blocks\copper_ore.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_VOID path: D:\projects\ykdzy\assets\blocks\end_sky.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_BEDROCK path: D:\projects\ykdzy\assets\blocks\bedrock.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_CHEST path: D:\projects\ykdzy\assets\blocks\barrel_top.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_FURNACE path: D:\projects\ykdzy\assets\blocks\furnace_front.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_CRAFTING_TABLE path: D:\projects\ykdzy\assets\blocks\crafting_table_front.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_ANVIL path: D:\projects\ykdzy\assets\blocks\anvil.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_ENCHANTING_TABLE path: D:\projects\ykdzy\assets\blocks\enchanting_table_side.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_BEACON path: D:\projects\ykdzy\assets\blocks\beacon.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_TORCH path: D:\projects\ykdzy\assets\blocks\torch.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_LANTERN path: D:\projects\ykdzy\assets\blocks\jack_o_lantern.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_BED path: D:\projects\ykdzy\assets\blocks\bed_feet_end.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_CAKE path: D:\projects\ykdzy\assets\blocks\cake_side.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_FLOWER path: D:\projects\ykdzy\assets\blocks\potted_flowering_azalea_bush_plant.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_SAPLING path: D:\projects\ykdzy\assets\blocks\potted_flowering_azalea_bush_plant.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_LOG path: D:\projects\ykdzy\assets\blocks\birch_log.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_MUSHROOM path: D:\projects\ykdzy\assets\blocks\brown_mushroom.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Block Texture: BLOCK_GLASS path: D:\projects\ykdzy\assets\blocks\glass.png
+[2024-12-11 20:14:41] [info] [assets] Loading Player Textures: D:\projects\ykdzy\assets\player\playerconfig.json
+[2024-12-11 20:14:41] [info] [assets] Loaded Player Textures
+[2024-12-11 20:14:41] [info] [assets] Loading Const Textures: D:\projects\ykdzy\assets\const\
+[2024-12-11 20:14:41] [info] [assets] Loading Item Textures: D:\projects\ykdzy\assets\items\itemconfig.json
+[2024-12-11 20:14:41] [info] [assets] Texture Path: D:\projects\ykdzy\assets\items\
+[2024-12-11 20:14:41] [info] [assets] Loaded Item Texture: ITEM_AIR path: D:\projects\ykdzy\assets\items\miss.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Item Texture: ITEM_STICK path: D:\projects\ykdzy\assets\items\stick.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Item Texture: ITEM_WOOD path: D:\projects\ykdzy\assets\items\planks.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Item Texture: ITEM_COAL path: D:\projects\ykdzy\assets\items\coal.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Item Texture: ITEM_RAW_IRON path: D:\projects\ykdzy\assets\items\raw_iron.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Item Texture: ITEM_RAW_GOLD path: D:\projects\ykdzy\assets\items\raw_gold.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Item Texture: ITEM_DIAMOND path: D:\projects\ykdzy\assets\items\diamond.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Item Texture: ITEM_DIRT path: D:\projects\ykdzy\assets\items\dirt.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Item Texture: ITEM_LOG path: D:\projects\ykdzy\assets\items\log.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Item Texture: ITEM_APPLE path: D:\projects\ykdzy\assets\items\apple.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Item Texture: ITEM_TORCH path: D:\projects\ykdzy\assets\items\torch.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Item Texture: ITEM_SWORDW path: D:\projects\ykdzy\assets\items\wooden_sword.png
+[2024-12-11 20:14:41] [info] [assets] Loaded Item Texture: ITEM_PICKAXE path: D:\projects\ykdzy\assets\items\wooden_pickaxe.png
+[2024-12-11 20:14:41] [info] [render] Initializing Render
+[2024-12-11 20:14:41] [info] [render] Render Initialized
+[2024-12-11 20:14:47] [info] [game] destroy block x: -29 y: 45
+[2024-12-11 20:14:47] [info] [game] drop item type: 24 count: 0
+[2024-12-11 20:14:50] [info] [game] get item
+[2024-12-11 20:14:51] [info] [game] get item
+[2024-12-11 20:14:56] [info] [game] destroy block x: -30 y: 45
+[2024-12-11 20:14:56] [info] [game] drop item type: 26 count: 0
+[2024-12-11 20:15:00] [info] [game] destroy block x: -28 y: 45
+[2024-12-11 20:15:00] [info] [game] drop item type: 0 count: 0
+[2024-12-11 20:15:02] [info] [game] get item
+[2024-12-11 20:15:02] [info] [game] get item
+[2024-12-11 20:15:04] [info] [game] get item
+[2024-12-11 20:15:04] [info] [game] get item
+[2024-12-11 20:15:05] [info] [game] get item
+[2024-12-11 20:15:05] [info] [game] get item
+[2024-12-11 20:15:06] [info] [game] get item
+[2024-12-11 20:15:07] [info] [game] get item
+[2024-12-11 20:15:07] [info] [game] get item
+[2024-12-11 20:15:08] [info] [game] get item
+[2024-12-11 20:15:08] [info] [game] get item
+[2024-12-11 20:15:09] [info] [game] get item
+[2024-12-11 20:15:09] [info] [game] get item
+[2024-12-11 20:15:10] [info] [game] get item
+[2024-12-11 20:15:10] [info] [game] get item
+[2024-12-11 20:15:11] [info] [game] Saving Game
+[2024-12-11 20:15:11] [info] [chunk] Saved Chunk: -4 to D:\projects\ykdzy\saves\gyxqqq\chunk-4.chunk
+[2024-12-11 20:15:11] [info] [chunk] Save Time: 0.003199
+[2024-12-11 20:15:11] [info] [map] Saved Chunk: -4
+[2024-12-11 20:15:11] [info] [chunk] Saved Chunk: -3 to D:\projects\ykdzy\saves\gyxqqq\chunk-3.chunk
+[2024-12-11 20:15:11] [info] [chunk] Save Time: 0.003406
+[2024-12-11 20:15:11] [info] [map] Saved Chunk: -3
+[2024-12-11 20:15:11] [info] [chunk] Saved Chunk: -2 to D:\projects\ykdzy\saves\gyxqqq\chunk-2.chunk
+[2024-12-11 20:15:11] [info] [chunk] Save Time: 0.003385
+[2024-12-11 20:15:11] [info] [map] Saved Chunk: -2
+[2024-12-11 20:15:11] [info] [chunk] Saved Chunk: -1 to D:\projects\ykdzy\saves\gyxqqq\chunk-1.chunk
+[2024-12-11 20:15:11] [info] [chunk] Save Time: 0.003432
+[2024-12-11 20:15:11] [info] [map] Saved Chunk: -1
+[2024-12-11 20:15:11] [info] [chunk] Saved Chunk: 0 to D:\projects\ykdzy\saves\gyxqqq\chunk0.chunk
+[2024-12-11 20:15:11] [info] [chunk] Save Time: 0.003446
+[2024-12-11 20:15:11] [info] [map] Saved Chunk: 0
+[2024-12-11 20:15:11] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\saves\gyxqqq\chunk1.chunk
+[2024-12-11 20:15:11] [info] [chunk] Save Time: 0.003509
+[2024-12-11 20:15:11] [info] [map] Saved Chunk: 1
+[2024-12-11 20:15:11] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\saves\gyxqqq\chunk2.chunk
+[2024-12-11 20:15:11] [info] [chunk] Save Time: 0.003558
+[2024-12-11 20:15:11] [info] [map] Saved Chunk: 2
+[2024-12-11 20:15:11] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\saves\gyxqqq\chunk3.chunk
+[2024-12-11 20:15:11] [info] [chunk] Save Time: 0.003592
+[2024-12-11 20:15:11] [info] [map] Saved Chunk: 3
+[2024-12-11 20:15:11] [info] [player] Player Saved: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:15:11] [info] [game save] Saving Player: 00000.player
+[2024-12-11 20:15:11] [info] [game save] Player x: -27.699993 y: 43.498825
+[2024-12-11 20:15:11] [info] [main] Game Loaded
+[2024-12-11 20:17:51] [info] [main] Hello, world!
+[2024-12-11 20:17:51] [info] [craft log] start Log
+[2024-12-11 20:17:51] [info] [craft log] craft_table len: 4
+[2024-12-11 20:17:51] [info] [craft log] craft_table[0]: 
+[2024-12-11 20:17:51] [info] [craft log] items: 
+[2024-12-11 20:17:51] [info] [craft log] need_count: 2
+[2024-12-11 20:17:51] [info] [craft log] type: 1 count: 1
+[2024-12-11 20:17:51] [info] [craft log] type: 3 count: 1
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] result: type: 27 count: 4
+[2024-12-11 20:17:51] [info] [craft log] craft_table[1]: 
+[2024-12-11 20:17:51] [info] [craft log] items: 
+[2024-12-11 20:17:51] [info] [craft log] need_count: 1
+[2024-12-11 20:17:51] [info] [craft log] type: 21 count: 1
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] result: type: 2 count: 4
+[2024-12-11 20:17:51] [info] [craft log] craft_table[2]: 
+[2024-12-11 20:17:51] [info] [craft log] items: 
+[2024-12-11 20:17:51] [info] [craft log] need_count: 2
+[2024-12-11 20:17:51] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] result: type: 1 count: 4
+[2024-12-11 20:17:51] [info] [craft log] craft_table[3]: 
+[2024-12-11 20:17:51] [info] [craft log] items: 
+[2024-12-11 20:17:51] [info] [craft log] need_count: 3
+[2024-12-11 20:17:51] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:17:51] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 1 count: 1
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:17:51] [info] [craft log] result: type: 29 count: 1
+[2024-12-11 20:17:51] [info] [structure] Initializing structures
+[2024-12-11 20:17:51] [info] [structure] Loaded DLL D:\projects\ykdzy\mods\testmod\libtestmod.dll
+[2024-12-11 20:17:51] [info] [structure] Loaded structure func [test_fun]
+[2024-12-11 20:17:51] [info] [structure] Set log func for [test_fun]
+[2024-12-11 20:17:51] [info] [structure] Loaded DLL D:\projects\ykdzy\mods\tree_gen\testmod.dll
+[2024-12-11 20:17:51] [info] [structure] Loaded structure func [test_fun]
+[2024-12-11 20:17:51] [error] [structure] Failed to get set_log_func address
+[2024-12-11 20:17:51] [error] [structure] Error code: 183
+[2024-12-11 20:17:51] [info] [game loader] Loading Game: D:\projects\ykdzy\saves\gyxqqq\game.json
+[2024-12-11 20:17:51] [info] [game loader] File size: 125
+[2024-12-11 20:17:51] [info] [game loader] get Seed: 1733918269
+[2024-12-11 20:17:51] [info] [game loader] get Time: 659
+[2024-12-11 20:17:51] [info] [game loader] get Savepath: D:\projects\ykdzy\saves\gyxqqq\
+[2024-12-11 20:17:51] [info] [map] Loading Map: D:\projects\ykdzy\saves\gyxqqq\
+[2024-12-11 20:17:51] [info] [game loader] Loading Player: 00000.player
+[2024-12-11 20:17:51] [info] [player] Loading Player: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:17:51] [info] [player] Player Loaded: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:17:51] [info] [map chunk loader] loading Chunk: -4
+[2024-12-11 20:17:51] [info] [chunk] File size: 524312
+[2024-12-11 20:17:51] [info] [game loader] Loading Chunk: -4
+[2024-12-11 20:17:51] [info] [map chunk loader] loading Chunk: -3
+[2024-12-11 20:17:51] [info] [chunk] File size: 524312
+[2024-12-11 20:17:51] [info] [game loader] Loading Chunk: -3
+[2024-12-11 20:17:51] [info] [map chunk loader] loading Chunk: -2
+[2024-12-11 20:17:51] [info] [chunk] File size: 524312
+[2024-12-11 20:17:51] [info] [game loader] Loading Chunk: -2
+[2024-12-11 20:17:51] [info] [map chunk loader] loading Chunk: -1
+[2024-12-11 20:17:51] [info] [chunk] File size: 524312
+[2024-12-11 20:17:51] [info] [game loader] Loading Chunk: -1
+[2024-12-11 20:17:51] [info] [map chunk loader] loading Chunk: 0
+[2024-12-11 20:17:51] [info] [chunk] File size: 524312
+[2024-12-11 20:17:51] [info] [game loader] Loading Chunk: 0
+[2024-12-11 20:17:51] [info] [map chunk loader] loading Chunk: 1
+[2024-12-11 20:17:51] [info] [chunk] File size: 524312
+[2024-12-11 20:17:51] [info] [game loader] Loading Chunk: 1
+[2024-12-11 20:17:51] [info] [map chunk loader] loading Chunk: 2
+[2024-12-11 20:17:51] [info] [chunk] File size: 524312
+[2024-12-11 20:17:51] [info] [game loader] Loading Chunk: 2
+[2024-12-11 20:17:51] [info] [map chunk loader] loading Chunk: 3
+[2024-12-11 20:17:51] [info] [chunk] File size: 524312
+[2024-12-11 20:17:51] [info] [game loader] Loading Chunk: 3
+[2024-12-11 20:17:51] [info] [game] Saving Game
+[2024-12-11 20:17:51] [info] [chunk] Saved Chunk: -4 to D:\projects\ykdzy\saves\gyxqqq\chunk-4.chunk
+[2024-12-11 20:17:51] [info] [chunk] Save Time: 0.004371
+[2024-12-11 20:17:51] [info] [map] Saved Chunk: -4
+[2024-12-11 20:17:51] [info] [chunk] Saved Chunk: -3 to D:\projects\ykdzy\saves\gyxqqq\chunk-3.chunk
+[2024-12-11 20:17:51] [info] [chunk] Save Time: 0.004326
+[2024-12-11 20:17:51] [info] [map] Saved Chunk: -3
+[2024-12-11 20:17:51] [info] [chunk] Saved Chunk: -2 to D:\projects\ykdzy\saves\gyxqqq\chunk-2.chunk
+[2024-12-11 20:17:51] [info] [chunk] Save Time: 0.004444
+[2024-12-11 20:17:51] [info] [map] Saved Chunk: -2
+[2024-12-11 20:17:51] [info] [chunk] Saved Chunk: -1 to D:\projects\ykdzy\saves\gyxqqq\chunk-1.chunk
+[2024-12-11 20:17:51] [info] [chunk] Save Time: 0.004322
+[2024-12-11 20:17:51] [info] [map] Saved Chunk: -1
+[2024-12-11 20:17:51] [info] [chunk] Saved Chunk: 0 to D:\projects\ykdzy\saves\gyxqqq\chunk0.chunk
+[2024-12-11 20:17:51] [info] [chunk] Save Time: 0.004055
+[2024-12-11 20:17:51] [info] [map] Saved Chunk: 0
+[2024-12-11 20:17:51] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\saves\gyxqqq\chunk1.chunk
+[2024-12-11 20:17:51] [info] [chunk] Save Time: 0.004733
+[2024-12-11 20:17:51] [info] [map] Saved Chunk: 1
+[2024-12-11 20:17:51] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\saves\gyxqqq\chunk2.chunk
+[2024-12-11 20:17:51] [info] [chunk] Save Time: 0.004484
+[2024-12-11 20:17:51] [info] [map] Saved Chunk: 2
+[2024-12-11 20:17:51] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\saves\gyxqqq\chunk3.chunk
+[2024-12-11 20:17:51] [info] [chunk] Save Time: 0.004893
+[2024-12-11 20:17:51] [info] [map] Saved Chunk: 3
+[2024-12-11 20:17:51] [info] [player] Player Saved: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:17:51] [info] [game save] Saving Player: 00000.player
+[2024-12-11 20:17:51] [info] [game save] Player x: -27.699993 y: 43.498825
+[2024-12-11 20:17:51] [info] [assets] Loading Block Textures: D:\projects\ykdzy\assets\blocks\blockconfig.json
+[2024-12-11 20:17:51] [info] [assets] Texture Path: D:\projects\ykdzy\assets\blocks\
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_AIR path: D:\projects\ykdzy\assets\blocks\sky.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_DIRT path: D:\projects\ykdzy\assets\blocks\dirt.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_GRASS path: D:\projects\ykdzy\assets\blocks\grass_block_side.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_STONE path: D:\projects\ykdzy\assets\blocks\stone.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_WOOD path: D:\projects\ykdzy\assets\blocks\birch_log.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_LEAVES path: D:\projects\ykdzy\assets\blocks\azalea_leaves.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_WATER path: D:\projects\ykdzy\assets\blocks\underwater.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_SAND path: D:\projects\ykdzy\assets\blocks\sand.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_CACTUS path: D:\projects\ykdzy\assets\blocks\cactus_side.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_SNOW path: D:\projects\ykdzy\assets\blocks\snow.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_ICE path: D:\projects\ykdzy\assets\blocks\ice.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_COAL path: D:\projects\ykdzy\assets\blocks\coal_ore.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_IRON path: D:\projects\ykdzy\assets\blocks\iron_ore.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_GOLD path: D:\projects\ykdzy\assets\blocks\gold_ore.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_DIAMOND path: D:\projects\ykdzy\assets\blocks\diamond_ore.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_EMERALD path: D:\projects\ykdzy\assets\blocks\emerald_ore.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_COPPER path: D:\projects\ykdzy\assets\blocks\copper_ore.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_VOID path: D:\projects\ykdzy\assets\blocks\end_sky.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_BEDROCK path: D:\projects\ykdzy\assets\blocks\bedrock.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_CHEST path: D:\projects\ykdzy\assets\blocks\barrel_top.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_FURNACE path: D:\projects\ykdzy\assets\blocks\furnace_front.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_CRAFTING_TABLE path: D:\projects\ykdzy\assets\blocks\crafting_table_front.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_ANVIL path: D:\projects\ykdzy\assets\blocks\anvil.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_ENCHANTING_TABLE path: D:\projects\ykdzy\assets\blocks\enchanting_table_side.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_BEACON path: D:\projects\ykdzy\assets\blocks\beacon.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_TORCH path: D:\projects\ykdzy\assets\blocks\torch.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_LANTERN path: D:\projects\ykdzy\assets\blocks\jack_o_lantern.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_BED path: D:\projects\ykdzy\assets\blocks\bed_feet_end.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_CAKE path: D:\projects\ykdzy\assets\blocks\cake_side.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_FLOWER path: D:\projects\ykdzy\assets\blocks\potted_flowering_azalea_bush_plant.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_SAPLING path: D:\projects\ykdzy\assets\blocks\potted_flowering_azalea_bush_plant.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_LOG path: D:\projects\ykdzy\assets\blocks\birch_log.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_MUSHROOM path: D:\projects\ykdzy\assets\blocks\brown_mushroom.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Block Texture: BLOCK_GLASS path: D:\projects\ykdzy\assets\blocks\glass.png
+[2024-12-11 20:17:51] [info] [assets] Loading Player Textures: D:\projects\ykdzy\assets\player\playerconfig.json
+[2024-12-11 20:17:51] [info] [assets] Loaded Player Textures
+[2024-12-11 20:17:51] [info] [assets] Loading Const Textures: D:\projects\ykdzy\assets\const\
+[2024-12-11 20:17:51] [info] [assets] Loading Item Textures: D:\projects\ykdzy\assets\items\itemconfig.json
+[2024-12-11 20:17:51] [info] [assets] Texture Path: D:\projects\ykdzy\assets\items\
+[2024-12-11 20:17:51] [info] [assets] Loaded Item Texture: ITEM_AIR path: D:\projects\ykdzy\assets\items\miss.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Item Texture: ITEM_STICK path: D:\projects\ykdzy\assets\items\stick.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Item Texture: ITEM_WOOD path: D:\projects\ykdzy\assets\items\planks.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Item Texture: ITEM_COAL path: D:\projects\ykdzy\assets\items\coal.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Item Texture: ITEM_RAW_IRON path: D:\projects\ykdzy\assets\items\raw_iron.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Item Texture: ITEM_RAW_GOLD path: D:\projects\ykdzy\assets\items\raw_gold.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Item Texture: ITEM_DIAMOND path: D:\projects\ykdzy\assets\items\diamond.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Item Texture: ITEM_DIRT path: D:\projects\ykdzy\assets\items\dirt.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Item Texture: ITEM_LOG path: D:\projects\ykdzy\assets\items\log.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Item Texture: ITEM_LEAVES path: D:\projects\ykdzy\assets\items\azalea_leaves.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Item Texture: ITEM_APPLE path: D:\projects\ykdzy\assets\items\apple.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Item Texture: ITEM_SAPLING path: D:\projects\ykdzy\assets\items\oak_sapling.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Item Texture: ITEM_TORCH path: D:\projects\ykdzy\assets\items\torch.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Item Texture: ITEM_SWORDW path: D:\projects\ykdzy\assets\items\wooden_sword.png
+[2024-12-11 20:17:51] [info] [assets] Loaded Item Texture: ITEM_PICKAXE path: D:\projects\ykdzy\assets\items\wooden_pickaxe.png
+[2024-12-11 20:17:51] [info] [render] Initializing Render
+[2024-12-11 20:17:51] [info] [render] Render Initialized
+[2024-12-11 20:17:58] [info] [game] destroy block x: -27 y: 45
+[2024-12-11 20:17:58] [info] [game] drop item type: 25 count: 0
+[2024-12-11 20:18:00] [info] [game] get item
+[2024-12-11 20:18:01] [info] [game] get item
+[2024-12-11 20:18:20] [info] [game] get item
+[2024-12-11 20:18:22] [info] [game] Saving Game
+[2024-12-11 20:18:22] [info] [chunk] Saved Chunk: -4 to D:\projects\ykdzy\saves\gyxqqq\chunk-4.chunk
+[2024-12-11 20:18:22] [info] [chunk] Save Time: 0.003430
+[2024-12-11 20:18:22] [info] [map] Saved Chunk: -4
+[2024-12-11 20:18:22] [info] [chunk] Saved Chunk: -3 to D:\projects\ykdzy\saves\gyxqqq\chunk-3.chunk
+[2024-12-11 20:18:22] [info] [chunk] Save Time: 0.003460
+[2024-12-11 20:18:22] [info] [map] Saved Chunk: -3
+[2024-12-11 20:18:22] [info] [chunk] Saved Chunk: -2 to D:\projects\ykdzy\saves\gyxqqq\chunk-2.chunk
+[2024-12-11 20:18:22] [info] [chunk] Save Time: 0.003711
+[2024-12-11 20:18:22] [info] [map] Saved Chunk: -2
+[2024-12-11 20:18:22] [info] [chunk] Saved Chunk: -1 to D:\projects\ykdzy\saves\gyxqqq\chunk-1.chunk
+[2024-12-11 20:18:22] [info] [chunk] Save Time: 0.003604
+[2024-12-11 20:18:22] [info] [map] Saved Chunk: -1
+[2024-12-11 20:18:22] [info] [chunk] Saved Chunk: 0 to D:\projects\ykdzy\saves\gyxqqq\chunk0.chunk
+[2024-12-11 20:18:22] [info] [chunk] Save Time: 0.003397
+[2024-12-11 20:18:22] [info] [map] Saved Chunk: 0
+[2024-12-11 20:18:22] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\saves\gyxqqq\chunk1.chunk
+[2024-12-11 20:18:22] [info] [chunk] Save Time: 0.004831
+[2024-12-11 20:18:22] [info] [map] Saved Chunk: 1
+[2024-12-11 20:18:22] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\saves\gyxqqq\chunk2.chunk
+[2024-12-11 20:18:22] [info] [chunk] Save Time: 0.004081
+[2024-12-11 20:18:22] [info] [map] Saved Chunk: 2
+[2024-12-11 20:18:22] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\saves\gyxqqq\chunk3.chunk
+[2024-12-11 20:18:22] [info] [chunk] Save Time: 0.004303
+[2024-12-11 20:18:22] [info] [map] Saved Chunk: 3
+[2024-12-11 20:18:22] [info] [player] Player Saved: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:18:22] [info] [game save] Saving Player: 00000.player
+[2024-12-11 20:18:22] [info] [game save] Player x: -26.999990 y: 43.498787
+[2024-12-11 20:18:22] [info] [main] Game Loaded
+[2024-12-11 20:20:19] [info] [main] Hello, world!
+[2024-12-11 20:20:19] [info] [craft log] start Log
+[2024-12-11 20:20:19] [info] [craft log] craft_table len: 4
+[2024-12-11 20:20:19] [info] [craft log] craft_table[0]: 
+[2024-12-11 20:20:19] [info] [craft log] items: 
+[2024-12-11 20:20:19] [info] [craft log] need_count: 2
+[2024-12-11 20:20:19] [info] [craft log] type: 1 count: 1
+[2024-12-11 20:20:19] [info] [craft log] type: 3 count: 1
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] result: type: 27 count: 4
+[2024-12-11 20:20:19] [info] [craft log] craft_table[1]: 
+[2024-12-11 20:20:19] [info] [craft log] items: 
+[2024-12-11 20:20:19] [info] [craft log] need_count: 1
+[2024-12-11 20:20:19] [info] [craft log] type: 21 count: 1
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] result: type: 2 count: 4
+[2024-12-11 20:20:19] [info] [craft log] craft_table[2]: 
+[2024-12-11 20:20:19] [info] [craft log] items: 
+[2024-12-11 20:20:19] [info] [craft log] need_count: 2
+[2024-12-11 20:20:19] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] result: type: 1 count: 4
+[2024-12-11 20:20:19] [info] [craft log] craft_table[3]: 
+[2024-12-11 20:20:19] [info] [craft log] items: 
+[2024-12-11 20:20:19] [info] [craft log] need_count: 3
+[2024-12-11 20:20:19] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:20:19] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 1 count: 1
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:20:19] [info] [craft log] result: type: 29 count: 1
+[2024-12-11 20:20:19] [info] [structure] Initializing structures
+[2024-12-11 20:20:19] [info] [structure] Loaded DLL D:\projects\ykdzy\mods\testmod\libtestmod.dll
+[2024-12-11 20:20:19] [info] [structure] Loaded structure func [test_fun]
+[2024-12-11 20:20:19] [info] [structure] Set log func for [test_fun]
+[2024-12-11 20:20:19] [info] [structure] Loaded DLL D:\projects\ykdzy\mods\tree_gen\testmod.dll
+[2024-12-11 20:20:19] [info] [structure] Loaded structure func [test_fun]
+[2024-12-11 20:20:19] [error] [structure] Failed to get set_log_func address
+[2024-12-11 20:20:19] [error] [structure] Error code: 183
+[2024-12-11 20:20:19] [info] [game loader] Loading Game: D:\projects\ykdzy\saves\gyxqqq\game.json
+[2024-12-11 20:20:19] [info] [game loader] File size: 125
+[2024-12-11 20:20:19] [info] [game loader] get Seed: 1733918269
+[2024-12-11 20:20:19] [info] [game loader] get Time: 690
+[2024-12-11 20:20:19] [info] [game loader] get Savepath: D:\projects\ykdzy\saves\gyxqqq\
+[2024-12-11 20:20:19] [info] [map] Loading Map: D:\projects\ykdzy\saves\gyxqqq\
+[2024-12-11 20:20:19] [info] [game loader] Loading Player: 00000.player
+[2024-12-11 20:20:19] [info] [player] Loading Player: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:20:19] [info] [player] Player Loaded: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:20:19] [info] [map chunk loader] loading Chunk: -4
+[2024-12-11 20:20:19] [info] [chunk] File size: 524312
+[2024-12-11 20:20:19] [info] [game loader] Loading Chunk: -4
+[2024-12-11 20:20:19] [info] [map chunk loader] loading Chunk: -3
+[2024-12-11 20:20:19] [info] [chunk] File size: 524312
+[2024-12-11 20:20:19] [info] [game loader] Loading Chunk: -3
+[2024-12-11 20:20:19] [info] [map chunk loader] loading Chunk: -2
+[2024-12-11 20:20:19] [info] [chunk] File size: 524312
+[2024-12-11 20:20:19] [info] [game loader] Loading Chunk: -2
+[2024-12-11 20:20:19] [info] [map chunk loader] loading Chunk: -1
+[2024-12-11 20:20:19] [info] [chunk] File size: 524312
+[2024-12-11 20:20:19] [info] [game loader] Loading Chunk: -1
+[2024-12-11 20:20:19] [info] [map chunk loader] loading Chunk: 0
+[2024-12-11 20:20:19] [info] [chunk] File size: 524312
+[2024-12-11 20:20:19] [info] [game loader] Loading Chunk: 0
+[2024-12-11 20:20:19] [info] [map chunk loader] loading Chunk: 1
+[2024-12-11 20:20:19] [info] [chunk] File size: 524312
+[2024-12-11 20:20:19] [info] [game loader] Loading Chunk: 1
+[2024-12-11 20:20:19] [info] [map chunk loader] loading Chunk: 2
+[2024-12-11 20:20:19] [info] [chunk] File size: 524312
+[2024-12-11 20:20:19] [info] [game loader] Loading Chunk: 2
+[2024-12-11 20:20:19] [info] [map chunk loader] loading Chunk: 3
+[2024-12-11 20:20:19] [info] [chunk] File size: 524312
+[2024-12-11 20:20:19] [info] [game loader] Loading Chunk: 3
+[2024-12-11 20:20:19] [info] [game] Saving Game
+[2024-12-11 20:20:19] [info] [chunk] Saved Chunk: -4 to D:\projects\ykdzy\saves\gyxqqq\chunk-4.chunk
+[2024-12-11 20:20:19] [info] [chunk] Save Time: 0.004460
+[2024-12-11 20:20:19] [info] [map] Saved Chunk: -4
+[2024-12-11 20:20:19] [info] [chunk] Saved Chunk: -3 to D:\projects\ykdzy\saves\gyxqqq\chunk-3.chunk
+[2024-12-11 20:20:19] [info] [chunk] Save Time: 0.004018
+[2024-12-11 20:20:19] [info] [map] Saved Chunk: -3
+[2024-12-11 20:20:19] [info] [chunk] Saved Chunk: -2 to D:\projects\ykdzy\saves\gyxqqq\chunk-2.chunk
+[2024-12-11 20:20:19] [info] [chunk] Save Time: 0.003733
+[2024-12-11 20:20:19] [info] [map] Saved Chunk: -2
+[2024-12-11 20:20:19] [info] [chunk] Saved Chunk: -1 to D:\projects\ykdzy\saves\gyxqqq\chunk-1.chunk
+[2024-12-11 20:20:19] [info] [chunk] Save Time: 0.003617
+[2024-12-11 20:20:19] [info] [map] Saved Chunk: -1
+[2024-12-11 20:20:19] [info] [chunk] Saved Chunk: 0 to D:\projects\ykdzy\saves\gyxqqq\chunk0.chunk
+[2024-12-11 20:20:19] [info] [chunk] Save Time: 0.003550
+[2024-12-11 20:20:19] [info] [map] Saved Chunk: 0
+[2024-12-11 20:20:19] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\saves\gyxqqq\chunk1.chunk
+[2024-12-11 20:20:19] [info] [chunk] Save Time: 0.004866
+[2024-12-11 20:20:19] [info] [map] Saved Chunk: 1
+[2024-12-11 20:20:19] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\saves\gyxqqq\chunk2.chunk
+[2024-12-11 20:20:19] [info] [chunk] Save Time: 0.004406
+[2024-12-11 20:20:19] [info] [map] Saved Chunk: 2
+[2024-12-11 20:20:19] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\saves\gyxqqq\chunk3.chunk
+[2024-12-11 20:20:19] [info] [chunk] Save Time: 0.004240
+[2024-12-11 20:20:19] [info] [map] Saved Chunk: 3
+[2024-12-11 20:20:19] [info] [player] Player Saved: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:20:19] [info] [game save] Saving Player: 00000.player
+[2024-12-11 20:20:19] [info] [game save] Player x: -26.999990 y: 43.498787
+[2024-12-11 20:20:19] [info] [assets] Loading Block Textures: D:\projects\ykdzy\assets\blocks\blockconfig.json
+[2024-12-11 20:20:19] [info] [assets] Texture Path: D:\projects\ykdzy\assets\blocks\
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_AIR path: D:\projects\ykdzy\assets\blocks\sky.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_DIRT path: D:\projects\ykdzy\assets\blocks\dirt.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_GRASS path: D:\projects\ykdzy\assets\blocks\grass_block_side.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_STONE path: D:\projects\ykdzy\assets\blocks\stone.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_WOOD path: D:\projects\ykdzy\assets\blocks\birch_log.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_LEAVES path: D:\projects\ykdzy\assets\blocks\azalea_leaves.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_WATER path: D:\projects\ykdzy\assets\blocks\underwater.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_SAND path: D:\projects\ykdzy\assets\blocks\sand.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_CACTUS path: D:\projects\ykdzy\assets\blocks\cactus_side.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_SNOW path: D:\projects\ykdzy\assets\blocks\snow.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_ICE path: D:\projects\ykdzy\assets\blocks\ice.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_COAL path: D:\projects\ykdzy\assets\blocks\coal_ore.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_IRON path: D:\projects\ykdzy\assets\blocks\iron_ore.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_GOLD path: D:\projects\ykdzy\assets\blocks\gold_ore.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_DIAMOND path: D:\projects\ykdzy\assets\blocks\diamond_ore.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_EMERALD path: D:\projects\ykdzy\assets\blocks\emerald_ore.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_COPPER path: D:\projects\ykdzy\assets\blocks\copper_ore.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_VOID path: D:\projects\ykdzy\assets\blocks\end_sky.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_BEDROCK path: D:\projects\ykdzy\assets\blocks\bedrock.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_CHEST path: D:\projects\ykdzy\assets\blocks\barrel_top.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_FURNACE path: D:\projects\ykdzy\assets\blocks\furnace_front.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_CRAFTING_TABLE path: D:\projects\ykdzy\assets\blocks\crafting_table_front.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_ANVIL path: D:\projects\ykdzy\assets\blocks\anvil.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_ENCHANTING_TABLE path: D:\projects\ykdzy\assets\blocks\enchanting_table_side.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_BEACON path: D:\projects\ykdzy\assets\blocks\beacon.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_TORCH path: D:\projects\ykdzy\assets\blocks\torch.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_LANTERN path: D:\projects\ykdzy\assets\blocks\jack_o_lantern.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_BED path: D:\projects\ykdzy\assets\blocks\bed_feet_end.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_CAKE path: D:\projects\ykdzy\assets\blocks\cake_side.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_FLOWER path: D:\projects\ykdzy\assets\blocks\potted_flowering_azalea_bush_plant.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_SAPLING path: D:\projects\ykdzy\assets\blocks\potted_flowering_azalea_bush_plant.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_LOG path: D:\projects\ykdzy\assets\blocks\birch_log.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_MUSHROOM path: D:\projects\ykdzy\assets\blocks\brown_mushroom.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Block Texture: BLOCK_GLASS path: D:\projects\ykdzy\assets\blocks\glass.png
+[2024-12-11 20:20:19] [info] [assets] Loading Player Textures: D:\projects\ykdzy\assets\player\playerconfig.json
+[2024-12-11 20:20:19] [info] [assets] Loaded Player Textures
+[2024-12-11 20:20:19] [info] [assets] Loading Const Textures: D:\projects\ykdzy\assets\const\
+[2024-12-11 20:20:19] [info] [assets] Loading Item Textures: D:\projects\ykdzy\assets\items\itemconfig.json
+[2024-12-11 20:20:19] [info] [assets] Texture Path: D:\projects\ykdzy\assets\items\
+[2024-12-11 20:20:19] [info] [assets] Loaded Item Texture: ITEM_AIR path: D:\projects\ykdzy\assets\items\miss.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Item Texture: ITEM_STICK path: D:\projects\ykdzy\assets\items\stick.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Item Texture: ITEM_WOOD path: D:\projects\ykdzy\assets\items\planks.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Item Texture: ITEM_COAL path: D:\projects\ykdzy\assets\items\coal.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Item Texture: ITEM_RAW_IRON path: D:\projects\ykdzy\assets\items\raw_iron.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Item Texture: ITEM_RAW_GOLD path: D:\projects\ykdzy\assets\items\raw_gold.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Item Texture: ITEM_DIAMOND path: D:\projects\ykdzy\assets\items\diamond.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Item Texture: ITEM_DIRT path: D:\projects\ykdzy\assets\items\dirt.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Item Texture: ITEM_LOG path: D:\projects\ykdzy\assets\items\log.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Item Texture: ITEM_LEAVES path: D:\projects\ykdzy\assets\items\azalea_leaves.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Item Texture: ITEM_APPLE path: D:\projects\ykdzy\assets\items\apple.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Item Texture: ITEM_SAPLING path: D:\projects\ykdzy\assets\items\oak_sapling.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Item Texture: ITEM_TORCH path: D:\projects\ykdzy\assets\items\torch.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Item Texture: ITEM_SWORDW path: D:\projects\ykdzy\assets\items\wooden_sword.png
+[2024-12-11 20:20:19] [info] [assets] Loaded Item Texture: ITEM_PICKAXE path: D:\projects\ykdzy\assets\items\wooden_pickaxe.png
+[2024-12-11 20:20:19] [info] [render] Initializing Render
+[2024-12-11 20:20:20] [info] [render] Render Initialized
+[2024-12-11 20:20:46] [info] [game] Saving Game
+[2024-12-11 20:20:46] [info] [chunk] Saved Chunk: -4 to D:\projects\ykdzy\saves\gyxqqq\chunk-4.chunk
+[2024-12-11 20:20:46] [info] [chunk] Save Time: 0.003379
+[2024-12-11 20:20:46] [info] [map] Saved Chunk: -4
+[2024-12-11 20:20:46] [info] [chunk] Saved Chunk: -3 to D:\projects\ykdzy\saves\gyxqqq\chunk-3.chunk
+[2024-12-11 20:20:46] [info] [chunk] Save Time: 0.003451
+[2024-12-11 20:20:46] [info] [map] Saved Chunk: -3
+[2024-12-11 20:20:46] [info] [chunk] Saved Chunk: -2 to D:\projects\ykdzy\saves\gyxqqq\chunk-2.chunk
+[2024-12-11 20:20:46] [info] [chunk] Save Time: 0.003370
+[2024-12-11 20:20:46] [info] [map] Saved Chunk: -2
+[2024-12-11 20:20:46] [info] [chunk] Saved Chunk: -1 to D:\projects\ykdzy\saves\gyxqqq\chunk-1.chunk
+[2024-12-11 20:20:46] [info] [chunk] Save Time: 0.003766
+[2024-12-11 20:20:46] [info] [map] Saved Chunk: -1
+[2024-12-11 20:20:46] [info] [chunk] Saved Chunk: 0 to D:\projects\ykdzy\saves\gyxqqq\chunk0.chunk
+[2024-12-11 20:20:46] [info] [chunk] Save Time: 0.003465
+[2024-12-11 20:20:46] [info] [map] Saved Chunk: 0
+[2024-12-11 20:20:46] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\saves\gyxqqq\chunk1.chunk
+[2024-12-11 20:20:46] [info] [chunk] Save Time: 0.003533
+[2024-12-11 20:20:46] [info] [map] Saved Chunk: 1
+[2024-12-11 20:20:46] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\saves\gyxqqq\chunk2.chunk
+[2024-12-11 20:20:46] [info] [chunk] Save Time: 0.004271
+[2024-12-11 20:20:46] [info] [map] Saved Chunk: 2
+[2024-12-11 20:20:46] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\saves\gyxqqq\chunk3.chunk
+[2024-12-11 20:20:46] [info] [chunk] Save Time: 0.003428
+[2024-12-11 20:20:46] [info] [map] Saved Chunk: 3
+[2024-12-11 20:20:46] [info] [player] Player Saved: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:20:46] [info] [game save] Saving Player: 00000.player
+[2024-12-11 20:20:46] [info] [game save] Player x: -26.999990 y: 43.498787
+[2024-12-11 20:20:46] [info] [main] Game Loaded
+[2024-12-11 20:21:34] [info] [main] Hello, world!
+[2024-12-11 20:21:34] [info] [craft log] start Log
+[2024-12-11 20:21:34] [info] [craft log] craft_table len: 4
+[2024-12-11 20:21:34] [info] [craft log] craft_table[0]: 
+[2024-12-11 20:21:34] [info] [craft log] items: 
+[2024-12-11 20:21:34] [info] [craft log] need_count: 2
+[2024-12-11 20:21:34] [info] [craft log] type: 1 count: 1
+[2024-12-11 20:21:34] [info] [craft log] type: 3 count: 1
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] result: type: 27 count: 4
+[2024-12-11 20:21:34] [info] [craft log] craft_table[1]: 
+[2024-12-11 20:21:34] [info] [craft log] items: 
+[2024-12-11 20:21:34] [info] [craft log] need_count: 1
+[2024-12-11 20:21:34] [info] [craft log] type: 21 count: 1
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] result: type: 2 count: 4
+[2024-12-11 20:21:34] [info] [craft log] craft_table[2]: 
+[2024-12-11 20:21:34] [info] [craft log] items: 
+[2024-12-11 20:21:34] [info] [craft log] need_count: 2
+[2024-12-11 20:21:34] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] result: type: 1 count: 4
+[2024-12-11 20:21:34] [info] [craft log] craft_table[3]: 
+[2024-12-11 20:21:34] [info] [craft log] items: 
+[2024-12-11 20:21:34] [info] [craft log] need_count: 3
+[2024-12-11 20:21:34] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:21:34] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 1 count: 1
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:21:34] [info] [craft log] result: type: 29 count: 1
+[2024-12-11 20:21:34] [info] [structure] Initializing structures
+[2024-12-11 20:21:34] [info] [structure] Loaded DLL D:\projects\ykdzy\mods\testmod\libtestmod.dll
+[2024-12-11 20:21:34] [info] [structure] Loaded structure func [test_fun]
+[2024-12-11 20:21:34] [info] [structure] Set log func for [test_fun]
+[2024-12-11 20:21:34] [info] [structure] Loaded DLL D:\projects\ykdzy\mods\tree_gen\testmod.dll
+[2024-12-11 20:21:34] [info] [structure] Loaded structure func [test_fun]
+[2024-12-11 20:21:34] [error] [structure] Failed to get set_log_func address
+[2024-12-11 20:21:34] [error] [structure] Error code: 183
+[2024-12-11 20:21:34] [info] [game loader] Loading Game: D:\projects\ykdzy\saves\gyxqqq\game.json
+[2024-12-11 20:21:34] [info] [game loader] File size: 125
+[2024-12-11 20:21:34] [info] [game loader] get Seed: 1733918269
+[2024-12-11 20:21:34] [info] [game loader] get Time: 716
+[2024-12-11 20:21:34] [info] [game loader] get Savepath: D:\projects\ykdzy\saves\gyxqqq\
+[2024-12-11 20:21:34] [info] [map] Loading Map: D:\projects\ykdzy\saves\gyxqqq\
+[2024-12-11 20:21:34] [info] [game loader] Loading Player: 00000.player
+[2024-12-11 20:21:34] [info] [player] Loading Player: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:21:34] [info] [player] Player Loaded: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:21:34] [info] [map chunk loader] loading Chunk: -4
+[2024-12-11 20:21:34] [info] [chunk] File size: 524312
+[2024-12-11 20:21:34] [info] [game loader] Loading Chunk: -4
+[2024-12-11 20:21:34] [info] [map chunk loader] loading Chunk: -3
+[2024-12-11 20:21:34] [info] [chunk] File size: 524312
+[2024-12-11 20:21:34] [info] [game loader] Loading Chunk: -3
+[2024-12-11 20:21:34] [info] [map chunk loader] loading Chunk: -2
+[2024-12-11 20:21:34] [info] [chunk] File size: 524312
+[2024-12-11 20:21:34] [info] [game loader] Loading Chunk: -2
+[2024-12-11 20:21:34] [info] [map chunk loader] loading Chunk: -1
+[2024-12-11 20:21:34] [info] [chunk] File size: 524312
+[2024-12-11 20:21:34] [info] [game loader] Loading Chunk: -1
+[2024-12-11 20:21:34] [info] [map chunk loader] loading Chunk: 0
+[2024-12-11 20:21:34] [info] [chunk] File size: 524312
+[2024-12-11 20:21:34] [info] [game loader] Loading Chunk: 0
+[2024-12-11 20:21:34] [info] [map chunk loader] loading Chunk: 1
+[2024-12-11 20:21:34] [info] [chunk] File size: 524312
+[2024-12-11 20:21:34] [info] [game loader] Loading Chunk: 1
+[2024-12-11 20:21:34] [info] [map chunk loader] loading Chunk: 2
+[2024-12-11 20:21:34] [info] [chunk] File size: 524312
+[2024-12-11 20:21:34] [info] [game loader] Loading Chunk: 2
+[2024-12-11 20:21:34] [info] [map chunk loader] loading Chunk: 3
+[2024-12-11 20:21:34] [info] [chunk] File size: 524312
+[2024-12-11 20:21:34] [info] [game loader] Loading Chunk: 3
+[2024-12-11 20:21:34] [info] [game] Saving Game
+[2024-12-11 20:21:34] [info] [chunk] Saved Chunk: -4 to D:\projects\ykdzy\saves\gyxqqq\chunk-4.chunk
+[2024-12-11 20:21:34] [info] [chunk] Save Time: 0.004197
+[2024-12-11 20:21:34] [info] [map] Saved Chunk: -4
+[2024-12-11 20:21:34] [info] [chunk] Saved Chunk: -3 to D:\projects\ykdzy\saves\gyxqqq\chunk-3.chunk
+[2024-12-11 20:21:34] [info] [chunk] Save Time: 0.004529
+[2024-12-11 20:21:34] [info] [map] Saved Chunk: -3
+[2024-12-11 20:21:34] [info] [chunk] Saved Chunk: -2 to D:\projects\ykdzy\saves\gyxqqq\chunk-2.chunk
+[2024-12-11 20:21:34] [info] [chunk] Save Time: 0.004148
+[2024-12-11 20:21:34] [info] [map] Saved Chunk: -2
+[2024-12-11 20:21:34] [info] [chunk] Saved Chunk: -1 to D:\projects\ykdzy\saves\gyxqqq\chunk-1.chunk
+[2024-12-11 20:21:34] [info] [chunk] Save Time: 0.003984
+[2024-12-11 20:21:34] [info] [map] Saved Chunk: -1
+[2024-12-11 20:21:34] [info] [chunk] Saved Chunk: 0 to D:\projects\ykdzy\saves\gyxqqq\chunk0.chunk
+[2024-12-11 20:21:34] [info] [chunk] Save Time: 0.004921
+[2024-12-11 20:21:34] [info] [map] Saved Chunk: 0
+[2024-12-11 20:21:34] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\saves\gyxqqq\chunk1.chunk
+[2024-12-11 20:21:34] [info] [chunk] Save Time: 0.004786
+[2024-12-11 20:21:34] [info] [map] Saved Chunk: 1
+[2024-12-11 20:21:34] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\saves\gyxqqq\chunk2.chunk
+[2024-12-11 20:21:34] [info] [chunk] Save Time: 0.005385
+[2024-12-11 20:21:34] [info] [map] Saved Chunk: 2
+[2024-12-11 20:21:34] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\saves\gyxqqq\chunk3.chunk
+[2024-12-11 20:21:34] [info] [chunk] Save Time: 0.004089
+[2024-12-11 20:21:34] [info] [map] Saved Chunk: 3
+[2024-12-11 20:21:34] [info] [player] Player Saved: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:21:34] [info] [game save] Saving Player: 00000.player
+[2024-12-11 20:21:34] [info] [game save] Player x: -26.999990 y: 43.498787
+[2024-12-11 20:21:34] [info] [assets] Loading Block Textures: D:\projects\ykdzy\assets\blocks\blockconfig.json
+[2024-12-11 20:21:34] [info] [assets] Texture Path: D:\projects\ykdzy\assets\blocks\
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_AIR path: D:\projects\ykdzy\assets\blocks\sky.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_DIRT path: D:\projects\ykdzy\assets\blocks\dirt.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_GRASS path: D:\projects\ykdzy\assets\blocks\grass_block_side.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_STONE path: D:\projects\ykdzy\assets\blocks\stone.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_WOOD path: D:\projects\ykdzy\assets\blocks\birch_log.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_LEAVES path: D:\projects\ykdzy\assets\blocks\azalea_leaves.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_WATER path: D:\projects\ykdzy\assets\blocks\underwater.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_SAND path: D:\projects\ykdzy\assets\blocks\sand.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_CACTUS path: D:\projects\ykdzy\assets\blocks\cactus_side.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_SNOW path: D:\projects\ykdzy\assets\blocks\snow.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_ICE path: D:\projects\ykdzy\assets\blocks\ice.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_COAL path: D:\projects\ykdzy\assets\blocks\coal_ore.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_IRON path: D:\projects\ykdzy\assets\blocks\iron_ore.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_GOLD path: D:\projects\ykdzy\assets\blocks\gold_ore.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_DIAMOND path: D:\projects\ykdzy\assets\blocks\diamond_ore.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_EMERALD path: D:\projects\ykdzy\assets\blocks\emerald_ore.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_COPPER path: D:\projects\ykdzy\assets\blocks\copper_ore.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_VOID path: D:\projects\ykdzy\assets\blocks\end_sky.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_BEDROCK path: D:\projects\ykdzy\assets\blocks\bedrock.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_CHEST path: D:\projects\ykdzy\assets\blocks\barrel_top.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_FURNACE path: D:\projects\ykdzy\assets\blocks\furnace_front.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_CRAFTING_TABLE path: D:\projects\ykdzy\assets\blocks\crafting_table_front.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_ANVIL path: D:\projects\ykdzy\assets\blocks\anvil.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_ENCHANTING_TABLE path: D:\projects\ykdzy\assets\blocks\enchanting_table_side.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_BEACON path: D:\projects\ykdzy\assets\blocks\beacon.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_TORCH path: D:\projects\ykdzy\assets\blocks\torch.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_LANTERN path: D:\projects\ykdzy\assets\blocks\jack_o_lantern.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_BED path: D:\projects\ykdzy\assets\blocks\bed_feet_end.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_CAKE path: D:\projects\ykdzy\assets\blocks\cake_side.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_FLOWER path: D:\projects\ykdzy\assets\blocks\potted_flowering_azalea_bush_plant.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_SAPLING path: D:\projects\ykdzy\assets\blocks\potted_flowering_azalea_bush_plant.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_LOG path: D:\projects\ykdzy\assets\blocks\birch_log.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_MUSHROOM path: D:\projects\ykdzy\assets\blocks\brown_mushroom.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Block Texture: BLOCK_GLASS path: D:\projects\ykdzy\assets\blocks\glass.png
+[2024-12-11 20:21:34] [info] [assets] Loading Player Textures: D:\projects\ykdzy\assets\player\playerconfig.json
+[2024-12-11 20:21:34] [info] [assets] Loaded Player Textures
+[2024-12-11 20:21:34] [info] [assets] Loading Const Textures: D:\projects\ykdzy\assets\const\
+[2024-12-11 20:21:34] [info] [assets] Loading Item Textures: D:\projects\ykdzy\assets\items\itemconfig.json
+[2024-12-11 20:21:34] [info] [assets] Texture Path: D:\projects\ykdzy\assets\items\
+[2024-12-11 20:21:34] [info] [assets] Loaded Item Texture: ITEM_AIR path: D:\projects\ykdzy\assets\items\miss.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Item Texture: ITEM_STICK path: D:\projects\ykdzy\assets\items\stick.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Item Texture: ITEM_WOOD path: D:\projects\ykdzy\assets\items\planks.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Item Texture: ITEM_COAL path: D:\projects\ykdzy\assets\items\coal.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Item Texture: ITEM_RAW_IRON path: D:\projects\ykdzy\assets\items\raw_iron.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Item Texture: ITEM_RAW_GOLD path: D:\projects\ykdzy\assets\items\raw_gold.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Item Texture: ITEM_DIAMOND path: D:\projects\ykdzy\assets\items\diamond.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Item Texture: ITEM_DIRT path: D:\projects\ykdzy\assets\items\dirt.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Item Texture: ITEM_LOG path: D:\projects\ykdzy\assets\items\log.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Item Texture: ITEM_LEAVES path: D:\projects\ykdzy\assets\items\azalea_leaves.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Item Texture: ITEM_APPLE path: D:\projects\ykdzy\assets\items\apple.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Item Texture: ITEM_SAPLING path: D:\projects\ykdzy\assets\items\oak_sapling.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Item Texture: ITEM_TORCH path: D:\projects\ykdzy\assets\items\torch.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Item Texture: ITEM_SWORDW path: D:\projects\ykdzy\assets\items\wooden_sword.png
+[2024-12-11 20:21:34] [info] [assets] Loaded Item Texture: ITEM_PICKAXE path: D:\projects\ykdzy\assets\items\wooden_pickaxe.png
+[2024-12-11 20:21:34] [info] [render] Initializing Render
+[2024-12-11 20:21:34] [info] [render] Render Initialized
+[2024-12-11 20:23:52] [info] [game] Saving Game
+[2024-12-11 20:23:52] [info] [chunk] Saved Chunk: -4 to D:\projects\ykdzy\saves\gyxqqq\chunk-4.chunk
+[2024-12-11 20:23:52] [info] [chunk] Save Time: 0.003667
+[2024-12-11 20:23:52] [info] [map] Saved Chunk: -4
+[2024-12-11 20:23:52] [info] [chunk] Saved Chunk: -3 to D:\projects\ykdzy\saves\gyxqqq\chunk-3.chunk
+[2024-12-11 20:23:52] [info] [chunk] Save Time: 0.003670
+[2024-12-11 20:23:52] [info] [map] Saved Chunk: -3
+[2024-12-11 20:23:52] [info] [chunk] Saved Chunk: -2 to D:\projects\ykdzy\saves\gyxqqq\chunk-2.chunk
+[2024-12-11 20:23:52] [info] [chunk] Save Time: 0.003991
+[2024-12-11 20:23:52] [info] [map] Saved Chunk: -2
+[2024-12-11 20:23:52] [info] [chunk] Saved Chunk: -1 to D:\projects\ykdzy\saves\gyxqqq\chunk-1.chunk
+[2024-12-11 20:23:52] [info] [chunk] Save Time: 0.004950
+[2024-12-11 20:23:52] [info] [map] Saved Chunk: -1
+[2024-12-11 20:23:52] [info] [chunk] Saved Chunk: 0 to D:\projects\ykdzy\saves\gyxqqq\chunk0.chunk
+[2024-12-11 20:23:52] [info] [chunk] Save Time: 0.005881
+[2024-12-11 20:23:52] [info] [map] Saved Chunk: 0
+[2024-12-11 20:23:52] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\saves\gyxqqq\chunk1.chunk
+[2024-12-11 20:23:52] [info] [chunk] Save Time: 0.005152
+[2024-12-11 20:23:52] [info] [map] Saved Chunk: 1
+[2024-12-11 20:23:52] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\saves\gyxqqq\chunk2.chunk
+[2024-12-11 20:23:52] [info] [chunk] Save Time: 0.005412
+[2024-12-11 20:23:52] [info] [map] Saved Chunk: 2
+[2024-12-11 20:23:52] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\saves\gyxqqq\chunk3.chunk
+[2024-12-11 20:23:52] [info] [chunk] Save Time: 0.004394
+[2024-12-11 20:23:52] [info] [map] Saved Chunk: 3
+[2024-12-11 20:23:52] [info] [player] Player Saved: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:23:52] [info] [game save] Saving Player: 00000.player
+[2024-12-11 20:23:52] [info] [game save] Player x: -26.999990 y: 43.498787
+[2024-12-11 20:23:52] [info] [main] Game Loaded
+[2024-12-11 20:24:24] [info] [main] Hello, world!
+[2024-12-11 20:24:24] [info] [craft log] start Log
+[2024-12-11 20:24:24] [info] [craft log] craft_table len: 4
+[2024-12-11 20:24:24] [info] [craft log] craft_table[0]: 
+[2024-12-11 20:24:24] [info] [craft log] items: 
+[2024-12-11 20:24:24] [info] [craft log] need_count: 2
+[2024-12-11 20:24:24] [info] [craft log] type: 1 count: 1
+[2024-12-11 20:24:24] [info] [craft log] type: 3 count: 1
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] result: type: 27 count: 4
+[2024-12-11 20:24:24] [info] [craft log] craft_table[1]: 
+[2024-12-11 20:24:24] [info] [craft log] items: 
+[2024-12-11 20:24:24] [info] [craft log] need_count: 1
+[2024-12-11 20:24:24] [info] [craft log] type: 21 count: 1
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] result: type: 2 count: 4
+[2024-12-11 20:24:24] [info] [craft log] craft_table[2]: 
+[2024-12-11 20:24:24] [info] [craft log] items: 
+[2024-12-11 20:24:24] [info] [craft log] need_count: 2
+[2024-12-11 20:24:24] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] result: type: 1 count: 4
+[2024-12-11 20:24:24] [info] [craft log] craft_table[3]: 
+[2024-12-11 20:24:24] [info] [craft log] items: 
+[2024-12-11 20:24:24] [info] [craft log] need_count: 3
+[2024-12-11 20:24:24] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:24:24] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 1 count: 1
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:24:24] [info] [craft log] result: type: 29 count: 1
+[2024-12-11 20:24:24] [info] [structure] Initializing structures
+[2024-12-11 20:24:24] [info] [structure] Loaded DLL D:\projects\ykdzy\mods\testmod\libtestmod.dll
+[2024-12-11 20:24:24] [info] [structure] Loaded structure func [test_fun]
+[2024-12-11 20:24:24] [info] [structure] Set log func for [test_fun]
+[2024-12-11 20:24:24] [info] [structure] Loaded DLL D:\projects\ykdzy\mods\tree_gen\testmod.dll
+[2024-12-11 20:24:24] [info] [structure] Loaded structure func [test_fun]
+[2024-12-11 20:24:24] [error] [structure] Failed to get set_log_func address
+[2024-12-11 20:24:24] [error] [structure] Error code: 183
+[2024-12-11 20:24:24] [info] [game loader] Loading Game: D:\projects\ykdzy\saves\gyxqqq\game.json
+[2024-12-11 20:24:24] [info] [game loader] File size: 125
+[2024-12-11 20:24:24] [info] [game loader] get Seed: 1733918269
+[2024-12-11 20:24:24] [info] [game loader] get Time: 728
+[2024-12-11 20:24:24] [info] [game loader] get Savepath: D:\projects\ykdzy\saves\gyxqqq\
+[2024-12-11 20:24:24] [info] [map] Loading Map: D:\projects\ykdzy\saves\gyxqqq\
+[2024-12-11 20:24:24] [info] [game loader] Loading Player: 00000.player
+[2024-12-11 20:24:24] [info] [player] Loading Player: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:24:24] [info] [player] Player Loaded: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:24:24] [info] [map chunk loader] loading Chunk: -4
+[2024-12-11 20:24:24] [info] [chunk] File size: 524312
+[2024-12-11 20:24:24] [info] [game loader] Loading Chunk: -4
+[2024-12-11 20:24:24] [info] [map chunk loader] loading Chunk: -3
+[2024-12-11 20:24:24] [info] [chunk] File size: 524312
+[2024-12-11 20:24:24] [info] [game loader] Loading Chunk: -3
+[2024-12-11 20:24:24] [info] [map chunk loader] loading Chunk: -2
+[2024-12-11 20:24:24] [info] [chunk] File size: 524312
+[2024-12-11 20:24:24] [info] [game loader] Loading Chunk: -2
+[2024-12-11 20:24:24] [info] [map chunk loader] loading Chunk: -1
+[2024-12-11 20:24:24] [info] [chunk] File size: 524312
+[2024-12-11 20:24:24] [info] [game loader] Loading Chunk: -1
+[2024-12-11 20:24:24] [info] [map chunk loader] loading Chunk: 0
+[2024-12-11 20:24:24] [info] [chunk] File size: 524312
+[2024-12-11 20:24:24] [info] [game loader] Loading Chunk: 0
+[2024-12-11 20:24:24] [info] [map chunk loader] loading Chunk: 1
+[2024-12-11 20:24:24] [info] [chunk] File size: 524312
+[2024-12-11 20:24:24] [info] [game loader] Loading Chunk: 1
+[2024-12-11 20:24:24] [info] [map chunk loader] loading Chunk: 2
+[2024-12-11 20:24:24] [info] [chunk] File size: 524312
+[2024-12-11 20:24:24] [info] [game loader] Loading Chunk: 2
+[2024-12-11 20:24:24] [info] [map chunk loader] loading Chunk: 3
+[2024-12-11 20:24:24] [info] [chunk] File size: 524312
+[2024-12-11 20:24:24] [info] [game loader] Loading Chunk: 3
+[2024-12-11 20:24:24] [info] [game] Saving Game
+[2024-12-11 20:24:24] [info] [chunk] Saved Chunk: -4 to D:\projects\ykdzy\saves\gyxqqq\chunk-4.chunk
+[2024-12-11 20:24:24] [info] [chunk] Save Time: 0.003387
+[2024-12-11 20:24:24] [info] [map] Saved Chunk: -4
+[2024-12-11 20:24:24] [info] [chunk] Saved Chunk: -3 to D:\projects\ykdzy\saves\gyxqqq\chunk-3.chunk
+[2024-12-11 20:24:24] [info] [chunk] Save Time: 0.003369
+[2024-12-11 20:24:24] [info] [map] Saved Chunk: -3
+[2024-12-11 20:24:24] [info] [chunk] Saved Chunk: -2 to D:\projects\ykdzy\saves\gyxqqq\chunk-2.chunk
+[2024-12-11 20:24:24] [info] [chunk] Save Time: 0.003421
+[2024-12-11 20:24:24] [info] [map] Saved Chunk: -2
+[2024-12-11 20:24:24] [info] [chunk] Saved Chunk: -1 to D:\projects\ykdzy\saves\gyxqqq\chunk-1.chunk
+[2024-12-11 20:24:24] [info] [chunk] Save Time: 0.003736
+[2024-12-11 20:24:24] [info] [map] Saved Chunk: -1
+[2024-12-11 20:24:24] [info] [chunk] Saved Chunk: 0 to D:\projects\ykdzy\saves\gyxqqq\chunk0.chunk
+[2024-12-11 20:24:24] [info] [chunk] Save Time: 0.003565
+[2024-12-11 20:24:24] [info] [map] Saved Chunk: 0
+[2024-12-11 20:24:24] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\saves\gyxqqq\chunk1.chunk
+[2024-12-11 20:24:24] [info] [chunk] Save Time: 0.003602
+[2024-12-11 20:24:24] [info] [map] Saved Chunk: 1
+[2024-12-11 20:24:24] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\saves\gyxqqq\chunk2.chunk
+[2024-12-11 20:24:24] [info] [chunk] Save Time: 0.003588
+[2024-12-11 20:24:24] [info] [map] Saved Chunk: 2
+[2024-12-11 20:24:24] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\saves\gyxqqq\chunk3.chunk
+[2024-12-11 20:24:24] [info] [chunk] Save Time: 0.003633
+[2024-12-11 20:24:24] [info] [map] Saved Chunk: 3
+[2024-12-11 20:24:24] [info] [player] Player Saved: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:24:24] [info] [game save] Saving Player: 00000.player
+[2024-12-11 20:24:24] [info] [game save] Player x: -26.999990 y: 43.498787
+[2024-12-11 20:24:24] [info] [assets] Loading Block Textures: D:\projects\ykdzy\assets\blocks\blockconfig.json
+[2024-12-11 20:24:24] [info] [assets] Texture Path: D:\projects\ykdzy\assets\blocks\
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_AIR path: D:\projects\ykdzy\assets\blocks\sky.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_DIRT path: D:\projects\ykdzy\assets\blocks\dirt.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_GRASS path: D:\projects\ykdzy\assets\blocks\grass_block_side.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_STONE path: D:\projects\ykdzy\assets\blocks\stone.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_WOOD path: D:\projects\ykdzy\assets\blocks\birch_log.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_LEAVES path: D:\projects\ykdzy\assets\blocks\azalea_leaves.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_WATER path: D:\projects\ykdzy\assets\blocks\underwater.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_SAND path: D:\projects\ykdzy\assets\blocks\sand.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_CACTUS path: D:\projects\ykdzy\assets\blocks\cactus_side.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_SNOW path: D:\projects\ykdzy\assets\blocks\snow.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_ICE path: D:\projects\ykdzy\assets\blocks\ice.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_COAL path: D:\projects\ykdzy\assets\blocks\coal_ore.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_IRON path: D:\projects\ykdzy\assets\blocks\iron_ore.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_GOLD path: D:\projects\ykdzy\assets\blocks\gold_ore.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_DIAMOND path: D:\projects\ykdzy\assets\blocks\diamond_ore.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_EMERALD path: D:\projects\ykdzy\assets\blocks\emerald_ore.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_COPPER path: D:\projects\ykdzy\assets\blocks\copper_ore.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_VOID path: D:\projects\ykdzy\assets\blocks\end_sky.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_BEDROCK path: D:\projects\ykdzy\assets\blocks\bedrock.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_CHEST path: D:\projects\ykdzy\assets\blocks\barrel_top.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_FURNACE path: D:\projects\ykdzy\assets\blocks\furnace_front.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_CRAFTING_TABLE path: D:\projects\ykdzy\assets\blocks\crafting_table_front.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_ANVIL path: D:\projects\ykdzy\assets\blocks\anvil.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_ENCHANTING_TABLE path: D:\projects\ykdzy\assets\blocks\enchanting_table_side.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_BEACON path: D:\projects\ykdzy\assets\blocks\beacon.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_TORCH path: D:\projects\ykdzy\assets\blocks\torch.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_LANTERN path: D:\projects\ykdzy\assets\blocks\jack_o_lantern.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_BED path: D:\projects\ykdzy\assets\blocks\bed_feet_end.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_CAKE path: D:\projects\ykdzy\assets\blocks\cake_side.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_FLOWER path: D:\projects\ykdzy\assets\blocks\potted_flowering_azalea_bush_plant.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_SAPLING path: D:\projects\ykdzy\assets\blocks\potted_flowering_azalea_bush_plant.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_LOG path: D:\projects\ykdzy\assets\blocks\birch_log.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_MUSHROOM path: D:\projects\ykdzy\assets\blocks\brown_mushroom.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Block Texture: BLOCK_GLASS path: D:\projects\ykdzy\assets\blocks\glass.png
+[2024-12-11 20:24:24] [info] [assets] Loading Player Textures: D:\projects\ykdzy\assets\player\playerconfig.json
+[2024-12-11 20:24:24] [info] [assets] Loaded Player Textures
+[2024-12-11 20:24:24] [info] [assets] Loading Const Textures: D:\projects\ykdzy\assets\const\
+[2024-12-11 20:24:24] [info] [assets] Loading Item Textures: D:\projects\ykdzy\assets\items\itemconfig.json
+[2024-12-11 20:24:24] [info] [assets] Texture Path: D:\projects\ykdzy\assets\items\
+[2024-12-11 20:24:24] [info] [assets] Loaded Item Texture: ITEM_AIR path: D:\projects\ykdzy\assets\items\miss.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Item Texture: ITEM_STICK path: D:\projects\ykdzy\assets\items\stick.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Item Texture: ITEM_WOOD path: D:\projects\ykdzy\assets\items\planks.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Item Texture: ITEM_COAL path: D:\projects\ykdzy\assets\items\coal.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Item Texture: ITEM_RAW_IRON path: D:\projects\ykdzy\assets\items\raw_iron.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Item Texture: ITEM_RAW_GOLD path: D:\projects\ykdzy\assets\items\raw_gold.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Item Texture: ITEM_DIAMOND path: D:\projects\ykdzy\assets\items\diamond.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Item Texture: ITEM_DIRT path: D:\projects\ykdzy\assets\items\dirt.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Item Texture: ITEM_LOG path: D:\projects\ykdzy\assets\items\log.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Item Texture: ITEM_LEAVES path: D:\projects\ykdzy\assets\items\azalea_leaves.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Item Texture: ITEM_APPLE path: D:\projects\ykdzy\assets\items\apple.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Item Texture: ITEM_SAPLING path: D:\projects\ykdzy\assets\items\oak_sapling.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Item Texture: ITEM_TORCH path: D:\projects\ykdzy\assets\items\torch.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Item Texture: ITEM_SWORDW path: D:\projects\ykdzy\assets\items\wooden_sword.png
+[2024-12-11 20:24:24] [info] [assets] Loaded Item Texture: ITEM_PICKAXE path: D:\projects\ykdzy\assets\items\wooden_pickaxe.png
+[2024-12-11 20:24:24] [info] [render] Initializing Render
+[2024-12-11 20:24:24] [info] [render] Render Initialized
+[2024-12-11 20:24:29] [info] [game] get item
+[2024-12-11 20:24:34] [info] [game] get item
+[2024-12-11 20:24:35] [info] [game] get item
+[2024-12-11 20:24:37] [info] [game] get item
+[2024-12-11 20:24:38] [info] [game] get item
+[2024-12-11 20:24:39] [info] [game] get item
+[2024-12-11 20:24:40] [info] [game] get item
+[2024-12-11 20:24:41] [info] [game] get item
+[2024-12-11 20:24:42] [info] [game] get item
+[2024-12-11 20:24:43] [info] [game] get item
+[2024-12-11 20:24:45] [info] [game] get item
+[2024-12-11 20:24:47] [info] [game] get item
+[2024-12-11 20:24:48] [info] [game] get item
+[2024-12-11 20:24:50] [info] [game] get item
+[2024-12-11 20:24:51] [info] [game] get item
+[2024-12-11 20:24:53] [info] [game] destroy block x: -21 y: 36
+[2024-12-11 20:24:53] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:24:54] [info] [game] destroy block x: -21 y: 35
+[2024-12-11 20:24:54] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:24:54] [info] [game] destroy block x: -21 y: 34
+[2024-12-11 20:24:54] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:24:54] [info] [game] destroy block x: -21 y: 33
+[2024-12-11 20:24:54] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:24:55] [info] [game] destroy block x: -21 y: 32
+[2024-12-11 20:24:55] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:24:59] [info] [game] destroy block x: -21 y: 31
+[2024-12-11 20:24:59] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:25:03] [info] [game] chossing item 0
+[2024-12-11 20:25:04] [info] [game] destroy block x: -17 y: 36
+[2024-12-11 20:25:04] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:25:04] [info] [game] destroy block x: -17 y: 35
+[2024-12-11 20:25:04] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:25:04] [info] [game] destroy block x: -17 y: 34
+[2024-12-11 20:25:04] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:25:05] [info] [game] destroy block x: -17 y: 33
+[2024-12-11 20:25:05] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:25:09] [info] [game] eat food
+[2024-12-11 20:25:18] [info] [game] eat food
+[2024-12-11 20:25:23] [info] [game] Saving Game
+[2024-12-11 20:25:23] [info] [chunk] Saved Chunk: -4 to D:\projects\ykdzy\saves\gyxqqq\chunk-4.chunk
+[2024-12-11 20:25:23] [info] [chunk] Save Time: 0.003307
+[2024-12-11 20:25:23] [info] [map] Saved Chunk: -4
+[2024-12-11 20:25:23] [info] [chunk] Saved Chunk: -3 to D:\projects\ykdzy\saves\gyxqqq\chunk-3.chunk
+[2024-12-11 20:25:23] [info] [chunk] Save Time: 0.003558
+[2024-12-11 20:25:23] [info] [map] Saved Chunk: -3
+[2024-12-11 20:25:23] [info] [chunk] Saved Chunk: -2 to D:\projects\ykdzy\saves\gyxqqq\chunk-2.chunk
+[2024-12-11 20:25:23] [info] [chunk] Save Time: 0.003488
+[2024-12-11 20:25:23] [info] [map] Saved Chunk: -2
+[2024-12-11 20:25:23] [info] [chunk] Saved Chunk: -1 to D:\projects\ykdzy\saves\gyxqqq\chunk-1.chunk
+[2024-12-11 20:25:23] [info] [chunk] Save Time: 0.003668
+[2024-12-11 20:25:23] [info] [map] Saved Chunk: -1
+[2024-12-11 20:25:23] [info] [chunk] Saved Chunk: 0 to D:\projects\ykdzy\saves\gyxqqq\chunk0.chunk
+[2024-12-11 20:25:23] [info] [chunk] Save Time: 0.003664
+[2024-12-11 20:25:23] [info] [map] Saved Chunk: 0
+[2024-12-11 20:25:23] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\saves\gyxqqq\chunk1.chunk
+[2024-12-11 20:25:23] [info] [chunk] Save Time: 0.004663
+[2024-12-11 20:25:23] [info] [map] Saved Chunk: 1
+[2024-12-11 20:25:23] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\saves\gyxqqq\chunk2.chunk
+[2024-12-11 20:25:23] [info] [chunk] Save Time: 0.003710
+[2024-12-11 20:25:23] [info] [map] Saved Chunk: 2
+[2024-12-11 20:25:23] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\saves\gyxqqq\chunk3.chunk
+[2024-12-11 20:25:23] [info] [chunk] Save Time: 0.003367
+[2024-12-11 20:25:23] [info] [map] Saved Chunk: 3
+[2024-12-11 20:25:23] [info] [player] Player Saved: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:25:23] [info] [game save] Saving Player: 00000.player
+[2024-12-11 20:25:23] [info] [game save] Player x: -11.899971 y: 37.398087
+[2024-12-11 20:25:23] [info] [main] Game Loaded
+[2024-12-11 20:26:53] [info] [main] Hello, world!
+[2024-12-11 20:26:53] [info] [craft log] start Log
+[2024-12-11 20:26:53] [info] [craft log] craft_table len: 4
+[2024-12-11 20:26:53] [info] [craft log] craft_table[0]: 
+[2024-12-11 20:26:53] [info] [craft log] items: 
+[2024-12-11 20:26:53] [info] [craft log] need_count: 2
+[2024-12-11 20:26:53] [info] [craft log] type: 1 count: 1
+[2024-12-11 20:26:53] [info] [craft log] type: 3 count: 1
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] result: type: 27 count: 4
+[2024-12-11 20:26:53] [info] [craft log] craft_table[1]: 
+[2024-12-11 20:26:53] [info] [craft log] items: 
+[2024-12-11 20:26:53] [info] [craft log] need_count: 1
+[2024-12-11 20:26:53] [info] [craft log] type: 21 count: 1
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] result: type: 2 count: 4
+[2024-12-11 20:26:53] [info] [craft log] craft_table[2]: 
+[2024-12-11 20:26:53] [info] [craft log] items: 
+[2024-12-11 20:26:53] [info] [craft log] need_count: 2
+[2024-12-11 20:26:53] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] result: type: 1 count: 4
+[2024-12-11 20:26:53] [info] [craft log] craft_table[3]: 
+[2024-12-11 20:26:53] [info] [craft log] items: 
+[2024-12-11 20:26:53] [info] [craft log] need_count: 3
+[2024-12-11 20:26:53] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:26:53] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 1 count: 1
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:26:53] [info] [craft log] result: type: 29 count: 1
+[2024-12-11 20:26:53] [info] [structure] Initializing structures
+[2024-12-11 20:26:53] [info] [structure] Loaded DLL D:\projects\ykdzy\mods\testmod\libtestmod.dll
+[2024-12-11 20:26:53] [info] [structure] Loaded structure func [test_fun]
+[2024-12-11 20:26:53] [info] [structure] Set log func for [test_fun]
+[2024-12-11 20:26:53] [info] [structure] Loaded DLL D:\projects\ykdzy\mods\tree_gen\testmod.dll
+[2024-12-11 20:26:53] [info] [structure] Loaded structure func [test_fun]
+[2024-12-11 20:26:53] [error] [structure] Failed to get set_log_func address
+[2024-12-11 20:26:53] [error] [structure] Error code: 183
+[2024-12-11 20:26:53] [info] [game loader] Loading Game: D:\projects\ykdzy\saves\gyxqqq\game.json
+[2024-12-11 20:26:53] [info] [game loader] File size: 125
+[2024-12-11 20:26:53] [info] [game loader] get Seed: 1733918269
+[2024-12-11 20:26:53] [info] [game loader] get Time: 786
+[2024-12-11 20:26:53] [info] [game loader] get Savepath: D:\projects\ykdzy\saves\gyxqqq\
+[2024-12-11 20:26:53] [info] [map] Loading Map: D:\projects\ykdzy\saves\gyxqqq\
+[2024-12-11 20:26:53] [info] [game loader] Loading Player: 00000.player
+[2024-12-11 20:26:53] [info] [player] Loading Player: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:26:53] [info] [player] Player Loaded: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:26:53] [info] [map chunk loader] loading Chunk: -4
+[2024-12-11 20:26:53] [info] [chunk] File size: 524312
+[2024-12-11 20:26:53] [info] [game loader] Loading Chunk: -4
+[2024-12-11 20:26:53] [info] [map chunk loader] loading Chunk: -3
+[2024-12-11 20:26:53] [info] [chunk] File size: 524312
+[2024-12-11 20:26:53] [info] [game loader] Loading Chunk: -3
+[2024-12-11 20:26:53] [info] [map chunk loader] loading Chunk: -2
+[2024-12-11 20:26:53] [info] [chunk] File size: 524312
+[2024-12-11 20:26:53] [info] [game loader] Loading Chunk: -2
+[2024-12-11 20:26:53] [info] [map chunk loader] loading Chunk: -1
+[2024-12-11 20:26:53] [info] [chunk] File size: 524312
+[2024-12-11 20:26:53] [info] [game loader] Loading Chunk: -1
+[2024-12-11 20:26:53] [info] [map chunk loader] loading Chunk: 0
+[2024-12-11 20:26:53] [info] [chunk] File size: 524312
+[2024-12-11 20:26:53] [info] [game loader] Loading Chunk: 0
+[2024-12-11 20:26:53] [info] [map chunk loader] loading Chunk: 1
+[2024-12-11 20:26:53] [info] [chunk] File size: 524312
+[2024-12-11 20:26:53] [info] [game loader] Loading Chunk: 1
+[2024-12-11 20:26:53] [info] [map chunk loader] loading Chunk: 2
+[2024-12-11 20:26:53] [info] [chunk] File size: 524312
+[2024-12-11 20:26:53] [info] [game loader] Loading Chunk: 2
+[2024-12-11 20:26:53] [info] [map chunk loader] loading Chunk: 3
+[2024-12-11 20:26:53] [info] [chunk] File size: 524312
+[2024-12-11 20:26:53] [info] [game loader] Loading Chunk: 3
+[2024-12-11 20:26:53] [info] [game] Saving Game
+[2024-12-11 20:26:53] [info] [chunk] Saved Chunk: -4 to D:\projects\ykdzy\saves\gyxqqq\chunk-4.chunk
+[2024-12-11 20:26:53] [info] [chunk] Save Time: 0.003464
+[2024-12-11 20:26:53] [info] [map] Saved Chunk: -4
+[2024-12-11 20:26:53] [info] [chunk] Saved Chunk: -3 to D:\projects\ykdzy\saves\gyxqqq\chunk-3.chunk
+[2024-12-11 20:26:53] [info] [chunk] Save Time: 0.003342
+[2024-12-11 20:26:53] [info] [map] Saved Chunk: -3
+[2024-12-11 20:26:53] [info] [chunk] Saved Chunk: -2 to D:\projects\ykdzy\saves\gyxqqq\chunk-2.chunk
+[2024-12-11 20:26:53] [info] [chunk] Save Time: 0.003512
+[2024-12-11 20:26:53] [info] [map] Saved Chunk: -2
+[2024-12-11 20:26:53] [info] [chunk] Saved Chunk: -1 to D:\projects\ykdzy\saves\gyxqqq\chunk-1.chunk
+[2024-12-11 20:26:53] [info] [chunk] Save Time: 0.003704
+[2024-12-11 20:26:53] [info] [map] Saved Chunk: -1
+[2024-12-11 20:26:53] [info] [chunk] Saved Chunk: 0 to D:\projects\ykdzy\saves\gyxqqq\chunk0.chunk
+[2024-12-11 20:26:53] [info] [chunk] Save Time: 0.003466
+[2024-12-11 20:26:53] [info] [map] Saved Chunk: 0
+[2024-12-11 20:26:53] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\saves\gyxqqq\chunk1.chunk
+[2024-12-11 20:26:53] [info] [chunk] Save Time: 0.003448
+[2024-12-11 20:26:53] [info] [map] Saved Chunk: 1
+[2024-12-11 20:26:53] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\saves\gyxqqq\chunk2.chunk
+[2024-12-11 20:26:53] [info] [chunk] Save Time: 0.003787
+[2024-12-11 20:26:53] [info] [map] Saved Chunk: 2
+[2024-12-11 20:26:53] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\saves\gyxqqq\chunk3.chunk
+[2024-12-11 20:26:53] [info] [chunk] Save Time: 0.003681
+[2024-12-11 20:26:53] [info] [map] Saved Chunk: 3
+[2024-12-11 20:26:53] [info] [player] Player Saved: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:26:53] [info] [game save] Saving Player: 00000.player
+[2024-12-11 20:26:53] [info] [game save] Player x: -11.899971 y: 37.398087
+[2024-12-11 20:26:53] [info] [assets] Loading Block Textures: D:\projects\ykdzy\assets\blocks\blockconfig.json
+[2024-12-11 20:26:53] [info] [assets] Texture Path: D:\projects\ykdzy\assets\blocks\
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_AIR path: D:\projects\ykdzy\assets\blocks\sky.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_DIRT path: D:\projects\ykdzy\assets\blocks\dirt.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_GRASS path: D:\projects\ykdzy\assets\blocks\grass_block_side.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_STONE path: D:\projects\ykdzy\assets\blocks\stone.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_WOOD path: D:\projects\ykdzy\assets\blocks\birch_log.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_LEAVES path: D:\projects\ykdzy\assets\blocks\azalea_leaves.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_WATER path: D:\projects\ykdzy\assets\blocks\underwater.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_SAND path: D:\projects\ykdzy\assets\blocks\sand.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_CACTUS path: D:\projects\ykdzy\assets\blocks\cactus_side.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_SNOW path: D:\projects\ykdzy\assets\blocks\snow.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_ICE path: D:\projects\ykdzy\assets\blocks\ice.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_COAL path: D:\projects\ykdzy\assets\blocks\coal_ore.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_IRON path: D:\projects\ykdzy\assets\blocks\iron_ore.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_GOLD path: D:\projects\ykdzy\assets\blocks\gold_ore.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_DIAMOND path: D:\projects\ykdzy\assets\blocks\diamond_ore.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_EMERALD path: D:\projects\ykdzy\assets\blocks\emerald_ore.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_COPPER path: D:\projects\ykdzy\assets\blocks\copper_ore.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_VOID path: D:\projects\ykdzy\assets\blocks\end_sky.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_BEDROCK path: D:\projects\ykdzy\assets\blocks\bedrock.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_CHEST path: D:\projects\ykdzy\assets\blocks\barrel_top.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_FURNACE path: D:\projects\ykdzy\assets\blocks\furnace_front.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_CRAFTING_TABLE path: D:\projects\ykdzy\assets\blocks\crafting_table_front.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_ANVIL path: D:\projects\ykdzy\assets\blocks\anvil.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_ENCHANTING_TABLE path: D:\projects\ykdzy\assets\blocks\enchanting_table_side.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_BEACON path: D:\projects\ykdzy\assets\blocks\beacon.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_TORCH path: D:\projects\ykdzy\assets\blocks\torch.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_LANTERN path: D:\projects\ykdzy\assets\blocks\jack_o_lantern.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_BED path: D:\projects\ykdzy\assets\blocks\bed_feet_end.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_CAKE path: D:\projects\ykdzy\assets\blocks\cake_side.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_FLOWER path: D:\projects\ykdzy\assets\blocks\potted_flowering_azalea_bush_plant.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_SAPLING path: D:\projects\ykdzy\assets\blocks\potted_flowering_azalea_bush_plant.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_LOG path: D:\projects\ykdzy\assets\blocks\birch_log.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_MUSHROOM path: D:\projects\ykdzy\assets\blocks\brown_mushroom.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Block Texture: BLOCK_GLASS path: D:\projects\ykdzy\assets\blocks\glass.png
+[2024-12-11 20:26:53] [info] [assets] Loading Player Textures: D:\projects\ykdzy\assets\player\playerconfig.json
+[2024-12-11 20:26:53] [info] [assets] Loaded Player Textures
+[2024-12-11 20:26:53] [info] [assets] Loading Const Textures: D:\projects\ykdzy\assets\const\
+[2024-12-11 20:26:53] [info] [assets] Loading Item Textures: D:\projects\ykdzy\assets\items\itemconfig.json
+[2024-12-11 20:26:53] [info] [assets] Texture Path: D:\projects\ykdzy\assets\items\
+[2024-12-11 20:26:53] [info] [assets] Loaded Item Texture: ITEM_AIR path: D:\projects\ykdzy\assets\items\miss.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Item Texture: ITEM_STICK path: D:\projects\ykdzy\assets\items\stick.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Item Texture: ITEM_WOOD path: D:\projects\ykdzy\assets\items\planks.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Item Texture: ITEM_COAL path: D:\projects\ykdzy\assets\items\coal.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Item Texture: ITEM_RAW_IRON path: D:\projects\ykdzy\assets\items\raw_iron.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Item Texture: ITEM_RAW_GOLD path: D:\projects\ykdzy\assets\items\raw_gold.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Item Texture: ITEM_DIAMOND path: D:\projects\ykdzy\assets\items\diamond.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Item Texture: ITEM_DIRT path: D:\projects\ykdzy\assets\items\dirt.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Item Texture: ITEM_LOG path: D:\projects\ykdzy\assets\items\log.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Item Texture: ITEM_LEAVES path: D:\projects\ykdzy\assets\items\azalea_leaves.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Item Texture: ITEM_APPLE path: D:\projects\ykdzy\assets\items\apple.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Item Texture: ITEM_SAPLING path: D:\projects\ykdzy\assets\items\oak_sapling.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Item Texture: ITEM_TORCH path: D:\projects\ykdzy\assets\items\torch.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Item Texture: ITEM_SWORDW path: D:\projects\ykdzy\assets\items\wooden_sword.png
+[2024-12-11 20:26:53] [info] [assets] Loaded Item Texture: ITEM_PICKAXE path: D:\projects\ykdzy\assets\items\wooden_pickaxe.png
+[2024-12-11 20:26:53] [info] [render] Initializing Render
+[2024-12-11 20:26:53] [info] [render] Render Initialized
+[2024-12-11 20:26:55] [info] [game] destroy block x: -12 y: 36
+[2024-12-11 20:26:55] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:26:56] [info] [game] destroy block x: -12 y: 35
+[2024-12-11 20:26:56] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:26:57] [info] [game] destroy block x: -12 y: 34
+[2024-12-11 20:26:57] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:00] [info] [game] destroy block x: -12 y: 33
+[2024-12-11 20:27:00] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:02] [info] [game] destroy block x: -12 y: 32
+[2024-12-11 20:27:02] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:04] [info] [game] destroy block x: -12 y: 31
+[2024-12-11 20:27:04] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:09] [info] [game] get item
+[2024-12-11 20:27:09] [info] [game] get item
+[2024-12-11 20:27:10] [info] [game] place block x: -12 y: 32
+[2024-12-11 20:27:10] [info] [game] place block x: -12 y: 33
+[2024-12-11 20:27:11] [info] [game] place block x: -12 y: 35
+[2024-12-11 20:27:11] [info] [game] place block x: -12 y: 36
+[2024-12-11 20:27:13] [info] [game] chossing item 0
+[2024-12-11 20:27:13] [info] [game] chossing item 0
+[2024-12-11 20:27:14] [info] [game] chossing item 0
+[2024-12-11 20:27:15] [info] [game] destroy block x: -19 y: 36
+[2024-12-11 20:27:15] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:15] [info] [game] destroy block x: -19 y: 35
+[2024-12-11 20:27:15] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:16] [info] [game] destroy block x: -19 y: 34
+[2024-12-11 20:27:16] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:16] [info] [game] destroy block x: -19 y: 33
+[2024-12-11 20:27:16] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:16] [info] [game] destroy block x: -20 y: 33
+[2024-12-11 20:27:16] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:17] [info] [game] destroy block x: -20 y: 32
+[2024-12-11 20:27:17] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:18] [info] [game] destroy block x: -21 y: 30
+[2024-12-11 20:27:18] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:19] [info] [game] destroy block x: -22 y: 30
+[2024-12-11 20:27:19] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:19] [info] [game] destroy block x: -23 y: 30
+[2024-12-11 20:27:19] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:19] [info] [game] destroy block x: -24 y: 30
+[2024-12-11 20:27:19] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:20] [info] [game] destroy block x: -25 y: 30
+[2024-12-11 20:27:20] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:20] [info] [game] destroy block x: -26 y: 30
+[2024-12-11 20:27:20] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:21] [info] [game] destroy block x: -27 y: 30
+[2024-12-11 20:27:21] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:21] [info] [game] destroy block x: -28 y: 30
+[2024-12-11 20:27:21] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:22] [info] [game] destroy block x: -29 y: 30
+[2024-12-11 20:27:22] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:22] [info] [game] destroy block x: -30 y: 30
+[2024-12-11 20:27:22] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:22] [info] [game] destroy block x: -31 y: 30
+[2024-12-11 20:27:22] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:23] [info] [game] destroy block x: -32 y: 30
+[2024-12-11 20:27:23] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:23] [info] [game] destroy block x: -33 y: 30
+[2024-12-11 20:27:23] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:24] [info] [game] destroy block x: -34 y: 30
+[2024-12-11 20:27:24] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:24] [info] [game] destroy block x: -35 y: 30
+[2024-12-11 20:27:24] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:25] [info] [game] destroy block x: -36 y: 30
+[2024-12-11 20:27:25] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:25] [info] [game] destroy block x: -37 y: 30
+[2024-12-11 20:27:25] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:25] [info] [game] destroy block x: -38 y: 30
+[2024-12-11 20:27:25] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:27] [info] [game] Saving Game
+[2024-12-11 20:27:27] [info] [chunk] Saved Chunk: -4 to D:\projects\ykdzy\saves\gyxqqq\chunk-4.chunk
+[2024-12-11 20:27:27] [info] [chunk] Save Time: 0.003635
+[2024-12-11 20:27:27] [info] [map] Saved Chunk: -4
+[2024-12-11 20:27:27] [info] [chunk] Saved Chunk: -3 to D:\projects\ykdzy\saves\gyxqqq\chunk-3.chunk
+[2024-12-11 20:27:27] [info] [chunk] Save Time: 0.003640
+[2024-12-11 20:27:27] [info] [map] Saved Chunk: -3
+[2024-12-11 20:27:27] [info] [chunk] Saved Chunk: -2 to D:\projects\ykdzy\saves\gyxqqq\chunk-2.chunk
+[2024-12-11 20:27:27] [info] [chunk] Save Time: 0.003552
+[2024-12-11 20:27:27] [info] [map] Saved Chunk: -2
+[2024-12-11 20:27:27] [info] [chunk] Saved Chunk: -1 to D:\projects\ykdzy\saves\gyxqqq\chunk-1.chunk
+[2024-12-11 20:27:27] [info] [chunk] Save Time: 0.003631
+[2024-12-11 20:27:27] [info] [map] Saved Chunk: -1
+[2024-12-11 20:27:27] [info] [chunk] Saved Chunk: 0 to D:\projects\ykdzy\saves\gyxqqq\chunk0.chunk
+[2024-12-11 20:27:27] [info] [chunk] Save Time: 0.003719
+[2024-12-11 20:27:27] [info] [map] Saved Chunk: 0
+[2024-12-11 20:27:27] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\saves\gyxqqq\chunk1.chunk
+[2024-12-11 20:27:28] [info] [chunk] Save Time: 0.005188
+[2024-12-11 20:27:28] [info] [map] Saved Chunk: 1
+[2024-12-11 20:27:28] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\saves\gyxqqq\chunk2.chunk
+[2024-12-11 20:27:28] [info] [chunk] Save Time: 0.003694
+[2024-12-11 20:27:28] [info] [map] Saved Chunk: 2
+[2024-12-11 20:27:28] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\saves\gyxqqq\chunk3.chunk
+[2024-12-11 20:27:28] [info] [chunk] Save Time: 0.003558
+[2024-12-11 20:27:28] [info] [map] Saved Chunk: 3
+[2024-12-11 20:27:28] [info] [player] Player Saved: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:27:28] [info] [game save] Saving Player: 00000.player
+[2024-12-11 20:27:28] [info] [game save] Player x: -37.499916 y: 30.397835
+[2024-12-11 20:27:28] [info] [main] Game Loaded
+[2024-12-11 20:27:50] [info] [main] Hello, world!
+[2024-12-11 20:27:50] [info] [craft log] start Log
+[2024-12-11 20:27:50] [info] [craft log] craft_table len: 4
+[2024-12-11 20:27:50] [info] [craft log] craft_table[0]: 
+[2024-12-11 20:27:50] [info] [craft log] items: 
+[2024-12-11 20:27:50] [info] [craft log] need_count: 2
+[2024-12-11 20:27:50] [info] [craft log] type: 1 count: 1
+[2024-12-11 20:27:50] [info] [craft log] type: 3 count: 1
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] result: type: 27 count: 4
+[2024-12-11 20:27:50] [info] [craft log] craft_table[1]: 
+[2024-12-11 20:27:50] [info] [craft log] items: 
+[2024-12-11 20:27:50] [info] [craft log] need_count: 1
+[2024-12-11 20:27:50] [info] [craft log] type: 21 count: 1
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] result: type: 2 count: 4
+[2024-12-11 20:27:50] [info] [craft log] craft_table[2]: 
+[2024-12-11 20:27:50] [info] [craft log] items: 
+[2024-12-11 20:27:50] [info] [craft log] need_count: 2
+[2024-12-11 20:27:50] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] result: type: 1 count: 4
+[2024-12-11 20:27:50] [info] [craft log] craft_table[3]: 
+[2024-12-11 20:27:50] [info] [craft log] items: 
+[2024-12-11 20:27:50] [info] [craft log] need_count: 3
+[2024-12-11 20:27:50] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:27:50] [info] [craft log] type: 2 count: 1
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 1 count: 1
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] type: 0 count: 0
+[2024-12-11 20:27:50] [info] [craft log] result: type: 29 count: 1
+[2024-12-11 20:27:50] [info] [structure] Initializing structures
+[2024-12-11 20:27:50] [info] [structure] Loaded DLL D:\projects\ykdzy\mods\testmod\libtestmod.dll
+[2024-12-11 20:27:50] [info] [structure] Loaded structure func [test_fun]
+[2024-12-11 20:27:50] [info] [structure] Set log func for [test_fun]
+[2024-12-11 20:27:50] [info] [structure] Loaded DLL D:\projects\ykdzy\mods\tree_gen\testmod.dll
+[2024-12-11 20:27:50] [info] [structure] Loaded structure func [test_fun]
+[2024-12-11 20:27:50] [error] [structure] Failed to get set_log_func address
+[2024-12-11 20:27:50] [error] [structure] Error code: 183
+[2024-12-11 20:27:50] [info] [game loader] Loading Game: D:\projects\ykdzy\saves\gyxqqq\game.json
+[2024-12-11 20:27:50] [info] [game loader] File size: 125
+[2024-12-11 20:27:50] [info] [game loader] get Seed: 1733918269
+[2024-12-11 20:27:50] [info] [game loader] get Time: 820
+[2024-12-11 20:27:50] [info] [game loader] get Savepath: D:\projects\ykdzy\saves\gyxqqq\
+[2024-12-11 20:27:50] [info] [map] Loading Map: D:\projects\ykdzy\saves\gyxqqq\
+[2024-12-11 20:27:50] [info] [game loader] Loading Player: 00000.player
+[2024-12-11 20:27:50] [info] [player] Loading Player: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:27:50] [info] [player] Player Loaded: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:27:50] [info] [map chunk loader] loading Chunk: -4
+[2024-12-11 20:27:50] [info] [chunk] File size: 524312
+[2024-12-11 20:27:50] [info] [game loader] Loading Chunk: -4
+[2024-12-11 20:27:50] [info] [map chunk loader] loading Chunk: -3
+[2024-12-11 20:27:50] [info] [chunk] File size: 524312
+[2024-12-11 20:27:50] [info] [game loader] Loading Chunk: -3
+[2024-12-11 20:27:50] [info] [map chunk loader] loading Chunk: -2
+[2024-12-11 20:27:50] [info] [chunk] File size: 524312
+[2024-12-11 20:27:50] [info] [game loader] Loading Chunk: -2
+[2024-12-11 20:27:50] [info] [map chunk loader] loading Chunk: -1
+[2024-12-11 20:27:50] [info] [chunk] File size: 524312
+[2024-12-11 20:27:50] [info] [game loader] Loading Chunk: -1
+[2024-12-11 20:27:50] [info] [map chunk loader] loading Chunk: 0
+[2024-12-11 20:27:50] [info] [chunk] File size: 524312
+[2024-12-11 20:27:50] [info] [game loader] Loading Chunk: 0
+[2024-12-11 20:27:50] [info] [map chunk loader] loading Chunk: 1
+[2024-12-11 20:27:50] [info] [chunk] File size: 524312
+[2024-12-11 20:27:50] [info] [game loader] Loading Chunk: 1
+[2024-12-11 20:27:50] [info] [map chunk loader] loading Chunk: 2
+[2024-12-11 20:27:50] [info] [chunk] File size: 524312
+[2024-12-11 20:27:50] [info] [game loader] Loading Chunk: 2
+[2024-12-11 20:27:50] [info] [map chunk loader] loading Chunk: 3
+[2024-12-11 20:27:50] [info] [chunk] File size: 524312
+[2024-12-11 20:27:50] [info] [game loader] Loading Chunk: 3
+[2024-12-11 20:27:50] [info] [game] Saving Game
+[2024-12-11 20:27:50] [info] [chunk] Saved Chunk: -4 to D:\projects\ykdzy\saves\gyxqqq\chunk-4.chunk
+[2024-12-11 20:27:50] [info] [chunk] Save Time: 0.003661
+[2024-12-11 20:27:50] [info] [map] Saved Chunk: -4
+[2024-12-11 20:27:50] [info] [chunk] Saved Chunk: -3 to D:\projects\ykdzy\saves\gyxqqq\chunk-3.chunk
+[2024-12-11 20:27:50] [info] [chunk] Save Time: 0.004645
+[2024-12-11 20:27:50] [info] [map] Saved Chunk: -3
+[2024-12-11 20:27:50] [info] [chunk] Saved Chunk: -2 to D:\projects\ykdzy\saves\gyxqqq\chunk-2.chunk
+[2024-12-11 20:27:50] [info] [chunk] Save Time: 0.003541
+[2024-12-11 20:27:50] [info] [map] Saved Chunk: -2
+[2024-12-11 20:27:50] [info] [chunk] Saved Chunk: -1 to D:\projects\ykdzy\saves\gyxqqq\chunk-1.chunk
+[2024-12-11 20:27:50] [info] [chunk] Save Time: 0.003631
+[2024-12-11 20:27:50] [info] [map] Saved Chunk: -1
+[2024-12-11 20:27:50] [info] [chunk] Saved Chunk: 0 to D:\projects\ykdzy\saves\gyxqqq\chunk0.chunk
+[2024-12-11 20:27:50] [info] [chunk] Save Time: 0.003703
+[2024-12-11 20:27:50] [info] [map] Saved Chunk: 0
+[2024-12-11 20:27:50] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\saves\gyxqqq\chunk1.chunk
+[2024-12-11 20:27:50] [info] [chunk] Save Time: 0.003717
+[2024-12-11 20:27:50] [info] [map] Saved Chunk: 1
+[2024-12-11 20:27:50] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\saves\gyxqqq\chunk2.chunk
+[2024-12-11 20:27:50] [info] [chunk] Save Time: 0.003781
+[2024-12-11 20:27:50] [info] [map] Saved Chunk: 2
+[2024-12-11 20:27:50] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\saves\gyxqqq\chunk3.chunk
+[2024-12-11 20:27:50] [info] [chunk] Save Time: 0.003478
+[2024-12-11 20:27:50] [info] [map] Saved Chunk: 3
+[2024-12-11 20:27:50] [info] [player] Player Saved: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:27:50] [info] [game save] Saving Player: 00000.player
+[2024-12-11 20:27:50] [info] [game save] Player x: -37.499916 y: 30.397835
+[2024-12-11 20:27:50] [info] [assets] Loading Block Textures: D:\projects\ykdzy\assets\blocks\blockconfig.json
+[2024-12-11 20:27:50] [info] [assets] Texture Path: D:\projects\ykdzy\assets\blocks\
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_AIR path: D:\projects\ykdzy\assets\blocks\sky.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_DIRT path: D:\projects\ykdzy\assets\blocks\dirt.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_GRASS path: D:\projects\ykdzy\assets\blocks\grass_block_side.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_STONE path: D:\projects\ykdzy\assets\blocks\stone.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_WOOD path: D:\projects\ykdzy\assets\blocks\birch_log.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_LEAVES path: D:\projects\ykdzy\assets\blocks\azalea_leaves.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_WATER path: D:\projects\ykdzy\assets\blocks\underwater.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_SAND path: D:\projects\ykdzy\assets\blocks\sand.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_CACTUS path: D:\projects\ykdzy\assets\blocks\cactus_side.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_SNOW path: D:\projects\ykdzy\assets\blocks\snow.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_ICE path: D:\projects\ykdzy\assets\blocks\ice.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_COAL path: D:\projects\ykdzy\assets\blocks\coal_ore.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_IRON path: D:\projects\ykdzy\assets\blocks\iron_ore.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_GOLD path: D:\projects\ykdzy\assets\blocks\gold_ore.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_DIAMOND path: D:\projects\ykdzy\assets\blocks\diamond_ore.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_EMERALD path: D:\projects\ykdzy\assets\blocks\emerald_ore.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_COPPER path: D:\projects\ykdzy\assets\blocks\copper_ore.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_VOID path: D:\projects\ykdzy\assets\blocks\end_sky.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_BEDROCK path: D:\projects\ykdzy\assets\blocks\bedrock.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_CHEST path: D:\projects\ykdzy\assets\blocks\barrel_top.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_FURNACE path: D:\projects\ykdzy\assets\blocks\furnace_front.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_CRAFTING_TABLE path: D:\projects\ykdzy\assets\blocks\crafting_table_front.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_ANVIL path: D:\projects\ykdzy\assets\blocks\anvil.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_ENCHANTING_TABLE path: D:\projects\ykdzy\assets\blocks\enchanting_table_side.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_BEACON path: D:\projects\ykdzy\assets\blocks\beacon.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_TORCH path: D:\projects\ykdzy\assets\blocks\torch.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_LANTERN path: D:\projects\ykdzy\assets\blocks\jack_o_lantern.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_BED path: D:\projects\ykdzy\assets\blocks\bed_feet_end.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_CAKE path: D:\projects\ykdzy\assets\blocks\cake_side.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_FLOWER path: D:\projects\ykdzy\assets\blocks\potted_flowering_azalea_bush_plant.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_SAPLING path: D:\projects\ykdzy\assets\blocks\potted_flowering_azalea_bush_plant.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_LOG path: D:\projects\ykdzy\assets\blocks\birch_log.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_MUSHROOM path: D:\projects\ykdzy\assets\blocks\brown_mushroom.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Block Texture: BLOCK_GLASS path: D:\projects\ykdzy\assets\blocks\glass.png
+[2024-12-11 20:27:50] [info] [assets] Loading Player Textures: D:\projects\ykdzy\assets\player\playerconfig.json
+[2024-12-11 20:27:50] [info] [assets] Loaded Player Textures
+[2024-12-11 20:27:50] [info] [assets] Loading Const Textures: D:\projects\ykdzy\assets\const\
+[2024-12-11 20:27:50] [info] [assets] Loading Item Textures: D:\projects\ykdzy\assets\items\itemconfig.json
+[2024-12-11 20:27:50] [info] [assets] Texture Path: D:\projects\ykdzy\assets\items\
+[2024-12-11 20:27:50] [info] [assets] Loaded Item Texture: ITEM_AIR path: D:\projects\ykdzy\assets\items\miss.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Item Texture: ITEM_STICK path: D:\projects\ykdzy\assets\items\stick.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Item Texture: ITEM_WOOD path: D:\projects\ykdzy\assets\items\planks.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Item Texture: ITEM_COAL path: D:\projects\ykdzy\assets\items\coal.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Item Texture: ITEM_RAW_IRON path: D:\projects\ykdzy\assets\items\raw_iron.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Item Texture: ITEM_RAW_GOLD path: D:\projects\ykdzy\assets\items\raw_gold.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Item Texture: ITEM_DIAMOND path: D:\projects\ykdzy\assets\items\diamond.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Item Texture: ITEM_DIRT path: D:\projects\ykdzy\assets\items\dirt.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Item Texture: ITEM_LOG path: D:\projects\ykdzy\assets\items\log.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Item Texture: ITEM_LEAVES path: D:\projects\ykdzy\assets\items\azalea_leaves.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Item Texture: ITEM_APPLE path: D:\projects\ykdzy\assets\items\apple.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Item Texture: ITEM_SAPLING path: D:\projects\ykdzy\assets\items\oak_sapling.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Item Texture: ITEM_TORCH path: D:\projects\ykdzy\assets\items\torch.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Item Texture: ITEM_SWORDW path: D:\projects\ykdzy\assets\items\wooden_sword.png
+[2024-12-11 20:27:50] [info] [assets] Loaded Item Texture: ITEM_PICKAXE path: D:\projects\ykdzy\assets\items\wooden_pickaxe.png
+[2024-12-11 20:27:50] [info] [render] Initializing Render
+[2024-12-11 20:27:50] [info] [render] Render Initialized
+[2024-12-11 20:27:54] [info] [game] destroy block x: -39 y: 30
+[2024-12-11 20:27:54] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:55] [info] [game] destroy block x: -40 y: 30
+[2024-12-11 20:27:55] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:55] [info] [game] destroy block x: -41 y: 30
+[2024-12-11 20:27:55] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:56] [info] [game] destroy block x: -42 y: 30
+[2024-12-11 20:27:56] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:57] [info] [game] destroy block x: -43 y: 30
+[2024-12-11 20:27:57] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:27:58] [info] [game] destroy block x: -44 y: 30
+[2024-12-11 20:27:58] [info] [game] drop item type: 16 count: 0
+[2024-12-11 20:29:15] [info] [game] Saving Game
+[2024-12-11 20:29:15] [info] [chunk] Saved Chunk: -4 to D:\projects\ykdzy\saves\gyxqqq\chunk-4.chunk
+[2024-12-11 20:29:15] [info] [chunk] Save Time: 0.003220
+[2024-12-11 20:29:15] [info] [map] Saved Chunk: -4
+[2024-12-11 20:29:15] [info] [chunk] Saved Chunk: -3 to D:\projects\ykdzy\saves\gyxqqq\chunk-3.chunk
+[2024-12-11 20:29:15] [info] [chunk] Save Time: 0.003215
+[2024-12-11 20:29:15] [info] [map] Saved Chunk: -3
+[2024-12-11 20:29:15] [info] [chunk] Saved Chunk: -2 to D:\projects\ykdzy\saves\gyxqqq\chunk-2.chunk
+[2024-12-11 20:29:15] [info] [chunk] Save Time: 0.003372
+[2024-12-11 20:29:15] [info] [map] Saved Chunk: -2
+[2024-12-11 20:29:15] [info] [chunk] Saved Chunk: -1 to D:\projects\ykdzy\saves\gyxqqq\chunk-1.chunk
+[2024-12-11 20:29:15] [info] [chunk] Save Time: 0.003544
+[2024-12-11 20:29:15] [info] [map] Saved Chunk: -1
+[2024-12-11 20:29:15] [info] [chunk] Saved Chunk: 0 to D:\projects\ykdzy\saves\gyxqqq\chunk0.chunk
+[2024-12-11 20:29:15] [info] [chunk] Save Time: 0.003641
+[2024-12-11 20:29:15] [info] [map] Saved Chunk: 0
+[2024-12-11 20:29:15] [info] [chunk] Saved Chunk: 1 to D:\projects\ykdzy\saves\gyxqqq\chunk1.chunk
+[2024-12-11 20:29:15] [info] [chunk] Save Time: 0.004576
+[2024-12-11 20:29:15] [info] [map] Saved Chunk: 1
+[2024-12-11 20:29:15] [info] [chunk] Saved Chunk: 2 to D:\projects\ykdzy\saves\gyxqqq\chunk2.chunk
+[2024-12-11 20:29:15] [info] [chunk] Save Time: 0.003606
+[2024-12-11 20:29:15] [info] [map] Saved Chunk: 2
+[2024-12-11 20:29:15] [info] [chunk] Saved Chunk: 3 to D:\projects\ykdzy\saves\gyxqqq\chunk3.chunk
+[2024-12-11 20:29:15] [info] [chunk] Save Time: 0.003450
+[2024-12-11 20:29:15] [info] [map] Saved Chunk: 3
+[2024-12-11 20:29:15] [info] [player] Player Saved: D:\projects\ykdzy\saves\gyxqqq\00000.player
+[2024-12-11 20:29:15] [info] [game save] Saving Player: 00000.player
+[2024-12-11 20:29:15] [info] [game save] Player x: -42.500343 y: 37.496670
+[2024-12-11 20:29:15] [info] [main] Game Loaded
