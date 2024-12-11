@@ -26,7 +26,9 @@ int exit_flag = 0;
 #define ITEM_TEXTURES_PATH "D:\\projects\\ykdzy\\assets\\items\\itemconfig.json"
 #define MODS_PATH "D:\\projects\\ykdzy\\mods\\mods.json"
 #define SAVE_PATH "D:\\projects\\ykdzy\\saves\\"
-
+#define MUSIC_PATH "D:\\projects\\ykdzy\\assets\\music\\"
+#define MUSIC_COUNT 1
+#pragma comment(lib, "winmm.lib")
 int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
     int tag = start_screen(hInstance);
@@ -70,6 +72,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
                                         Sleep((0.01 - elapsed_seconds.count()) * 1000);
                                     }
                                 } });
+
     std::thread game_time = std::thread([&game]() {
                                             while (exit_flag == 0)
                                             {
@@ -82,7 +85,33 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
                                                 {
                                                     Sleep((1 - std::chrono::duration<double>(end - start).count()) * 1000);
                                                 }
-                                            } }); // 世界时间线程
+                                            } }); // 世界时间
+    std::thread music = std::thread([]() {
+        int music_index = 0;
+        
+        while (exit_flag == 0) {
+            mciSendString("close all", NULL, 0, NULL);
+            char music_cmd[256];
+            sprintf(music_cmd, "open %s type mpegvideo alias music", (MUSIC_PATH + std::to_string(music_index) + ".mp3").c_str());
+            mciSendString(music_cmd, NULL, 0, NULL);
+            mciSendString("play music", NULL, 0, NULL);
+            music_index++;
+            music_index %= MUSIC_COUNT;
+            MCI_STATUS_PARMS status;
+            status.dwItem = MCI_STATUS_MODE;
+            while (exit_flag==0) {
+                mciSendString(_T("status myAudio mode"), (LPSTR)&status.dwItem, sizeof(status.dwItem), NULL);
+
+                // 如果音频已经停止，退出循环
+                if (status.dwItem == MCI_MODE_STOP) {
+                    break;
+                }
+
+                Sleep(1000); // 等待 100 毫秒检查状态
+            }
+            
+        }
+    });
     while (exit_flag == 0) {
         // game.update();
         global_mutex.lock();
@@ -92,6 +121,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
     }
     game_thread.join();
     game_time.join();
+    music.join();
     game.save();
     craft_table::craft_table::deinit();
     glog::log("info", "Game Loaded", "main");
