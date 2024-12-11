@@ -15,7 +15,9 @@ HWND listbox;
 HWND load;
 int exit_msg;
 std::string save_name = "";
-HBITMAP bitmap;
+std::string explain = "";
+
+    HBITMAP bitmap;
 int state = 0; // 0 首页 1 新建游戏 2 旧存档
 HWND back;
 std::mutex start_window_mutex;
@@ -97,10 +99,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         creat_new = CreateWindow(_T("BUTTON"), _T("创建"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, 620 - 150, 600, 300, 30, hWnd, (HMENU)5, hInst, NULL);
         load = CreateWindow(_T("BUTTON"), _T("加载"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, 620 - 150, 600, 300, 30, hWnd, (HMENU)7, hInst, NULL);
         listbox = CreateWindow(_T("LISTBOX"), _T("存档"), WS_CHILD | WS_VISIBLE | WS_BORDER | LBS_STANDARD, 620 - 150, 200, 300, 30, hWnd, (HMENU)6, hInst, NULL);
+        CreateWindow(_T("BUTTON"), _T("玩法说明"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, 1100, 10, 100, 30, hWnd, (HMENU)8, hInst, NULL);
         ShowWindow(listbox, SW_HIDE);
         ShowWindow(creat_new, SW_HIDE);
         ShowWindow(back, SW_HIDE);
         ShowWindow(load, SW_HIDE);
+        
         break;
     }
     case WM_COMMAND: {
@@ -189,6 +193,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 start_window_mutex.unlock();
             }
         }
+        if (LOWORD(wParam) == 8) {
+            
+            MessageBox(hWnd, _T(explain.c_str()), _T("玩法说明"), MB_OK | MB_ICONINFORMATION);
+        }
     }
     case WM_PAINT: {
         PAINTSTRUCT ps;
@@ -219,7 +227,20 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 int start_screen(HINSTANCE hInstance)
 {
     hInst = hInstance;
-
+    explain = "荒野探索是一款开放世界无限地图探险游戏，玩家可以在游戏中探索荒野，收集资源，建造设施。\n";
+    explain += "游戏操作如下：\n";
+    explain += "WASD：移动\n";
+    explain += "鼠标左键：采集资源 或攻击生物\n";
+    explain += "鼠标右键：放置物品 或食用食物\n";
+    explain += "E：打开背包\n";
+    explain += "S: 拆分物品\n";
+    explain += "Q: 丢弃物品\n";
+    explain += "shift+Q:丢弃一组物品\n";
+    explain += "1-9: 切换物品\n";
+    explain += "ESC：退出游戏\n";
+    explain += "F1：打开控制台\n";
+    explain += "F2：打开玩法说明\n";
+    explain += "F3：打开调试信息\n";
     // 注册窗口类
     WNDCLASS wc = {};
     wc.lpfnWndProc = WndProc;

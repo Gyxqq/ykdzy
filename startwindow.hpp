@@ -1,3 +1,4 @@
+#pragma once
 #include <tchar.h>
 #include <windows.h>
 #include <string>
@@ -5,3 +6,4 @@
 #define SAVE_PATH "D:\\projects\\ykdzy\\saves\\"
 int start_screen(HINSTANCE hInstance);
 extern std::string save_name;
+extern std::string explain;

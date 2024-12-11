@@ -1,6 +1,6 @@
 #pragma once
 #include "game.hpp"
-
+#include "startwindow.hpp"
 #include <Windows.h>
 #include <cJSON.h>
 #include <graphics.h>
@@ -44,7 +44,7 @@ int game::init(std::string name)
     this->world.init(name);
     this->players.push_back(player());
     this->attacking_block.block = NULL;
-    this->world_time = 0;
+    this->world_time = 8*60;
     memset(this->craft_table, 0, sizeof(this->craft_table));
     this->now_craft_table = NULL;
     cJSON* root = cJSON_CreateObject();
@@ -871,6 +871,13 @@ int game::update()
     }
     if (IsKeyPressed(VK_F3)) {
         this->show_debug = !this->show_debug;
+        global_mutex.unlock();
+        Sleep(200);
+        global_mutex.lock();
+    }
+    if (IsKeyPressed(VK_F2)) {
+        MessageBox(GetHWnd(), explain.c_str(), "help", MB_OK);
+
         global_mutex.unlock();
         Sleep(200);
         global_mutex.lock();
