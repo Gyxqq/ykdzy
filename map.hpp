@@ -79,6 +79,8 @@ enum item_type
     ITEM_APPLE,       // 苹果
     ITEM_SAPLING,     // 树苗
     ITEM_TORCH,       // 火把
+    ITEM_SWORDD, // 木剑
+    ITEM_PICKAXE, // 木镐
     ITEM_MAX_INDEX
 };
 enum chunk_type

@@ -54,8 +54,9 @@ int craft_table::init()
         table->add_craft_table(table); // Ä¾Í·ºÏ³ÉÄ¾°å
     }
     {
-        memset(table, 0, sizeof(craft_table));
+
         table = new craft_table();
+        memset(table, 0, sizeof(craft_table));
         table->items[0].type = item_type::ITEM_WOOD;
         table->items[0].count = 1;
         table->items[0].stack_count = 64;
@@ -68,6 +69,27 @@ int craft_table::init()
         table->need_count = 2;
         table->is_order = 1;
         table->add_craft_table(table); // Ä¾°åºÏ³ÉÄ¾¹÷
+    }
+    {
+
+        table = new craft_table();
+        memset(table, 0, sizeof craft_table);
+        table->items[0].type = item_type::ITEM_WOOD;
+        table->items[1].type = item_type::ITEM_WOOD;
+        table->items[3].type = item_type::ITEM_STICK;
+        table->items[0].count = 1;
+        table->items[1].count = 1;
+        table->items[3].count = 1;
+        table->result.type = item_type::ITEM_PICKAXE;
+        table->result.count = 1;
+        table->result.stack_count = 1;
+        table->need_count = 3;
+        table->is_order = 1;
+        table->add_craft_table(table); // Ä¾°å+Ä¾¹÷ ºÏ³ÉÄ¾¸ä
+
+    }
+    {
+
     }
     glog::log("info", "start Log", "craft log");
     int len = craft_table::craft_table::get_len();
