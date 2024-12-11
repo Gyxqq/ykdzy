@@ -28,6 +28,7 @@ public:
     int save(std::string name);
     int load(std::string name);
     int init(std::string name);
+    int get_destroy_speed();
 };
 class game
 {

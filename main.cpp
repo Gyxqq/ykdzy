@@ -1,11 +1,13 @@
 #pragma once
 #pragma warning(disable : 4996)
+#include "EasyXPng.hpp"
 #include "assets.hpp"
 #include "craft_table.hpp"
 #include "game.hpp"
 #include "log.hpp"
 #include "map.hpp"
 #include "render.hpp"
+#include "startwindow.hpp"
 #include "structure.hpp"
 #include <cJSON.h>
 #include <conio.h>
@@ -23,24 +25,39 @@ int exit_flag = 0;
 #define CONST_TEXTURES_PATH "D:\\projects\\ykdzy\\assets\\const\\"
 #define ITEM_TEXTURES_PATH "D:\\projects\\ykdzy\\assets\\items\\itemconfig.json"
 #define MODS_PATH "D:\\projects\\ykdzy\\mods\\mods.json"
+#define SAVE_PATH "D:\\projects\\ykdzy\\saves\\"
+
 int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-
+    int tag = start_screen(hInstance);
     glog::log("info", "Hello, world!", "main");
     craft_table::craft_table::init();
     structure::init(MODS_PATH);
-    // class game game0;
+     class game game0;
     // game0.init("D:\\projects\\ykdzy\\save1\\");
     // game0.save();
+
     class game game;
-    game.load("D:\\projects\\ykdzy\\save1\\game.json");
-    game.save();
+    if (tag == 1) {
+        game0.init(save_name);
+        game0.save();
+        game.load(save_name + "game.json");
+        game.save();
+    } else if (tag == 2) {
+        game.load(save_name + "game.json");
+        game.save();
+    } 
+    else {
+        return 0;
+    }
+    /*game.load("D:\\projects\\ykdzy\\save1\\game.json");
+    game.save();*/
     assets::load_block_textures(BLOCK_ASSETS_PATH);
     assets::load_player_textures(PLAYER_ASSETS_PATH);
     assets::load_const_textures(CONST_TEXTURES_PATH);
     assets::load_item_textures(ITEM_TEXTURES_PATH);
     render::init(1240, 720);
-    
+
     std::thread game_thread([&game]() {
                                 while (exit_flag == 0)
                                 {

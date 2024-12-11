@@ -459,13 +459,14 @@ int game::update()
                             this->attacking_block.attacking_state = 0;
                         } else {
                             if (this->attacking_block.block == this->world.get_block_ptr(block_x, block_y)) {
-                                this->attacking_block.attacking_state++;
+
+                                this->attacking_block.attacking_state += this->players[0].get_destroy_speed();
                                 // glog::log("info", "attacking block x: " +
                                 // std::to_string(block_x) + " y: " + std::to_string(block_y) +
                                 // " state: " +
                                 // std::to_string(this->attacking_block.attacking_state),
                                 // "game");
-                                if (this->attacking_block.attacking_state >= 10) {
+                                if (this->attacking_block.attacking_state >= 100) {
                                     item drop = this->get_block_drop(this->attacking_block.block);
                                     if (drop.type != item_type::ITEM_AIR) {
                                         for (int i = 0; i < MAX_ITEMS; i++) {
@@ -760,7 +761,6 @@ int game::update()
                     this->players[0].items[index].count--;
                     if (IsKeyPressed(VK_SHIFT)) {
                         this->players[0].items[index].count = 0;
-                        
                     }
                     if (this->players[0].items[index].count == 0) {
                         this->players[0].items[index].type = item_type::ITEM_AIR;
@@ -1383,5 +1383,16 @@ void game::check_craft()
         this->craft_table[4].count = 0;
         this->craft_table[4].stack_count = 0;
         this->craft_table[4].data = NULL;
+    }
+}
+int player::get_destroy_speed()
+{
+    switch (this->items[this->chossing_item].type) {
+    case item_type::ITEM_PICKAXE:
+        return 10;
+        break;
+    default:
+        return 1;
+        break;
     }
 }
