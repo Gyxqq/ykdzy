@@ -11,7 +11,6 @@
 #include <mutex>
 #include <regex>
 #include <thread>
-
 #include "log.hpp"
 #include "map.hpp"
 #include "render.hpp"

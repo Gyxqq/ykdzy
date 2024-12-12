@@ -10,3 +10,4 @@ save1/*.*
 **/build/*
 *.zip
 .vs/*
+.cache/*

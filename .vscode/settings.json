@@ -13,5 +13,8 @@
         "format": "cpp",
         "mutex": "cpp"
     },
-    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "cmake.buildArguments": "-DCMAKE_EXPORT_COMPILE_COMMANDS=1",
+    "cmake.configureArguments": "-DCMAKE_EXPORT_COMPILE_COMMANDS=1",
+    "r.lsp.promptToInstall": false
 }

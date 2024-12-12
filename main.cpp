@@ -86,6 +86,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
                                                     Sleep((1 - std::chrono::duration<double>(end - start).count()) * 1000);
                                                 }
                                             } }); // 世界时间
+
     std::thread music = std::thread([]() {
         int music_index = 0;
         
@@ -112,6 +113,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
             
         }
     });
+
     while (exit_flag == 0) {
         // game.update();
         global_mutex.lock();
