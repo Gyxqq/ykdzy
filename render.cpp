@@ -52,7 +52,7 @@ int get_block_x(float x)
     return (int)x;
 }
 IMAGE block_textures[block_type::BLOCK_MAX_INDEX];
-IMAGE player_textures[3][6];
+IMAGE player_textures[4][6];
 IMAGE const_textures[assets::const_texture_type::CONST_TEXTURE_MAX_INDEX];
 IMAGE item_textures[item_type::ITEM_MAX_INDEX];
 int width;
@@ -80,13 +80,16 @@ int init(int width, int height)
     }
 
     for (int j = 0; j < 6; j++) {
-        loadimage(&player_textures[0][j], assets::get_player_texture("run_left", j).c_str());
+        loadimage(&player_textures[1][j], assets::get_player_texture("run_left", j).c_str());
     }
     for (int j = 0; j < 6; j++) {
-        loadimage(&player_textures[1][j], assets::get_player_texture("run_right", j).c_str());
+        loadimage(&player_textures[2][j], assets::get_player_texture("run_right", j).c_str());
     }
     for (int j = 0; j < 6; j++) {
-        loadimage(&player_textures[2][j], assets::get_player_texture("jump", j).c_str());
+        loadimage(&player_textures[3][j], assets::get_player_texture("jump", j).c_str());
+    }
+    for (int j = 0; j < 6; j++) {
+        loadimage(&player_textures[0][j], assets::get_player_texture("stand", j).c_str());
     }
     for (int i = 0; i < assets::const_texture_type::CONST_TEXTURE_MAX_INDEX; i++) {
         loadimage(&const_textures[i], assets::const_textures[i].texture.c_str());
@@ -126,7 +129,7 @@ int update_frame(game* game)
             //     pos_x -= 32;
             // putimage(pos_x, reverse_y(pos_y), &block_textures[block], SRCPAINT);
             putimagePng(pos_x, reverse_y(pos_y), &block_textures[block]);
-            if (game->world.get_block_ptr(x_start_pos + i, y_start_pos + j)!=NULL) {
+            if (game->world.get_block_ptr(x_start_pos + i, y_start_pos + j) != NULL) {
                 get_light((game->world.get_block_ptr(x_start_pos + i, y_start_pos + j)), &player);
             }
         }
@@ -134,7 +137,7 @@ int update_frame(game* game)
     x = render::width / 2;
     y = render::height / 2;
     // putimage(x, y, &player_textures[0][0], SRCPAINT); // player
-    put_transparentimage(x, reverse_y(y), &player_textures[0][0]);
+    put_transparentimage(x, reverse_y(y), &player_textures[player.run%4][player.run_state%6]);
 
     { // 光照渲染
         int alpha = 0; // 0-230

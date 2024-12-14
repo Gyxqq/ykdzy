@@ -81,6 +81,17 @@ enum item_type
     ITEM_TORCH,       // 火把
     ITEM_SWORDD, // 木剑
     ITEM_PICKAXE, // 木镐
+    ITEM_PORK, // 猪肉
+    ITEM_BEEF, // 牛肉
+    ITEM_CHICKEN, // 鸡肉
+    ITEM_FISH, // 鱼
+    ITEM_BREAD, // 面包
+    ITEM_COOKED_PORK, // 熟猪肉
+    ITEM_COOKED_BEEF, // 熟牛肉
+    ITEM_COOKED_CHICKEN, // 熟鸡肉
+    ITEM_COOKED_FISH, // 熟鱼
+    ITEM_CARRION, // 腐肉
+    ITEM_BONE, // 骨头
     ITEM_MAX_INDEX
 };
 enum chunk_type

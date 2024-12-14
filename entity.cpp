@@ -1,5 +1,7 @@
 #include "entity.hpp"
+#include "game.hpp"
 namespace entity {
+std::vector<class entity> entities;
 template <class T>
 T mul(T a, int b)
 {
@@ -23,11 +25,11 @@ void entity::find_path_to_player(game* game)
     POINT end;
     end.x = game->players[0].x;
     end.y = game->players[0].y;
-    if (mul<int>(start.x - end.x, 2) + mul<int>(start.y - end.y, 2) >128 ) {
+    if (mul<int>(start.x - end.x, 2) + mul<int>(start.y - end.y, 2) > 128) {
         return;
     }
     this->path.push_back(start);
-    // A* 寻路算法
+    // A* 寻路算法 
 
 }
 }

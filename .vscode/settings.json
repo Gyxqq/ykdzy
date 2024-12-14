@@ -11,7 +11,9 @@
         "deque": "cpp",
         "vector": "cpp",
         "format": "cpp",
-        "mutex": "cpp"
+        "mutex": "cpp",
+        "thread": "cpp",
+        "regex": "cpp"
     },
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
     "cmake.buildArguments": "-DCMAKE_EXPORT_COMPILE_COMMANDS=1",

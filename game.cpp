@@ -6,14 +6,14 @@
 #include <graphics.h>
 #include <sys/stat.h>
 #include <time.h>
-
+#include "entity.hpp"
+#include "log.hpp"
+#include "map.hpp"
+#include "render.hpp"
 #include <algorithm>
 #include <mutex>
 #include <regex>
 #include <thread>
-#include "log.hpp"
-#include "map.hpp"
-#include "render.hpp"
 #define SPEED speed_all
 float speed_all = 0.1;
 extern std::mutex global_mutex;
@@ -44,6 +44,7 @@ int game::init(std::string name)
     this->players.push_back(player());
     this->attacking_block.block = NULL;
     this->world_time = 8 * 60;
+    this->game_tick = 0;
     memset(this->craft_table, 0, sizeof(this->craft_table));
     this->now_craft_table = NULL;
     cJSON* root = cJSON_CreateObject();
@@ -160,6 +161,7 @@ int game::load(std::string name)
     memset(&this->mouse_pos, 0, sizeof(this->mouse_pos));
     memset(&this->item_on_mouse, 0, sizeof(this->item_on_mouse));
     memset(this->craft_table, 0, sizeof(this->craft_table));
+    this->game_tick = 0;
     this->now_craft_table = NULL;
     // this->chossing_item = 0;
     return 0;
@@ -260,6 +262,7 @@ int player::load(std::string name)
 int game::update()
 {
     global_mutex.lock();
+    this->game_tick++;
     {
         if (rand() % 10000 == 0) {
             if (this->players[0].hunger > 0) {
@@ -804,7 +807,7 @@ int game::update()
     if (IsKeyPressed(VK_RBUTTON) && !this->players[0].gui_open) {
 
         if (this->mouse_pos.x >= 0 && this->mouse_pos.x <= render::width && this->mouse_pos.y >= 0 && this->mouse_pos.y <= render::height) {
-            auto food = this->get_food(&this->players[0].items[this->players[0].chossing_item+27]);
+            auto food = this->get_food(&this->players[0].items[this->players[0].chossing_item + 27]);
             if (food != 0 && this->players[0].hunger < 100) {
                 glog::log("info", "eat food", "game");
                 global_mutex.unlock();
@@ -815,12 +818,12 @@ int game::update()
                 } else {
                     this->players[0].hunger = 100;
                 }
-                this->players[0].items[this->players[0].chossing_item+27].count--;
-                if (this->players[0].items[this->players[0].chossing_item+27].count == 0) {
-                    this->players[0].items[this->players[0].chossing_item+27].type = item_type::ITEM_AIR;
-                    this->players[0].items[this->players[0].chossing_item+27].count = 0;
-                    this->players[0].items[this->players[0].chossing_item+27].stack_count = 0;
-                    this->players[0].items[this->players[0].chossing_item+27].data = NULL;
+                this->players[0].items[this->players[0].chossing_item + 27].count--;
+                if (this->players[0].items[this->players[0].chossing_item + 27].count == 0) {
+                    this->players[0].items[this->players[0].chossing_item + 27].type = item_type::ITEM_AIR;
+                    this->players[0].items[this->players[0].chossing_item + 27].count = 0;
+                    this->players[0].items[this->players[0].chossing_item + 27].stack_count = 0;
+                    this->players[0].items[this->players[0].chossing_item + 27].data = NULL;
                 }
             }
             int x = render::width / 2 + BLOCK_TEXTURES_SIZE / 2;
@@ -1413,7 +1416,7 @@ void game::check_craft()
 }
 int player::get_destroy_speed()
 {
-    switch (this->items[this->chossing_item+27].type) {
+    switch (this->items[this->chossing_item + 27].type) {
     case item_type::ITEM_PICKAXE:
         return 3;
         break;
@@ -1431,5 +1434,100 @@ int game::get_food(item* item)
     default:
         return 0;
         break;
+    }
+}
+
+int game::spawn_entity()
+{
+    if (entity::entities.size() > MAX_ENTITY_NUM) {
+        return -1;
+    }
+
+    int now_hour = (this->world_time % 24 * 60) / 60;
+    int left_start_pos = this->players[0].x - 128;
+    int right_start_pos = this->players[0].x + 128;
+    int left_end_pos = this->players[0].x - 24;
+    int right_end_pos = this->players[0].x + 24;
+    for (int i = left_start_pos; i < left_end_pos; i++) {
+        for (int j = 3; j < BLOCKS_PER_CHUNK_Y; j++) {
+            if (rand() % 100 == 0) {
+                if (this->world.get_block(i, j) == block_type::BLOCK_AIR) {
+                    int flag = 0;
+                    for (int i_1 = 0; i_1 < 3; i_1++) {
+                        for (int j_1 = 0; j_1 < 3; j_1++) {
+                            if (this->world.get_block(i - 1 + i_1, j - 1 + j_1) != block_type::BLOCK_AIR) {
+                                flag = 1;
+                                goto out1;
+                            }
+                        }
+                    }
+                out1:
+                    if (this->world.get_block(i, j - 2) == block_type::BLOCK_AIR) {
+                        flag = 1;
+                    }
+                    if (flag == 0) {
+                        entity::entity new_entity;
+                        new_entity.x = i + 0.5;
+                        new_entity.y = j + 0.5;
+                        new_entity.game_tick = 0;
+                        new_entity.jump_state = 0;
+                        new_entity.move_state = 0;
+
+                        int type = 0;
+                        if (now_hour < 6 || now_hour > 22) {
+                            type = rand() % entity::entity_type::ENTITY_TYPE_MAX;
+                        } else {
+                            type = rand() % (entity::entity_type::ENTITY_TYPE_MAX - entity::entity_type::ENTITY_TYPE_MOB_MAX - 1) + 1 + entity::entity_type::ENTITY_TYPE_MOB_MAX;
+                        }
+                        switch (type) {
+                        case entity::entity_type::ENTITY_TYPE_COW:
+                            new_entity.type = entity::entity_type::ENTITY_TYPE_COW;
+                            new_entity.health = 40;
+                            new_entity.drop.type = item_type::ITEM_BEEF;
+                            new_entity.drop.stack_count = 64;
+                            new_entity.drop.count = rand() % 3 + 1;
+                            new_entity.drop.data = NULL;
+                            new_entity.player_enemy = FALSE;
+                            break;
+                        case entity::entity_type::ENTITY_TYPE_PIG:
+                            new_entity.type = entity::entity_type::ENTITY_TYPE_PIG;
+                            new_entity.health = 40;
+                            new_entity.drop.type = item_type::ITEM_PORK;
+                            new_entity.drop.stack_count = 64;
+                            new_entity.drop.count = rand() % 3 + 1;
+                            new_entity.drop.data = NULL;
+                            new_entity.player_enemy = FALSE;
+                            break;
+                        case entity::entity_type::ENTITY_TYPE_ZOMBIE:
+                            new_entity.type = entity::entity_type::ENTITY_TYPE_ZOMBIE;
+                            new_entity.health = 40;
+                            new_entity.drop.type = item_type::ITEM_CARRION;
+                            new_entity.drop.stack_count = 64;
+                            new_entity.drop.count = rand() % 3 + 1;
+                            new_entity.drop.data = NULL;
+                            new_entity.player_enemy = TRUE;
+                            break;
+                        case entity::entity_type::ENTITY_TYPE_SKELETON:
+                            new_entity.type = entity::entity_type::ENTITY_TYPE_SKELETON;
+                            new_entity.health = 40;
+                            new_entity.drop.type = item_type::ITEM_BONE;
+                            new_entity.drop.stack_count = 64;
+                            new_entity.drop.count = rand() % 3 + 1;
+                            new_entity.drop.data = NULL;
+                            new_entity.player_enemy = TRUE;
+                            break;
+
+                        default:
+                            new_entity.type = entity::entity_type::ENTITY_TYPE_MAX;
+                            break;
+                        }
+                        if (new_entity.type != entity::entity_type::ENTITY_TYPE_PLAYER && new_entity.type != entity::entity_type::ENTITY_TYPE_MAX && new_entity.type != entity::entity_type::ENTITY_TYPE_MOB_MAX) {
+                            entity::entities.push_back(new_entity);
+                            return 0;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
