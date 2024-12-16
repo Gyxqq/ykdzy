@@ -24,6 +24,7 @@ int exit_flag = 0;
 #define PLAYER_ASSETS_PATH "D:\\projects\\ykdzy\\assets\\player\\playerconfig.json"
 #define CONST_TEXTURES_PATH "D:\\projects\\ykdzy\\assets\\const\\"
 #define ITEM_TEXTURES_PATH "D:\\projects\\ykdzy\\assets\\items\\itemconfig.json"
+#define ENTITY_TEXTURES_PATH "D:\projects\ykdzy\assets\entity\entity_config.json"
 #define MODS_PATH "D:\\projects\\ykdzy\\mods\\mods.json"
 #define SAVE_PATH "D:\\projects\\ykdzy\\saves\\"
 #define MUSIC_PATH "D:\\projects\\ykdzy\\assets\\music\\"
@@ -57,6 +58,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
     assets::load_block_textures(BLOCK_ASSETS_PATH);
     assets::load_player_textures(PLAYER_ASSETS_PATH);
     assets::load_const_textures(CONST_TEXTURES_PATH);
+    assets::load_entity_textures(ENTITY_TEXTURES_PATH);
     assets::load_item_textures(ITEM_TEXTURES_PATH);
     render::init(1240, 720);
 

@@ -7,6 +7,7 @@ player_texture player_textures;
 const_texture const_textures[const_texture_type::CONST_TEXTURE_MAX_INDEX];
 item_texture item_textures[item_type::ITEM_MAX_INDEX];
 entity_texture entity_textures[entity::entity_type::ENTITY_TYPE_MAX];
+//entity_texture entity_textures[entity::entity_type::ENTITY_TYPE_MAX];
 int assets::load_block_textures(std::string config_path)
 {
     glog::log("info", "Loading Block Textures: " + config_path, "assets");
@@ -213,11 +214,54 @@ int assets::load_entity_textures(std::string config_path)
         delete[] data;
         return -1;
     }
+    std::string run_left[6] = {
+        "run_left_0.png",
+        "run_left_1.png",
+        "run_left_2.png",
+        "run_left_3.png",
+        "run_left_4.png",
+        "run_left_5.png"
+    };
+    std::string run_right[6] = {
+        "run_right_0.png",
+        "run_right_1.png",
+        "run_right_2.png",
+        "run_right_3.png",
+        "run_right_4.png",
+        "run_right_5.png"
+    };
+    std::string jump[6] = {
+        "jump_0.png",
+        "jump_1.png",
+        "jump_2.png",
+        "jump_3.png",
+        "jump_4.png",
+        "jump_5.png"
+    };
     cJSON* path = cJSON_GetObjectItem(root, "path");
     std::string texture_path(path->valuestring);
     glog::log("info", "Texture Path: " + texture_path, "assets");
     cJSON* textures = cJSON_GetObjectItem(root, "entities");
-     
+    auto default_sub = std::string(cJSON_GetObjectItem(root, "default")->valuestring);
+    for (int i = 0; i < entity::entity_type::ENTITY_TYPE_MAX; i++) {
+        for (int j = 0; j < 6; j++) {
+            entity_textures[i].run_left[j] = texture_path + default_sub + run_left[j];
+            entity_textures[i].run_right[j] = texture_path + default_sub + run_right[j];
+            entity_textures[i].jump[j] = texture_path + default_sub + jump[j];
+        }
+        entity_textures[i].stand = texture_path + default_sub + "stand.png";
+    }
+    for (int i = 0; i < cJSON_GetArraySize(textures); i++) {
+        cJSON* item = cJSON_GetArrayItem(textures, i);
+        int type = cJSON_GetObjectItem(item, "id")->valueint;
+        auto subpath = cJSON_GetObjectItem(item, "path")->valuestring;
+        for (int j = 0; j < 6; j++) {
+            entity_textures[type].run_left[j] = texture_path + subpath + run_left[j];
+            entity_textures[type].run_right[j] = texture_path + subpath + run_right[j];
+            entity_textures[type].jump[j] = texture_path + subpath + jump[j];
+        }
+        entity_textures[type].stand = texture_path + subpath + "stand.png";
+    }
 }
 
 } // namespace assets
