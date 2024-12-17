@@ -24,7 +24,7 @@ int exit_flag = 0;
 #define PLAYER_ASSETS_PATH "D:\\projects\\ykdzy\\assets\\player\\playerconfig.json"
 #define CONST_TEXTURES_PATH "D:\\projects\\ykdzy\\assets\\const\\"
 #define ITEM_TEXTURES_PATH "D:\\projects\\ykdzy\\assets\\items\\itemconfig.json"
-#define ENTITY_TEXTURES_PATH "D:\projects\ykdzy\assets\entity\entity_config.json"
+#define ENTITY_TEXTURES_PATH "D:\\projects\\ykdzy\\assets\\entity\\entity_config.json"
 #define MODS_PATH "D:\\projects\\ykdzy\\mods\\mods.json"
 #define SAVE_PATH "D:\\projects\\ykdzy\\saves\\"
 #define MUSIC_PATH "D:\\projects\\ykdzy\\assets\\music\\"
@@ -36,7 +36,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
     glog::log("info", "Hello, world!", "main");
     craft_table::craft_table::init();
     structure::init(MODS_PATH);
-     class game game0;
+    class game game0;
     // game0.init("D:\\projects\\ykdzy\\save1\\");
     // game0.save();
 
@@ -49,8 +49,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
     } else if (tag == 2) {
         game.load(save_name + "game.json");
         game.save();
-    } 
-    else {
+    } else {
         return 0;
     }
     /*game.load("D:\\projects\\ykdzy\\save1\\game.json");
@@ -91,7 +90,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
 
     std::thread music = std::thread([]() {
         int music_index = 0;
-        
+
         while (exit_flag == 0) {
             mciSendString("close all", NULL, 0, NULL);
             char music_cmd[256];
@@ -102,7 +101,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
             music_index %= MUSIC_COUNT;
             MCI_STATUS_PARMS status;
             status.dwItem = MCI_STATUS_MODE;
-            while (exit_flag==0) {
+            while (exit_flag == 0) {
                 mciSendString(_T("status myAudio mode"), (LPSTR)&status.dwItem, sizeof(status.dwItem), NULL);
 
                 // 如果音频已经停止，退出循环
@@ -112,7 +111,6 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
 
                 Sleep(1000); // 等待 100 毫秒检查状态
             }
-            
         }
     });
 
@@ -128,7 +126,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
     music.join();
     game.save();
     craft_table::craft_table::deinit();
-    glog::log("info", "Game Loaded", "main");
+    //glog::log("info", "Game Loaded", "main");
 }
 
 game& get_game()

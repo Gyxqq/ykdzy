@@ -7,7 +7,7 @@
 #include <windows.h>
 #define MAX_ITEMS 36
 #define MAX_ENTITY_NUM 100
-
+#define MAX_NO_MOB_NUM 30
 class block_attcking
 {
 public:
@@ -25,6 +25,7 @@ public:
     int run_state; 
     int gui_open;
     int chossing_item;
+    int last_attack_tick;
     // int thirst;
     std::string name;
     class item items[MAX_ITEMS];
@@ -42,6 +43,7 @@ public:
     block_attcking attacking_block;
     int show_debug;
     int world_time;
+    
     unsigned long long int game_tick;
     POINT mouse_pos;
     item item_on_mouse;
@@ -62,6 +64,9 @@ public:
     void check_craft();
     int update();
     int save();
+    POINTFLOAT screen_to_world(POINT point);
+    POINT world_to_screen(POINTFLOAT point);
+
     //~game();
 };
 item get_item_by_type(item_type type);

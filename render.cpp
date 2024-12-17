@@ -55,6 +55,7 @@ IMAGE block_textures[block_type::BLOCK_MAX_INDEX];
 IMAGE player_textures[4][6];
 IMAGE const_textures[assets::const_texture_type::CONST_TEXTURE_MAX_INDEX];
 IMAGE item_textures[item_type::ITEM_MAX_INDEX];
+IMAGE entity_textures[entity::entity_type::ENTITY_TYPE_MAX][4][6];
 int width;
 int height;
 std::deque<int> fps_queue;
@@ -97,6 +98,20 @@ int init(int width, int height)
     for (int i = 0; i < item_type::ITEM_MAX_INDEX; i++) {
         loadimage(&item_textures[i], assets::item_textures[i].texture.c_str());
     }
+    for (int i = 0; i < entity::entity_type::ENTITY_TYPE_MAX; i++) {
+        for (int j = 0; j < 6; j++) {
+            loadimage(&entity_textures[i][1][j], assets::entity_textures[i].run_left[j].c_str());
+        }
+        for (int j = 0; j < 6; j++) {
+            loadimage(&entity_textures[i][2][j], assets::entity_textures[i].run_right[j].c_str());
+        }
+        for (int j = 0; j < 6; j++) {
+            loadimage(&entity_textures[i][3][j], assets::entity_textures[i].jump[j].c_str());
+        }
+        for (int j = 0; j < 6; j++) {
+            loadimage(&entity_textures[i][0][j], assets::entity_textures[i].stand.c_str());
+        }
+    }
     glog::log("info", "Render Initialized", "render");
     return 0;
 }
@@ -112,8 +127,8 @@ int update_frame(game* game)
     // render blocks block大小32*32
     x = player.x;
     y = player.y;
-    int x_block = render::width / BLOCK_TEXTURES_SIZE + 4;
-    int y_block = render::height / BLOCK_TEXTURES_SIZE + 4;
+    int x_block = render::width / BLOCK_TEXTURES_SIZE + 16;
+    int y_block = render::height / BLOCK_TEXTURES_SIZE + 16;
     int x_start_pos = get_block_x(player.x - x_block / 2.0);
     int y_start_pos = player.y - y_block / 2.0;
     for (int i = 0; i < x_block; i++) {
@@ -137,8 +152,9 @@ int update_frame(game* game)
     x = render::width / 2;
     y = render::height / 2;
     // putimage(x, y, &player_textures[0][0], SRCPAINT); // player
-    put_transparentimage(x, reverse_y(y), &player_textures[player.run%4][player.run_state%6]);
-
+    put_transparentimage(x, reverse_y(y), &player_textures[player.run % 4][(player.run_state / 18) % 6]);
+    draw_entities(game);
+    draw_arrows(game);
     { // 光照渲染
         int alpha = 0; // 0-230
         int hour = (game->world_time / 60) % 24;
@@ -203,6 +219,8 @@ int update_frame(game* game)
             int minute = game->world_time % 60;
             sprintf(pos, "d-h-m:%d %d:%d", day, hour, minute);
             outtextxy(0, 100, pos);
+            sprintf(pos, "entity num %d", entity::entities.size());
+            outtextxy(0, 120, pos);
         }
     }
     FlushBatchDraw();
@@ -366,6 +384,29 @@ void draw_craft_table(game* game)
     if (game->craft_table[4].type != item_type::ITEM_AIR) {
         put_transparentimage(pos_x + CRAFT_OUT_X, pos_y + CRAFT_OUT_Y, &item_textures[game->craft_table[4].type]);
         outtextxy(pos_x + CRAFT_OUT_X + 16, pos_y + CRAFT_OUT_Y + 20, std::to_string(game->craft_table[4].count).c_str());
+    }
+}
+void draw_entities(game* game)
+{
+    settextstyle(16, 0, _T("宋体"));
+    for (int i = 0; i < entity::entities.size(); i++) {
+        entity::entity temp = entity::entities[i];
+        POINT pos = get_render_pos(temp.x - 0.5, temp.y + 0.5, &(game->players[0]));
+        put_transparentimage(pos.x, pos.y, &entity_textures[temp.type][temp.move_ % 4][(temp.move_state / 18) % 6]);
+        if (game->show_debug) {
+            outtextxy(pos.x, pos.y - 16, entity::entities[i].get_name().c_str());
+            outtextxy(pos.x, pos.y - 32, ("HP:" + std::to_string(entity::entities[i].health)).c_str());
+        }
+    }
+    settextstyle(20, 0, _T("宋体"));
+}
+void draw_arrows(game* game)
+{
+    for (int i = 0; i < entity::arrows.size(); i++) {
+        entity::arrow temp = entity::arrows[i];
+
+        POINT pos = get_render_pos(temp.pos.x - 0.5, temp.pos.y + 0.5, &(game->players[0]));
+        put_transparentimage(pos.x, pos.y, &const_textures[assets::const_texture_type::CONST_TEXTURE_ARROW]);
     }
 }
 } // namespace render

@@ -135,6 +135,8 @@ int assets::load_const_textures(std::string pre_path)
     const_textures[const_texture_type::CONST_TEXTURE_WIDGETS].texture = pre_path + "widgets.png";
     const_textures[const_texture_type::CONST_TEXTURE_START_BACKGROUND].type = const_texture_type::CONST_TEXTURE_START_BACKGROUND;
     const_textures[const_texture_type::CONST_TEXTURE_START_BACKGROUND].texture = pre_path + "start_background.png";
+    const_textures[const_texture_type::CONST_TEXTURE_ARROW].type = const_texture_type::CONST_TEXTURE_ARROW;
+    const_textures[const_texture_type::CONST_TEXTURE_ARROW].texture = pre_path + "arrow.png";
     return 0;
 }
 int assets::load_item_textures(std::string config_path)
@@ -261,6 +263,7 @@ int assets::load_entity_textures(std::string config_path)
             entity_textures[type].jump[j] = texture_path + subpath + jump[j];
         }
         entity_textures[type].stand = texture_path + subpath + "stand.png";
+        glog::log("info", "Loaded Entity Texture: " + std::to_string(type), "assets");
     }
 }
 

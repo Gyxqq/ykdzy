@@ -10,6 +10,7 @@ enum const_texture_type {
     CONST_TEXTURE_HUNGER,
     CONST_TEXTURE_WIDGETS,
     CONST_TEXTURE_START_BACKGROUND,
+    CONST_TEXTURE_ARROW,
     CONST_TEXTURE_MAX_INDEX
 };
 class block_texture {

@@ -1,21 +1,22 @@
 #pragma once
 #include "game.hpp"
-#include "startwindow.hpp"
-#include <Windows.h>
-#include <cJSON.h>
-#include <graphics.h>
-#include <sys/stat.h>
-#include <time.h>
 #include "entity.hpp"
 #include "log.hpp"
 #include "map.hpp"
 #include "render.hpp"
+#include "startwindow.hpp"
+#include <Windows.h>
 #include <algorithm>
+#include <cJSON.h>
+#include <graphics.h>
 #include <mutex>
 #include <regex>
+#include <sys/stat.h>
 #include <thread>
+#include <time.h>
+#include "music.hpp"
 #define SPEED speed_all
-float speed_all = 0.1;
+float speed_all = 0.05;
 extern std::mutex global_mutex;
 extern int exit_flag;
 int allow_fly = 1;
@@ -32,6 +33,26 @@ BOOL IsKeyPressed(int vKey)
     if (GetForegroundWindow() != GetHWnd())
         return 0;
     return (GetAsyncKeyState(vKey) & 0x8000) != 0;
+}
+int get_damage(item_type item)
+{
+    switch (item) {
+    case item_type::ITEM_SWORDD:
+        return 20;
+        break;
+    case item_type::ITEM_SWORDI:
+        return 40;
+        break;
+    case item_type::ITEM_SWORDG:
+        return 60;
+        break;
+    case item_type::ITEM_SWORDDI:
+        return 80;
+        break;
+    default:
+        return 5;
+        break;
+    }
 }
 int game::init(std::string name)
 {
@@ -211,6 +232,7 @@ int player::init(std::string name)
     this->run = 0;
     this->run_state = 0;
     this->gui_open = 0;
+    this->last_attack_tick = 0;
     memset(this->items, 0, sizeof(class item) * MAX_ITEMS);
     return 0;
 }
@@ -256,11 +278,20 @@ int player::load(std::string name)
     this->run_state = 0;
     this->gui_open = 0;
     this->chossing_item = 0;
+    this->last_attack_tick = 0;
     glog::log("info", "Player Loaded: " + name, "player");
     return 0;
 }
 int game::update()
 {
+
+    std::thread entity;
+    if (this->game_tick % 100 == 0) {
+        entity = std::thread([&]() {
+            this->spawn_entity();
+        });
+    }
+
     global_mutex.lock();
     this->game_tick++;
     {
@@ -268,6 +299,24 @@ int game::update()
             if (this->players[0].hunger > 0) {
                 this->players[0].hunger--;
             }
+        }
+        if (this->players[0].hunger <= 0) {
+            if (rand() % 1000 == 0) {
+                this->players[0].health--;
+            }
+        } else {
+            if (this->players[0].health < 100) {
+                this->players[0].health++;
+                this->players[0].hunger--;
+            }
+        }
+        if (this->players[0].health <= 0) {
+            glog::log("info", "Player Dead", "game");
+            memset(&this->players[0].items, 0, sizeof(this->players[0].items));
+            this->players[0].x = 0;
+            this->players[0].y = 64;
+            this->players[0].health = 100;
+            this->players[0].hunger = 100;
         }
     }
     for (int i = 0; i < MAX_ITEMS; i++) {
@@ -815,6 +864,12 @@ int game::update()
                 global_mutex.lock();
                 if (this->players[0].hunger + food <= 100) {
                     this->players[0].hunger += food;
+                    char mis[2048] = {};
+                    auto num = rand() % 100000;
+                    sprintf(mis, "open %s alias %d", (std::string(MUSIC_PRE_PATH) + "eating-effect-254996.mp3").c_str(), num);
+                    mciSendString(mis, NULL, 0, NULL);
+                    sprintf(mis, "play %d", num);
+                    mciSendString(mis, NULL, 0, NULL);
                 } else {
                     this->players[0].hunger = 100;
                 }
@@ -876,6 +931,47 @@ int game::update()
             }
         }
     }
+    if (IsKeyPressed('F')) {
+        if (this->game_tick - this->players[0].last_attack_tick > 30) {
+            for (int i = 0; i < entity::entities.size(); i++) {
+                auto dis = pow(entity::entities[i].x - this->players[0].x, 2) + pow(entity::entities[i].y - this->players[0].y, 2);
+                if (dis < 4) {
+                    entity::entities[i].health -= get_damage(this->players[0].items[this->players[0].chossing_item + 27].type);
+                    char mis[2048] = {};
+                    auto num = rand() % 100000;
+                    sprintf(mis, "open %s alias %d", (std::string(MUSIC_PRE_PATH) + "hit3.mp3").c_str(), num);
+                    mciSendString(mis, NULL, 0, NULL);
+                    sprintf(mis, "play %d", num);
+                    mciSendString(mis, NULL, 0, NULL);
+                    glog::log("info", "attack entity", "game");
+                    this->players[0].last_attack_tick = this->game_tick;
+                    if (entity::entities[i].health <= 0) {
+                        item tmp = entity::entities[i].get_drop();
+                        for (int j = 0; j < MAX_ITEMS; j++) {
+                            if (this->players[0].items[j].type == tmp.type) {
+                                this->players[0].items[j].stack_count = tmp.stack_count;
+                                if (this->players[0].items[j].stack_count - this->players[0].items[j].count >= 0) {
+                                    if (this->players[0].items[j].stack_count - this->players[0].items[j].count >= tmp.count) {
+                                        this->players[0].items[j].count += tmp.count;
+                                        tmp.count = 0;
+                                        break;
+                                    } else {
+                                        tmp.count -= this->players[0].items[j].stack_count - this->players[0].items[j].count;
+                                        this->players[0].items[j].count = this->players[0].items[j].stack_count;
+                                    }
+                                }
+                            } else if (this->players[0].items[j].type == item_type::ITEM_AIR) {
+                                this->players[0].items[j] = tmp;
+                                tmp.count = 0;
+                                break;
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+    }
     if (IsKeyPressed('E')) {
         this->players[0].gui_open = !this->players[0].gui_open;
         global_mutex.unlock();
@@ -932,7 +1028,7 @@ int game::update()
             this->players[0].run = 1;
             this->players[0].run_state = 0;
         } else {
-            this->players[0].run_state = (this->players[0].run_state + 1) % 6;
+            this->players[0].run_state = (this->players[0].run_state + 1) % 100;
         }
     }
     if (IsKeyPressed(VK_RIGHT) || IsKeyPressed('D')) {
@@ -946,11 +1042,11 @@ int game::update()
         }
 
         if (this->players[0].run == 3) {
-        } else if (this->players[0].run != 3) {
+        } else if (this->players[0].run != 2) {
             this->players[0].run = 2;
             this->players[0].run_state = 0;
         } else {
-            this->players[0].run_state = (this->players[0].run_state + 1) % 6;
+            this->players[0].run_state = (this->players[0].run_state + 1) % 100;
         }
     }
     if (!player_on_ground(&this->players[0])) {
@@ -976,7 +1072,19 @@ int game::update()
         global_mutex.unlock();
         return 0;
     }
-
+    for (int i = 0; i < entity::entities.size(); i++) {
+        if (pow(entity::entities[i].x - this->players[0].x, 2) + pow(entity::entities[i].y - this->players[0].y, 2) >= 128 * 128) {
+            entity::entities.erase(entity::entities.begin() + i);
+            glog::log("info", "delete entity", "game");
+        } else if (entity::entities[i].health <= 0) {
+            entity::entities.erase(entity::entities.begin() + i);
+            glog::log("info", "delete dead entity", "game");
+        }
+    }
+    for (int i = 0; i < entity::entities.size(); i++) {
+        entity::entities[i].update(this);
+    }
+    entity::update_other(this);
     // load chunks
     int center_x = this->players[0].x / BLOCKS_PER_CHUNK_X;
     for (int i = 0; i < CHUNKS_PER_MAP_X; i++) {
@@ -1003,6 +1111,8 @@ int game::update()
                 "game");
         }
     }
+    if ((this->game_tick - 1) % 100 == 0)
+        entity.join();
     global_mutex.unlock();
     // Sleep(1);
     return 0;
@@ -1431,6 +1541,25 @@ int game::get_food(item* item)
     case item_type::ITEM_APPLE:
         return 20;
         break;
+
+    case item_type::ITEM_PORK:
+        return 20;
+        break;
+    case item_type::ITEM_BEEF:
+        return 30;
+        break;
+    case item_type::ITEM_BREAD:
+        return 20;
+        break;
+    case item_type::ITEM_CARRION:
+        return 10;
+        break;
+    case item_type::ITEM_COOKED_BEEF:
+        return 60;
+        break;
+    case item_type::ITEM_COOKED_PORK:
+        return 40;
+        break;
     default:
         return 0;
         break;
@@ -1443,14 +1572,18 @@ int game::spawn_entity()
         return -1;
     }
 
-    int now_hour = (this->world_time % 24 * 60) / 60;
+    int now_hour = (this->world_time / 60) % 24;
     int left_start_pos = this->players[0].x - 128;
     int right_start_pos = this->players[0].x + 128;
     int left_end_pos = this->players[0].x - 24;
     int right_end_pos = this->players[0].x + 24;
-    for (int i = left_start_pos; i < left_end_pos; i++) {
+    for (int i = left_start_pos; i < right_end_pos; i++) {
+        if (i > left_end_pos && i < right_end_pos) {
+            continue;
+        }
         for (int j = 3; j < BLOCKS_PER_CHUNK_Y; j++) {
-            if (rand() % 100 == 0) {
+            if (rand() % 200 == 0) {
+                srand(time(NULL));
                 if (this->world.get_block(i, j) == block_type::BLOCK_AIR) {
                     int flag = 0;
                     for (int i_1 = 0; i_1 < 3; i_1++) {
@@ -1474,8 +1607,8 @@ int game::spawn_entity()
                         new_entity.move_state = 0;
 
                         int type = 0;
-                        if (now_hour < 6 || now_hour > 22) {
-                            type = rand() % entity::entity_type::ENTITY_TYPE_MAX;
+                        if (now_hour <= 6 || now_hour >= 22) {
+                            type = rand() % entity::entity_type::ENTITY_TYPE_MOB_MAX;
                         } else {
                             type = rand() % (entity::entity_type::ENTITY_TYPE_MAX - entity::entity_type::ENTITY_TYPE_MOB_MAX - 1) + 1 + entity::entity_type::ENTITY_TYPE_MOB_MAX;
                         }
@@ -1516,13 +1649,25 @@ int game::spawn_entity()
                             new_entity.drop.data = NULL;
                             new_entity.player_enemy = TRUE;
                             break;
-
+                        case entity::entity_type::ENTITY_TYPE_CREEPER:
+                            new_entity.type = entity::entity_type::ENTITY_TYPE_CREEPER;
+                            new_entity.health = 40;
+                            new_entity.drop.type = item_type::ITEM_GUNPOWDER;
+                            new_entity.drop.stack_count = 64;
+                            new_entity.drop.count = rand() % 3 + 1;
+                            new_entity.drop.data = NULL;
+                            new_entity.player_enemy = TRUE;
+                            break;
                         default:
                             new_entity.type = entity::entity_type::ENTITY_TYPE_MAX;
                             break;
                         }
                         if (new_entity.type != entity::entity_type::ENTITY_TYPE_PLAYER && new_entity.type != entity::entity_type::ENTITY_TYPE_MAX && new_entity.type != entity::entity_type::ENTITY_TYPE_MOB_MAX) {
+                            if (entity::entities.size() > MAX_NO_MOB_NUM && new_entity.player_enemy == FALSE) {
+                                return -1;
+                            }
                             entity::entities.push_back(new_entity);
+                            glog::log("info", "spawn entity", "entity");
                             return 0;
                         }
                     }
@@ -1530,4 +1675,18 @@ int game::spawn_entity()
             }
         }
     }
+}
+POINTFLOAT game::screen_to_world(POINT point)
+{
+    POINTFLOAT pointf;
+    pointf.x = this->players[0].x - (render::width * 1.0 / 2 + BLOCK_TEXTURES_SIZE / 2 - point.x) / BLOCK_TEXTURES_SIZE;
+    pointf.y = this->players[0].y + (render::height * 1.0 / 2 + BLOCK_TEXTURES_SIZE / 2 - point.y) / BLOCK_TEXTURES_SIZE;
+    return pointf;
+}
+POINT game::world_to_screen(POINTFLOAT point)
+{
+    POINT pointf;
+    pointf.x = render::width * 1.0 / 2 + BLOCK_TEXTURES_SIZE / 2 - (this->players[0].x - point.x) * BLOCK_TEXTURES_SIZE;
+    pointf.y = render::height * 1.0 / 2 + BLOCK_TEXTURES_SIZE / 2 + (this->players[0].y - point.y) * BLOCK_TEXTURES_SIZE;
+    return pointf;
 }

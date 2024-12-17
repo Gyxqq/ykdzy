@@ -29,6 +29,8 @@ namespace render
     void draw_widgets(player *player);
     void draw_item_on_mouse(game *game);
     void draw_craft_table(game* game);
+    void draw_entities(game* game);
+    void draw_arrows(game* game);
     class light
     {
     public:

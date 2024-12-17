@@ -92,6 +92,13 @@ enum item_type
     ITEM_COOKED_FISH, // 熟鱼
     ITEM_CARRION, // 腐肉
     ITEM_BONE, // 骨头
+    ITEM_GUNPOWDER, // 火药
+    ITEM_SWORDI, // 铁剑
+    ITEM_PICKAXEI, // 铁镐
+    ITEM_SWORDG, // 金剑
+    ITEM_PICKAXEG, // 金镐
+    ITEM_SWORDDI, // 钻石剑
+    ITEM_PICKAXEDI, // 钻石镐
     ITEM_MAX_INDEX
 };
 enum chunk_type
