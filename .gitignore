@@ -10,3 +10,5 @@ save1/*.*
 *.zip
 .vs/*
 .cache/*
+saves/*
+out/*

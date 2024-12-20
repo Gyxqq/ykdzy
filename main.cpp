@@ -20,14 +20,14 @@
 #include <windows.h>
 std::mutex global_mutex;
 int exit_flag = 0;
-#define BLOCK_ASSETS_PATH "D:\\projects\\ykdzy\\assets\\blocks\\blockconfig.json"
-#define PLAYER_ASSETS_PATH "D:\\projects\\ykdzy\\assets\\player\\playerconfig.json"
-#define CONST_TEXTURES_PATH "D:\\projects\\ykdzy\\assets\\const\\"
-#define ITEM_TEXTURES_PATH "D:\\projects\\ykdzy\\assets\\items\\itemconfig.json"
-#define ENTITY_TEXTURES_PATH "D:\\projects\\ykdzy\\assets\\entity\\entity_config.json"
-#define MODS_PATH "D:\\projects\\ykdzy\\mods\\mods.json"
-#define SAVE_PATH "D:\\projects\\ykdzy\\saves\\"
-#define MUSIC_PATH "D:\\projects\\ykdzy\\assets\\music\\"
+#define BLOCK_ASSETS_PATH ".\\assets\\blocks\\blockconfig.json"
+#define PLAYER_ASSETS_PATH ".\\assets\\player\\playerconfig.json"
+#define CONST_TEXTURES_PATH ".\\assets\\const\\"
+#define ITEM_TEXTURES_PATH ".\\assets\\items\\itemconfig.json"
+#define ENTITY_TEXTURES_PATH ".\\assets\\entity\\entity_config.json"
+#define MODS_PATH ".\\mods\\mods.json"
+#define SAVE_PATH ".\\saves\\"
+#define MUSIC_PATH ".\\assets\\music\\"
 #define MUSIC_COUNT 1
 #pragma comment(lib, "winmm.lib")
 int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
