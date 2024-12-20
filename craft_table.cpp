@@ -89,6 +89,86 @@ int craft_table::init()
 
     }
     {
+        table = new craft_table();
+        memset(table, 0, sizeof craft_table);
+        table->items[0].type = item_type::ITEM_WOOD;
+        table->items[3].type = item_type::ITEM_STICK;
+        table->items[0].count = 1;
+        table->items[3].count = 1;
+        table->result.type = item_type::ITEM_SWORDD;
+        table->result.count = 1;
+        table->result.stack_count = 1;
+        table->need_count = 2;
+        table->is_order = 1;
+        table->add_craft_table(table); // 木板+木棍 合成木剑
+    }
+    {
+        table = new craft_table();
+        memset(table, 0, sizeof craft_table);
+        table->items[0].type = item_type::ITEM_WOOD;
+        table->items[1].type = item_type::ITEM_WOOD;
+        table->items[3].type = item_type::ITEM_WOOD;
+        table->items[4].type = item_type::ITEM_WOOD;
+        table->items[0].count = 1;
+        table->items[1].count = 1;
+        table->items[3].count = 1;
+        table->items[4].count = 1;
+        table->result.type = item_type::ITEM_CRAFTING_TABLE;
+        table->result.count = 1;
+        table->result.stack_count = 64;
+        table->need_count = 4;
+        table->is_order = 1;
+        table->add_craft_table(table); // 木板合成工作台
+    }
+    {
+        table = new craft_table();
+        memset(table, 0, sizeof craft_table);
+        table->items[0].type = item_type::ITEM_COBBLESTONE;
+        table->items[1].type = item_type::ITEM_COBBLESTONE;
+        table->items[3].type = item_type::ITEM_COBBLESTONE;
+        table->items[4].type = item_type::ITEM_COBBLESTONE;
+        table->items[0].count = 1;
+        table->items[1].count = 1;
+        table->items[3].count = 1;
+        table->items[4].count = 1;
+        table->result.type = item_type::ITEM_FURNACE;
+        table->result.count = 1;
+        table->result.stack_count = 64;
+        table->need_count = 4;
+        table->is_order = 1;
+        table->add_craft_table(table); // 圆石合成熔炉
+    }
+    {
+        table = new craft_table();
+        memset(table, 0, sizeof craft_table);
+        table->items[0].type = item_type::ITEM_RAW_IRON;
+        table->items[1].type = item_type::ITEM_RAW_IRON;
+        table->items[3].type = item_type::ITEM_STICK;
+        table->items[0].count = 1;
+        table->items[1].count = 1;
+        table->items[3].count = 1;
+        table->result.type = item_type::ITEM_PICKAXEI;
+        table->result.count = 1;
+        table->result.stack_count = 1;
+        table->need_count = 3;
+        table->is_order = 1;
+        table->add_craft_table(table); // 铁矿合成铁镐
+    }
+    {
+        table = new craft_table();
+        memset(table, 0, sizeof craft_table);
+        table->items[0].type = item_type::ITEM_RAW_IRON;
+        table->items[3].type = item_type::ITEM_STICK;
+        table->items[0].count = 1;
+        table->items[3].count = 1;
+        table->result.type = item_type::ITEM_SWORDI;
+        table->result.count = 1;
+        table->result.stack_count = 1;
+        table->need_count = 2;
+        table->is_order = 1;
+        table->add_craft_table(table); // 铁矿合成铁剑
+    }
+    {
 
     }
     glog::log("info", "start Log", "craft log");

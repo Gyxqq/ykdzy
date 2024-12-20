@@ -1,0 +1,13 @@
+{
+    "path": "D:\\projects\\ykdzy\\mods\\",
+    "mods": [
+        {
+            "name": "testmod",
+            "path": "testmod\\testmod.json"
+        },
+        {
+            "name":"tree_gen",
+            "path":"tree_gen\\tree_gen.json"
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+{
+    "path": "testmod\\libtestmod.dll",
+    "name": [
+        "test_fun"
+    ]
+}

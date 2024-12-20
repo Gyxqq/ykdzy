@@ -5,6 +5,7 @@
 #include "game.hpp"
 #include "log.hpp"
 #include <queue>
+#define M_PI 3.14159265358979323846
 namespace render {
 IMAGE* light;
 std::vector<class light> lights_list;
@@ -404,9 +405,18 @@ void draw_arrows(game* game)
 {
     for (int i = 0; i < entity::arrows.size(); i++) {
         entity::arrow temp = entity::arrows[i];
-
+        double x = 0; // 向量的 x 分量
+        double y = 0; // 向量的 y 分量
+        x = temp.end.x - temp.start.x;
+        y = temp.end.y - temp.start.y;
+        // 计算角度（弧度）
+        double angle_rad = atan2(y, x);
+        // 将弧度转换为度数
+        double angle_deg = angle_rad * 180 / M_PI -45;
+        IMAGE tmp_img;
+        rotateimage(&tmp_img, &const_textures[assets::const_texture_type::CONST_TEXTURE_ARROW], angle_deg);
         POINT pos = get_render_pos(temp.pos.x - 0.5, temp.pos.y + 0.5, &(game->players[0]));
-        put_transparentimage(pos.x, pos.y, &const_textures[assets::const_texture_type::CONST_TEXTURE_ARROW]);
+        put_transparentimage(pos.x, pos.y, &tmp_img);
     }
 }
 } // namespace render

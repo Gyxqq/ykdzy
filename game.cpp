@@ -3,6 +3,7 @@
 #include "entity.hpp"
 #include "log.hpp"
 #include "map.hpp"
+#include "music.hpp"
 #include "render.hpp"
 #include "startwindow.hpp"
 #include <Windows.h>
@@ -14,7 +15,6 @@
 #include <sys/stat.h>
 #include <thread>
 #include <time.h>
-#include "music.hpp"
 #define SPEED speed_all
 float speed_all = 0.05;
 extern std::mutex global_mutex;
@@ -306,8 +306,10 @@ int game::update()
             }
         } else {
             if (this->players[0].health < 100) {
-                this->players[0].health++;
-                this->players[0].hunger--;
+                if (rand() % 30 == 0) {
+                    this->players[0].health++;
+                    this->players[0].hunger--;
+                }
             }
         }
         if (this->players[0].health <= 0) {
@@ -317,6 +319,12 @@ int game::update()
             this->players[0].y = 64;
             this->players[0].health = 100;
             this->players[0].hunger = 100;
+            char mis[2048] = {};
+            auto num = rand() % 100000;
+            sprintf(mis, "open %s alias %d", (std::string(MUSIC_PRE_PATH) + "die.mp3").c_str(), num);
+            mciSendString(mis, NULL, 0, NULL);
+            sprintf(mis, "play %d", num);
+            mciSendString(mis, NULL, 0, NULL);
         }
     }
     for (int i = 0; i < MAX_ITEMS; i++) {
@@ -1402,6 +1410,16 @@ block game::get_block_by_item(item item)
     case item_type::ITEM_TORCH:
         block.type = block_type::BLOCK_TORCH;
         break;
+    case item_type::ITEM_CACTUS:
+        block.type = block_type::BLOCK_CACTUS;
+        break;
+    case item_type::ITEM_FURNACE:
+        block.type = block_type::BLOCK_FURNACE;
+        break;
+    case item_type::ITEM_CRAFTING_TABLE:
+        block.type = block_type::BLOCK_CRAFTING_TABLE;
+        break;
+    
     }
     return block;
 }

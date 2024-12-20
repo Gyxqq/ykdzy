@@ -437,7 +437,7 @@ int chunk::init(std::string name, int seed)
     {
         if (this->blocks[i].y > 25)
             continue;
-        if (rand() % 100 < 10)
+        if (rand() % 1000 < 10)
         {
 
             switch (rand() % 4)

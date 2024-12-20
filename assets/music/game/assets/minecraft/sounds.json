@@ -1,0 +1,26 @@
+{
+    "block.chest.close": {
+        "replace": true,
+        "sounds": [
+            "block/chest/close"
+        ]
+    },
+    "block.wooden_door.close": {
+        "replace": true,
+        "sounds": [
+            "block/wooden_door/close"
+        ]
+    },
+    "block.wooden_door.open": {
+        "replace": true,
+        "sounds": [
+            "block/wooden_door/open"
+        ]
+    },
+	"ui.button.click": {
+        "replace": true,
+        "sounds": [
+            "random/click"
+        ]
+    }
+}

@@ -1,0 +1,173 @@
+{
+  "path": "D:\\projects\\ykdzy\\assets\\items\\",
+  "items": [
+    {
+      "name": "ITEM_AIR",
+      "id": 0,
+      "texture": "miss.png"
+    },
+    {
+      "name": "ITEM_STICK",
+      "id": 1,
+      "texture": "stick.png"
+    },
+    {
+      "name": "ITEM_WOOD",
+      "id": 2,
+      "texture": "planks.png"
+
+    },
+    {
+      "name": "ITEM_COAL",
+      "id": 3,
+      "texture": "coal.png"
+    },
+    {
+      "name": "ITEM_RAW_IRON",
+      "id": 4,
+      "texture": "raw_iron.png"
+    },
+    {
+      "name": "ITEM_RAW_GOLD",
+      "id": 6,
+      "texture": "raw_gold.png"
+    },
+    {
+      "name": "ITEM_DIAMOND",
+      "id": 8,
+      "texture": "diamond.png"
+    },
+    {
+      "name": "ITEM_CACTUS",
+      "id": 11,
+      "texture": "cactus_side.png"
+    },
+    {
+      "name": "ITEM_FURNACE",
+      "id": 13,
+      "texture": "furnace_front.png"
+    },
+    {
+      "name": "ITEM_CRAFTING_TABLE",
+      "id": 14,
+      "texture": "crafting_table_front.png"
+    },
+    {
+      "name": "ITEM_DIRT",
+      "id": 16,
+      "texture": "dirt.png"
+    },
+    {
+      "name": "ITEM_LOG",
+      "id": 21,
+      "texture": "log.png"
+    },
+    {
+      "name": "ITEM_COBBLESTONE",
+      "id": 22,
+      "texture": "cobblestone.png"
+    },
+    {
+      "name": " ITEM_STONE",
+      "id": 23,
+      "texture": "stone.png"
+    },
+    {
+      "name": "ITEM_LEAVES",
+      "id": 24,
+      "texture": "azalea_leaves.png"
+    },
+    {
+      "name": "ITEM_APPLE",
+      "id": 25,
+      "texture": "apple.png"
+    },
+    {
+      "name": "ITEM_SAPLING",
+      "id": 26,
+      "texture": "oak_sapling.png"
+    },
+    {
+      "name": "ITEM_TORCH",
+      "id": 27,
+      "texture": "torch.png"
+    },
+    {
+      "name": "ITEM_SWORDW",
+      "id": 28,
+      "texture": "wooden_sword.png"
+    },
+    {
+      "name": "ITEM_PICKAXE",
+      "id": 29,
+      "texture": "wooden_pickaxe.png"
+    },
+    {
+      "name": "ITEM_PORK",
+      "id": 30,
+      "texture": "porkchop.png"
+    },
+    {
+      "name": "ITEM_BEEF",
+      "id": 31,
+      "texture": "beef.png"
+    },
+    {
+      "name": " ITEM_CHICKEN",
+      "id": 32,
+      "texture": "chicken.png"
+    },
+    {
+      "name": " ITEM_COOKED_PORK",
+      "id": 35,
+      "texture": "cooked_porkchop.png"
+    },
+    {
+      "name": "ITEM_COOKED_BEEF",
+      "id": 36,
+      "texture": "cooked_beef.png"
+    },
+    {
+      "name": "ITEM_COOKED_CHICKEN",
+      "id": 37,
+      "texture": "cooked_chicken.png"
+    },
+    {
+      "name": "ITEM_COOKED_CHICKEN",
+      "id": 37,
+      "texture": "cooked_chicken.png"
+    },
+    {
+      "name": "ITEM_CARRION",
+      "id": 39,
+      "texture": "rotten_flesh.png"
+    },
+    {
+      "name": "ITEM_BONE",
+      "id": 40,
+      "texture": "bone.png"
+    },
+    {
+      "name": "ITEM_GUNPOWDER",
+      "id": 41,
+      "texture": "blaze_powder.png"
+    },
+    {
+      "name": "ITEM_SWORDI",
+      "id": 42,
+      "texture": "iron_sword.png"
+    },
+
+    {
+      "name": " ITEM_PICKAXEI",
+      "id": 43,
+      "texture": "iron_pickaxe.png"
+    },
+    {
+      "name": " ITEM_PICKAXEI",
+      "id": 44,
+      "texture": "iron_pickaxe.png"
+    }
+  ],
+  "default_texture": "miss.png"
+}

@@ -1,0 +1,32 @@
+{
+  "path": "D:\\projects\\ykdzy\\assets\\entity\\",
+  "entities": [
+    {
+      "name": "ENTITY_PIG",
+      "id": 6,
+      "path": "pig\\"
+    },
+    {
+      "name": "ENTITY_ZOMBIE",
+      "id": 1,
+      "path": "zombie\\"
+    },
+    {
+      "name": "ENTITY_SKELETON",
+      "id": 2,
+      "path": "skeleton\\"
+    },
+    {
+      "name": "ENTITY_CREEPER",
+      "id": 3,
+      "path": "creeper\\"
+    },
+    {
+      "name": "ENTITY_COW",
+      "id": 7,
+      "path": "cow\\"
+    }
+
+  ],
+  "default": "default\\"
+}

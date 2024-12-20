@@ -344,9 +344,9 @@ void entity::attack(game* game)
             break;
         case entity_type::ENTITY_TYPE_SKELETON:
             dis = pow(this->x - game->players[attack_index].x, 2) + pow(this->y - game->players[attack_index].y, 2);
-            if (dis <= 64) {
+            if (dis <= 169) {
                 POINTFLOAT start = { this->x, this->y };
-                POINTFLOAT end = { game->players[attack_index].x + (rand() % 300 / 100.0) - 1.5, game->players[attack_index].y + (rand() % 300 / 100.0) - 1.5 };
+                POINTFLOAT end = {game->players[attack_index].x , game->players[attack_index].y  };
                 arrow new_arrow;
                 new_arrow.start = start;
                 new_arrow.end = end;
